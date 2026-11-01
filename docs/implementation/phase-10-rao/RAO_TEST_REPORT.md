@@ -43,3 +43,4 @@
 - `adaptive_ml.rao.memory`: $95\%$ line coverage.
 
 All tests passed with zero regressions.
+

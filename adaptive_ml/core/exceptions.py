@@ -50,3 +50,4 @@ class SerializationError(AdaptiveMLError):
     """Raised when state serialization or deserialization fails or encounters invalid payloads."""
 
     pass
+

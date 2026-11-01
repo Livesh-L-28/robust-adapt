@@ -68,3 +68,4 @@ When error surges on an incoming batch, the ULC evaluates both the drift diverge
    - Cleanly rejected 270 corrupted label instances during noise bursts.
    - Adapted seamlessly to full feature coordinate swap during concept drift.
    - Stored model and optimizer states in 3 rolling Safetensors checkpoints.
+

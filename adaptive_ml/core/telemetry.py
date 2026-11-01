@@ -78,3 +78,4 @@ class MemoryBudgetTracker:
         if self.max_memory_bytes is None or self.max_memory_bytes <= 0:
             return False
         return self.current_memory_bytes >= self.max_memory_bytes
+

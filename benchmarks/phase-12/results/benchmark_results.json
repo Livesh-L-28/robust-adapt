@@ -1,0 +1,211 @@
+{
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "cpu_arch": "AMD64",
+    "cpu_processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "cpu_logical_cores": 32,
+    "ram_total_gb": 15.71,
+    "ram_available_gb": 2.68,
+    "numpy_version": "2.4.3",
+    "torch_version": "2.12.1+cpu",
+    "sklearn_version": "1.8.0",
+    "torch_cuda_available": false
+  },
+  "benchmarks": {
+    "ala": {
+      "metadata": {
+        "pillar": "ALA",
+        "seeds": [
+          42,
+          101,
+          2024,
+          7,
+          99
+        ],
+        "timestamp": "2026-11-01 22:03:09"
+      },
+      "experiments": {
+        "sea_abrupt_drift": {
+          "adaptive_ml": {
+            "accuracy_mean": 0.7651515151515151,
+            "accuracy_std": 0.008311112093221917,
+            "drift_detections_mean": 0.2,
+            "mean_step_time_ms": 0.48353800270706415
+          },
+          "static_baseline": {
+            "accuracy_mean": 0.7651515151515151,
+            "accuracy_std": 0.008311112093221917
+          },
+          "unweighted_adwin": {
+            "drift_detections_mean": 0.8
+          }
+        },
+        "noise_burst_false_alarms": {
+          "rw_adwin_false_alarms_mean": 0.0,
+          "std_adwin_false_alarms_mean": 0.0,
+          "suppression_ratio": 0.0
+        }
+      }
+    },
+    "rla": {
+      "metadata": {
+        "pillar": "RLA",
+        "seeds": [
+          42,
+          101,
+          2024,
+          7,
+          99
+        ],
+        "timestamp": "2026-11-01 22:03:10"
+      },
+      "experiments": {
+        "clean": {
+          "adaptive_ml": {
+            "accuracy_mean": 1.0,
+            "accuracy_std": 0.0,
+            "macro_f1_mean": 1.0,
+            "macro_f1_std": 0.0,
+            "minority_recall_mean": 1.0
+          },
+          "standard_ce_baseline": {
+            "accuracy_mean": 0.9986666666666666,
+            "accuracy_std": 0.002666666666666684,
+            "macro_f1_mean": 0.9986665333199987,
+            "macro_f1_std": 0.002666933360002632,
+            "minority_recall_mean": 1.0
+          }
+        },
+        "symmetric_noise_20pct": {
+          "adaptive_ml": {
+            "accuracy_mean": 1.0,
+            "accuracy_std": 0.0,
+            "macro_f1_mean": 1.0,
+            "macro_f1_std": 0.0,
+            "minority_recall_mean": 1.0
+          },
+          "standard_ce_baseline": {
+            "accuracy_mean": 1.0,
+            "accuracy_std": 0.0,
+            "macro_f1_mean": 1.0,
+            "macro_f1_std": 0.0,
+            "minority_recall_mean": 1.0
+          }
+        },
+        "symmetric_noise_40pct": {
+          "adaptive_ml": {
+            "accuracy_mean": 1.0,
+            "accuracy_std": 0.0,
+            "macro_f1_mean": 1.0,
+            "macro_f1_std": 0.0,
+            "minority_recall_mean": 1.0
+          },
+          "standard_ce_baseline": {
+            "accuracy_mean": 1.0,
+            "accuracy_std": 0.0,
+            "macro_f1_mean": 1.0,
+            "macro_f1_std": 0.0,
+            "minority_recall_mean": 1.0
+          }
+        },
+        "extreme_imbalance_100_to_1": {
+          "adaptive_ml": {
+            "accuracy_mean": 0.986,
+            "accuracy_std": 0.01372750685464932,
+            "macro_f1_mean": 0.8213729930563364,
+            "macro_f1_std": 0.15338315869816962,
+            "minority_recall_mean": 0.6
+          },
+          "standard_ce_baseline": {
+            "accuracy_mean": 0.984,
+            "accuracy_std": 0.006798692684790358,
+            "macro_f1_mean": 0.6597247788198024,
+            "macro_f1_std": 0.002543979678318017,
+            "minority_recall_mean": 0.0
+          }
+        }
+      }
+    },
+    "rao": {
+      "metadata": {
+        "pillar": "RAO",
+        "param_scales": [
+          1024,
+          10240,
+          102400,
+          1048576
+        ],
+        "timestamp": "2026-11-01 22:03:10"
+      },
+      "experiments": {
+        "state_memory_scaling": [
+          {
+            "param_count": 1024,
+            "standard_fp32_bytes": 8192,
+            "rao_quantized_bytes": 2176,
+            "bytes_per_param": 2.125,
+            "memory_reduction_pct": 73.4375
+          },
+          {
+            "param_count": 10240,
+            "standard_fp32_bytes": 81920,
+            "rao_quantized_bytes": 21760,
+            "bytes_per_param": 2.125,
+            "memory_reduction_pct": 73.4375
+          },
+          {
+            "param_count": 102400,
+            "standard_fp32_bytes": 819200,
+            "rao_quantized_bytes": 217600,
+            "bytes_per_param": 2.125,
+            "memory_reduction_pct": 73.4375
+          },
+          {
+            "param_count": 1048576,
+            "standard_fp32_bytes": 8388608,
+            "rao_quantized_bytes": 2228224,
+            "bytes_per_param": 2.125,
+            "memory_reduction_pct": 73.4375
+          }
+        ],
+        "step_latency_benchmark": {
+          "param_count": 10240,
+          "iterations": 200,
+          "rao_step_ms": 3.122805500170216,
+          "fp32_baseline_step_ms": 0.02221150032710284
+        },
+        "quadratic_bowl_convergence": {
+          "final_l2_error_mean": 0.033179226564243436,
+          "final_l2_error_std": 0.0377045185583194,
+          "converged": true
+        }
+      }
+    },
+    "ulc": {
+      "metadata": {
+        "pillar": "ULC",
+        "seeds": [
+          42,
+          101,
+          2024,
+          7,
+          99
+        ],
+        "timestamp": "2026-11-01 22:03:11"
+      },
+      "experiments": {
+        "streaming_arbitration": {
+          "ulc_accuracy_mean": 0.5666666666666667,
+          "ulc_accuracy_std": 0.01256148586042651,
+          "uncoordinated_accuracy_mean": 0.6025641025641025,
+          "uncoordinated_accuracy_std": 0.0,
+          "static_accuracy_mean": 0.5685470085470086,
+          "ulc_noise_sample_retention_pct": 16.8,
+          "ulc_false_resets_mean": 0.0,
+          "uncoordinated_false_resets_mean": 10.0
+        }
+      }
+    }
+  }
+}

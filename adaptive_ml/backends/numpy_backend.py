@@ -35,3 +35,4 @@ class NumPyBackend:
 
     def clip(self, a: np.ndarray, a_min: float, a_max: float) -> np.ndarray:
         return np.clip(a, a_min, a_max)
+

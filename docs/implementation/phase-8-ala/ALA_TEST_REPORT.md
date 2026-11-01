@@ -43,3 +43,4 @@ tests/unit/test_ala.py::TestAdaptiveClassifier::test_ensemble_mode PASSED [100%]
 1. **Noise Burst Suppression (Theorem 1)**: `test_noise_burst_suppression_via_reliability` verified that a burst of 10 mislabeled instances with error 1.0 does NOT trigger drift when weighted by reliability 0.01.
 2. **Extreme Imbalance Retention**: `test_extreme_imbalance_retention` verified that on a 100:1 imbalanced stream (1000 majority vs 10 minority), the minority class retained all 10 instances in reservoir memory.
 3. **Probability Simplex**: `test_partial_fit_and_prediction` and `test_ensemble_mode` verified that predicted probabilities sum to $1.0 \pm 10^{-6}$.
+

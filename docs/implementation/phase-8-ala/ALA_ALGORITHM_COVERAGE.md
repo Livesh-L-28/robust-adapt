@@ -23,3 +23,4 @@
 - **scikit-learn Compatibility**: `AdaptiveClassifier` implements `fit`, `partial_fit`, `predict`, `predict_proba`, `score`, `get_params`, `set_params`.
 - **Pure NumPy Array Inputs**: All interfaces accept standard NumPy 2D array inputs and integer 1D label vectors.
 - **Pure Python Core**: Zero custom C/C++ compilation required.
+

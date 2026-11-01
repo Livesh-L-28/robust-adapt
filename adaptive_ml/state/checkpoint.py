@@ -107,3 +107,4 @@ class CheckpointManager:
                     tensor_p.unlink()
                 if meta_p.exists():
                     meta_p.unlink()
+

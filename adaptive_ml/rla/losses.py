@@ -166,3 +166,4 @@ class GeneralizedCrossEntropyLoss:
         grad_logits = norm_weights * scale_factor * (probs - Y_one_hot)
 
         return total_loss, np.ascontiguousarray(grad_logits, dtype=np.float64)
+

@@ -132,3 +132,4 @@ class ArbitrationAutomaton:
             learning_rate_scale=1.0,
             message="Stream steady; normal operation.",
         )
+

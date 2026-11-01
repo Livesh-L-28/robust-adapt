@@ -41,3 +41,4 @@ adaptive_ml/ala/
 - **Hoeffding Split Test**: Split heuristic differences $\Delta \bar{G} = \bar{G}(X_a) - \bar{G}(X_b)$ are compared against $\epsilon_H = \sqrt{\frac{R_G^2 \ln(1/\delta)}{2 n_u}}$.
 - **Effective Sample Formula**: In `adwin.py`, sub-window harmonic sample size $m_{\text{eff}} = \frac{N_{\text{eff}}(W_0) N_{\text{eff}}(W_1)}{N_{\text{eff}}(W_0) + N_{\text{eff}}(W_1)}$ with $N_{\text{eff}} = (\sum w)^2 / \sum w^2$ is strictly computed and bounded.
 - **Reservoir Replacement**: In `replay.py`, elements are replaced with exact probability $\frac{M_c}{n_c}$ (Vitter's Algorithm R), maintaining an unbiased sample per class.
+

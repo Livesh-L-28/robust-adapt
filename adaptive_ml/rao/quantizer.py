@@ -110,3 +110,4 @@ class BlockQuantizer:
             out[start:end] = q_flat[start:end].astype(np.float32) * scales[b]
 
         return np.ascontiguousarray(out, dtype=np.float64)
+

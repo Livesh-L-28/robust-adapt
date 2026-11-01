@@ -17,3 +17,4 @@
 - **Reliability Output**:
   - Without density bonus ($\gamma = 0$): Reliability dropped to $r_i \approx 0.12$ (would be filtered as noise!).
   - With density bonus ($\gamma = 1.0$): Reliability evaluated to **$r_i = 0.8090 \ge 0.50$**, successfully protecting the minority instance from being pruned.
+

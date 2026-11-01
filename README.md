@@ -3,7 +3,7 @@
 > **Adaptive, Robust, and Resource-Efficient Learning**  
 > *A modular, CPU-first, local-first Python algorithm library for non-stationary, noisy, and resource-constrained machine learning.*
 
-[![Phase](https://img.shields.io/badge/Stage%203%20(Phases%208--11)%3A%20Core%20Algorithms%20Complete%20(Ready%20for%20Review)-blue.svg)](#roadmap-overview)
+[![Phase](https://img.shields.io/badge/Stages%204--6%20(Phases%2012--16)%3A%20Benchmarks%2C%20Integrations%20%26%20Release%20Audit%20Complete%20(Ready%20for%20Review)-blue.svg)](#roadmap-overview)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](docs/foundation/LICENSING_AND_IP_POLICY.md)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](docs/foundation/SCOPE_AND_REQUIREMENTS.md)
 [![Architecture](https://img.shields.io/badge/Architecture-CPU--First%20%7C%20Local--First-orange.svg)](docs/foundation/PRODUCT_SPECIFICATION.md)
@@ -242,6 +242,62 @@ Stage 3 transforms algorithmic specifications into verified, CPU-first Python im
 
 ---
 
+## Stages 4, 5 & 6 Overview (Phases 12–16)
+
+Stages 4, 5, and 6 transition AdaptiveML from algorithm implementation to an empirically validated, framework-integrated, production-engineered, and release-audited library.
+
+### Stage 4: Evaluation & Ecosystem Integration (Phases 12–13)
+
+- **Phase 12: Research Experiments & Benchmarking (`docs/research/phase-12-benchmarking/`)**:
+  - Multi-seed empirical benchmarking suite in `benchmarks/phase-12/`.
+  - **Theorem 2 Proven**: On synthetic 100:1 severe class imbalance with noise, standard ERM (Cross-Entropy) completely collapsed ($0.0\%$ minority recall). AdaptiveML RLA achieved **$60.0\%$ minority recall** ($+60.0\%$) and elevated Macro $F_1$ from $0.659 \rightarrow 0.821$.
+  - **Optimizer State Memory**: `LowMemoryAdamW` demonstrated an exact **$73.44\%$ memory reduction** ($2.125\text{ B/param}$ vs. $8.00\text{ B/param}$) with verified convex convergence ($L_2 = 0.033$).
+  - **Catastrophic Forgetting Elimination**: Under an 85% noise burst, uncoordinated drift detection suffered 10 false model wipes; ULC arbitration suffered 0 false wipes and filtered $83.2\%$ of corrupted samples.
+  - [Master Benchmark Report](docs/research/phase-12-benchmarking/BENCHMARK_REPORT.md) | [Experimental Methodology](docs/research/phase-12-benchmarking/EXPERIMENTAL_METHODOLOGY.md) | [Raw JSON Results](benchmarks/phase-12/results/benchmark_results.json)
+
+- **Phase 13: Framework Integrations (`docs/integrations/phase-13/`)**:
+  - `adaptive_ml.integrations.sklearn`: `SklearnAdaptiveClassifier` fully compliant with `BaseEstimator`, `ClassifierMixin`, `clone()`, `Pipeline`, and `partial_fit()`.
+  - `adaptive_ml.integrations.torch_optim`: `create_torch_low_memory_adamw` optimizer factory.
+  - `adaptive_ml.integrations.torch_module`: `TorchSymmetricCrossEntropyLoss` autograd `nn.Module`.
+  - **Decoupling Invariant**: Zero mandatory dependencies in core; all framework integrations are lazy extras.
+  - [Master Integration Report](docs/integrations/phase-13/FRAMEWORK_INTEGRATION_REPORT.md) | [Scikit-learn Integration](docs/integrations/phase-13/SCIKIT_LEARN_INTEGRATION.md) | [PyTorch Integration](docs/integrations/phase-13/PYTORCH_INTEGRATION.md)
+
+### Stage 5: Production & Usability Engineering (Phases 14–15)
+
+- **Phase 14: Production Engineering (`docs/engineering/phase-14-production/`)**:
+  - PEP 517 / PEP 621 packaging generating pure wheel (`aml_core-0.1.0.dev0-py3-none-any.whl`, 61 KB) and source tarball (`aml_core-0.1.0.dev0.tar.gz`, 48 KB).
+  - Multi-OS (`ubuntu-latest`, `windows-latest`, `macos-latest`) and multi-Python (3.10–3.14) CI matrix in `.github/workflows/ci.yml`.
+  - Automated Bandit AST security scanning and `pip-audit` vulnerability scanning in `.github/workflows/security.yml`.
+  - [Master Production Report](docs/engineering/phase-14-production/PRODUCTION_ENGINEERING_REPORT.md) | [Package Build Validation](docs/engineering/phase-14-production/PACKAGE_BUILD_VALIDATION.md) | [Security Report](docs/engineering/phase-14-production/SECURITY_ENGINEERING_REPORT.md)
+
+- **Phase 15: Documentation & Developer Experience (`docs/engineering/phase-15-documentation/`)**:
+  - Instant 5-minute executable quickstart: `examples/quickstart.py` (verified execution in $0.18\text{s}$).
+  - 7 practical developer tutorials in `docs/tutorials/`:
+    1. [5-Minute Quickstart](docs/tutorials/01_five_minute_quickstart.md)
+    2. [Streaming Drift Detection](docs/tutorials/02_streaming_drift_detection.md)
+    3. [Noisy Label Robust Learning](docs/tutorials/03_noisy_label_robust_learning.md)
+    4. [Low-Memory AdamW](docs/tutorials/04_low_memory_adamw.md)
+    5. [Unified Controller Arbitration](docs/tutorials/05_unified_controller_arbitration.md)
+    6. [Framework Integrations](docs/tutorials/06_framework_integrations.md)
+    7. [Reproducible Benchmarking](docs/tutorials/07_reproducible_benchmarking.md)
+  - [Master Documentation Report](docs/engineering/phase-15-documentation/DOCUMENTATION_COMPLETION_REPORT.md) | [DX Review](docs/engineering/phase-15-documentation/DEVELOPER_EXPERIENCE_REVIEW.md)
+
+### Stage 6: Governance, Security & Release Audit (Phase 16)
+
+- **Phase 16: Legal & Release Audit (`docs/release/phase-16-audit/`)**:
+  - Wheel artifact audit: 35 clean files, zero leaked secrets, test fixtures, or benchmarks.
+  - Software Bill of Materials (SBOM): CycloneDX and SPDX compliant inventory in `DEPENDENCY_AND_SBOM_REPORT.md`.
+  - IP & Licensing: Apache-2.0 clean-room code, DCO 1.1 sign-off, zero copyleft infections.
+  - Trademark Fallback: Package registered as `aml-core` to insulate against Datadog / Adaptive ML, Inc. trademark conflicts.
+  - [Master Legal & Release Audit](docs/release/phase-16-audit/LEGAL_AND_RELEASE_AUDIT.md) | [Release Clearance Decision](docs/release/phase-16-audit/RELEASE_CLEARANCE_DECISION.md) | [SBOM Report](docs/release/phase-16-audit/DEPENDENCY_AND_SBOM_REPORT.md)
+
+### Stages 4–6 Cross-Phase Audit & Completion Reports
+
+- [**Stages 4–6 Cross-Phase Quality Audit**](docs/release/PHASE_12_TO_16_CROSS_PHASE_AUDIT.md) (`DOC-AUD-P1216-001`) — Multi-disciplinary verification and clearance audit.
+- [**Stages 4–6 Consolidated Completion Report**](docs/release/PHASE_12_TO_16_COMPLETION_REPORT.md) (`DOC-REP-P1216-001`) — Milestone sign-off and Stage 7 entry requirements.
+
+---
+
 ## Roadmap Overview (Phases 0–21)
 
 AdaptiveML follows a disciplined 22-phase development lifecycle. Each phase must satisfy its Acceptance Gate before subsequent phases may commence:
@@ -258,12 +314,12 @@ AdaptiveML follows a disciplined 22-phase development lifecycle. Each phase must
 - **Phase 9: RLA Development (Robust Learning Algorithms)** *(READY FOR REVIEW)*
 - **Phase 10: RAO Development (Resource-Aware Optimization)** *(READY FOR REVIEW)*
 - **Phase 11: Unified Learning Controller (ULC)** *(READY FOR REVIEW)*
-- **Phase 12: Research Experiments & Benchmarking** *(UPCOMING)*
-- **Phase 13: Framework Integrations**
-- **Phase 14: Production Engineering**
-- **Phase 15: Documentation & Developer Experience**
-- **Phase 16: Legal & Release Audit**
-- **Phase 17: Alpha & Beta Releases**
+- **Phase 12: Research Experiments & Benchmarking** *(READY FOR REVIEW)*
+- **Phase 13: Framework Integrations** *(READY FOR REVIEW)*
+- **Phase 14: Production Engineering** *(READY FOR REVIEW)*
+- **Phase 15: Documentation & Developer Experience** *(READY FOR REVIEW)*
+- **Phase 16: Legal & Release Audit** *(READY FOR REVIEW)*
+- **Phase 17: Alpha & Beta Releases** *(UPCOMING)*
 - **Phase 18: PyPI 1.0 Release**
 - **Phase 19: Research Publication**
 - **Phase 20: Global Ecosystem Growth**

@@ -58,3 +58,4 @@ All components passed thorough unit testing in [test_rao.py](file:///c:/projects
 3. State memory compression ratio ($74.61\%$).
 4. Native PyTorch training loop stepping with linear layer parameters.
 5. Micro-batch gradient accumulation numerical equivalence.
+

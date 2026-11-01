@@ -50,3 +50,4 @@ Because the learning rate $\eta$ and momentum averaging act as low-pass filters,
 ## 4. Conclusion
 
 `LowMemoryAdamW` matches the trajectory and convergence rate of standard FP32 AdamW while reducing optimizer state memory by $74.61\%$. The implementation is mathematically and empirically validated.
+

@@ -69,3 +69,4 @@ class ULCConfig:
     tau_R: float = DEFAULT_TAU_R
     recovery_steps: int = DEFAULT_RECOVERY_STEPS
     hysteresis_band: float = 0.15
+

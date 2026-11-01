@@ -45,3 +45,4 @@ Validated in [unified_controller_example.py](file:///c:/projects/AdaptiveML/exam
 - **Clean Regime (Steps 1-10)**: Maintained $100\%$ sample throughput in `STABLE` state.
 - **Noise Burst (Steps 11-15)**: Filtered corrupted samples (retaining $5/30$ clean instances), prevented ADWIN false alarm resets.
 - **True Drift (Steps 21-26)**: Detected shift, entered `CONFIRMED_DRIFT`, scaled LR to $2.5\times$, flushed replay, and annealed cleanly across $3$ recovery steps.
+

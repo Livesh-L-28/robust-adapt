@@ -14,3 +14,4 @@
    When multiple continuous features provide mathematically identical split gains (e.g. perfectly symmetric synthetic clusters), $\Delta \bar{G} = 0$. In such cases, the tree relies strictly on $\epsilon_H < \tau_{\text{tie}}$ to trigger a split. Setting $\tau_{\text{tie}} \in [0.05, 0.10]$ is recommended for synthetic benchmarks.
 3. **Replay Buffer Sample Eviction**:
    `ClassBalancedReservoirReplay` guarantees uniform random selection within each class bucket. It does not prioritize hard or high-loss examples; importance-weighted replay is scheduled for future exploration in Phase 12.
+

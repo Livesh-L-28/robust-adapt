@@ -69,3 +69,4 @@ def run_ala_demo() -> None:
 
 if __name__ == "__main__":
     run_ala_demo()
+

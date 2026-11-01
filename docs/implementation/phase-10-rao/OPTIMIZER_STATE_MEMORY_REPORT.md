@@ -63,3 +63,4 @@ For model parameter scales common in modern deep learning:
 | $7\text{ Billion}$ params | $56.0\text{ GB}$ | $14.22\text{ GB}$ | $41.78\text{ GB}$ |
 
 This reduction allows larger batch training and higher model capacities on resource-constrained hardware and standard CPU workstations without triggering OOM (Out-of-Memory) aborts.
+

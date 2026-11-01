@@ -22,6 +22,8 @@ from adaptive_ml.ala.classifier import AdaptiveClassifier
 class SklearnAdaptiveClassifier(BaseEstimator, ClassifierMixin):
     """Scikit-learn compliant estimator wrapper around AdaptiveClassifier."""
 
+    _estimator_type = "classifier"
+
     def __init__(
         self,
         n_features: int = 10,
@@ -89,3 +91,8 @@ class SklearnAdaptiveClassifier(BaseEstimator, ClassifierMixin):
     def predict_proba(self, X: np.ndarray) -> np.ndarray:
         est = self._ensure_estimator()
         return est.predict_proba(X)
+
+    def score(self, X: np.ndarray, y: np.ndarray) -> float:
+        """Compute mean classification accuracy on test dataset."""
+        preds = self.predict(X)
+        return float(np.mean(preds == y))

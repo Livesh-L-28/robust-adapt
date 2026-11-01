@@ -113,3 +113,4 @@ class EvidenceSynthesizer:
             predictive_entropy=pred_entropy,
             loss_trend=loss_trend,
         )
+

@@ -12,3 +12,4 @@
    `DensityAwareMarginScorer` computes pairwise Euclidean distances within the mini-batch ($\mathcal{O}(B^2 \cdot d)$). For large batches ($B > 2048$), approximate nearest neighbor indexing (e.g. ScaNN/HNSW) or sliding historical feature reservoirs will be investigated in Phase 14.
 2. **Extreme Class Imbalance Convergence Rate**:
    While `ClassBalancedWeights` corrects gradient starvation on rare classes, optimizing extremely long-tailed distributions ($> 1:500$) on non-convex deep models may still require higher warmup step budgets.
+

@@ -112,3 +112,4 @@ def check_sample_weights(
         raise ValidationError(f"{name} contains negative values")
 
     return np.ascontiguousarray(weights, dtype=np.float64)
+

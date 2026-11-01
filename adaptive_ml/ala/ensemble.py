@@ -101,3 +101,4 @@ class StreamingEnsemble:
         """Predict class with highest average posterior probability."""
         probs = self.predict_proba(X)
         return np.ascontiguousarray(np.argmax(probs, axis=1), dtype=np.int64)
+

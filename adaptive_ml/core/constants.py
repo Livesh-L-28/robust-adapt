@@ -25,3 +25,4 @@ UINT8_MAX: Final[int] = 255
 DEFAULT_TAU_R: Final[float] = 0.65
 DEFAULT_DELTA_HYST: Final[float] = 0.15
 DEFAULT_RECOVERY_STEPS: Final[int] = 100
+

@@ -54,3 +54,4 @@ Upon entering `CONFIRMED_DRIFT`, the controller initializes the dwell counter $c
 - When $c_{\text{dwell}} = K_{\text{recovery}}$, $\eta_{\text{scale}} = 2.5$.
 - As $c_{\text{dwell}} \to 0$, $\eta_{\text{scale}} \to 1.0$.
 - Protects the model from overshooting newly adapted local optima.
+

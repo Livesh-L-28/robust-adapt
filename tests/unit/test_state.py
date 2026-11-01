@@ -53,3 +53,4 @@ def test_checkpoint_manager_atomic_and_pruning(tmp_path: Path) -> None:
     step3_tensors, step3_meta = manager.load_step(3)
     assert step3_meta["step"] == 3
     assert step3_meta["metric"] == 30
+

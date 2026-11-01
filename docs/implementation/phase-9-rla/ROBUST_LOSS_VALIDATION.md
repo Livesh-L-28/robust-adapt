@@ -23,3 +23,4 @@ $$\nabla_{\mathbf{z}}^{\text{num}} = \frac{\mathcal{L}(\mathbf{z} + \epsilon \ma
 Under extreme label corruption with confident incorrect predictions ($z_{\text{correct}} = -50.0, z_{\text{corrupt}} = +50.0$):
 - Standard Cross-Entropy gradients explode or saturate.
 - SCE analytical gradient Frobenius norm evaluated to **$0.0988 \le 20.0$**, strictly satisfying Theorem 2 boundedness guarantees.
+

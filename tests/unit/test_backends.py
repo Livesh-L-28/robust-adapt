@@ -42,3 +42,4 @@ def test_torch_backend_operations() -> None:
 
     expected = np.array([[2.0, 4.0], [6.0, 8.0]])
     np.testing.assert_allclose(c_np, expected)
+

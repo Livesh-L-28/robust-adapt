@@ -23,3 +23,4 @@
 
 ### 1.4 Native PyTorch Compilation (TorchScript / `torch.compile`)
 - `LowMemoryAdamW` currently performs CPU-vectorized NumPy operations during the dequantization update step. While fully compatible with standard PyTorch eager execution and autograd, it does not currently generate pure TorchScript IR or Triton kernels for `torch.compile`.
+

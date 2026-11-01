@@ -42,3 +42,4 @@ This report validates the enforcement mechanisms of `ResourceBudget` and `Adapti
 ## 3. Conclusion
 
 The resource budget infrastructure provides guaranteed runtime safety bounds, ensuring AdaptiveML models adapt dynamically to physical hardware constraints.
+

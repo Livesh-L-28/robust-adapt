@@ -43,3 +43,4 @@ Operating without coordination, drift detectors erroneously treat noise bursts a
 - Decoupled coordinator accepting optional instances of `AdaptiveClassifier`, `RobustLearningPipeline`, `LowMemoryAdamW`, and `ReliabilityWeightedADWIN`.
 - Applies selective filtering, replay pruning, and optimizer parameter scaling based on emitted directives.
 - Zero mandatory pillar dependencies: controller functions correctly even with zero sub-pillars attached.
+

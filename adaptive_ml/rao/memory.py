@@ -45,3 +45,4 @@ class ResourceBudget:
     def is_pressure_active(self) -> bool:
         """Returns True if memory pressure is active."""
         return self.tracker.is_pressure_active()
+

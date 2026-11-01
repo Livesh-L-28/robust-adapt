@@ -48,3 +48,4 @@ class TorchBackend:
 
     def clip(self, a: "torch.Tensor", a_min: float, a_max: float) -> "torch.Tensor":
         return torch.clamp(a, min=a_min, max=a_max)
+

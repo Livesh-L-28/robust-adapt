@@ -127,3 +127,4 @@ def test_end_to_end_cross_pillar_streaming_workflow(tmp_path: Path) -> None:
     assert meta["step"] == 25
     assert "param" in tensors
     assert tensors["param"].shape == (8, n_features)
+

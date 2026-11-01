@@ -45,3 +45,4 @@ Tested under extreme conditions:
 1. **All-zero input vectors**: Scale evaluated cleanly to $\sim 0.0$, dequantization yielded exact zeros without `NaN` or `Inf`.
 2. **Extreme dynamic range ($10^{-8}$ to $10^{6}$)**: Block partitioning confines high-magnitude values to their local blocks, preventing dynamic range collapse across distant parameters.
 3. **Adversarial gradients ($10^{15}$)**: Handled gracefully via gradient clipping or exception raising in `ResourceBudget`.
+

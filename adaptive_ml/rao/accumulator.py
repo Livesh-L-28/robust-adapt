@@ -77,3 +77,4 @@ class AdaptiveGradientAccumulator:
         """Clear accumulated gradient buffers."""
         self.accumulated_gradients.clear()
         self.current_micro_step = 0
+

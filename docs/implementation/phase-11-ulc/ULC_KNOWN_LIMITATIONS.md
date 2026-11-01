@@ -21,3 +21,4 @@
 ### 1.3 Latency on High-Dimensional Density Estimation
 - When batch size $B$ or feature dimension $D$ is extremely large, nearest-neighbor distance computations for reliability estimation can increase controller latency.
 - **Mitigation**: Downsampling or random projection approximations can be enabled for $D > 500$.
+

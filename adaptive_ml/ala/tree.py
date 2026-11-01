@@ -420,3 +420,4 @@ class VectorizedHoeffdingTree:
             raise ValidationError(f"Unknown node type: {d['type']}")
 
         self.root = _deserialize_node(state["tree"])
+

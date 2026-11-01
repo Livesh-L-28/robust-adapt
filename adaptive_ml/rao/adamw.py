@@ -92,6 +92,14 @@ class LowMemoryAdamW(TorchOptimizer):
             super().__init__(param_list, defaults)
         else:
             # Standalone NumPy optimizer initialization
+            if _TORCH_AVAILABLE:
+                from collections import OrderedDict
+                self._optimizer_step_pre_hooks = OrderedDict()
+                self._optimizer_step_post_hooks = OrderedDict()
+                self._optimizer_state_dict_pre_hooks = OrderedDict()
+                self._optimizer_state_dict_post_hooks = OrderedDict()
+                self._optimizer_load_state_dict_pre_hooks = OrderedDict()
+                self._optimizer_load_state_dict_post_hooks = OrderedDict()
             self.param_groups = [{"params": param_list, **defaults}]
             self.state = {}
             self.defaults = defaults
@@ -267,15 +275,6 @@ class LowMemoryAdamW(TorchOptimizer):
             new_s_v = (max_v / float(UINT8_MAX)) + EPS_QUANT
             q_v[start:end] = torch.clamp(torch.round(v_new / new_s_v), 0, UINT8_MAX).to(torch.uint8)
             scale_v[b] = new_s_v
-
-    def reset_momenta(self) -> None:
-        """Reset all momentum state buffers."""
-        self.state.clear()
-
-    def scale_learning_rate(self, factor: float) -> None:
-        """Scale the learning rate across all parameter groups by a scalar factor."""
-        for group in self.param_groups:
-            group["lr"] = float(group["lr"]) * float(factor)
 
     def get_state_memory_bytes(self) -> int:
         """Compute the exact memory footprint of all quantized optimizer states."""

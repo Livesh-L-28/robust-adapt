@@ -232,3 +232,4 @@ class AdaptiveClassifier(BaseEstimator, ClassifierMixin):
             self._drift_detector.load_state_dict(state["drift_state"])
         if state["replay_state"] is not None and self._replay_buffer is not None:
             self._replay_buffer.load_state_dict(state["replay_state"])
+

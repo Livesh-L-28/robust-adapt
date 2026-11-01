@@ -32,3 +32,4 @@ tests/unit/test_rla.py::TestRobustLearningPipeline::test_pipeline_evaluation PAS
 - **Total Tests Passed**: 7 (100%)
 - **Total Tests Failed**: 0 (0%)
 - **Execution Time**: 1.00s
+

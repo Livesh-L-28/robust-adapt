@@ -31,3 +31,4 @@ Streaming learning controllers face catastrophic failure modes if:
 ### 2.3 Decoupled Fault Tolerance
 - **Hazard**: One attached pillar throwing an unhandled exception or missing an expected method.
 - **Safeguard**: Duck typing with `hasattr()` guards and safe default fallbacks ensure controller continues operating if any pillar is omitted or raises non-fatal telemetry warnings.
+

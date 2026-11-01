@@ -62,3 +62,4 @@ class ClassBalancedWeights:
         class_weights = self.compute_weights(class_counts)
         sample_weights = class_weights[y_val]
         return np.ascontiguousarray(sample_weights, dtype=np.float64)
+

@@ -179,3 +179,4 @@ class ClassBalancedReservoirReplay:
         for c in range(self.n_classes):
             self._buffers_X[c] = [np.array(x, dtype=np.float64) for x in state["stored_X"][c]]
             self._buffers_y[c] = list(state["stored_y"][c])
+

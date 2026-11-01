@@ -157,3 +157,4 @@ class DensityAwareMarginScorer:
         self.alpha = float(state["alpha"])
         self.gamma = float(state["gamma"])
         self.min_reliability = float(state["min_reliability"])
+

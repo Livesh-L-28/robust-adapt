@@ -58,3 +58,4 @@ class StatefulProtocol(Protocol):
 
     def load_state_dict(self, state_dict: Dict[str, Any]) -> None:
         ...
+
