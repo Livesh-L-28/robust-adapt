@@ -3,7 +3,7 @@
 > **Adaptive, Robust, and Resource-Efficient Learning**  
 > *A modular, CPU-first, local-first Python algorithm library for non-stationary, noisy, and resource-constrained machine learning.*
 
-[![Phase](https://img.shields.io/badge/Phases%200--5%3A%20Research%20Foundation%20Complete%20(Ready%20for%20Review)-blue.svg)](#roadmap-overview)
+[![Phase](https://img.shields.io/badge/Phases%200--7%3A%20Design%20%26%20Architecture%20Complete%20(Ready%20for%20Review)-blue.svg)](#roadmap-overview)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](docs/foundation/LICENSING_AND_IP_POLICY.md)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](docs/foundation/SCOPE_AND_REQUIREMENTS.md)
 [![Architecture](https://img.shields.io/badge/Architecture-CPU--First%20%7C%20Local--First-orange.svg)](docs/foundation/PRODUCT_SPECIFICATION.md)
@@ -164,6 +164,45 @@ The scientific and legal research foundation for AdaptiveML is codified across f
 
 ---
 
+## Phases 6 & 7 Design & Architecture Documentation
+
+The mathematical foundations, closed-form equations, complexity bounds, and production architecture are codified across 27 authoritative deliverables:
+
+### Phase 6: Mathematical & Algorithm Design (docs/design/phase-6-algorithm-design/)
+- [**Master Algorithm Design Document (ADD)**](docs/design/phase-6-algorithm-design/ALGORITHM_DESIGN_DOCUMENT.md) (DOC-DES-P6-001) — Executive design, foundations, and testable hypotheses.
+- [**Mathematical Foundations & Unified Notation**](docs/design/phase-6-algorithm-design/MATHEMATICAL_FOUNDATIONS_AND_NOTATION.md) (DOC-DES-P6-002) — Coordinate spaces, probability distributions, drift formulations.
+- [**ALA Algorithm Specifications**](docs/design/phase-6-algorithm-design/ALA_ALGORITHM_SPECIFICATIONS.md) (DOC-DES-P6-003) — Vectorized Hoeffding tree, Reliability-Weighted ADWIN, class-balanced replay.
+- [**RLA Algorithm Specifications**](docs/design/phase-6-algorithm-design/RLA_ALGORITHM_SPECIFICATIONS.md) (DOC-DES-P6-004) — Density-aware margin scoring, SCE/GCE robust losses, effective class weights.
+- [**RAO Algorithm Specifications**](docs/design/phase-6-algorithm-design/RAO_ALGORITHM_SPECIFICATIONS.md) (DOC-DES-P6-005) — LowMemoryAdamW 8-bit block quantization, adaptive gradient accumulator.
+- [**ULC Algorithm Specification**](docs/design/phase-6-algorithm-design/ULC_ALGORITHM_SPECIFICATION.md) (DOC-DES-P6-006) — Dual-evidence drift-noise arbitration automaton, stability and dwell bounds.
+- [**Cross-Pillar Mathematical Contracts**](docs/design/phase-6-algorithm-design/CROSS_PILLAR_MATHEMATICAL_CONTRACTS.md) (DOC-DES-P6-007) — Shared variables, boundary invariants, decoupling proofs.
+- [**Complexity & Resource Analysis**](docs/design/phase-6-algorithm-design/COMPLEXITY_AND_RESOURCE_ANALYSIS.md) (DOC-DES-P6-008) — Asymptotic Big-O time, FLOP counts, exact heap RAM breakdowns.
+- [**Algorithm Pseudocode Catalog**](docs/design/phase-6-algorithm-design/ALGORITHM_PSEUDOCODE_CATALOG.md) (DOC-DES-P6-009) — Line-numbered, implementation-ready pseudocode (Algs 1–8).
+- [**Mathematical Verification Report**](docs/design/phase-6-algorithm-design/MATHEMATICAL_VERIFICATION_REPORT.md) (DOC-DES-P6-010) — Dimensionality checks, boundary values, epsilon guards, Lipschitz bounds.
+- [**Phase 6 Decisions & Mathematical Sign-Off**](docs/design/phase-6-algorithm-design/PHASE_6_DECISIONS.md) (DOC-DES-P6-011) — Formal mathematical design ratification.
+
+### Phase 7: Technical Architecture (docs/design/phase-7-architecture/)
+- [**Master Technical Architecture Specification**](docs/design/phase-7-architecture/ARCHITECTURE_SPECIFICATION.md) (DOC-DES-P7-001) — Layered architecture, design principles, module taxonomy.
+- [**System Context & Component Architecture**](docs/design/phase-7-architecture/SYSTEM_CONTEXT_AND_COMPONENT_ARCHITECTURE.md) (DOC-DES-P7-002) — Detailed breakdown of Layers 1–6 and protocols.
+- [**Package Structure & Module Boundaries**](docs/design/phase-7-architecture/PACKAGE_STRUCTURE_AND_MODULE_BOUNDARIES.md) (DOC-DES-P7-003) — Package file tree, public symbol exports, DAG import hierarchy.
+- [**Public API Specification & Typed Protocols**](docs/design/phase-7-architecture/PUBLIC_API_SPECIFICATION.md) (DOC-DES-P7-004) — Concrete typed class signatures, docstrings, and protocol definitions.
+- [**Backend & Integration Architecture**](docs/design/phase-7-architecture/BACKEND_AND_INTEGRATION_ARCHITECTURE.md) (DOC-DES-P7-005) — NumPy primary engine, lazy PyTorch bridge, scikit-learn compliance.
+- [**State Lifecycle & Serialization Architecture**](docs/design/phase-7-architecture/STATE_AND_SERIALIZATION_ARCHITECTURE.md) (DOC-DES-P7-006) — Checkpointing, safe Safetensors/JSON serde (zero pickle on untrusted data).
+- [**Configuration & Error Handling Architecture**](docs/design/phase-7-architecture/CONFIGURATION_AND_ERROR_HANDLING.md) (DOC-DES-P7-007) — Frozen dataclass configurations and custom exception hierarchy.
+- [**Performance & Resource Architecture**](docs/design/phase-7-architecture/PERFORMANCE_AND_RESOURCE_ARCHITECTURE.md) (DOC-DES-P7-008) — CPU SIMD vectorization, contiguous memory layout, L1 cache block sizing.
+- [**Testing & Validation Architecture**](docs/design/phase-7-architecture/TESTING_AND_VALIDATION_ARCHITECTURE.md) (DOC-DES-P7-009) — 4-tier testing pyramid, property-based tests, mandatory 5-seed harness.
+- [**Security & Supply Chain Architecture**](docs/design/phase-7-architecture/SECURITY_AND_SUPPLY_CHAIN_ARCHITECTURE.md) (DOC-DES-P7-010) — Local-first security, zero telemetry verification, SBOM generation, clean-room IP.
+- [**Packaging & Release Architecture**](docs/design/phase-7-architecture/PACKAGING_AND_RELEASE_ARCHITECTURE.md) (DOC-DES-P7-011) — PEP 517/621 packaging specifications, hatchling build backend, extras matrix.
+- [**Comprehensive Architecture Diagrams Catalog**](docs/design/phase-7-architecture/ARCHITECTURE_DIAGRAMS.md) (DOC-DES-P7-012) — 12 complete, validated Mermaid architectural diagrams.
+- [**Architectural Decision Records (ADRs)**](docs/design/phase-7-architecture/ARCHITECTURE_DECISION_RECORDS.md) (DOC-DES-P7-013) — Formal ADRs (ADR-001 through ADR-012) documenting pivotal choices.
+- [**Phase 7 Decisions & Architectural Sign-Off**](docs/design/phase-7-architecture/PHASE_7_DECISIONS.md) (DOC-DES-P7-014) — Final architectural sign-off and implementation handoff.
+
+### Consolidated Cross-Phase Quality Audit & Completion (Phases 6–7)
+- [**Cross-Phase Consistency Audit (Phases 6–7)**](docs/design/PHASE_6_TO_7_CROSS_PHASE_AUDIT.md) (DOC-DES-AUDIT-P6-P7)
+- [**Consolidated Design & Architecture Completion Report**](docs/design/PHASE_6_TO_7_COMPLETION_REPORT.md) (DOC-DES-REP-P6-P7)
+
+---
+
 ## Roadmap Overview (Phases 0–21)
 
 AdaptiveML follows a disciplined 22-phase development lifecycle. Each phase must satisfy its Acceptance Gate before subsequent phases may commence:
@@ -174,9 +213,9 @@ AdaptiveML follows a disciplined 22-phase development lifecycle. Each phase must
 - **Phase 3: Legal & IP Assessment** *(READY FOR REVIEW)*
 - **Phase 4: Comprehensive Literature Review** *(READY FOR REVIEW)*
 - **Phase 5: Research Gap Identification** *(READY FOR REVIEW)*
-- **Phase 6: Mathematical & Algorithm Design** *(UPCOMING)*
-- **Phase 7: Technical Architecture**
-- **Phase 8: ALA Development (Adaptive Learning Algorithms)**
+- **Phase 6: Mathematical & Algorithm Design** *(READY FOR REVIEW)*
+- **Phase 7: Technical Architecture** *(READY FOR REVIEW)*
+- **Phase 8: ALA Development (Adaptive Learning Algorithms)** *(UPCOMING)*
 - **Phase 9: RLA Development (Robust Learning Algorithms)**
 - **Phase 10: RAO Development (Resource-Aware Optimization)**
 - **Phase 11: Unified Learning Controller (ULC)**
