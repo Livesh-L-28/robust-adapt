@@ -40,3 +40,4 @@ optimizer.step()
 - Combines standard Cross-Entropy with Reverse Cross-Entropy:
   $$\mathcal{L}_{\text{SCE}} = \alpha \cdot \mathcal{L}_{\text{CE}} + \beta \cdot \mathcal{L}_{\text{RCE}}$$
 - Strictly bounds gradients against corrupted labels while autograd handles backpropagation.
+

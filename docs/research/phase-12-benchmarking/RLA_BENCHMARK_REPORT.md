@@ -49,3 +49,4 @@ In the 100:1 imbalance experiment:
 - Standard Cross-Entropy achieved high nominal accuracy ($98.40\%$) by completely predicting the majority classes and suffering a **total collapse on the rare class ($0.0\%$ recall)**.
 - AdaptiveML achieved **$60.0\%$ recall on the rare class** while elevating overall Macro F1 from $0.6597$ to $0.8214$.
 - This provides definitive empirical evidence confirming Theorem 2.
+

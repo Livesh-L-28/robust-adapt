@@ -34,3 +34,4 @@ if drift_detected:
 ```
 
 Executable demo available at [`examples/ala/streaming_classification_example.py`](file:///c:/projects/AdaptiveML/examples/ala/streaming_classification_example.py).
+

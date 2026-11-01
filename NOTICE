@@ -1,0 +1,13 @@
+AdaptiveML (Distribution Package: aml-core)
+Copyright 2026 AdaptiveML Contributors
+
+This product includes software developed by the AdaptiveML Project
+(https://github.com/adaptiveml/adaptiveml).
+
+This software is distributed under the Apache License, Version 2.0.
+
+TRADEMARK AND BRANDING NOTICE:
+"AdaptiveML" is a working open-source engineering codename.
+The official Python package distribution identifier is "aml-core".
+This distribution does not claim affiliation with, endorsement by, or ownership
+of third-party commercial trademarks or corporate entities bearing similar names.

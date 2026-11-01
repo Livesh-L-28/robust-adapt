@@ -21,3 +21,4 @@ All 7 tutorials located in `docs/tutorials/` were reviewed and validated against
 | **TUT-07** | Reproducible Benchmarking | `benchmarks/phase-12/scripts/run_all_benchmarks.py` | **Verified (4.95s)** |
 
 All code blocks are tested, functional, and self-contained.
+

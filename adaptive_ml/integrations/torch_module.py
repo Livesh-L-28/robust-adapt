@@ -83,3 +83,4 @@ class TorchSymmetricCrossEntropyLoss(nn.Module if _TORCH_AVAILABLE else object):
             loss_per_sample = loss_per_sample * sample_weights
 
         return torch.mean(loss_per_sample)
+

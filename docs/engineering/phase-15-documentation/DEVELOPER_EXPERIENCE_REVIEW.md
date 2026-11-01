@@ -21,3 +21,4 @@ To ensure smooth adoption, common friction points were evaluated and resolved:
 ### 1.3 Friction Point 3: Actionable Error Messages
 - **Issue**: Silent dimension mismatches or obscure NaN exceptions in low-level linear algebra.
 - **Resolution**: `adaptive_ml.core.validation` provides explicit messages (e.g. `"X feature dimension mismatch: expected 4 columns, but received 3"`, `"y must be a 1D array of integers"`).
+

@@ -68,3 +68,4 @@ class TestTorchIntegration:
         final_loss = criterion(model(X), y).item()
         assert final_loss < initial_loss, f"Loss did not decrease: {initial_loss} -> {final_loss}"
         assert optimizer.get_state_memory_bytes() > 0
+

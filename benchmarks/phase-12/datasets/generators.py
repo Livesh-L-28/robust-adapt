@@ -161,3 +161,4 @@ def generate_imbalanced_multiclass_stream(
         y.append(c)
 
     return np.array(X, dtype=np.float64), np.array(y, dtype=np.int64)
+

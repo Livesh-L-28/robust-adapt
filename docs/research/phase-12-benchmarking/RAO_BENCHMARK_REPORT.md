@@ -40,3 +40,4 @@ The Resource-Aware Optimization (RAO) pillar was evaluated across multiple param
 - **Convex Convergence**: Evaluated across 3 random seeds over 500 steps, `LowMemoryAdamW` achieved:
   $$\text{Final } L_2 \text{ error} = 0.0331 \pm 0.0377$$
   successfully converging to the global minimum $(5.0, -3.0)$ with zero loss of trajectory stability.
+

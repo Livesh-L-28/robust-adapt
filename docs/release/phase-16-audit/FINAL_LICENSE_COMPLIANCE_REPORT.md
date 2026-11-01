@@ -23,3 +23,4 @@ The core package is licensed under the **Apache License, Version 2.0** (`SPDX-Li
 
 Zero copyleft (GPL / AGPL / LGPL) dependencies are required or bundled.
 Zero restrictive non-commercial (CC-BY-NC) assets are included in distributions.
+

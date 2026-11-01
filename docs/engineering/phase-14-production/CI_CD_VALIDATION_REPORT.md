@@ -24,3 +24,4 @@ GitHub Actions automated workflows are established under `.github/workflows/`:
 ### 1.2 `security.yml` (Supply Chain & AST Audit)
 - Runs `bandit -r adaptive_ml` to verify zero unsafe deserialization calls.
 - Runs `pip-audit` to detect known CVEs in upstream dependencies.
+

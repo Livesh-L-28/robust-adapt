@@ -24,3 +24,4 @@ Releases adhere strictly to **Semantic Versioning 2.0.0 (SemVer)**:
 - `MAJOR` (x.0.0): Incompatible API modifications.
 - `MINOR` (0.x.0): Backwards-compatible feature additions and new algorithm candidates.
 - `PATCH` (0.0.x): Backwards-compatible bug fixes and numerical stability corrections.
+

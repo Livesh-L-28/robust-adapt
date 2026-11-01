@@ -1,0 +1,84 @@
+site_name: AdaptiveML Documentation
+site_description: Adaptive, Robust, and Resource-Efficient Learning for Python
+site_author: AdaptiveML Core Team
+repo_url: https://github.com/adaptiveml/adaptiveml
+repo_name: adaptiveml/adaptiveml
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Overview: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - 5-Minute Quickstart: getting-started/quickstart.md
+      - Supported Environments: getting-started/supported-environments.md
+  - Core Concepts:
+      - Adaptive Learning (ALA): concepts/adaptive-learning.md
+      - Robust Learning (RLA): concepts/robust-learning.md
+      - Resource-Aware Optimization (RAO): concepts/resource-aware-optimization.md
+      - Unified Learning Controller (ULC): concepts/unified-controller.md
+  - Component Guides:
+      - ALA Guide: guides/ala.md
+      - RLA Guide: guides/rla.md
+      - RAO Guide: guides/rao.md
+      - ULC Guide: guides/ulc.md
+  - Framework Integrations:
+      - Pure NumPy: integrations/numpy.md
+      - Scikit-learn: integrations/scikit-learn.md
+      - PyTorch: integrations/pytorch.md
+  - Tutorials:
+      - 01. Your First Workflow: tutorials/01_your_first_workflow.md
+      - 02. Detecting Concept Drift: tutorials/02_detecting_concept_drift.md
+      - 03. Incremental Learning: tutorials/03_incremental_learning.md
+      - 04. Learning with Noisy Labels: tutorials/04_learning_with_noisy_labels.md
+      - 05. Preserving Minority Classes: tutorials/05_preserving_minority_class.md
+      - 06. Resource-Aware Optimization: tutorials/06_resource_aware_optimization.md
+      - 07. PyTorch Integration: tutorials/07_pytorch_integration.md
+      - 08. Scikit-learn Integration: tutorials/08_scikit_learn_integration.md
+      - 09. Coordinating with ULC: tutorials/09_coordinating_with_ulc.md
+      - 10. Reproducing Benchmarks: tutorials/10_reproducing_benchmarks.md
+  - Troubleshooting & FAQ:
+      - Troubleshooting: troubleshooting/index.md
+      - FAQ: faq.md
+  - Community & Governance:
+      - Contributing: ../CONTRIBUTING.md
+      - Code of Conduct: ../CODE_OF_CONDUCT.md
+      - Security Policy: ../SECURITY.md
+      - License: ../LICENSE

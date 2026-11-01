@@ -36,3 +36,4 @@ dist/
 - Wheel installed via `pip install dist/aml_core-0.1.0.dev0-py3-none-any.whl` without internet connectivity.
 - Import test: `import adaptive_ml; print(adaptive_ml.__version__)` executed with exit code 0.
 - Mandatory runtime dependencies verified: strictly standard library + `numpy >= 1.24.0`.
+

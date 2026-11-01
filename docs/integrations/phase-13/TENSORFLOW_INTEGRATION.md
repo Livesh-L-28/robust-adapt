@@ -25,3 +25,4 @@ In accordance with Phase 13 guidelines and Phase 7 Architecture Decision Records
 - **Verdict**: **DEFERRED**.
 - **Alternative**: Developers working with TensorFlow can utilize AdaptiveML's core NumPy backend directly via standard `tf.numpy_function` or array casting (`tensor.numpy()`).
 - Re-evaluation trigger: Community demand exceeding 50 GitHub upvotes following Phase 18 release.
+

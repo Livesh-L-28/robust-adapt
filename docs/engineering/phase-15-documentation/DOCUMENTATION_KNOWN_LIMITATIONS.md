@@ -14,3 +14,4 @@
    Tutorials are provided as markdown files and standalone `.py` scripts. Future phases will offer pre-configured `.ipynb` notebooks for Google Colab and JupyterLab.
 3. **API Cross-Reference Tooling**:
    Automated autodoc / pydoc-markdown generation will be integrated into the CI documentation pipeline for automated publishing.
+

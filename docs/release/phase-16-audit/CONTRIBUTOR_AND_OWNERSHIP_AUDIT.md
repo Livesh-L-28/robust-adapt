@@ -16,3 +16,4 @@ In accordance with Phase 0 Project Charter (`DOC-FDN-002`) and Licensing Policy 
    Copyright is held collectively by the AdaptiveML Core Development Team and individual contributors.
 3. **No Contributor License Agreement (CLA) Overhead**:
    DCO 1.1 avoids corporate CLA friction while ensuring unbroken legal provenance.
+

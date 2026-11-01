@@ -28,3 +28,4 @@ sklearn = ["scikit-learn>=1.2.0"]
 all = ["torch>=2.0.0", "scikit-learn>=1.2.0", "safetensors>=0.4.0"]
 ```
 Zero mandatory framework dependencies are imposed on core users.
+

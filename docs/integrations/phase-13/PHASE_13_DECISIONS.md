@@ -19,3 +19,4 @@
 ### DEC-P13-003: PyTorch Loss Module Standardization
 - **Context**: Practitioners building deep neural networks with PyTorch require native `nn.Module` loss functions that work with PyTorch autograd.
 - **Decision**: Implemented `TorchSymmetricCrossEntropyLoss` directly under `adaptive_ml.integrations.torch_module`.
+

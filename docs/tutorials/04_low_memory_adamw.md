@@ -38,3 +38,4 @@ print(f"State Memory: {optimizer.get_state_memory_bytes()} bytes")
 ```
 
 Executable demo available at [`examples/rao/low_memory_optimization_example.py`](file:///c:/projects/AdaptiveML/examples/rao/low_memory_optimization_example.py).
+

@@ -16,3 +16,4 @@ In accordance with Phase 12 governance rules, the following limitations are expl
    Experiments were conducted on an x86_64 CPU workstation. Quantization overhead in Python loops is higher on CPU than what a dedicated C++/CUDA extension would achieve.
 3. **Batch Size Sensitivity in Nearest-Neighbor Scoring**:
    Local density ratio $\delta_k = \rho_k / \bar{\rho}$ relies on batch-level sample density. For micro-batches with fewer than 10 samples, density estimation has higher statistical variance.
+

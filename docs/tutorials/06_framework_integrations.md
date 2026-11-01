@@ -57,3 +57,4 @@ for epoch in range(5):
 ```
 
 Executable demos available at [`examples/integrations/sklearn_pipeline_example.py`](file:///c:/projects/AdaptiveML/examples/integrations/sklearn_pipeline_example.py) and [`examples/integrations/torch_training_example.py`](file:///c:/projects/AdaptiveML/examples/integrations/torch_training_example.py).
+

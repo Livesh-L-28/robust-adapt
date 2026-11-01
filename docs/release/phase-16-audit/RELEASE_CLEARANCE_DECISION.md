@@ -31,3 +31,4 @@ The multidisciplinary engineering, security, and open-source audit team issues a
 - **Principal Software Architect:** Approved (Clean decoupled packaging verified).
 - **Security & Release Lead:** Approved (Supply chain and AST audits verified).
 - **Project Owner:** Pending formal acceptance.
+

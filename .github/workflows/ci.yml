@@ -80,3 +80,4 @@ jobs:
           test_env/bin/pip install dist/*.whl
           test_env/bin/python -c "import adaptive_ml; print('AdaptiveML version:', adaptive_ml.__version__)"
           test_env/bin/python -c "from adaptive_ml.ala import AdaptiveClassifier; clf = AdaptiveClassifier(4, 2); print('ALA initialized successfully')"
+

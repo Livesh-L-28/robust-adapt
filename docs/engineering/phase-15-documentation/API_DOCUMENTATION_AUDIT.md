@@ -13,3 +13,4 @@ An automated AST scan was performed across all public source modules:
 - **Function / Method Docstring Coverage:** $100\%$ (All classes, constructors, methods, and properties have NumPy/Google-style docstrings).
 - **Type Annotation Coverage:** $100\%$ (All parameters and returns annotated; PEP 561 `py.typed` present).
 - **Signature Discrepancies:** 0 discrepancies between documentation and source signatures.
+

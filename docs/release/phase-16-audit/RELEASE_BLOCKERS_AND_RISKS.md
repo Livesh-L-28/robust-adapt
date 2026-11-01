@@ -27,3 +27,4 @@ Findings from the legal, release, and security audits are classified into four s
 
 ### 1.4 LOW & INFORMATIONAL (Resolved)
 - **Finding ID:** `RSK-INFO-001`: Setuptools SPDX license string updated in `pyproject.toml` (`license = "Apache-2.0"`).
+

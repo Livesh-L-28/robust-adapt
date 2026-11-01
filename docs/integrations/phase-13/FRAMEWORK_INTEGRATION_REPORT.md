@@ -34,3 +34,4 @@ Phase 13 establishes seamless interoperability between AdaptiveML and leading Py
 ## 3. Verification Summary
 
 All integration test suites passed with $100\%$ success in [`test_sklearn_integration.py`](file:///c:/projects/AdaptiveML/tests/integration/test_sklearn_integration.py) and [`test_torch_integration.py`](file:///c:/projects/AdaptiveML/tests/integration/test_torch_integration.py). Both interactive example scripts execute cleanly.
+

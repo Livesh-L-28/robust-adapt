@@ -19,3 +19,4 @@
 ### DEC-P12-003: Dual-Evidence Gating in ULC Automaton
 - **Context**: Uncoordinated drift detection suffered 10 catastrophic model wipes under an 85% label noise burst.
 - **Decision**: **Adopted**. ULC arbitration automaton with hysteresis deadband $\Delta_{\text{hyst}} = 0.15$ and recovery dwell counter is approved as the production arbitration model.
+

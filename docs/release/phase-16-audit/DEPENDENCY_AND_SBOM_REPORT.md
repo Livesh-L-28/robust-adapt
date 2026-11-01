@@ -64,3 +64,4 @@
 }
 ```
 Zero known vulnerabilities (CVEs) found across direct dependencies.
+

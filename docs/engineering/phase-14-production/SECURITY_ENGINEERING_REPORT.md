@@ -24,3 +24,4 @@ Machine learning libraries are vulnerable to arbitrary code execution through un
 
 ### 1.3 Memory Boundary Telemetry
 - `ResourceBudget` continuously monitors process RSS memory via `psutil` (or Windows `ctypes.windll.psapi` fallback), raising `ResourceBudgetExceeded` before OS OOM killers terminate the process.
+

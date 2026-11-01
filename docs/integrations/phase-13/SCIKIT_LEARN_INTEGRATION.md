@@ -37,3 +37,4 @@ pipe.fit(X, y)
 predictions = pipe.predict(X)
 ```
 Executes without attribute or validation warnings.
+

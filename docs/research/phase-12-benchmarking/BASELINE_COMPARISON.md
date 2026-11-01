@@ -29,3 +29,4 @@ In accordance with Section 12.1 of the Project Charter, AdaptiveML maintains sci
    While `LowMemoryAdamW` saves $73.44\%$ RAM, pure Python/NumPy block quantization incurs a per-step latency of $\sim 3.2\text{ ms}$ per 10k parameters. On small models ($P < 1,000$), standard FP32 AdamW is faster.
 2. **Nearest-Neighbor Computation in High Dimensions**:
    `DensityAwareMarginScorer` requires pairwise distance estimation to compute local density $\rho_k$, adding $O(B^2 D)$ compute overhead per batch.
+

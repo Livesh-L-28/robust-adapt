@@ -7,7 +7,7 @@ name = "aml-core"
 version = "0.1.0.dev0"
 description = "Adaptive, Robust, and Resource-Efficient Learning Library"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = "Apache-2.0"
 authors = [
     { name = "AdaptiveML Core Development Team", email = "maintainers@adaptiveml.internal" }
@@ -16,9 +16,7 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -84,10 +82,10 @@ addopts = "-v --strict-markers"
 
 [tool.ruff]
 line-length = 100
-target-version = "py39"
+target-version = "py310"
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.10"
 strict = true
 warn_unused_configs = true
 disallow_untyped_defs = true

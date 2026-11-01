@@ -21,3 +21,4 @@ In Phase 12 benchmarks, performance profiling was conducted to identify runtime 
 - **Original Bottleneck**: Sequential slicing of 64-element parameter blocks.
 - **Optimization**: Reshaped 1D arrays into 2D block matrices of shape `(num_blocks, 64)`, enabling vector-wide `max()`, scaling, and integer rounding with a single SIMD kernel call.
 - **Result**: Reduced step latency from $8.5\text{ ms}$ to $3.2\text{ ms}$ on 10k parameters.
+

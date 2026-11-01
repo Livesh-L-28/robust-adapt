@@ -22,3 +22,4 @@
 1. **Repetitions**: Every stochastic experiment was executed across 5 independent random seeds: `[42, 101, 2024, 7, 99]`.
 2. **Prequential Protocol**: Streaming evaluations adhere to the standard Dawid (1984) prequential test-then-train protocol, where each incoming instance or batch is used for prediction evaluation prior to updating model parameters.
 3. **Data Isolation**: Synthetic stream generators isolate training and test distributions; evaluation sets are never exposed during training.
+

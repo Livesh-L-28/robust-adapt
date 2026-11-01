@@ -24,3 +24,4 @@ To determine whether each algorithmic design component provides meaningful utili
 - **Ablation Baseline**: Independent drift detector resetting model whenever $\Delta_{\text{drift}} \ge 1.0$.
 - **Full AdaptiveML**: ULC 5-state arbitration automaton with $\bar{R}_{\mathcal{W}}$ gating.
 - **Finding**: Independent drift reset wiped model weights 10 consecutive times during an 85% noise burst. ULC successfully suppressed the reset (0 false resets).
+

@@ -70,3 +70,4 @@ class TestSklearnIntegration:
 
         assert hasattr(clf, "classes_")
         assert len(clf.classes_) == 2
+

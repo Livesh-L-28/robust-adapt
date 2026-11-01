@@ -14,3 +14,4 @@ The 5-minute quickstart workflow was validated on a clean workspace environment:
 - **Execution Time:** $0.18\text{ seconds}$ on CPU.
 - **Dependencies Required:** Only standard library and `numpy`.
 - **User Experience Output**: Clean console logging displaying prequential streaming accuracy and drift detection events.
+

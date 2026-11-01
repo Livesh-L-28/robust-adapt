@@ -44,3 +44,4 @@ Every experiment was executed directly on the host workstation (`Windows 11`, 32
 - **Host RAM:** 15.71 GB total (10.2 GB available)
 - **Frameworks:** NumPy 2.4.3, PyTorch 2.12.1 (CPU), Scikit-Learn 1.8.0, SciPy 1.17.1
 - **Random Seeds:** `[42, 101, 2024, 7, 99]` (5 independent repetitions per test)
+

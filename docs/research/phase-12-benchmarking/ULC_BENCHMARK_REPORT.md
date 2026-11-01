@@ -37,3 +37,4 @@ The Unified Learning Controller (ULC) was evaluated on a continuous multi-regime
 
 - **Catastrophic Forgetting Prevention**: When the $85\%$ noise burst struck in Batches 11–20, the uncoordinated baseline detected elevated error and erroneously wiped its model 10 times in a row. ULC recognized that window reliability had dropped ($\bar{R}_{\mathcal{W}} < 0.48$) and suppressed the drift reset, preserving the core decision boundaries.
 - **Sample Filtering Efficiency**: ULC successfully filtered out $83.2\%$ of corrupted samples during the burst while retaining clean background samples.
+

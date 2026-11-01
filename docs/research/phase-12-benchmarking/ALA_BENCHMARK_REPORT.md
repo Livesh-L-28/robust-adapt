@@ -37,3 +37,4 @@ The Adaptive Learning Algorithms (ALA) pillar was evaluated under controlled con
 1. **Prequential Accuracy**: AdaptiveML matched the upper-bound accuracy on the SEA benchmark while maintaining low variance across seeds ($\sigma = 0.0083$).
 2. **Detection Selectivity**: `ReliabilityWeightedADWIN` demonstrated high selectivity, avoiding spurious resets during localized label noise fluctuations.
 3. **Step Latency**: The average incremental training step for a batch of 20 samples was $0.498\text{ ms}$, corresponding to a streaming throughput of over **40,000 samples/second** on CPU.
+
