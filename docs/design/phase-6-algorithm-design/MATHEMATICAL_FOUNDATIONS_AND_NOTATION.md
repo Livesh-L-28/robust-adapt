@@ -204,3 +204,4 @@ Given parameterized model $f_{\boldsymbol{\theta}}$ and loss function $\mathcal{
 ## 8. Summary & Standards Compliance
 
 All subsequent Phase 6 specifications (`DOC-DES-P6-003` through `DOC-DES-P6-011`) directly import and conform to the definitions established in this document. Any extension or modification to these notations must be formally recorded in `PHASE_6_DECISIONS.md`.
+

@@ -88,3 +88,4 @@ tests/
     ├── benchmark_tree_throughput.py      # Throughput comparison vs River
     └── benchmark_adamw_memory.py         # Memory comparison vs standard AdamW
 ```
+

@@ -64,3 +64,4 @@ To guarantee execution on low-memory edge devices or shared CPU workers without 
 
 1. **Memory Polling**: `adaptive_ml.core.telemetry` samples process Resident Set Size (RSS) via lightweight OS primitives (`GetProcessMemoryInfo` on Windows, `/proc/self/statm` on Linux) without external dependency overhead.
 2. **Adaptive Replay Buffer Truncation**: Under severe memory pressure, the reservoir buffer capacity $M_{\text{buf}}$ is temporarily contracted by dropping samples from over-represented classes.
+

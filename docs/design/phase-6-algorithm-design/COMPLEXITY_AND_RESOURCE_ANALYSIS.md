@@ -176,3 +176,4 @@ For a standard deployment ($p = 10^7, B = 128, d = 64, C = 10$):
 $$M_{\text{model}} = 40\text{ MB}, \quad M_{\text{state}} = 20.3\text{ MB}, \quad M_{\text{transient}} \approx 0.5\text{ MB}$$
 $$M_{\text{peak}} \le \mathbf{61\text{ MB}}$$
 AdaptiveML guarantees operation well within tight memory envelopes (e.g. edge containers capped at $256\text{ MB}$ RAM).
+

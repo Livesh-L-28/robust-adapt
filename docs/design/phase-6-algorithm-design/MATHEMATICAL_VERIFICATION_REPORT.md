@@ -126,3 +126,4 @@ In `LowMemoryAdamW`, the first moment $\mathbf{m}_t$ is represented by $\tilde{\
 > - All probability invariants preserved on simplex $\Delta^{C-1}$.  
 > - Memory and computational complexity mathematically verified.  
 > - Formulations certified ready for architectural specification in Phase 7.
+

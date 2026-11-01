@@ -168,3 +168,4 @@ The dead-band width $\Delta_{\text{hyst}} = 0.15$ guarantees that small stochast
 | **State Memory Footprint** | $< 128$ bytes | Stores integer state, dwell counter, and 4 scalar history buffers |
 | **Drift-Noise Separability**| High | Separates real shift from label noise via dual evidence $(\Delta_{\text{drift}}, \bar{R}_{\mathcal{W}})$ |
 | **Pillar Independence** | Strictly decoupled | Communicates solely through numerical directive structs |
+

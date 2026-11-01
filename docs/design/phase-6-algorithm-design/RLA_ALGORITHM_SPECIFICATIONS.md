@@ -175,3 +175,4 @@ $$\mathcal{L}_{\text{final}}(\mathbf{X}, \mathbf{y}) = \frac{\sum_{i=1}^B r_i \c
 | **`GeneralizedCrossEntropy`** | $\mathcal{O}(B \cdot C)$ | $\mathcal{O}(B \cdot C)$ | Vanishing gradient on high-confidence noisy samples |
 | **`SymmetricCrossEntropy`** | $\mathcal{O}(B \cdot C)$ | $\mathcal{O}(B \cdot C)$ | $L_2$ gradient norm strictly bounded by $\sqrt{2}(\alpha + \beta |C_\epsilon|)$ |
 | **`ClassBalancedReweighting`** | $\mathcal{O}(C)$ | $\mathcal{O}(C)$ | Asymptotically smooth transition between no-weighting and inverse-frequency |
+

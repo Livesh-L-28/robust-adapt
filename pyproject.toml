@@ -1,0 +1,80 @@
+[build-system]
+requires = ["hatchling>=1.18.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aml-core"
+version = "0.1.0.dev0"
+description = "Adaptive, Robust, and Resource-Efficient Learning Library"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "AdaptiveML Core Development Team", email = "maintainers@adaptiveml.internal" }
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+
+# Core mandatory runtime dependencies: strictly minimal
+dependencies = [
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+torch = [
+    "torch>=2.0.0",
+]
+sklearn = [
+    "scikit-learn>=1.2.0",
+    "scipy>=1.10.0",
+]
+dataframe = [
+    "pandas>=1.5.0",
+    "polars>=0.18.0",
+]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "hypothesis>=6.80.0",
+    "mypy>=1.5.0",
+    "ruff>=0.1.0",
+]
+benchmarks = [
+    "psutil>=5.9.0",
+]
+all = [
+    "aml-core[torch,sklearn,dataframe,dev,benchmarks]",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["adaptive_ml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --strict-markers"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+warn_unused_configs = true
+disallow_untyped_defs = true

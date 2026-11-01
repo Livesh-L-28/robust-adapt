@@ -175,3 +175,4 @@ If host RAM usage $M_{\text{current}}$ approaches the safety threshold $\gamma_{
 | :--- | :--- | :--- | :--- |
 | **`LowMemoryAdamW`** | $< 4\%$ (pure vector quantization) | $2.031 \, p$ bytes (vs $8.0 \, p$) | Stationary point convergence within $\mathcal{O}(T^{-1/2}) + \mathcal{O}(10^{-5})$ |
 | **`AdaptiveGradientAccumulator`**| $0\%$ compute overhead | $\mathcal{O}(p)$ float32 accum buffer | Exact mathematical gradient equivalence $\nabla \hat{R}_{B_{\text{eff}}}(\boldsymbol{\theta})$ |
+

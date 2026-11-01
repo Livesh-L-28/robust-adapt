@@ -110,3 +110,4 @@ For online streaming systems where a sudden burst of corrupt data may temporaril
 1. **Periodic Micro-Snapshots**: In-memory circular buffer retains the model state of $K_{\text{history}} = 3$ prior checkpoint intervals.
 2. **Rollback Trigger**: If the ULC transition kernel detects a confirmed adversarial noise burst, the application can issue `controller.rollback()` to restore the last verified clean state prior to the anomaly.
 3. **Atomic File Write**: Disk checkpoints are written to temporary files (`model.safetensors.tmp`) and renamed atomically (`os.replace`) to prevent corruption during unexpected process termination.
+

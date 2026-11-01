@@ -150,3 +150,4 @@ Before any release wheel is published:
 2. **Metadata Linter**: `twine check dist/*` verifies package metadata and README rendering.
 3. **Clean Environment Install**: Wheel is installed into a blank virtual environment (`pip install dist/*.whl`) and executes `tests/unit/` to verify zero missing dependencies.
 4. **Typing Verification**: `mypy --package adaptive_ml` verifies PEP 561 typing completeness.
+

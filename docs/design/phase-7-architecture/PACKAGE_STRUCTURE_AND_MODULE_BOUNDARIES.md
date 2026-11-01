@@ -157,3 +157,4 @@ Circular imports are structurally impossible in this design because:
 - Cross-pillar communications occur exclusively via primitives and standard Python dataclasses defined in `core.types` and `ulc.directives`.
 - Pillar engines never reference high-level facades or integration bridges.
 - Execution backends are injected via dependency injection or protocol interfaces rather than hard-coded concrete imports.
+

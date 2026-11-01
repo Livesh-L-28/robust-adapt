@@ -101,3 +101,4 @@
 - **Context**: Machine learning research frequently suffers from cherry-picked results evaluated on single arbitrary seeds.
 - **Decision**: Mandate that all reported benchmarks, novelty validation tests, and regression assertions run across five fixed seeds: $\{42, 1337, 2024, 7, 999\}$.
 - **Consequences**: Guarantees scientific defensibility and statistical robustness. Requires slightly longer CI execution for benchmark runs.
+

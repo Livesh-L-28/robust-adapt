@@ -211,3 +211,4 @@ During any mini-batch update with incoming batch size $B$, the learner samples a
 | **`VectorizedHoeffdingTree`** | $\mathcal{O}(B \cdot d + d \cdot K \cdot C)$ | $\mathcal{O}(U \cdot d \cdot K \cdot C)$ | Error rate bounded by $\delta$ via Hoeffding inequality |
 | **`ReliabilityWeightedADWIN`** | $\mathcal{O}(\log |W|)$ amortized | $\mathcal{O}(\log |W|)$ | Provable false-alarm suppression under bounded noise |
 | **`ClassBalancedReservoirReplay`**| $\mathcal{O}(B_{\text{replay}})$ | $\mathcal{O}(M_{\text{buf}} \cdot d)$ | Exact uniform sampling per class; bounded memory $M_{\text{buf}}$ |
+

@@ -3,7 +3,7 @@
 > **Adaptive, Robust, and Resource-Efficient Learning**  
 > *A modular, CPU-first, local-first Python algorithm library for non-stationary, noisy, and resource-constrained machine learning.*
 
-[![Phase](https://img.shields.io/badge/Phases%200--7%3A%20Design%20%26%20Architecture%20Complete%20(Ready%20for%20Review)-blue.svg)](#roadmap-overview)
+[![Phase](https://img.shields.io/badge/Stage%203%20(Phases%208--11)%3A%20Core%20Algorithms%20Complete%20(Ready%20for%20Review)-blue.svg)](#roadmap-overview)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](docs/foundation/LICENSING_AND_IP_POLICY.md)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](docs/foundation/SCOPE_AND_REQUIREMENTS.md)
 [![Architecture](https://img.shields.io/badge/Architecture-CPU--First%20%7C%20Local--First-orange.svg)](docs/foundation/PRODUCT_SPECIFICATION.md)
@@ -203,6 +203,45 @@ The mathematical foundations, closed-form equations, complexity bounds, and prod
 
 ---
 
+## Stage 3 Core Algorithm Development (Phases 8–11)
+
+Stage 3 transforms algorithmic specifications into verified, CPU-first Python implementations:
+
+### Stage 3 Consolidated Reports
+- [**Stage 3 Completion Report**](docs/implementation/STAGE_3_COMPLETION_REPORT.md) (STG3-CMP-001)
+- [**Stage 3 Cross-Pillar Integration Report**](docs/implementation/STAGE_3_INTEGRATION_REPORT.md) (STG3-INT-001)
+
+### Phase 8 — Adaptive Learning Algorithms (ALA)
+- `adaptive_ml.ala.adwin`: Reliability-Weighted ADWIN drift detector with noise burst suppression.
+- `adaptive_ml.ala.tree`: Vectorized Hoeffding Tree with NumPy-accelerated split evaluations.
+- `adaptive_ml.ala.replay`: Class-balanced reservoir replay buffer with extreme imbalance preservation.
+- `adaptive_ml.ala.ensemble`: Online bagging streaming ensemble.
+- `adaptive_ml.ala.classifier`: High-level `AdaptiveClassifier` with scikit-learn estimator API.
+- [Phase 8 Completion Report](docs/implementation/phase-8-ala/PHASE_8_COMPLETION_REPORT.md) | [Test Report](docs/implementation/phase-8-ala/ALA_TEST_REPORT.md)
+
+### Phase 9 — Robust Learning Algorithms (RLA)
+- `adaptive_ml.rla.scorer`: `DensityAwareMarginScorer` coupling logit margins with local $k$-NN density (Theorem 2 minority preservation guarantee verified).
+- `adaptive_ml.rla.losses`: Symmetric Cross-Entropy (`SymmetricCrossEntropyLoss`) and Generalized Cross-Entropy (`GeneralizedCrossEntropyLoss`) with analytical backprop gradients.
+- `adaptive_ml.rla.weighting`: Effective number class-balanced sample weighting (`ClassBalancedWeights`).
+- `adaptive_ml.rla.pipeline`: `RobustLearningPipeline`.
+- [Phase 9 Completion Report](docs/implementation/phase-9-rla/PHASE_9_COMPLETION_REPORT.md) | [Minority Preservation Report](docs/implementation/phase-9-rla/MINORITY_PRESERVATION_TEST_REPORT.md)
+
+### Phase 10 — Resource-Aware Optimization (RAO)
+- `adaptive_ml.rao.quantizer`: Block-wise 8-bit momentum quantizer with scale factor guarantees.
+- `adaptive_ml.rao.adamw`: `LowMemoryAdamW` reducing optimizer state RAM by $74.61\%$ ($\sim 2.03\text{ B/param}$ vs $8.00\text{ B/param}$ standard AdamW).
+- `adaptive_ml.rao.accumulator`: `AdaptiveGradientAccumulator` with dynamic micro-batch rescheduling.
+- `adaptive_ml.rao.memory`: `ResourceBudget` and process RSS telemetry.
+- [Phase 10 Completion Report](docs/implementation/phase-10-rao/PHASE_10_COMPLETION_REPORT.md) | [State Memory Report](docs/implementation/phase-10-rao/OPTIMIZER_STATE_MEMORY_REPORT.md)
+
+### Phase 11 — Unified Learning Controller (ULC)
+- `adaptive_ml.ulc.directives`: Typed cross-pillar coordination directives and 5-state operational model.
+- `adaptive_ml.ulc.evidence`: 4-dimensional normalized evidence vector synthesizer.
+- `adaptive_ml.ulc.automaton`: `ArbitrationAutomaton` resolving drift vs noise dilemmas with hysteresis deadband $\Delta_{\text{hyst}} = 0.15$ and recovery dwell mechanics.
+- `adaptive_ml.ulc.controller`: Decoupled `AdaptiveLearningController` facade.
+- [Phase 11 Completion Report](docs/implementation/phase-11-ulc/PHASE_11_COMPLETION_REPORT.md) | [Decision Engine Report](docs/implementation/phase-11-ulc/CONTROLLER_DECISION_ENGINE.md)
+
+---
+
 ## Roadmap Overview (Phases 0–21)
 
 AdaptiveML follows a disciplined 22-phase development lifecycle. Each phase must satisfy its Acceptance Gate before subsequent phases may commence:
@@ -215,11 +254,11 @@ AdaptiveML follows a disciplined 22-phase development lifecycle. Each phase must
 - **Phase 5: Research Gap Identification** *(READY FOR REVIEW)*
 - **Phase 6: Mathematical & Algorithm Design** *(READY FOR REVIEW)*
 - **Phase 7: Technical Architecture** *(READY FOR REVIEW)*
-- **Phase 8: ALA Development (Adaptive Learning Algorithms)** *(UPCOMING)*
-- **Phase 9: RLA Development (Robust Learning Algorithms)**
-- **Phase 10: RAO Development (Resource-Aware Optimization)**
-- **Phase 11: Unified Learning Controller (ULC)**
-- **Phase 12: Research Experiments & Benchmarking**
+- **Phase 8: ALA Development (Adaptive Learning Algorithms)** *(READY FOR REVIEW)*
+- **Phase 9: RLA Development (Robust Learning Algorithms)** *(READY FOR REVIEW)*
+- **Phase 10: RAO Development (Resource-Aware Optimization)** *(READY FOR REVIEW)*
+- **Phase 11: Unified Learning Controller (ULC)** *(READY FOR REVIEW)*
+- **Phase 12: Research Experiments & Benchmarking** *(UPCOMING)*
 - **Phase 13: Framework Integrations**
 - **Phase 14: Production Engineering**
 - **Phase 15: Documentation & Developer Experience**

@@ -100,3 +100,4 @@ AdaptiveML explicitly avoids custom C/C++ or Cython extensions. The performance 
 - Memory layouts are kept strictly C-contiguous (`order='C'`), allowing NumPy's internal SIMD vector kernels (AVX2, AVX-512, ARM NEON) to unroll loops automatically.
 - Peak computational bottlenecks (distance matrix calculation, histogram accumulation, quantization) are offloaded directly to BLAS Level 3 matrix multiplication (`cblas_sgemm`).
 - The user benefits from instantaneous `pip install` without missing compiler headers, MSVC runtime mismatches, or Python ABI version incompatibilities.
+

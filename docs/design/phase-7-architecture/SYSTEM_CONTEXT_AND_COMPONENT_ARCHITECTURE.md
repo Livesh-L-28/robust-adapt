@@ -135,3 +135,4 @@ Guarantees operational reliability, persistence, and debuggability:
    $$\text{Layer } 1 \to \text{Layer } 2 \to \text{Layer } 3 \to \text{Layer } 4$$
 2. **Zero Heavy Imports in Core**: Importing `adaptive_ml.ala` or `adaptive_ml.rao` must never trigger imports of PyTorch or scikit-learn unless explicitly invoked.
 3. **Pure Function Contracts**: Core mathematical engines in Layer 2 operate on explicit parameters and arrays, avoiding hidden global state or environment variables.
+

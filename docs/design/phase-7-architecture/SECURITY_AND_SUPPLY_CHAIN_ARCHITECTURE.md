@@ -54,3 +54,4 @@ Following the findings of Phase 3 (`DOC-RES-P3-001` through `DOC-RES-P3-008`):
 - All RLA algorithms (Margin Scoring, GCE, SCE, Class-Balanced Weights) are derived **clean-room from primary academic literature** (e.g., Wang et al., 2019; Zhang et al., 2018; Cui et al., 2019).
 - Cleanlab code (licensed under AGPL-3.0) is quarantined; zero lines of code, variable identifiers, or internal architectures from Cleanlab are utilized.
 - All original AdaptiveML code is published strictly under the **Apache License, Version 2.0**.
+

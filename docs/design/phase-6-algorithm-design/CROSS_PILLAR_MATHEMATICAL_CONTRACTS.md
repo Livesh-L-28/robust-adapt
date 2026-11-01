@@ -161,3 +161,4 @@ To achieve both **complete modular independence** and **seamless composition whe
 | **Positive Scale Factor**| $s_b \ge 10^{-12}$ | `LowMemoryAdamW` | Add $\epsilon_{\text{quant}} = 10^{-12}$ |
 | **Finite Loss Value** | $\mathcal{L} \in [0, 10^6]$ | Robust Loss Functions | Clip log probabilities at $\ln(\epsilon_{\text{clip}})$ |
 | **Dwell Counter Non-Negativity** | $c_{\text{dwell}} \ge 0 \in \mathbb{Z}$ | ULC Automaton | Saturating decrement: $\max(0, c - 1)$ |
+
