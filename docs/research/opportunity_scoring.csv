@@ -1,0 +1,13 @@
+Opp_ID,Pillar,Description,SEV,EVD,GAP,VAL,FEAS,INT,DIFF,ADOPT,Total_Score,Confidence,Priority
+OPP-ALA-01,ALA,Vectorized 2D NumPy Streaming Estimator (partial_fit),4,5,4,5,5,5,4,5,37,High,Priority A
+OPP-ALA-02,ALA,Noise-Resilient Concept Drift Detector,5,4,4,5,4,4,5,4,35,High,Priority A
+OPP-ALA-03,ALA,Memory-Bounded Reservoir Replay Buffer,4,5,3,4,4,4,4,4,32,Medium,Priority B
+OPP-RLA-01,RLA,In-Training Robust Loss Functions (GCE/SCE single-pass),4,5,4,5,5,5,4,5,37,High,Priority A
+OPP-RLA-02,RLA,Minority-Preserving Sample Reliability Scorer,5,5,5,5,4,4,5,4,37,High,Priority A
+OPP-RLA-03,RLA,Hyperparameter-Free Robust Objective,4,3,4,4,3,4,4,3,29,Medium,Priority B
+OPP-RAO-01,RAO,CPU-First Low-Memory AdamW (Quantized/Factored State),5,5,5,5,4,5,5,5,39,High,Priority A
+OPP-RAO-02,RAO,Low-Rank Gradient Projection on CPU (GaLore-style),4,4,4,4,3,4,4,3,30,Medium,Priority B
+OPP-RAO-03,RAO,Dynamic Parameter Update Throttling,3,3,3,3,4,4,3,3,26,Medium,Priority C
+OPP-ULC-01,ULC,Drift-Noise Arbitration Engine,5,4,5,5,4,4,5,4,36,High,Priority A
+OPP-ULC-02,ULC,Resource-Aware Dynamic Batch / Buffer Scaler,3,4,4,3,4,4,4,3,29,Medium,Priority B
+OPP-ULC-03,ULC,Full Autonomous AutoML Training Pipeline,3,2,2,2,1,2,2,1,15,Low,REJECTED

@@ -3,7 +3,7 @@
 > **Adaptive, Robust, and Resource-Efficient Learning**  
 > *A modular, CPU-first, local-first Python algorithm library for non-stationary, noisy, and resource-constrained machine learning.*
 
-[![Phase](https://img.shields.io/badge/Phase-0%3A%20Foundation-blue.svg)](#roadmap-overview)
+[![Phase](https://img.shields.io/badge/Phase-1%3A%20Market%20Research%20(Ready%20for%20Review)-blue.svg)](#roadmap-overview)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](docs/foundation/LICENSING_AND_IP_POLICY.md)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](docs/foundation/SCOPE_AND_REQUIREMENTS.md)
 [![Architecture](https://img.shields.io/badge/Architecture-CPU--First%20%7C%20Local--First-orange.svg)](docs/foundation/PRODUCT_SPECIFICATION.md)
@@ -97,12 +97,29 @@ The project foundation is documented across ten ratified foundation artifacts:
 
 ---
 
+## Phase 1 Research Documentation
+
+The Phase 1 comprehensive product and market research package comprises the following authoritative deliverables:
+
+| Document | Identifier | Description |
+| :--- | :--- | :--- |
+| [**Market Research Report**](docs/research/MARKET_RESEARCH_REPORT.md) | `DOC-RES-001` | **Authoritative Phase 1 deliverable**: 24-section comprehensive report covering ecosystem, competitors, developer pain points, personas, use cases, positioning, opportunities, and references. |
+| [**Competitor Register**](docs/research/COMPETITOR_REGISTER.md) | `DOC-RES-002` | Detailed competitor taxonomy, in-depth profiles (River, Cleanlab, Avalanche, bitsandbytes, imbalanced-learn, Menelaus), and capability matrices. |
+| [**Developer Problem Register**](docs/research/DEVELOPER_PROBLEM_REGISTER.md) | `DOC-RES-003` | Evidence-backed pain points cataloging drift false alarms, minority-class pruning, CPU optimizer state RAM bloat, and drift-noise retraining collisions. |
+| [**User & Use-Case Analysis**](docs/research/USER_AND_USE_CASE_ANALYSIS.md) | `DOC-RES-004` | Market segmentation, evidence-synthesized developer personas, realistic deployment use cases, and trust dynamics. |
+| [**Opportunity Matrix**](docs/research/OPPORTUNITY_MATRIX.md) | `DOC-RES-005` | Objective 8-dimension scoring across 12 opportunities, Priority A/B/C classification, rejected vectors, and answers to the 8 core differentiation questions. |
+| [**Research Evidence Register**](docs/research/RESEARCH_EVIDENCE_REGISTER.md) | `DOC-RES-006` | Traceable source log with stable URLs, access dates, epistemic classifications (`FACT`, `OBSERVATION`, `INFERENCE`, `HYPOTHESIS`, `RECOMMENDATION`), and confidence ratings. |
+| [**Phase 1 Decisions & Handoff**](docs/research/PHASE_1_DECISIONS.md) | `DOC-RES-007` | Ratified strategic recommendations, rejected/deferred directions, and formal research handoff to Phases 2–7. |
+| **Supporting CSV Datasets** | — | Raw structured data: [`competitor_comparison.csv`](docs/research/competitor_comparison.csv), [`opportunity_scoring.csv`](docs/research/opportunity_scoring.csv), [`research_evidence.csv`](docs/research/research_evidence.csv). |
+
+---
+
 ## Roadmap Overview (Phases 0–21)
 
 AdaptiveML follows a disciplined 22-phase development lifecycle. Each phase must satisfy its Acceptance Gate before subsequent phases may commence:
 
-- **Phase 0: Project Foundation** *(Current Status: Foundation Established)*
-- **Phase 1: Product & Market Research**
+- **Phase 0: Project Foundation** *(ACCEPTED)*
+- **Phase 1: Product & Market Research** *(READY FOR REVIEW — Deliverables Complete)*
 - **Phase 2: Novelty & Prior-Art Research**
 - **Phase 3: Legal & IP Assessment**
 - **Phase 4: Comprehensive Literature Review**
