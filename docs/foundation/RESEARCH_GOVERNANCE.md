@@ -99,3 +99,4 @@ To ensure 100% scientific reproducibility, all experiments conducted in Phase 12
 
 - Any pull request violating these governance rules will be blocked by the Technical Research Lead.
 - Violations of Rule 5 (suppression of negative results) or Rule 4 (unverified superiority claims) represent scientific misconduct under this charter and will require immediate retraction or remediation.
+

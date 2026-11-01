@@ -105,3 +105,4 @@ AdaptiveML establishes explicit boundaries across releases to maintain technical
 | **NFR-DEP-001..003** | Core Package | Phase 14 & 16 | Packaging audit confirms zero mandatory dependencies beyond NumPy. |
 | **NFR-SEC-001..003** | Core Package | Phase 14 & 16 | Security audit confirms zero network calls and safe serialization. |
 | **NFR-REP-001..002** | Core Package | Phase 12 | Seed repeatability tests verify bitwise deterministic outputs on CPU. |
+

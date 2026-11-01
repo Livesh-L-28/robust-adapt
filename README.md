@@ -146,3 +146,4 @@ Contributors and researchers must adhere to our [Research Governance](docs/found
 AdaptiveML welcomes contributions aligned with our charter. All contributions are subject to:
 - **Developer Certificate of Origin (DCO 1.1)**: Every commit must include a `Signed-off-by` line.
 - **License**: Proposed under the [Apache License, Version 2.0](docs/foundation/LICENSING_AND_IP_POLICY.md).
+

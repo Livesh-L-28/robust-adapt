@@ -98,3 +98,4 @@ The following legal matters are unresolved and scheduled for formal analysis in 
 | **LEGAL-Q-01** | Prior existence of commercial entities or startups operating under similar names (e.g., Adaptive ML SAS / adaptive.ml). | Phase 3 | Conduct trademark risk analysis. Select fallback namespaces (`libadaptive`, `aml-core`) if brand conflict arises. |
 | **LEGAL-Q-02** | Patent landscape on low-memory optimizer states (e.g., factored or quantized momentum). | Phase 3 | Review prior patents in optimization algorithms; verify public domain status of baseline formulations. |
 | **LEGAL-Q-03** | Contributor employer IP assignment policies for open-source research contributions. | Phase 3 & 16 | Enforce DCO sign-offs; provide corporate CLA templates for institutional contributors if required. |
+

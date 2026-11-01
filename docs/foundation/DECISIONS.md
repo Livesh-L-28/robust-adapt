@@ -129,3 +129,4 @@ The following strategic questions remain open and are assigned to specific upcom
 |        |                                       |               | C) Retained specialist IP firm       |
 +--------+---------------------------------------+---------------+--------------------------------------+
 ```
+

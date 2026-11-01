@@ -202,3 +202,4 @@ To prevent scope creep and maintain scientific rigor, strict boundaries are esta
 ## 9. Traceability & Next Steps
 
 This specification governs Phase 0 and defines the benchmark criteria for subsequent phases. Any architectural alteration must be processed through an Architecture Decision Record (ADR) documented in `docs/foundation/DECISIONS.md`.
+

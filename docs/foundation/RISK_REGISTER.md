@@ -50,3 +50,4 @@ Risk Severity is derived from Probability and Impact:
 - **Weekly Review**: Engineering-level risks (RSK-TEC, RSK-OPS) are reviewed weekly during sprint planning.
 - **Phase Gate Review**: Prior to signing off on any Acceptance Gate in the 22-phase roadmap, all associated risks must be evaluated and re-scored.
 - **Escalation Path**: Any risk escalating to **Critical Severity** triggers an immediate architecture freeze until a ratified mitigation or contingency plan is executed.
+

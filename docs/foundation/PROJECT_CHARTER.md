@@ -139,3 +139,4 @@ Every code contribution must pass through four strict validation gates:
 ## 7. Charter Amendments
 
 This Charter may only be amended by joint consensus of the Principal Product Architect and Technical Research Lead, documented via a versioned pull request and recorded in `docs/foundation/DECISIONS.md`.
+
