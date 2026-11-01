@@ -3,7 +3,7 @@
 > **Adaptive, Robust, and Resource-Efficient Learning**  
 > *A modular, CPU-first, local-first Python algorithm library for non-stationary, noisy, and resource-constrained machine learning.*
 
-[![Phase](https://img.shields.io/badge/Phase-1%3A%20Market%20Research%20(Ready%20for%20Review)-blue.svg)](#roadmap-overview)
+[![Phase](https://img.shields.io/badge/Phases%200--5%3A%20Research%20Foundation%20Complete%20(Ready%20for%20Review)-blue.svg)](#roadmap-overview)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](docs/foundation/LICENSING_AND_IP_POLICY.md)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](docs/foundation/SCOPE_AND_REQUIREMENTS.md)
 [![Architecture](https://img.shields.io/badge/Architecture-CPU--First%20%7C%20Local--First-orange.svg)](docs/foundation/PRODUCT_SPECIFICATION.md)
@@ -114,17 +114,67 @@ The Phase 1 comprehensive product and market research package comprises the foll
 
 ---
 
+## Phases 2–5 Research Foundation Documentation
+
+The scientific and legal research foundation for AdaptiveML is codified across four specialized research dossiers and cross-phase audits:
+
+### Phase 2: Novelty & Prior-Art Research (`docs/research/phase-2-novelty/`)
+- [**Master Novelty & Prior-Art Report**](docs/research/phase-2-novelty/NOVELTY_AND_PRIOR_ART_REPORT.md) (`DOC-RES-P2-001`)
+- [**ALA Prior-Art Analysis**](docs/research/phase-2-novelty/ALA_PRIOR_ART_ANALYSIS.md) (`DOC-RES-P2-002`) — ADWIN, DDM, Page-Hinkley, ARF, EWC.
+- [**RLA Prior-Art Analysis**](docs/research/phase-2-novelty/RLA_PRIOR_ART_ANALYSIS.md) (`DOC-RES-P2-003`) — GCE, SCE, Co-teaching, Confident Learning, Class-Balanced Loss.
+- [**RAO Prior-Art Analysis**](docs/research/phase-2-novelty/RAO_PRIOR_ART_ANALYSIS.md) (`DOC-RES-P2-004`) — AdamW, Adafactor, Lion, 8-bit Adam, GaLore.
+- [**ULC Prior-Art Analysis**](docs/research/phase-2-novelty/ULC_PRIOR_ART_ANALYSIS.md) (`DOC-RES-P2-005`) — Multi-objective in-loop coordination vs. MLOps DAG tools.
+- [**Patent Landscape Register**](docs/research/phase-2-novelty/PATENT_LANDSCAPE_REGISTER.md) (`DOC-RES-P2-006`) — Audited USPTO, WIPO, and Espacenet records.
+- [**Existing Implementation Analysis**](docs/research/phase-2-novelty/EXISTING_IMPLEMENTATION_ANALYSIS.md) (`DOC-RES-P2-007`) — Code-level inspection of River, Cleanlab, bitsandbytes, etc.
+- [**Novelty Claim Register**](docs/research/phase-2-novelty/NOVELTY_CLAIM_REGISTER.md) (`DOC-RES-P2-008`) — Strict prior-art classification.
+- [**Phase 2 Evidence Register**](docs/research/phase-2-novelty/PHASE_2_EVIDENCE_REGISTER.md) (`DOC-RES-P2-009`) — Traceable DOIs and citations.
+
+### Phase 3: Legal & IP Assessment (`docs/research/phase-3-legal-ip/`)
+- [**Master Legal & IP Assessment**](docs/research/phase-3-legal-ip/LEGAL_AND_IP_ASSESSMENT.md) (`DOC-RES-P3-001`)
+- [**Trademark & Naming Review**](docs/research/phase-3-legal-ip/TRADEMARK_AND_NAMING_REVIEW.md) (`DOC-RES-P3-002`) — Collision analysis with Datadog's *Adaptive ML, Inc.* and `aml-core` fallback.
+- [**Open-Source License Analysis**](docs/research/phase-3-legal-ip/OPEN_SOURCE_LICENSE_ANALYSIS.md) (`DOC-RES-P3-003`) — Apache-2.0 analysis and AGPL copyleft quarantine.
+- [**Dependency License Register**](docs/research/phase-3-legal-ip/DEPENDENCY_LICENSE_REGISTER.md) (`DOC-RES-P3-004`) — Direct and optional dependency license audit.
+- [**Dataset License Review**](docs/research/phase-3-legal-ip/DATASET_AND_BENCHMARK_LICENSE_REVIEW.md) (`DOC-RES-P3-005`) — Usage rights and zero-vendoring policy.
+- [**Copyright & Contributor Policy**](docs/research/phase-3-legal-ip/COPYRIGHT_AND_CONTRIBUTOR_POLICY.md) (`DOC-RES-P3-006`) — Developer Certificate of Origin (DCO 1.1) adoption.
+- [**Patent & FTO Preliminary Review**](docs/research/phase-3-legal-ip/PATENT_AND_FTO_PRELIMINARY_REVIEW.md) (`DOC-RES-P3-007`) — Public domain safe harbors.
+- [**Legal & IP Risk Register**](docs/research/phase-3-legal-ip/LEGAL_IP_RISK_REGISTER.md) (`DOC-RES-P3-008`) — 6 evaluated risks and mitigations.
+- [**Phase 3 Owner Decisions**](docs/research/phase-3-legal-ip/PHASE_3_OWNER_DECISIONS.md) (`DOC-RES-P3-009`) — Ratified leadership decisions.
+
+### Phase 4: Comprehensive Literature Review (`docs/research/phase-4-literature/`)
+- [**ALA Research Dossier**](docs/research/phase-4-literature/ALA_RESEARCH_DOSSIER.md) (`DOC-LIT-001`) — Primary Dossier 1 (Concept Drift & Streaming).
+- [**RLA Research Dossier**](docs/research/phase-4-literature/RLA_RESEARCH_DOSSIER.md) (`DOC-LIT-002`) — Primary Dossier 2 (Noisy Labels & Imbalance).
+- [**RAO Research Dossier**](docs/research/phase-4-literature/RAO_RESEARCH_DOSSIER.md) (`DOC-LIT-003`) — Primary Dossier 3 (Low-Memory Optimization).
+- [**ULC Cross-Cutting Synthesis**](docs/research/phase-4-literature/ULC_CROSS_CUTTING_SYNTHESIS.md) (`DOC-LIT-004`) — Synthesis of cross-pillar conflict modes.
+- [**Comprehensive Literature Register**](docs/research/phase-4-literature/COMPREHENSIVE_LITERATURE_REGISTER.md) (`DOC-LIT-005`) — 20 verified papers with DOIs (1951–2024).
+- [**Research Methods & Datasets**](docs/research/phase-4-literature/RESEARCH_METHODS_AND_DATASETS.md) (`DOC-LIT-006`) — Standardized evaluation protocols.
+- [**Literature Review Master Summary**](docs/research/phase-4-literature/LITERATURE_REVIEW_SUMMARY.md) (`DOC-LIT-007`) — Scientific consensus synthesis.
+
+### Phase 5: Research Gap Identification (`docs/research/phase-5-gap-analysis/`)
+- [**Master Research Gap Analysis**](docs/research/phase-5-gap-analysis/RESEARCH_GAP_ANALYSIS.md) (`DOC-RES-P5-001`) — Consolidated gap matrix.
+- [**Pillar-Specific Gaps**](docs/research/phase-5-gap-analysis/ALA_RESEARCH_GAPS.md) (`ALA_RESEARCH_GAPS.md`, `RLA_RESEARCH_GAPS.md`, `RAO_RESEARCH_GAPS.md`, `ULC_RESEARCH_GAPS.md`).
+- [**Research Gap Priority Matrix**](docs/research/phase-5-gap-analysis/RESEARCH_GAP_PRIORITY_MATRIX.md) (`DOC-RES-P5-006`) — 8-dimension objective scoring.
+- [**Research Questions & Hypotheses**](docs/research/phase-5-gap-analysis/RESEARCH_QUESTIONS_AND_HYPOTHESES.md) (`DOC-RES-P5-007`) — Formal $RQ$, $H_1$, $H_0$ specifications.
+- [**Preliminary Experimental Designs**](docs/research/phase-5-gap-analysis/PRELIMINARY_EXPERIMENTAL_DESIGNS.md) (`DOC-RES-P5-008`) — Multi-seed benchmark protocols.
+- [**Recommended Research Directions**](docs/research/phase-5-gap-analysis/RECOMMENDED_RESEARCH_DIRECTIONS.md) (`DOC-RES-P5-009`) — Mathematical tasks advancing to Phase 6.
+- [**Phase 5 Decisions & Handoff**](docs/research/phase-5-gap-analysis/PHASE_5_DECISIONS.md) (`DOC-RES-P5-010`) — Formal Phase 6 authorization.
+
+### Consolidated Cross-Phase Quality Audit & Completion
+- [**Cross-Phase Quality Audit (Phases 1–5)**](docs/research/PHASE_2_TO_5_CROSS_PHASE_AUDIT.md) (`DOC-AUD-001`)
+- [**Consolidated Research Completion Report (Phases 2–5)**](docs/research/PHASE_2_TO_5_COMPLETION_REPORT.md) (`DOC-REP-P25-001`)
+
+---
+
 ## Roadmap Overview (Phases 0–21)
 
 AdaptiveML follows a disciplined 22-phase development lifecycle. Each phase must satisfy its Acceptance Gate before subsequent phases may commence:
 
 - **Phase 0: Project Foundation** *(ACCEPTED)*
-- **Phase 1: Product & Market Research** *(READY FOR REVIEW — Deliverables Complete)*
-- **Phase 2: Novelty & Prior-Art Research**
-- **Phase 3: Legal & IP Assessment**
-- **Phase 4: Comprehensive Literature Review**
-- **Phase 5: Research Gap Identification**
-- **Phase 6: Mathematical & Algorithm Design**
+- **Phase 1: Product & Market Research** *(READY FOR REVIEW)*
+- **Phase 2: Novelty & Prior-Art Research** *(READY FOR REVIEW)*
+- **Phase 3: Legal & IP Assessment** *(READY FOR REVIEW)*
+- **Phase 4: Comprehensive Literature Review** *(READY FOR REVIEW)*
+- **Phase 5: Research Gap Identification** *(READY FOR REVIEW)*
+- **Phase 6: Mathematical & Algorithm Design** *(UPCOMING)*
 - **Phase 7: Technical Architecture**
 - **Phase 8: ALA Development (Adaptive Learning Algorithms)**
 - **Phase 9: RLA Development (Robust Learning Algorithms)**
