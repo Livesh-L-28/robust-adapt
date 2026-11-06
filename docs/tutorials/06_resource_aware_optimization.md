@@ -8,7 +8,7 @@
 
 ```python
 import numpy as np
-from adaptive_ml.rao import LowMemoryAdamW
+from robust_adapt.rao import LowMemoryAdamW
 
 # Parameter vector (10,000 parameters)
 params = np.random.randn(10000).astype(np.float32)

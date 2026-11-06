@@ -10,7 +10,7 @@ Learn how to integrate AdaptiveML algorithms into existing scikit-learn pipeline
 import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from adaptive_ml.integrations.sklearn import SklearnAdaptiveClassifier
+from robust_adapt.integrations.sklearn import SklearnAdaptiveClassifier
 
 pipe = Pipeline([
     ("scaler", StandardScaler()),
@@ -36,8 +36,8 @@ print(f"Pipeline Accuracy: {accuracy * 100:.1f}%")
 ```python
 import torch
 import torch.nn as nn
-from adaptive_ml.integrations.torch_optim import create_torch_low_memory_adamw
-from adaptive_ml.integrations.torch_module import TorchSymmetricCrossEntropyLoss
+from robust_adapt.integrations.torch_optim import create_torch_low_memory_adamw
+from robust_adapt.integrations.torch_module import TorchSymmetricCrossEntropyLoss
 
 model = nn.Sequential(nn.Linear(8, 32), nn.ReLU(), nn.Linear(32, 2))
 optimizer = create_torch_low_memory_adamw(model.parameters(), lr=1e-3, block_size=64)
@@ -57,4 +57,3 @@ for epoch in range(5):
 ```
 
 Executable demos available at [`examples/integrations/sklearn_pipeline_example.py`](file:///c:/projects/AdaptiveML/examples/integrations/sklearn_pipeline_example.py) and [`examples/integrations/torch_training_example.py`](file:///c:/projects/AdaptiveML/examples/integrations/torch_training_example.py).
-

@@ -1,16 +1,14 @@
-"""Adaptive Learning Algorithms (ALA) module."""
+"""Compatibility forwarding module for adaptive_ml.ala -> robust_adapt.ala."""
 
-from adaptive_ml.ala.tree import VectorizedHoeffdingTree
-from adaptive_ml.ala.adwin import ReliabilityWeightedADWIN
-from adaptive_ml.ala.replay import ClassBalancedReservoirReplay
-from adaptive_ml.ala.ensemble import StreamingEnsemble
-from adaptive_ml.ala.classifier import AdaptiveClassifier
+import robust_adapt.ala as _canonical
+from robust_adapt.ala import *  # noqa: F401, F403
 
-__all__ = [
-    "VectorizedHoeffdingTree",
-    "ReliabilityWeightedADWIN",
-    "ClassBalancedReservoirReplay",
-    "StreamingEnsemble",
-    "AdaptiveClassifier",
-]
+__all__ = getattr(_canonical, "__all__", [name for name in dir(_canonical) if not name.startswith("_")])
 
+
+def __getattr__(name: str):
+    return getattr(_canonical, name)
+
+
+def __dir__():
+    return dir(_canonical)

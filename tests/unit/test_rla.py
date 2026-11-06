@@ -2,11 +2,11 @@
 
 import pytest
 import numpy as np
-from adaptive_ml.rla.scorer import DensityAwareMarginScorer
-from adaptive_ml.rla.losses import SymmetricCrossEntropyLoss, GeneralizedCrossEntropyLoss
-from adaptive_ml.rla.weighting import ClassBalancedWeights
-from adaptive_ml.rla.pipeline import RobustLearningPipeline
-from adaptive_ml.core.exceptions import ValidationError
+from robust_adapt.rla.scorer import DensityAwareMarginScorer
+from robust_adapt.rla.losses import SymmetricCrossEntropyLoss, GeneralizedCrossEntropyLoss
+from robust_adapt.rla.weighting import ClassBalancedWeights
+from robust_adapt.rla.pipeline import RobustLearningPipeline
+from robust_adapt.core.exceptions import ValidationError
 
 
 class TestDensityAwareMarginScorer:

@@ -1,68 +1,80 @@
 # Installation Guide
 
-AdaptiveML (`aml-core`) is engineered to be lightweight, modular, and local-first.
+ROBUST-ADAPT is distributed under the official package name **`robust-adapt`**.
+*(For existing deployments, installation under legacy name `aml-core` remains functional via backward-compatibility dependencies).*
 
 ---
 
-## System Requirements
+## Supported Environment Matrix
 
-- **Python**: `>= 3.10` (tested on Python 3.10, 3.11, 3.12, 3.13, 3.14).
-- **Operating Systems**: Linux (Ubuntu, Debian, Fedora, RHEL), macOS (Apple Silicon & Intel), Windows 10/11 (x64).
-- **Mandatory Runtime Dependencies**: `numpy >= 1.24.0` only.
-- **Hardware**: Standard x86_64 or ARM64 CPU. No GPU accelerator or C++ compiler required.
+| Dimension | Supported Range | Notes |
+| :--- | :--- | :--- |
+| **Python Version** | `>=3.10`, including `3.11`, `3.12`, `3.13`, `3.14` | Verified on Python 3.14.3 AMD64 |
+| **Operating Systems** | Microsoft Windows (x86_64, ARM64)<br/>Linux (Ubuntu, Debian, RHEL, Alpine)<br/>macOS (Intel & Apple Silicon M-series) | Pure-Python universal wheel (`py3-none-any.whl`) |
+| **Hardware** | Standard CPU cores (x86_64 / ARM64) | Optional GPU acceleration via PyTorch |
 
 ---
 
-## Installation Methods
+## 1. Core Installation (Minimal Dependencies)
 
-### 1. Pre-Release / Wheel Installation
-Until public release on PyPI (scheduled for Phase 18), install from the built distribution artifacts in the repository:
+To install ROBUST-ADAPT with strictly minimal dependencies (only `numpy>=1.24.0`):
 
 ```bash
-# Install from pre-built wheel
-pip install dist/aml_core-0.1.0.dev0-py3-none-any.whl
-
-# Or install from source distribution
-pip install dist/aml_core-0.1.0.dev0.tar.gz
+pip install robust-adapt
 ```
 
-### 2. Local Editable Installation (Development)
-For local development and testing:
+This installation provides all core streaming algorithms:
+- `AdaptiveClassifier` & `ReliabilityWeightedADWIN` (ALA)
+- `MultiSignalReliabilityEngine` & `EvidenceBasedLabelCorrector` (RLA)
+- `MinorityIntelligence20Learner` & `DynamicFPBudgetThresholdManager`
+- `LowMemoryAdamW` (NumPy mode) & `ResilientCheckpointManager` (RAO)
+- `UnifiedLearningControllerV5` (ULC)
+
+---
+
+## 2. Optional Framework Extras
+
+ROBUST-ADAPT uses dependency extras to avoid installing heavy external frameworks unless you need them:
+
+```bash
+# PyTorch Integration & VectorizedLowMemoryAdamW
+pip install "robust-adapt[torch]"
+
+# Scikit-Learn Estimator Protocols & Pipeline Utilities
+pip install "robust-adapt[sklearn]"
+
+# Secure Zero-Pickle SafeTensors Serialization
+pip install "robust-adapt[safetensors]"
+
+# Tabular DataFrames (Pandas & Polars support)
+pip install "robust-adapt[dataframe]"
+
+# Documentation Tools (MkDocs & Material theme)
+pip install "robust-adapt[docs]"
+
+# Full Developer Environment (all extras combined)
+pip install "robust-adapt[all]"
+```
+
+---
+
+## 3. Local Editable Installation (Development)
+
+To contribute to or modify the ROBUST-ADAPT codebase:
 
 ```bash
 # Clone the repository
-git clone https://github.com/adaptiveml/adaptiveml.git
-cd adaptiveml
+git clone https://github.com/robust-adapt/robust-adapt.git
+cd robust-adapt
 
-# Create and activate virtual environment
+# Create and activate a clean virtual environment
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-# Install in editable mode with development extras
+# On Linux/macOS:
+source .venv/bin/activate
+# On Windows PowerShell:
+.venv\Scripts\Activate.ps1
+
+# Install in editable mode with development & test tools
 pip install -e ".[dev]"
-```
-
----
-
-## Optional Framework Extras
-
-AdaptiveML isolates third-party framework dependencies into optional extras:
-
-| Extra | Command | Key Capabilities |
-| :--- | :--- | :--- |
-| **PyTorch** | `pip install ".[torch]"` | `create_torch_low_memory_adamw`, `TorchSymmetricCrossEntropyLoss` |
-| **Scikit-learn** | `pip install ".[sklearn]"` | `SklearnAdaptiveClassifier`, `Pipeline`, `clone()` compliance |
-| **SafeTensors** | `pip install ".[safetensors]"` | Zero-pickle binary tensor checkpointing |
-| **DataFrame** | `pip install ".[dataframe]"` | Pandas and Polars streaming data loaders |
-| **All Extras** | `pip install ".[all]"` | Complete ecosystem dependencies |
-
----
-
-## Verifying the Installation
-
-Verify that the package imports correctly and reports its version:
-
-```python
-import adaptive_ml
-print("AdaptiveML Version:", adaptive_ml.__version__)
 ```

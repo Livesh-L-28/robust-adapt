@@ -1,8 +1,8 @@
-# Contributing to AdaptiveML (`aml-core`)
+# Contributing to ROBUST-ADAPT (`robust-adapt`)
 
-Thank you for your interest in contributing to AdaptiveML! 
+Thank you for your interest in contributing to ROBUST-ADAPT!
 
-AdaptiveML is an open-source Python machine-learning library dedicated to adaptive, robust, and resource-efficient learning. We welcome code contributions, documentation improvements, issue reports, and research discussions.
+ROBUST-ADAPT is an open-source Python machine-learning library dedicated to robust and adaptive learning with resource-efficient optimization. We welcome code contributions, documentation improvements, issue reports, and research discussions.
 
 ---
 
@@ -14,7 +14,7 @@ All contributors and participants are expected to adhere to our [Code of Conduct
 
 ## 2. Developer Certificate of Origin (DCO 1.1)
 
-To ensure that all code in AdaptiveML has verifiable legal provenance and complies with our Apache-2.0 licensing, we require the standard **Linux Foundation Developer Certificate of Origin (DCO), Version 1.1**.
+To ensure that all code in ROBUST-ADAPT has verifiable legal provenance and complies with our Apache-2.0 licensing, we require the standard **Linux Foundation Developer Certificate of Origin (DCO), Version 1.1**.
 
 Every commit must include a `Signed-off-by` line in its commit message:
 
@@ -37,7 +37,7 @@ By adding this line, you certify that:
 
 ## 3. Clean-Room Implementation Rules
 
-AdaptiveML maintains strict clean-room implementation governance:
+ROBUST-ADAPT maintains strict clean-room implementation governance:
 - **No Proprietary Code**: Do not submit code derived from proprietary libraries, past employment under restrictive IP agreements, or decompiled binary sources.
 - **Academic Grounding**: Algorithms must be implemented from published academic papers, patents in the public domain, or original derivations.
 - **Traceable Citations**: Always document the mathematical reference (DOI / arXiv ID) in the module docstring.
@@ -54,8 +54,8 @@ AdaptiveML maintains strict clean-room implementation governance:
 ### 4.2 Local Installation
 ```bash
 # Clone the repository
-git clone https://github.com/adaptiveml/adaptiveml.git
-cd adaptiveml
+git clone https://github.com/robust-adapt/robust-adapt.git
+cd robust-adapt
 
 # Create and activate a virtual environment
 python -m venv .venv
@@ -72,8 +72,8 @@ python -m pip install -e ".[dev,all]"
 All pull requests must satisfy the following criteria:
 
 1. **Type Annotations**: 100% strict type hints across all function and class definitions.
-2. **Minimal Core Dependencies**: Core modules in `adaptive_ml/core/`, `ala/`, `rla/`, `rao/`, and `ulc/` must depend **strictly** on standard library and `numpy`.
-3. **Lazy Framework Integrations**: Integrations in `adaptive_ml/integrations/` must use lazy imports and fail gracefully with informative error messages when optional frameworks are absent.
+2. **Minimal Core Dependencies**: Core modules in `robust_adapt/core/`, `ala/`, `rla/`, `rao/`, and `ulc/` must depend **strictly** on standard library and `numpy`.
+3. **Lazy Framework Integrations**: Integrations in `robust_adapt/integrations/` must use lazy imports and fail gracefully with informative error messages when optional frameworks are absent.
 4. **Testing**: All features must include comprehensive unit and property tests under `tests/`. Run the full test suite before submitting:
    ```bash
    pytest tests/
@@ -89,7 +89,7 @@ All pull requests must satisfy the following criteria:
    git checkout -b feature/my-feature-name
    ```
 2. Write clean, modular code with accompanying unit tests and docstrings.
-3. Verify that all 44 regression tests pass:
+3. Verify that all regression tests pass:
    ```bash
    pytest tests/ -v
    ```

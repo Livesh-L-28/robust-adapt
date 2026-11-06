@@ -8,21 +8,21 @@ This guide covers the implementation, configuration, and practical usage of Adap
 
 ```python
 import numpy as np
-from adaptive_ml.ala import AdaptiveClassifier
+from robust_adapt.ala import AdaptiveClassifier
 
 # Create an adaptive classifier with Hoeffding tree core
 clf = AdaptiveClassifier(
-    max_depth=5,
+    n_features=6,
+    n_classes=2,
     grace_period=20,
-    confidence_delta=0.01,
-    buffer_capacity=500
+    delta=0.01,
 )
 
 # Stream training data
 for batch_idx in range(10):
     X = np.random.randn(30, 6).astype(np.float32)
     y = (X[:, 0] > 0.5).astype(np.int64)
-    
+
     # Incremental update
     metrics = clf.partial_fit(X, y)
     print(f"Batch {batch_idx}: Accuracy={metrics['accuracy']:.2f}")
@@ -37,7 +37,7 @@ print("Predictions:", predictions)
 ## 2. Using ReliabilityWeightedADWIN Standalone
 
 ```python
-from adaptive_ml.ala import ReliabilityWeightedADWIN
+from robust_adapt.ala import ReliabilityWeightedADWIN
 
 detector = ReliabilityWeightedADWIN(delta=0.002)
 
@@ -47,7 +47,7 @@ for i in range(100):
     loss = 0.2 if i < 50 else 0.8
     # Estimated reliability (low during noise)
     reliability = 0.1 if (45 <= i < 55) else 1.0
-    
+
     drift_detected = detector.update(loss, reliability=reliability)
     if drift_detected:
         print(f"Concept drift confirmed at step {i}!")

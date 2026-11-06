@@ -8,7 +8,7 @@
 
 ```python
 import numpy as np
-from adaptive_ml.ala import ReliabilityWeightedADWIN
+from robust_adapt.ala import ReliabilityWeightedADWIN
 
 detector = ReliabilityWeightedADWIN(delta=0.002)
 ```
@@ -28,10 +28,10 @@ for t in range(200):
         loss = np.random.normal(0.20, 0.05)
     else:
         loss = np.random.normal(0.85, 0.05)
-    
+
     # Clip loss to valid range [0, 1]
     loss = float(np.clip(loss, 0.0, 1.0))
-    
+
     # Update detector
     is_drift = detector.update(loss, reliability=1.0)
     if is_drift:
@@ -58,7 +58,7 @@ for t in range(100):
     else:
         loss = 0.15
         rel = 1.00
-        
+
     is_drift = detector.update(loss, reliability=rel)
     assert not is_drift, f"False alarm triggered at step {t}!"
 

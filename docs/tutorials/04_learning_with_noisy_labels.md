@@ -8,7 +8,7 @@
 
 ```python
 import numpy as np
-from adaptive_ml.rla.losses import SymmetricCrossEntropyLoss
+from robust_adapt.rla.losses import SymmetricCrossEntropyLoss
 
 # Alpha controls CE weight, Beta controls Reverse CE weight
 loss_fn = SymmetricCrossEntropyLoss(alpha=1.0, beta=0.1)

@@ -7,12 +7,12 @@ Demonstrates:
 """
 
 import numpy as np
-from adaptive_ml.rla import DensityAwareMarginScorer, SymmetricCrossEntropyLoss, ClassBalancedWeights
+from robust_adapt.rla import DensityAwareMarginScorer, SymmetricCrossEntropyLoss, ClassBalancedWeights
 
 
 def run_rla_demo() -> None:
     print("=" * 60)
-    print("AdaptiveML — Phase 9 RLA Robust Learning Demo")
+    print("ROBUST-ADAPT — Phase 9 RLA Robust Learning Demo")
     print("=" * 60)
 
     rng = np.random.default_rng(42)

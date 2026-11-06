@@ -15,7 +15,7 @@ try:
 except ImportError:
     _SKLEARN_AVAILABLE = False
 
-from adaptive_ml.integrations.sklearn import SklearnAdaptiveClassifier
+from robust_adapt.integrations.sklearn import SklearnAdaptiveClassifier
 
 
 @pytest.mark.skipif(not _SKLEARN_AVAILABLE, reason="scikit-learn is required")

@@ -8,13 +8,13 @@ This guide covers sample reliability scoring, robust loss functions, and minorit
 
 ```python
 import numpy as np
-from adaptive_ml.rla import RobustLearningPipeline
+from robust_adapt.rla import RobustLearningPipeline
 
 # Initialize pipeline with density-aware scoring and symmetric loss
 pipeline = RobustLearningPipeline(
+    n_classes=2,
     alpha=1.0,
     beta=0.1,
-    reliability_threshold=0.5
 )
 
 # Simulated features with 20% noise and 100:1 class imbalance
@@ -38,7 +38,7 @@ AdaptiveML provides pure NumPy implementations of Symmetric Cross-Entropy and Ge
 
 ```python
 import numpy as np
-from adaptive_ml.rla import SymmetricCrossEntropyLoss
+from robust_adapt.rla import SymmetricCrossEntropyLoss
 
 loss_fn = SymmetricCrossEntropyLoss(alpha=1.0, beta=0.1)
 

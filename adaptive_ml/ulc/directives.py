@@ -1,39 +1,14 @@
-"""
-AdaptiveML Unified Learning Controller (ULC) Directives.
+"""Compatibility forwarding module for adaptive_ml.ulc.directives -> robust_adapt.ulc.directives."""
 
-Defines the discrete operational states and structured action directives
-communicated across the ALA, RLA, and RAO pillars.
-"""
+import robust_adapt.ulc.directives as _canonical
+from robust_adapt.ulc.directives import *  # noqa: F401, F403
 
-from __future__ import annotations
-
-from dataclasses import dataclass
-from enum import Enum
+__all__ = getattr(_canonical, "__all__", [name for name in dir(_canonical) if not name.startswith("_")])
 
 
-class ControllerState(str, Enum):
-    """Discrete operational states of the arbitration automaton."""
-
-    STABLE = "STABLE"
-    WARNING = "WARNING"
-    CONFIRMED_DRIFT = "CONFIRMED_DRIFT"
-    NOISE_BURST = "NOISE_BURST"
-    RECOVERY = "RECOVERY"
+def __getattr__(name: str):
+    return getattr(_canonical, name)
 
 
-@dataclass(frozen=True)
-class ControllerDirective:
-    """Action directive emitted by the ULC automaton to coordinate pillars."""
-
-    state: ControllerState
-    learning_rate_scale: float = 1.0
-    reset_momentum: bool = False
-    suppress_adwin: bool = False
-    freeze_buffer: bool = False
-    purge_replay: bool = False
-    split_immediate: bool = False
-    sample_filter_threshold: float = 0.0
-    gradient_clip_factor: float = 1.0
-    dwell_remaining: int = 0
-    message: str = ""
-
+def __dir__():
+    return dir(_canonical)

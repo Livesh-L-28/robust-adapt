@@ -1,5 +1,5 @@
 """
-AdaptiveML 5-Minute Quickstart.
+ROBUST-ADAPT 5-Minute Quickstart.
 
 Demonstrates streaming classification with concept drift detection
 and class-balanced reservoir replay in under 30 lines of code.
@@ -8,12 +8,12 @@ and class-balanced reservoir replay in under 30 lines of code.
 from __future__ import annotations
 
 import numpy as np
-from adaptive_ml.ala import AdaptiveClassifier
+from robust_adapt.ala import AdaptiveClassifier
 
 
 def main() -> None:
     print("=" * 70)
-    print("Welcome to AdaptiveML: 5-Minute Quickstart")
+    print("Welcome to ROBUST-ADAPT: 5-Minute Quickstart")
     print("=" * 70)
 
     # 1. Initialize an online streaming classifier

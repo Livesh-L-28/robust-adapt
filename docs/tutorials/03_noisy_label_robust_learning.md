@@ -18,7 +18,7 @@ In low-density regions ($\delta_k \ll 1$), $\psi(\delta_k) > 0$, awarding a prot
 
 ```python
 import numpy as np
-from adaptive_ml.rla.pipeline import RobustLearningPipeline
+from robust_adapt.rla.pipeline import RobustLearningPipeline
 
 # Initialize for a 3-class problem
 pipeline = RobustLearningPipeline(
@@ -40,4 +40,3 @@ print(f"Sample Reliabilities: min={reliabilities.min():.3f}, max={reliabilities.
 ```
 
 Executable demo available at [`examples/rla/robust_learning_example.py`](file:///c:/projects/AdaptiveML/examples/rla/robust_learning_example.py).
-

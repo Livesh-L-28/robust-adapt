@@ -18,7 +18,7 @@ When a burst of noisy labels arrives, raw variance spikes. Standard ADWIN miside
 `ReliabilityWeightedADWIN` weights sub-window cuts by sample reliability $r_i \in [0, 1]$:
 
 ```python
-from adaptive_ml.ala.adwin import ReliabilityWeightedADWIN
+from robust_adapt.ala.adwin import ReliabilityWeightedADWIN
 
 detector = ReliabilityWeightedADWIN(delta=0.002)
 
@@ -34,4 +34,3 @@ if drift_detected:
 ```
 
 Executable demo available at [`examples/ala/streaming_classification_example.py`](file:///c:/projects/AdaptiveML/examples/ala/streaming_classification_example.py).
-

@@ -1,43 +1,14 @@
-"""
-AdaptiveML Backend Abstractions.
+"""Compatibility forwarding module for adaptive_ml.backends.base -> robust_adapt.backends.base."""
 
-Defines the pluggable tensor and compute engine protocol.
-"""
+import robust_adapt.backends.base as _canonical
+from robust_adapt.backends.base import *  # noqa: F401, F403
 
-from __future__ import annotations
-
-from typing import Any, Protocol, runtime_checkable
-
-import numpy as np
+__all__ = getattr(_canonical, "__all__", [name for name in dir(_canonical) if not name.startswith("_")])
 
 
-@runtime_checkable
-class BackendEngine(Protocol):
-    """Protocol for hardware and computational backend engines."""
+def __getattr__(name: str):
+    return getattr(_canonical, name)
 
-    @property
-    def name(self) -> str:
-        """Name of the execution backend."""
-        ...
 
-    @property
-    def device(self) -> str:
-        """Active computing device string (e.g., 'cpu', 'cuda')."""
-        ...
-
-    def to_backend(self, array: np.ndarray) -> Any:
-        """Convert a NumPy array to the backend's native tensor format."""
-        ...
-
-    def to_numpy(self, tensor: Any) -> np.ndarray:
-        """Convert a backend native tensor back to a NumPy ndarray."""
-        ...
-
-    def matmul(self, a: Any, b: Any) -> Any:
-        """Execute matrix multiplication on backend tensors."""
-        ...
-
-    def clip(self, a: Any, a_min: float, a_max: float) -> Any:
-        """Elementwise clamping of tensor values."""
-        ...
-
+def __dir__():
+    return dir(_canonical)

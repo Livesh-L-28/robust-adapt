@@ -8,7 +8,7 @@
 
 ```python
 import numpy as np
-from adaptive_ml.rla.scorer import DensityAwareMarginScorer
+from robust_adapt.rla.scorer import DensityAwareMarginScorer
 
 scorer = DensityAwareMarginScorer(k_neighbors=5, alpha=1.0, beta=1.0)
 ```

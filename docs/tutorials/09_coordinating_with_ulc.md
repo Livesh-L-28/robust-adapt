@@ -8,9 +8,9 @@
 
 ```python
 import numpy as np
-from adaptive_ml.ala import AdaptiveClassifier
-from adaptive_ml.rla import RobustLearningPipeline
-from adaptive_ml.ulc import AdaptiveLearningController
+from robust_adapt.ala import AdaptiveClassifier
+from robust_adapt.rla import RobustLearningPipeline
+from robust_adapt.ulc import AdaptiveLearningController
 
 # Instantiate decoupled pillars
 classifier = AdaptiveClassifier(max_depth=5)
@@ -33,7 +33,7 @@ np.random.seed(42)
 
 for t in range(30):
     X = np.random.randn(25, 4).astype(np.float32)
-    
+
     # Normal stream (t < 10)
     if t < 10:
         y = (X[:, 0] > 0.0).astype(np.int64)
@@ -45,7 +45,7 @@ for t in range(30):
     # Structural Concept Drift (t >= 15): New boundary x1 > 0
     else:
         y = (X[:, 1] > 0.0).astype(np.int64)
-        
+
     result = controller.step(X, y)
     print(f"Step {t:02d} | Regime: {result['state']:<12} | Directive: {result['directive']}")
 ```

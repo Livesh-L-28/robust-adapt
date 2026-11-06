@@ -18,10 +18,10 @@ The ULC constructs an evidence vector $\mathbf{e}_\tau = [\Delta_{\text{drift}},
 
 ```python
 import numpy as np
-from adaptive_ml.ala import AdaptiveClassifier
-from adaptive_ml.rla import RobustLearningPipeline
-from adaptive_ml.ulc import AdaptiveLearningController
-from adaptive_ml.core.config import ULCConfig
+from robust_adapt.ala import AdaptiveClassifier
+from robust_adapt.rla import RobustLearningPipeline
+from robust_adapt.ulc import AdaptiveLearningController
+from robust_adapt.core.config import ULCConfig
 
 # Initialize independent components
 classifier = AdaptiveClassifier(n_features=4, n_classes=2)
@@ -45,4 +45,3 @@ print(f"Retained Samples: {info['n_retained_samples']} / {info['n_input_samples'
 ```
 
 Executable demo available at [`examples/ulc/unified_controller_example.py`](file:///c:/projects/AdaptiveML/examples/ulc/unified_controller_example.py).
-

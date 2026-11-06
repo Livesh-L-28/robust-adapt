@@ -1,11 +1,11 @@
 # AdaptiveML — Python Package Architecture Audit
 ## Phase 14 Production Engineering Deliverable
 
-**Document Identifier:** `DOC-PROD-010`  
-**Working Codename:** AdaptiveML  
-**Distribution Package Identifier:** `aml-core`  
-**Current Version:** `0.1.0.dev0`  
-**Date:** November 2026  
+**Document Identifier:** `DOC-PROD-010`<br>
+**Working Codename:** AdaptiveML<br>
+**Distribution Package Identifier:** `aml-core`<br>
+**Current Version:** `0.1.0.dev0`<br>
+**Date:** November 2026<br>
 **Status:** `READY FOR REVIEW`
 
 ---

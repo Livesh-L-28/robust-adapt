@@ -1,11 +1,11 @@
 # AdaptiveML — Software Supply-Chain Security Report
 ## Phase 16 Legal & Release Audit Deliverable
 
-**Document Identifier:** `DOC-REL-014`  
-**Working Codename:** AdaptiveML  
-**Distribution Package Identifier:** `aml-core`  
-**Current Version:** `0.1.0.dev0`  
-**Date:** November 2026  
+**Document Identifier:** `DOC-REL-014`<br>
+**Working Codename:** AdaptiveML<br>
+**Distribution Package Identifier:** `aml-core`<br>
+**Current Version:** `0.1.0.dev0`<br>
+**Date:** November 2026<br>
 **Status:** `READY FOR REVIEW`
 
 ---

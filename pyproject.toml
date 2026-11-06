@@ -3,14 +3,14 @@ requires = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aml-core"
+name = "robust-adapt"
 version = "0.1.0.dev0"
-description = "Adaptive, Robust, and Resource-Efficient Learning Library"
+description = "Robust and Adaptive Learning with Resource-Efficient Optimization"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
 authors = [
-    { name = "AdaptiveML Core Development Team", email = "maintainers@adaptiveml.internal" }
+    { name = "ROBUST-ADAPT Core Development Team", email = "maintainers@robust-adapt.internal" }
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -48,6 +48,10 @@ dataframe = [
     "pandas>=1.5.0",
     "polars>=0.18.0",
 ]
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.4.0",
+]
 dev = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
@@ -63,14 +67,19 @@ all = [
     "scikit-learn>=1.2.0",
     "scipy>=1.10.0",
     "safetensors>=0.4.0",
+    "pandas>=1.5.0",
+    "polars>=0.18.0",
     "psutil>=5.9.0",
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.4.0",
 ]
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["adaptive_ml*"]
+include = ["robust_adapt*", "adaptive_ml*"]
 
 [tool.setuptools.package-data]
+robust_adapt = ["py.typed"]
 adaptive_ml = ["py.typed"]
 
 [tool.pytest.ini_options]

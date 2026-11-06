@@ -35,3 +35,22 @@ Zero mandatory C++ compiler or CUDA dependencies required. Operates across PyTor
 
 ### 2. Adaptive Gradient Accumulator (`AdaptiveGradientAccumulator`)
 Dynamically adjusts micro-batch size based on available system RAM and step execution time, preventing memory exhaustion while ensuring exact mathematical gradient equivalence.
+
+---
+
+## Hardware Scope, Measured Performance & Architectural Boundaries
+
+### Supported CPU Behavior
+- **Architecture Independence:** Executes natively on any standard 64-bit CPU architecture (x86_64, aarch64, ARM Neoverse) without requiring CUDA, ROCm, or custom C++ build tools.
+- **Resource Footprint:** Operates within constrained environments starting at $512\text{ MB}$ total system RAM.
+- **Dependency Invariant:** Relies strictly on NumPy $\ge 1.24.0$ for SIMD-accelerated array operations.
+
+### Measured Empirical Performance & Limitations
+Empirical benchmarks on an x86_64 CPU (32 logical cores, OpenBLAS) demonstrated strict linear scaling up to $1\text{M}$ parameters with a sustained quantization throughput of $\approx 9.7 - 9.9\text{ MParams/s}$:
+- **$1\text{K}$ parameters:** $0.12\text{ ms}$ step latency ($8.68\text{ MParams/s}$)
+- **$10\text{K}$ parameters:** $1.04\text{ ms}$ step latency ($9.86\text{ MParams/s}$)
+- **$100\text{K}$ parameters:** $10.36\text{ ms}$ step latency ($9.88\text{ MParams/s}$)
+- **$1\text{M}$ parameters:** $107.74\text{ ms}$ step latency ($9.73\text{ MParams/s}$)
+
+### Large-Model Boundaries & When to Use PyTorch Accelerators
+For models with more than $5\text{M}$ to $10\text{M}$ parameters, pure-CPU NumPy quantization incurs $>500\text{ ms}$ latency per step due to CPU memory bus saturation and Python chunk iteration overhead. In deep learning workflows where GPU accelerators are present, users should utilize GPU-native quantized optimizers (such as `bitsandbytes` CUDA kernels) via AdaptiveML's PyTorch adapter (`adaptive_ml.integrations.torch_optim`). `LowMemoryAdamW` remains explicitly tailored for local-first, streaming, embedded, and CPU-bound workloads.

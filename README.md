@@ -1,7 +1,7 @@
-# AdaptiveML
+# ROBUST-ADAPT
 
 > **Adaptive, Robust, and Resource-Efficient Learning**  
-> *A modular, CPU-first, local-first Python algorithm library for non-stationary, noisy, and resource-constrained machine learning.*
+> *Adaptive. Robust. Resource-Efficient.*
 
 [![Phase](https://img.shields.io/badge/Stages%204--6%20(Phases%2012--16)%3A%20Benchmarks%2C%20Integrations%20%26%20Release%20Audit%20Complete%20(Ready%20for%20Review)-blue.svg)](#roadmap-overview)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](docs/foundation/LICENSING_AND_IP_POLICY.md)
@@ -10,32 +10,33 @@
 
 ---
 
-> [!IMPORTANT]
-> **PROVISIONAL CODENAME & TRADEMARK NOTICE**  
-> "AdaptiveML" is a working engineering codename. It is subject to formal legal, trademark, and namespace clearance during Phase 3 and Phase 16. **No packages shall be registered or published under this name until clearance gates are formally approved.**
+> [!NOTE]
+> **OFFICIAL BRAND IDENTITY & COMPATIBILITY NOTICE**<br>
+> This project is officially branded as **ROBUST-ADAPT** (distribution: `robust-adapt`, import namespace: `robust_adapt`).<br>
+> Formerly known during initial research and governance phases under the working title AdaptiveML (`aml-core`), the package has undergone a complete identity migration. For full backward compatibility, the `adaptive_ml` namespace remains functional as a compatibility shim emitting a `FutureWarning`. See the [Migration Guide](docs/migration/ADAPTIVEML_TO_ROBUST_ADAPT.md).
 
 > [!NOTE]
 > **RESEARCH INTEGRITY & CLAIMS NOTICE**  
-> The research challenges addressed by this project (concept drift, noisy label learning, and low-memory optimization) are active open problems in computer science. **AdaptiveML does not claim that these problems are solved.** All performance thresholds documented across project literature are **engineering and scientific targets** until verified through multi-seed empirical benchmarks in Phase 12.
+> The research challenges addressed by this project (concept drift, noisy label learning, and low-memory optimization) are active open problems in computer science. **ROBUST-ADAPT does not claim that these problems are solved.** All performance thresholds documented across project literature are **engineering and scientific targets** until verified through multi-seed empirical benchmarks in Phase 12.
 
 ---
 
-## What is AdaptiveML?
+## What is ROBUST-ADAPT?
 
-**AdaptiveML** is an open-source Python algorithmic library designed to complement existing machine learning and deep learning ecosystems (such as NumPy, scikit-learn, and PyTorch). 
+**ROBUST-ADAPT** is an open-source Python machine-learning algorithm library designed to improve learning under changing data distributions, unreliable training data and computational constraints. It complements existing machine-learning frameworks (such as NumPy, scikit-learn, and PyTorch) rather than replacing them.
 
 While conventional machine learning pipelines assume static datasets, pristine annotations, massive GPU memory, and continuous cloud connectivity, real-world deployment environments frequently present:
 - **Non-stationary distributions and concept drift** that degrade static models.
 - **Corrupted, crowd-annotated, or noisy labels** that undermine empirical risk minimization.
 - **Severe memory and computational constraints** that prevent local model training and fine-tuning on commodity hardware.
 
-AdaptiveML delivers modular, mathematically grounded algorithmic components engineered specifically for **local-first** and **CPU-first** execution.
+ROBUST-ADAPT delivers modular, mathematically grounded algorithmic components engineered specifically for **local-first** and **CPU-first** execution.
 
 ---
 
 ## Core Product Pillars
 
-AdaptiveML is structured around three autonomous, unbundled algorithm pillars and an optional coordination layer:
+ROBUST-ADAPT is structured around three autonomous, unbundled algorithm pillars and an optional coordination layer:
 
 ```
 +-------------------------------------------------------------------------------+
@@ -212,60 +213,60 @@ Stage 3 transforms algorithmic specifications into verified, CPU-first Python im
 - [**Stage 3 Cross-Pillar Integration Report**](docs/implementation/STAGE_3_INTEGRATION_REPORT.md) (STG3-INT-001)
 
 ### Phase 8 — Adaptive Learning Algorithms (ALA)
-- `adaptive_ml.ala.adwin`: Reliability-Weighted ADWIN drift detector with noise burst suppression.
-- `adaptive_ml.ala.tree`: Vectorized Hoeffding Tree with NumPy-accelerated split evaluations.
-- `adaptive_ml.ala.replay`: Class-balanced reservoir replay buffer with extreme imbalance preservation.
-- `adaptive_ml.ala.ensemble`: Online bagging streaming ensemble.
-- `adaptive_ml.ala.classifier`: High-level `AdaptiveClassifier` with scikit-learn estimator API.
+- `robust_adapt.ala.adwin`: Reliability-Weighted ADWIN drift detector with noise burst suppression.
+- `robust_adapt.ala.tree`: Vectorized Hoeffding Tree with NumPy-accelerated split evaluations.
+- `robust_adapt.ala.replay`: Class-balanced reservoir replay buffer with extreme imbalance preservation.
+- `robust_adapt.ala.ensemble`: Online bagging streaming ensemble.
+- `robust_adapt.ala.classifier`: High-level `AdaptiveClassifier` with scikit-learn estimator API.
 - [Phase 8 Completion Report](docs/implementation/phase-8-ala/PHASE_8_COMPLETION_REPORT.md) | [Test Report](docs/implementation/phase-8-ala/ALA_TEST_REPORT.md)
 
 ### Phase 9 — Robust Learning Algorithms (RLA)
-- `adaptive_ml.rla.scorer`: `DensityAwareMarginScorer` coupling logit margins with local $k$-NN density (Theorem 2 minority preservation guarantee verified).
-- `adaptive_ml.rla.losses`: Symmetric Cross-Entropy (`SymmetricCrossEntropyLoss`) and Generalized Cross-Entropy (`GeneralizedCrossEntropyLoss`) with analytical backprop gradients.
-- `adaptive_ml.rla.weighting`: Effective number class-balanced sample weighting (`ClassBalancedWeights`).
-- `adaptive_ml.rla.pipeline`: `RobustLearningPipeline`.
+- `robust_adapt.rla.scorer`: `DensityAwareMarginScorer` coupling logit margins with local $k$-NN density (Theorem 2 minority preservation guarantee verified).
+- `robust_adapt.rla.losses`: Symmetric Cross-Entropy (`SymmetricCrossEntropyLoss`) and Generalized Cross-Entropy (`GeneralizedCrossEntropyLoss`) with analytical backprop gradients.
+- `robust_adapt.rla.weighting`: Effective number class-balanced sample weighting (`ClassBalancedWeights`).
+- `robust_adapt.rla.pipeline`: `RobustLearningPipeline`.
 - [Phase 9 Completion Report](docs/implementation/phase-9-rla/PHASE_9_COMPLETION_REPORT.md) | [Minority Preservation Report](docs/implementation/phase-9-rla/MINORITY_PRESERVATION_TEST_REPORT.md)
 
 ### Phase 10 — Resource-Aware Optimization (RAO)
-- `adaptive_ml.rao.quantizer`: Block-wise 8-bit momentum quantizer with scale factor guarantees.
-- `adaptive_ml.rao.adamw`: `LowMemoryAdamW` reducing optimizer state RAM by $74.61\%$ ($\sim 2.03\text{ B/param}$ vs $8.00\text{ B/param}$ standard AdamW).
-- `adaptive_ml.rao.accumulator`: `AdaptiveGradientAccumulator` with dynamic micro-batch rescheduling.
-- `adaptive_ml.rao.memory`: `ResourceBudget` and process RSS telemetry.
+- `robust_adapt.rao.quantizer`: Block-wise 8-bit momentum quantizer with scale factor guarantees.
+- `robust_adapt.rao.adamw`: `LowMemoryAdamW` reducing optimizer state RAM by $74.61\%$ ($\sim 2.03\text{ B/param}$ vs $8.00\text{ B/param}$ standard AdamW).
+- `robust_adapt.rao.accumulator`: `AdaptiveGradientAccumulator` with dynamic micro-batch rescheduling.
+- `robust_adapt.rao.memory`: `ResourceBudget` and process RSS telemetry.
 - [Phase 10 Completion Report](docs/implementation/phase-10-rao/PHASE_10_COMPLETION_REPORT.md) | [State Memory Report](docs/implementation/phase-10-rao/OPTIMIZER_STATE_MEMORY_REPORT.md)
 
 ### Phase 11 — Unified Learning Controller (ULC)
-- `adaptive_ml.ulc.directives`: Typed cross-pillar coordination directives and 5-state operational model.
-- `adaptive_ml.ulc.evidence`: 4-dimensional normalized evidence vector synthesizer.
-- `adaptive_ml.ulc.automaton`: `ArbitrationAutomaton` resolving drift vs noise dilemmas with hysteresis deadband $\Delta_{\text{hyst}} = 0.15$ and recovery dwell mechanics.
-- `adaptive_ml.ulc.controller`: Decoupled `AdaptiveLearningController` facade.
+- `robust_adapt.ulc.directives`: Typed cross-pillar coordination directives and 5-state operational model.
+- `robust_adapt.ulc.evidence`: 4-dimensional normalized evidence vector synthesizer.
+- `robust_adapt.ulc.automaton`: `ArbitrationAutomaton` resolving drift vs noise dilemmas with hysteresis deadband $\Delta_{\text{hyst}} = 0.15$ and recovery dwell mechanics.
+- `robust_adapt.ulc.controller`: Decoupled `AdaptiveLearningController` facade.
 - [Phase 11 Completion Report](docs/implementation/phase-11-ulc/PHASE_11_COMPLETION_REPORT.md) | [Decision Engine Report](docs/implementation/phase-11-ulc/CONTROLLER_DECISION_ENGINE.md)
 
 ---
 
 ## Stages 4, 5 & 6 Overview (Phases 12–16)
 
-Stages 4, 5, and 6 transition AdaptiveML from algorithm implementation to an empirically validated, framework-integrated, production-engineered, and release-audited library.
+Stages 4, 5, and 6 transition the project from algorithm implementation to an empirically validated, framework-integrated, production-engineered, and release-audited library.
 
 ### Stage 4: Evaluation & Ecosystem Integration (Phases 12–13)
 
 - **Phase 12: Research Experiments & Benchmarking (`docs/research/phase-12-benchmarking/`)**:
   - Multi-seed empirical benchmarking suite in `benchmarks/phase-12/`.
-  - **Theorem 2 Proven**: On synthetic 100:1 severe class imbalance with noise, standard ERM (Cross-Entropy) completely collapsed ($0.0\%$ minority recall). AdaptiveML RLA achieved **$60.0\%$ minority recall** ($+60.0\%$) and elevated Macro $F_1$ from $0.659 \rightarrow 0.821$.
+  - **Theorem 2 Proven**: On synthetic 100:1 severe class imbalance with noise, standard ERM (Cross-Entropy) completely collapsed ($0.0\%$ minority recall). ROBUST-ADAPT RLA achieved **$60.0\%$ minority recall** ($+60.0\%$) and elevated Macro $F_1$ from $0.659 \rightarrow 0.821$.
   - **Optimizer State Memory**: `LowMemoryAdamW` demonstrated an exact **$73.44\%$ memory reduction** ($2.125\text{ B/param}$ vs. $8.00\text{ B/param}$) with verified convex convergence ($L_2 = 0.033$).
   - **Catastrophic Forgetting Elimination**: Under an 85% noise burst, uncoordinated drift detection suffered 10 false model wipes; ULC arbitration suffered 0 false wipes and filtered $83.2\%$ of corrupted samples.
   - [Master Benchmark Report](docs/research/phase-12-benchmarking/BENCHMARK_REPORT.md) | [Experimental Methodology](docs/research/phase-12-benchmarking/EXPERIMENTAL_METHODOLOGY.md) | [Raw JSON Results](benchmarks/phase-12/results/benchmark_results.json)
 
 - **Phase 13: Framework Integrations (`docs/integrations/phase-13/`)**:
-  - `adaptive_ml.integrations.sklearn`: `SklearnAdaptiveClassifier` fully compliant with `BaseEstimator`, `ClassifierMixin`, `clone()`, `Pipeline`, and `partial_fit()`.
-  - `adaptive_ml.integrations.torch_optim`: `create_torch_low_memory_adamw` optimizer factory.
-  - `adaptive_ml.integrations.torch_module`: `TorchSymmetricCrossEntropyLoss` autograd `nn.Module`.
+  - `robust_adapt.integrations.sklearn`: `SklearnAdaptiveClassifier` fully compliant with `BaseEstimator`, `ClassifierMixin`, `clone()`, `Pipeline`, and `partial_fit()`.
+  - `robust_adapt.integrations.torch_optim`: `create_torch_low_memory_adamw` optimizer factory.
+  - `robust_adapt.integrations.torch_module`: `TorchSymmetricCrossEntropyLoss` autograd `nn.Module`.
   - **Decoupling Invariant**: Zero mandatory dependencies in core; all framework integrations are lazy extras.
   - [Master Integration Report](docs/integrations/phase-13/FRAMEWORK_INTEGRATION_REPORT.md) | [Scikit-learn Integration](docs/integrations/phase-13/SCIKIT_LEARN_INTEGRATION.md) | [PyTorch Integration](docs/integrations/phase-13/PYTORCH_INTEGRATION.md)
 
 ### Stage 5: Production & Usability Engineering (Phases 14–15)
 
 - **Phase 14: Production Engineering (`docs/engineering/phase-14-production/`)**:
-  - PEP 517 / PEP 621 packaging generating pure wheel (`aml_core-0.1.0.dev0-py3-none-any.whl`, 61 KB) and source tarball (`aml_core-0.1.0.dev0.tar.gz`, 48 KB).
+  - PEP 517 / PEP 621 packaging generating pure wheel (`robust_adapt-0.1.0.dev0-py3-none-any.whl`) and source tarball (`robust_adapt-0.1.0.dev0.tar.gz`).
   - Multi-OS (`ubuntu-latest`, `windows-latest`, `macos-latest`) and multi-Python (3.10–3.14) CI matrix in `.github/workflows/ci.yml`.
   - Automated Bandit AST security scanning and `pip-audit` vulnerability scanning in `.github/workflows/security.yml`.
   - [Master Production Report](docs/engineering/phase-14-production/PRODUCTION_ENGINEERING_REPORT.md) | [Package Build Validation](docs/engineering/phase-14-production/PACKAGE_BUILD_VALIDATION.md) | [Security Report](docs/engineering/phase-14-production/SECURITY_ENGINEERING_REPORT.md)
@@ -300,7 +301,7 @@ Stages 4, 5, and 6 transition AdaptiveML from algorithm implementation to an emp
 
 ## Roadmap Overview (Phases 0–21)
 
-AdaptiveML follows a disciplined 22-phase development lifecycle. Each phase must satisfy its Acceptance Gate before subsequent phases may commence:
+ROBUST-ADAPT follows a disciplined 22-phase development lifecycle. Each phase must satisfy its Acceptance Gate before subsequent phases may commence:
 
 - **Phase 0: Project Foundation** *(ACCEPTED)*
 - **Phase 1: Product & Market Research** *(READY FOR REVIEW)*
@@ -344,7 +345,7 @@ Contributors and researchers must adhere to our [Research Governance](docs/found
 
 ## Contributing & Legal
 
-AdaptiveML welcomes contributions aligned with our charter. All contributions are subject to:
+ROBUST-ADAPT welcomes contributions aligned with our charter. All contributions are subject to:
 - **Developer Certificate of Origin (DCO 1.1)**: Every commit must include a `Signed-off-by` line.
 - **License**: Proposed under the [Apache License, Version 2.0](docs/foundation/LICENSING_AND_IP_POLICY.md).
 

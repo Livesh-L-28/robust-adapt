@@ -1,8 +1,8 @@
-site_name: AdaptiveML Documentation
-site_description: Adaptive, Robust, and Resource-Efficient Learning for Python
-site_author: AdaptiveML Core Team
-repo_url: https://github.com/adaptiveml/adaptiveml
-repo_name: adaptiveml/adaptiveml
+site_name: ROBUST-ADAPT Documentation
+site_description: Robust and Adaptive Learning with Resource-Efficient Optimization
+site_author: ROBUST-ADAPT Core Team
+repo_url: https://github.com/robust-adapt/robust-adapt
+repo_name: robust-adapt/robust-adapt
 
 theme:
   name: material
@@ -32,7 +32,11 @@ plugins:
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -45,40 +49,104 @@ markdown_extensions:
 
 nav:
   - Overview: index.md
+  - Introduction:
+      - Product Overview: introduction/overview.md
+      - Problem Statement: introduction/problem-statement.md
+      - Architecture Overview: introduction/architecture-overview.md
+      - Design Principles: introduction/design-principles.md
   - Getting Started:
       - Installation: getting-started/installation.md
+      - Environment Setup: getting-started/environment-setup.md
+      - Verification: getting-started/installation-verification.md
+      - Optional Integrations: getting-started/optional-integrations.md
       - 5-Minute Quickstart: getting-started/quickstart.md
-      - Supported Environments: getting-started/supported-environments.md
+      - First Adaptive Model: getting-started/first-adaptive-model.md
+      - First Streaming Model: getting-started/first-streaming-model.md
   - Core Concepts:
-      - Adaptive Learning (ALA): concepts/adaptive-learning.md
-      - Robust Learning (RLA): concepts/robust-learning.md
-      - Resource-Aware Optimization (RAO): concepts/resource-aware-optimization.md
-      - Unified Learning Controller (ULC): concepts/unified-controller.md
-  - Component Guides:
-      - ALA Guide: guides/ala.md
-      - RLA Guide: guides/rla.md
-      - RAO Guide: guides/rao.md
-      - ULC Guide: guides/ulc.md
+      - Concept Drift: concepts/concept-drift.md
+      - Label Noise & Robustness: concepts/label-noise.md
+      - Class Imbalance: concepts/class-imbalance.md
+      - Resource Optimization: concepts/resource-optimization.md
+      - Controller Coordination: concepts/controller-arbitration.md
+  - Algorithms:
+      - ALA 3.0:
+          - Overview: algorithms/ala/overview.md
+          - Algorithm Design: algorithms/ala/algorithm-design.md
+          - Configuration: algorithms/ala/configuration.md
+          - Recurring Memory: algorithms/ala/recurring-concept-memory.md
+          - Code Examples: algorithms/ala/examples.md
+          - Limitations: algorithms/ala/limitations.md
+      - RLA 3.0:
+          - Overview: algorithms/rla/overview.md
+          - Algorithm Design: algorithms/rla/algorithm-design.md
+          - Configuration: algorithms/rla/configuration.md
+          - Asymmetric Noise: algorithms/rla/asymmetric-noise.md
+          - Code Examples: algorithms/rla/examples.md
+          - Limitations: algorithms/rla/limitations.md
+      - Minority Intelligence 2.0:
+          - Overview: algorithms/minority-intelligence/overview.md
+          - Algorithm Design: algorithms/minority-intelligence/algorithm-design.md
+          - Configuration: algorithms/minority-intelligence/configuration.md
+          - Dynamic FP Thresholds: algorithms/minority-intelligence/threshold-management.md
+          - Code Examples: algorithms/minority-intelligence/examples.md
+          - Limitations: algorithms/minority-intelligence/limitations.md
+      - RAO 2.0:
+          - Overview: algorithms/rao/overview.md
+          - Algorithm Design: algorithms/rao/algorithm-design.md
+          - Configuration: algorithms/rao/configuration.md
+          - Vectorized Low-Memory AdamW: algorithms/rao/vectorized-optimizer.md
+          - Code Examples: algorithms/rao/examples.md
+          - Limitations: algorithms/rao/limitations.md
+      - ULC-v5:
+          - Overview: algorithms/ulc/overview.md
+          - Architecture: algorithms/ulc/architecture.md
+          - Configuration: algorithms/ulc/configuration.md
+          - 5-Tier Intervention Hierarchy: algorithms/ulc/intervention-hierarchy.md
+          - Code Examples: algorithms/ulc/examples.md
+          - Limitations: algorithms/ulc/limitations.md
+  - Public API Reference:
+      - API Index: api/index.md
+      - Core Foundations: api/core.md
+      - ALA API: api/ala.md
+      - RLA API: api/rla.md
+      - Minority Intelligence API: api/minority.md
+      - RAO API: api/rao.md
+      - ULC API: api/ulc.md
+      - Integrations API: api/integrations.md
+      - State & Persistence API: api/state.md
   - Framework Integrations:
+      - Overview & Data Contracts: integrations/index.md
       - Pure NumPy: integrations/numpy.md
-      - Scikit-learn: integrations/scikit-learn.md
+      - Scikit-Learn: integrations/scikit-learn.md
       - PyTorch: integrations/pytorch.md
-  - Tutorials:
-      - 01. Your First Workflow: tutorials/01_your_first_workflow.md
-      - 02. Detecting Concept Drift: tutorials/02_detecting_concept_drift.md
-      - 03. Incremental Learning: tutorials/03_incremental_learning.md
-      - 04. Learning with Noisy Labels: tutorials/04_learning_with_noisy_labels.md
-      - 05. Preserving Minority Classes: tutorials/05_preserving_minority_class.md
-      - 06. Resource-Aware Optimization: tutorials/06_resource_aware_optimization.md
-      - 07. PyTorch Integration: tutorials/07_pytorch_integration.md
-      - 08. Scikit-learn Integration: tutorials/08_scikit_learn_integration.md
-      - 09. Coordinating with ULC: tutorials/09_coordinating_with_ulc.md
-      - 10. Reproducing Benchmarks: tutorials/10_reproducing_benchmarks.md
+      - Tabular DataFrames: integrations/dataframes.md
+      - Deferred Frameworks: integrations/deferred-frameworks.md
+  - Operational Guides:
+      - Checkpoints & Recovery: guides/checkpoints-and-recovery.md
+      - Observability & Telemetry: guides/observability.md
+      - CPU Performance Tuning: guides/cpu-performance.md
+      - ALA Component Guide: guides/ala.md
+      - RLA Component Guide: guides/rla.md
+      - RAO Component Guide: guides/rao.md
+      - ULC Component Guide: guides/ulc.md
+  - Industry Tutorials:
+      - 01. IoT Anomaly & Drift: tutorials/01_streaming_anomaly_detection.md
+      - 02. Recurring Retail Demand: tutorials/02_recurring_demand_shifts.md
+      - 03. Extreme Label Noise: tutorials/03_extreme_label_noise.md
+      - 04. Financial Fraud Streams: tutorials/04_fraud_detection_streams.md
+      - 05. Low-Memory PyTorch: tutorials/05_low_memory_pytorch.md
+      - 06. ULC-v5 Master Coordination: tutorials/06_unified_coordination.md
+  - Architecture & Research:
+      - System Architecture: architecture/system-architecture.md
+      - Security Architecture: architecture/security-architecture.md
+      - Research Methodology: research/research-methodology.md
   - Troubleshooting & FAQ:
       - Troubleshooting: troubleshooting/index.md
-      - FAQ: faq.md
+      - Frequently Asked Questions: faq.md
+  - Migration Guide:
+      - AdaptiveML to ROBUST-ADAPT: migration/ADAPTIVEML_TO_ROBUST_ADAPT.md
   - Community & Governance:
-      - Contributing: ../CONTRIBUTING.md
-      - Code of Conduct: ../CODE_OF_CONDUCT.md
-      - Security Policy: ../SECURITY.md
-      - License: ../LICENSE
+      - Contributing Guide: community/contributing.md
+      - Code of Conduct: community/code-of-conduct.md
+      - Security Policy: community/security.md
+      - License & Trademark: community/license.md

@@ -8,7 +8,7 @@
 
 ```python
 import numpy as np
-from adaptive_ml.ala.tree import VectorizedHoeffdingTree
+from robust_adapt.ala.tree import VectorizedHoeffdingTree
 
 # Initialize Hoeffding Tree with grace period 20
 tree = VectorizedHoeffdingTree(
@@ -29,9 +29,9 @@ for i in range(150):
     # Single sample streaming in
     x = np.random.randn(4).astype(np.float32)
     y = int(x[0] > 0.0)
-    
+
     tree.update(x, y)
-    
+
     if (i + 1) % 30 == 0:
         print(f"Step {i + 1:03d} | Total Nodes: {tree.n_nodes} | Tree Depth: {tree.depth}")
 ```

@@ -25,7 +25,7 @@ AdaptiveML's `AdaptiveClassifier` combines vectorized Hoeffding trees with autom
 
 ```python
 import numpy as np
-from adaptive_ml.ala import AdaptiveClassifier
+from robust_adapt.ala import AdaptiveClassifier
 
 # Initialize the online classifier
 model = AdaptiveClassifier(
@@ -51,4 +51,3 @@ for step in range(1, 6):
 ```
 
 Executable script available at [`examples/quickstart.py`](file:///c:/projects/AdaptiveML/examples/quickstart.py).
-

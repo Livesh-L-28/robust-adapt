@@ -5,8 +5,8 @@ Unit tests for compute backends.
 import numpy as np
 import pytest
 
-from adaptive_ml.backends import NumPyBackend, TorchBackend, get_backend
-from adaptive_ml.backends.torch_backend import _TORCH_AVAILABLE
+from robust_adapt.backends import NumPyBackend, TorchBackend, get_backend
+from robust_adapt.backends.torch_backend import _TORCH_AVAILABLE
 
 
 def test_numpy_backend_operations() -> None:

@@ -1,5 +1,5 @@
 """
-AdaptiveML Example: PyTorch Deep Learning Integration.
+ROBUST-ADAPT Example: PyTorch Deep Learning Integration.
 
 Demonstrates training a PyTorch neural network using LowMemoryAdamW
 and TorchSymmetricCrossEntropyLoss under synthetic label noise.
@@ -10,13 +10,13 @@ from __future__ import annotations
 import torch
 import torch.nn as nn
 
-from adaptive_ml.integrations.torch_module import TorchSymmetricCrossEntropyLoss
-from adaptive_ml.integrations.torch_optim import create_torch_low_memory_adamw
+from robust_adapt.integrations.torch_module import TorchSymmetricCrossEntropyLoss
+from robust_adapt.integrations.torch_optim import create_torch_low_memory_adamw
 
 
 def main() -> None:
     print("=" * 80)
-    print("AdaptiveML: PyTorch Neural Network Integration Example")
+    print("ROBUST-ADAPT: PyTorch Neural Network Integration Example")
     print("LowMemoryAdamW + TorchSymmetricCrossEntropyLoss")
     print("=" * 80)
 
@@ -31,7 +31,7 @@ def main() -> None:
         nn.Linear(16, 2),
     )
 
-    # 2. AdaptiveML Quantized Optimizer & Robust Loss
+    # 2. ROBUST-ADAPT Quantized Optimizer & Robust Loss
     optimizer = create_torch_low_memory_adamw(model.parameters(), lr=0.001, block_size=64)
     loss_fn = TorchSymmetricCrossEntropyLoss(alpha=1.0, beta=0.1)
 

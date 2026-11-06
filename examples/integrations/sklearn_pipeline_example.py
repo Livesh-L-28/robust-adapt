@@ -1,5 +1,5 @@
 """
-AdaptiveML Example: Scikit-learn Pipeline Integration.
+ROBUST-ADAPT Example: Scikit-learn Pipeline Integration.
 
 Demonstrates using SklearnAdaptiveClassifier within a standard scikit-learn
 Pipeline with feature scaling and cross-validation metrics.
@@ -11,12 +11,12 @@ import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-from adaptive_ml.integrations.sklearn import SklearnAdaptiveClassifier
+from robust_adapt.integrations.sklearn import SklearnAdaptiveClassifier
 
 
 def main() -> None:
     print("=" * 80)
-    print("AdaptiveML: Scikit-learn Pipeline Integration Example")
+    print("ROBUST-ADAPT: Scikit-learn Pipeline Integration Example")
     print("=" * 80)
 
     # 1. Generate Synthetic Classification Data

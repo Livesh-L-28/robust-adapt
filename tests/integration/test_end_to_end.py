@@ -1,5 +1,5 @@
 """
-AdaptiveML End-to-End Cross-Pillar Integration Tests.
+ROBUST-ADAPT End-to-End Cross-Pillar Integration Tests.
 
 Validates the full system behavior across ALA, RLA, RAO, and ULC,
 as well as strict pillar decoupling and safe state persistence.
@@ -12,52 +12,52 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from adaptive_ml.ala.classifier import AdaptiveClassifier
-from adaptive_ml.core.config import ULCConfig
-from adaptive_ml.rao.adamw import LowMemoryAdamW
-from adaptive_ml.rla.pipeline import RobustLearningPipeline
-from adaptive_ml.state.checkpoint import CheckpointManager
-from adaptive_ml.ulc.controller import AdaptiveLearningController
-from adaptive_ml.ulc.directives import ControllerState
+from robust_adapt.ala.classifier import AdaptiveClassifier
+from robust_adapt.core.config import ULCConfig
+from robust_adapt.rao.adamw import LowMemoryAdamW
+from robust_adapt.rla.pipeline import RobustLearningPipeline
+from robust_adapt.state.checkpoint import CheckpointManager
+from robust_adapt.ulc.controller import AdaptiveLearningController
+from robust_adapt.ulc.directives import ControllerState
 
 
 def test_strict_pillar_isolation() -> None:
     """Validate that ALA, RLA, and RAO have zero cross-pillar internal imports."""
     # Check ALA imports
-    import adaptive_ml.ala.classifier
-    import adaptive_ml.ala.tree
-    import adaptive_ml.ala.adwin
+    import robust_adapt.ala.classifier
+    import robust_adapt.ala.tree
+    import robust_adapt.ala.adwin
 
     # Check RLA imports
-    import adaptive_ml.rla.scorer
-    import adaptive_ml.rla.losses
-    import adaptive_ml.rla.pipeline
+    import robust_adapt.rla.scorer
+    import robust_adapt.rla.losses
+    import robust_adapt.rla.pipeline
 
     # Check RAO imports
-    import adaptive_ml.rao.adamw
-    import adaptive_ml.rao.quantizer
+    import robust_adapt.rao.adamw
+    import robust_adapt.rao.quantizer
 
     # Inspect sys.modules dependencies
-    ala_code = Path("adaptive_ml/ala").glob("*.py")
+    ala_code = Path("robust_adapt/ala").glob("*.py")
     for p in ala_code:
         text = p.read_text(encoding="utf-8")
-        assert "adaptive_ml.rla" not in text, f"{p} illegally imports RLA"
-        assert "adaptive_ml.rao" not in text, f"{p} illegally imports RAO"
-        assert "adaptive_ml.ulc" not in text, f"{p} illegally imports ULC"
+        assert "robust_adapt.rla" not in text, f"{p} illegally imports RLA"
+        assert "robust_adapt.rao" not in text, f"{p} illegally imports RAO"
+        assert "robust_adapt.ulc" not in text, f"{p} illegally imports ULC"
 
-    rla_code = Path("adaptive_ml/rla").glob("*.py")
+    rla_code = Path("robust_adapt/rla").glob("*.py")
     for p in rla_code:
         text = p.read_text(encoding="utf-8")
-        assert "adaptive_ml.ala" not in text, f"{p} illegally imports ALA"
-        assert "adaptive_ml.rao" not in text, f"{p} illegally imports RAO"
-        assert "adaptive_ml.ulc" not in text, f"{p} illegally imports ULC"
+        assert "robust_adapt.ala" not in text, f"{p} illegally imports ALA"
+        assert "robust_adapt.rao" not in text, f"{p} illegally imports RAO"
+        assert "robust_adapt.ulc" not in text, f"{p} illegally imports ULC"
 
-    rao_code = Path("adaptive_ml/rao").glob("*.py")
+    rao_code = Path("robust_adapt/rao").glob("*.py")
     for p in rao_code:
         text = p.read_text(encoding="utf-8")
-        assert "adaptive_ml.ala" not in text, f"{p} illegally imports ALA"
-        assert "adaptive_ml.rla" not in text, f"{p} illegally imports RLA"
-        assert "adaptive_ml.ulc" not in text, f"{p} illegally imports ULC"
+        assert "robust_adapt.ala" not in text, f"{p} illegally imports ALA"
+        assert "robust_adapt.rla" not in text, f"{p} illegally imports RLA"
+        assert "robust_adapt.ulc" not in text, f"{p} illegally imports ULC"
 
 
 def test_end_to_end_cross_pillar_streaming_workflow(tmp_path: Path) -> None:

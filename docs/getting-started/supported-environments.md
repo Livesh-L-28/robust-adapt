@@ -1,6 +1,6 @@
 # Supported Environments & Compatibility Matrix
 
-AdaptiveML is designed for portability across standard platforms, Python versions, and ecosystem libraries.
+ROBUST-ADAPT is designed for portability across standard platforms, Python versions, and ecosystem libraries.
 
 ---
 
@@ -30,9 +30,9 @@ AdaptiveML is designed for portability across standard platforms, Python version
 
 ## Ecosystem Integration Matrix
 
-| Framework | Version Range | Module in AdaptiveML | Validation Status |
+| Framework | Version Range | Module in ROBUST-ADAPT | Validation Status |
 | :--- | :--- | :--- | :--- |
-| **NumPy** | `>= 1.24.0, <= 2.4.x` | `adaptive_ml.backends.numpy_backend` | Mandatory core dependency (100% verified) |
-| **Scikit-learn** | `>= 1.2.0, <= 1.8.x` | `adaptive_ml.integrations.sklearn` | Optional adapter (3/3 integration tests passing) |
-| **PyTorch** | `>= 2.0.0, <= 2.12.x` | `adaptive_ml.integrations.torch_optim`, `torch_module` | Optional adapter (2/2 integration tests passing) |
-| **SafeTensors** | `>= 0.4.0` | `adaptive_ml.state.serializer` | Optional safe binary serialization |
+| **NumPy** | `>= 1.24.0, <= 2.4.x` | `robust_adapt.backends.numpy_backend` | Mandatory core dependency (100% verified) |
+| **Scikit-learn** | `>= 1.2.0, <= 1.8.x` | `robust_adapt.integrations.sklearn` | Optional adapter (3/3 integration tests passing) |
+| **PyTorch** | `>= 2.0.0, <= 2.12.x` | `robust_adapt.integrations.torch_optim`, `torch_module` | Optional adapter (2/2 integration tests passing) |
+| **SafeTensors** | `>= 0.4.0` | `robust_adapt.state.serializer` | Optional safe binary serialization |

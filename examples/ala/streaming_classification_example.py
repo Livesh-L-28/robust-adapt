@@ -7,12 +7,12 @@ Demonstrates:
 """
 
 import numpy as np
-from adaptive_ml.ala import AdaptiveClassifier
+from robust_adapt.ala import AdaptiveClassifier
 
 
 def run_ala_demo() -> None:
     print("=" * 60)
-    print("AdaptiveML — Phase 8 ALA Streaming Demo")
+    print("ROBUST-ADAPT — Phase 8 ALA Streaming Demo")
     print("=" * 60)
 
     rng = np.random.default_rng(42)

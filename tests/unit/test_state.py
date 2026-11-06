@@ -6,8 +6,8 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from adaptive_ml.state.checkpoint import CheckpointManager
-from adaptive_ml.state.serializer import load_state, save_state
+from robust_adapt.state.checkpoint import CheckpointManager
+from robust_adapt.state.serializer import load_state, save_state
 
 
 def test_safetensors_save_and_load(tmp_path: Path) -> None:

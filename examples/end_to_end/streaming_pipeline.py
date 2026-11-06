@@ -1,5 +1,5 @@
 """
-AdaptiveML End-to-End Streaming Pipeline Demonstration.
+ROBUST-ADAPT End-to-End Streaming Pipeline Demonstration.
 
 Demonstrates complete cross-pillar operation:
 - ALA: Online vectorized tree learning & drift detection
@@ -15,12 +15,12 @@ import tempfile
 from pathlib import Path
 import numpy as np
 
-from adaptive_ml.ala.classifier import AdaptiveClassifier
-from adaptive_ml.core.config import ULCConfig
-from adaptive_ml.rao.adamw import LowMemoryAdamW
-from adaptive_ml.rla.pipeline import RobustLearningPipeline
-from adaptive_ml.state.checkpoint import CheckpointManager
-from adaptive_ml.ulc.controller import AdaptiveLearningController
+from robust_adapt.ala.classifier import AdaptiveClassifier
+from robust_adapt.core.config import ULCConfig
+from robust_adapt.rao.adamw import LowMemoryAdamW
+from robust_adapt.rla.pipeline import RobustLearningPipeline
+from robust_adapt.state.checkpoint import CheckpointManager
+from robust_adapt.ulc.controller import AdaptiveLearningController
 
 
 class ParamWrapper:
@@ -89,7 +89,7 @@ def generate_stream_batch(
 
 def main() -> None:
     print("=" * 80)
-    print("AdaptiveML: Comprehensive End-to-End Streaming Pipeline")
+    print("ROBUST-ADAPT: Comprehensive End-to-End Streaming Pipeline")
     print("Cross-Pillar In-Loop Coordination: ALA + RLA + RAO + ULC + State")
     print("=" * 80)
 

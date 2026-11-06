@@ -2,11 +2,11 @@
 
 import pytest
 import numpy as np
-from adaptive_ml.rao.quantizer import BlockQuantizer
-from adaptive_ml.rao.adamw import LowMemoryAdamW
-from adaptive_ml.rao.accumulator import AdaptiveGradientAccumulator
-from adaptive_ml.rao.memory import ResourceBudget
-from adaptive_ml.core.exceptions import ConfigurationError, QuantizationError, ResourceBudgetExceededError
+from robust_adapt.rao.quantizer import BlockQuantizer
+from robust_adapt.rao.adamw import LowMemoryAdamW
+from robust_adapt.rao.accumulator import AdaptiveGradientAccumulator
+from robust_adapt.rao.memory import ResourceBudget
+from robust_adapt.core.exceptions import ConfigurationError, QuantizationError, ResourceBudgetExceededError
 
 try:
     import torch

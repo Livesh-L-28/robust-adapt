@@ -1,18 +1,18 @@
 # AdaptiveML — Memory & Resource Usage Audit
 ## Phase 14 Production Engineering Deliverable
 
-**Document Identifier:** `DOC-PROD-012`  
-**Working Codename:** AdaptiveML  
-**Distribution Package Identifier:** `aml-core`  
-**Current Version:** `0.1.0.dev0`  
-**Date:** November 2026  
+**Document Identifier:** `DOC-PROD-012`<br>
+**Working Codename:** AdaptiveML<br>
+**Distribution Package Identifier:** `aml-core`<br>
+**Current Version:** `0.1.0.dev0`<br>
+**Date:** November 2026<br>
 **Status:** `READY FOR REVIEW`
 
 ---
 
 ## 1. Executive Summary & Audit Mandate
 
-In streaming, continual learning, and edge computing environments, unconstrained in-memory data structures can trigger memory leaks, process OOM termination, and cache thrashing. 
+In streaming, continual learning, and edge computing environments, unconstrained in-memory data structures can trigger memory leaks, process OOM termination, and cache thrashing.
 
 This audit evaluates the memory footprint, growth invariants, and upper bounds of all stateful components across the four algorithm pillars:
 1. **Replay Buffers (`ClassBalancedReservoirReplay`)**: Verifies fixed-capacity reservoir invariants.

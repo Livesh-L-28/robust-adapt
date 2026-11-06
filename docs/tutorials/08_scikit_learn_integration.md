@@ -11,7 +11,7 @@ import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.base import clone
-from adaptive_ml.integrations.sklearn import SklearnAdaptiveClassifier
+from robust_adapt.integrations.sklearn import SklearnAdaptiveClassifier
 
 # Construct Pipeline
 pipeline = Pipeline([

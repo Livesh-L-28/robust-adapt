@@ -7,11 +7,11 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from adaptive_ml.core.config import ULCConfig
-from adaptive_ml.ulc.automaton import ArbitrationAutomaton
-from adaptive_ml.ulc.controller import AdaptiveLearningController
-from adaptive_ml.ulc.directives import ControllerState
-from adaptive_ml.ulc.evidence import EvidenceSynthesizer, EvidenceVector
+from robust_adapt.core.config import ULCConfig
+from robust_adapt.ulc.automaton import ArbitrationAutomaton
+from robust_adapt.ulc.controller import AdaptiveLearningController
+from robust_adapt.ulc.directives import ControllerState
+from robust_adapt.ulc.evidence import EvidenceSynthesizer, EvidenceVector
 
 
 class TestEvidenceSynthesizer:
@@ -126,7 +126,7 @@ class TestAdaptiveLearningController:
         assert info["mean_reliability"] == 1.0
 
     def test_controller_noise_burst_filtering_with_rla(self) -> None:
-        from adaptive_ml.rla.pipeline import RobustLearningPipeline
+        from robust_adapt.rla.pipeline import RobustLearningPipeline
 
         pipeline = RobustLearningPipeline(n_classes=2)
         controller = AdaptiveLearningController(pipeline=pipeline)
@@ -147,8 +147,8 @@ class TestAdaptiveLearningController:
         assert info["mean_reliability"] < 0.65
 
     def test_controller_with_classifier_and_optimizer_under_drift(self) -> None:
-        from adaptive_ml.ala.classifier import AdaptiveClassifier
-        from adaptive_ml.rao.adamw import LowMemoryAdamW
+        from robust_adapt.ala.classifier import AdaptiveClassifier
+        from robust_adapt.rao.adamw import LowMemoryAdamW
 
         clf = AdaptiveClassifier(n_features=4, n_classes=2)
         params = [np.random.randn(10, 4)]

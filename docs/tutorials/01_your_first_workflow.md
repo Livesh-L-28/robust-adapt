@@ -8,7 +8,7 @@
 
 ```python
 import numpy as np
-from adaptive_ml.ala import AdaptiveClassifier
+from robust_adapt.ala import AdaptiveClassifier
 
 # Initialize the classifier
 clf = AdaptiveClassifier(
@@ -32,7 +32,7 @@ for batch_idx in range(5):
     X_batch = np.random.randn(50, 8).astype(np.float32)
     # Decision boundary: x0 + x1 > 0
     y_batch = (X_batch[:, 0] + X_batch[:, 1] > 0.0).astype(np.int64)
-    
+
     # Update model incrementally
     metrics = clf.partial_fit(X_batch, y_batch)
     print(f"Batch {batch_idx + 1:02d} | Ingested: {metrics['n_samples']} samples | Accuracy: {metrics['accuracy']:.1%}")

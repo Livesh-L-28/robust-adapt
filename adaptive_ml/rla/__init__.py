@@ -1,18 +1,14 @@
-"""Robust Learning Algorithms (RLA) module."""
+"""Compatibility forwarding module for adaptive_ml.rla -> robust_adapt.rla."""
 
-from adaptive_ml.rla.scorer import DensityAwareMarginScorer
-from adaptive_ml.rla.losses import (
-    SymmetricCrossEntropyLoss,
-    GeneralizedCrossEntropyLoss,
-)
-from adaptive_ml.rla.weighting import ClassBalancedWeights
-from adaptive_ml.rla.pipeline import RobustLearningPipeline
+import robust_adapt.rla as _canonical
+from robust_adapt.rla import *  # noqa: F401, F403
 
-__all__ = [
-    "DensityAwareMarginScorer",
-    "SymmetricCrossEntropyLoss",
-    "GeneralizedCrossEntropyLoss",
-    "ClassBalancedWeights",
-    "RobustLearningPipeline",
-]
+__all__ = getattr(_canonical, "__all__", [name for name in dir(_canonical) if not name.startswith("_")])
 
+
+def __getattr__(name: str):
+    return getattr(_canonical, name)
+
+
+def __dir__():
+    return dir(_canonical)

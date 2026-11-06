@@ -2,12 +2,12 @@
 
 import pytest
 import numpy as np
-from adaptive_ml.ala.tree import VectorizedHoeffdingTree
-from adaptive_ml.ala.adwin import ReliabilityWeightedADWIN
-from adaptive_ml.ala.replay import ClassBalancedReservoirReplay
-from adaptive_ml.ala.ensemble import StreamingEnsemble
-from adaptive_ml.ala.classifier import AdaptiveClassifier
-from adaptive_ml.core.exceptions import ValidationError
+from robust_adapt.ala.tree import VectorizedHoeffdingTree
+from robust_adapt.ala.adwin import ReliabilityWeightedADWIN
+from robust_adapt.ala.replay import ClassBalancedReservoirReplay
+from robust_adapt.ala.ensemble import StreamingEnsemble
+from robust_adapt.ala.classifier import AdaptiveClassifier
+from robust_adapt.core.exceptions import ValidationError
 
 
 class TestVectorizedHoeffdingTree:

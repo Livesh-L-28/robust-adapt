@@ -1,11 +1,14 @@
-"""
-AdaptiveML State Management and Safe Serialization.
-"""
+"""Compatibility forwarding module for adaptive_ml.state -> robust_adapt.state."""
 
-from __future__ import annotations
+import robust_adapt.state as _canonical
+from robust_adapt.state import *  # noqa: F401, F403
 
-from adaptive_ml.state.checkpoint import CheckpointManager
-from adaptive_ml.state.serializer import load_state, save_state
+__all__ = getattr(_canonical, "__all__", [name for name in dir(_canonical) if not name.startswith("_")])
 
-__all__ = ["save_state", "load_state", "CheckpointManager"]
 
+def __getattr__(name: str):
+    return getattr(_canonical, name)
+
+
+def __dir__():
+    return dir(_canonical)

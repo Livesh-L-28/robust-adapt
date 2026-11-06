@@ -9,8 +9,8 @@
 ```python
 import torch
 import torch.nn as nn
-from adaptive_ml.integrations.torch_optim import create_torch_low_memory_adamw
-from adaptive_ml.integrations.torch_module import TorchSymmetricCrossEntropyLoss
+from robust_adapt.integrations.torch_optim import create_torch_low_memory_adamw
+from robust_adapt.integrations.torch_module import TorchSymmetricCrossEntropyLoss
 
 # Define PyTorch neural network
 model = nn.Sequential(
@@ -36,13 +36,13 @@ for epoch in range(1, 6):
     targets = (inputs[:, 0] > 0.0).long()
     noise_mask = torch.rand(32) < 0.10
     targets[noise_mask] = 1 - targets[noise_mask]
-    
+
     optimizer.zero_grad()
     logits = model(inputs)
     loss = criterion(logits, targets)
     loss.backward()
     optimizer.step()
-    
+
     print(f"Epoch {epoch:02d} | Loss: {loss.item():.4f}")
 ```
 

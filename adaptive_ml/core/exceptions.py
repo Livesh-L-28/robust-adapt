@@ -1,53 +1,14 @@
-"""Custom exception hierarchy for AdaptiveML.
+"""Compatibility forwarding module for adaptive_ml.core.exceptions -> robust_adapt.core.exceptions."""
 
-Certified in Phase 7 Configuration and Error Handling Architecture (DOC-DES-P7-007).
-"""
+import robust_adapt.core.exceptions as _canonical
+from robust_adapt.core.exceptions import *  # noqa: F401, F403
 
-
-class AdaptiveMLError(Exception):
-    """Base exception for all errors raised by AdaptiveML."""
-
-    pass
+__all__ = getattr(_canonical, "__all__", [name for name in dir(_canonical) if not name.startswith("_")])
 
 
-class ConfigurationError(AdaptiveMLError):
-    """Raised when an invalid hyperparameter configuration is provided."""
-
-    pass
+def __getattr__(name: str):
+    return getattr(_canonical, name)
 
 
-class ValidationError(AdaptiveMLError):
-    """Raised when input tensors violate shape, dtype, or value constraints."""
-
-    pass
-
-
-class DriftStateError(AdaptiveMLError):
-    """Raised when an invalid drift detector state transition or window partition occurs."""
-
-    pass
-
-
-class QuantizationError(AdaptiveMLError):
-    """Raised when tensor dimensions or block alignments violate quantization rules."""
-
-    pass
-
-
-class ResourceBudgetExceededError(AdaptiveMLError):
-    """Raised when allocated memory or compute exceeds the user-configured ceiling."""
-
-    pass
-
-
-class NumericalInstabilityError(AdaptiveMLError):
-    """Raised when NaN, Inf, or unrecoverable numerical degeneracy is encountered."""
-
-    pass
-
-
-class SerializationError(AdaptiveMLError):
-    """Raised when state serialization or deserialization fails or encounters invalid payloads."""
-
-    pass
-
+def __dir__():
+    return dir(_canonical)

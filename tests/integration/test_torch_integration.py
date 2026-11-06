@@ -14,8 +14,8 @@ try:
 except ImportError:
     _TORCH_AVAILABLE = False
 
-from adaptive_ml.integrations.torch_module import TorchSymmetricCrossEntropyLoss
-from adaptive_ml.integrations.torch_optim import create_torch_low_memory_adamw
+from robust_adapt.integrations.torch_module import TorchSymmetricCrossEntropyLoss
+from robust_adapt.integrations.torch_optim import create_torch_low_memory_adamw
 
 
 @pytest.mark.skipif(not _TORCH_AVAILABLE, reason="PyTorch is required")

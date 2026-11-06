@@ -1,26 +1,14 @@
-"""
-AdaptiveML Compute Backends.
-"""
+"""Compatibility forwarding module for adaptive_ml.backends -> robust_adapt.backends."""
 
-from __future__ import annotations
+import robust_adapt.backends as _canonical
+from robust_adapt.backends import *  # noqa: F401, F403
 
-from typing import Optional
-
-from adaptive_ml.backends.base import BackendEngine
-from adaptive_ml.backends.numpy_backend import NumPyBackend
-from adaptive_ml.backends.torch_backend import TorchBackend, _TORCH_AVAILABLE
+__all__ = getattr(_canonical, "__all__", [name for name in dir(_canonical) if not name.startswith("_")])
 
 
-def get_backend(name: str = "numpy", device: str = "cpu") -> BackendEngine:
-    """Retrieve an initialized backend engine by name."""
-    if name == "numpy":
-        return NumPyBackend()
-    if name == "torch":
-        if not _TORCH_AVAILABLE:
-            raise ValueError("TorchBackend requested but PyTorch is not available.")
-        return TorchBackend(device=device)
-    raise ValueError(f"Unknown backend '{name}'. Available options: 'numpy', 'torch'.")
+def __getattr__(name: str):
+    return getattr(_canonical, name)
 
 
-__all__ = ["BackendEngine", "NumPyBackend", "TorchBackend", "get_backend"]
-
+def __dir__():
+    return dir(_canonical)

@@ -1,15 +1,14 @@
-"""
-AdaptiveML Framework Integrations (scikit-learn and PyTorch).
-"""
+"""Compatibility forwarding module for adaptive_ml.integrations -> robust_adapt.integrations."""
 
-from __future__ import annotations
+import robust_adapt.integrations as _canonical
+from robust_adapt.integrations import *  # noqa: F401, F403
 
-from adaptive_ml.integrations.sklearn import SklearnAdaptiveClassifier
-from adaptive_ml.integrations.torch_module import TorchSymmetricCrossEntropyLoss
-from adaptive_ml.integrations.torch_optim import create_torch_low_memory_adamw
+__all__ = getattr(_canonical, "__all__", [name for name in dir(_canonical) if not name.startswith("_")])
 
-__all__ = [
-    "SklearnAdaptiveClassifier",
-    "create_torch_low_memory_adamw",
-    "TorchSymmetricCrossEntropyLoss",
-]
+
+def __getattr__(name: str):
+    return getattr(_canonical, name)
+
+
+def __dir__():
+    return dir(_canonical)

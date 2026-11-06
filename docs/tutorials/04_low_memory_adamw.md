@@ -24,7 +24,7 @@ $$M_{\text{RAO}} = 1 + 1 + 2 \times \frac{4}{64} = 2.125\text{ bytes/parameter} 
 ```python
 import torch
 import torch.nn as nn
-from adaptive_ml.integrations.torch_optim import create_torch_low_memory_adamw
+from robust_adapt.integrations.torch_optim import create_torch_low_memory_adamw
 
 model = nn.Sequential(nn.Linear(20, 64), nn.ReLU(), nn.Linear(64, 2))
 optimizer = create_torch_low_memory_adamw(model.parameters(), lr=1e-3, block_size=64)
@@ -38,4 +38,3 @@ print(f"State Memory: {optimizer.get_state_memory_bytes()} bytes")
 ```
 
 Executable demo available at [`examples/rao/low_memory_optimization_example.py`](file:///c:/projects/AdaptiveML/examples/rao/low_memory_optimization_example.py).
-

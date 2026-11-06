@@ -1,5 +1,5 @@
 """
-AdaptiveML Example: Unified Learning Controller (ULC) in Action.
+ROBUST-ADAPT Example: Unified Learning Controller (ULC) in Action.
 
 Demonstrates holistic cross-pillar arbitration between ALA, RLA, and RAO
 under alternating conditions of stationary data, label noise bursts,
@@ -10,11 +10,11 @@ from __future__ import annotations
 
 import numpy as np
 
-from adaptive_ml.ala.classifier import AdaptiveClassifier
-from adaptive_ml.core.config import ULCConfig
-from adaptive_ml.rao.adamw import LowMemoryAdamW
-from adaptive_ml.rla.pipeline import RobustLearningPipeline
-from adaptive_ml.ulc.controller import AdaptiveLearningController
+from robust_adapt.ala.classifier import AdaptiveClassifier
+from robust_adapt.core.config import ULCConfig
+from robust_adapt.rao.adamw import LowMemoryAdamW
+from robust_adapt.rla.pipeline import RobustLearningPipeline
+from robust_adapt.ulc.controller import AdaptiveLearningController
 
 
 def generate_cluster(mean: float, n_samples: int = 30) -> np.ndarray:
@@ -25,7 +25,7 @@ def generate_cluster(mean: float, n_samples: int = 30) -> np.ndarray:
 
 def main() -> None:
     print("=" * 80)
-    print("AdaptiveML: Unified Learning Controller (ULC) Demonstration")
+    print("ROBUST-ADAPT: Unified Learning Controller (ULC) Demonstration")
     print("Cross-Pillar In-Loop Arbitration: ALA + RLA + RAO")
     print("=" * 80)
 

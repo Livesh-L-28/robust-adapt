@@ -7,12 +7,12 @@ Demonstrates:
 """
 
 import numpy as np
-from adaptive_ml.rao import LowMemoryAdamW, AdaptiveGradientAccumulator, BlockQuantizer
+from robust_adapt.rao import LowMemoryAdamW, AdaptiveGradientAccumulator, BlockQuantizer
 
 
 def run_rao_demo() -> None:
     print("=" * 60)
-    print("AdaptiveML — Phase 10 RAO Low-Memory Optimization Demo")
+    print("ROBUST-ADAPT — Phase 10 RAO Low-Memory Optimization Demo")
     print("=" * 60)
 
     # Simulate a model with 100,000 parameters

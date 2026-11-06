@@ -1,23 +1,14 @@
-"""
-AdaptiveML Unified Learning Controller (ULC) Module.
+"""Compatibility forwarding module for adaptive_ml.ulc -> robust_adapt.ulc."""
 
-Provides holistic cross-pillar arbitration between concept drift adaptation
-and noise burst suppression.
-"""
+import robust_adapt.ulc as _canonical
+from robust_adapt.ulc import *  # noqa: F401, F403
 
-from __future__ import annotations
+__all__ = getattr(_canonical, "__all__", [name for name in dir(_canonical) if not name.startswith("_")])
 
-from adaptive_ml.ulc.automaton import ArbitrationAutomaton
-from adaptive_ml.ulc.controller import AdaptiveLearningController
-from adaptive_ml.ulc.directives import ControllerDirective, ControllerState
-from adaptive_ml.ulc.evidence import EvidenceSynthesizer, EvidenceVector
 
-__all__ = [
-    "ControllerState",
-    "ControllerDirective",
-    "EvidenceVector",
-    "EvidenceSynthesizer",
-    "ArbitrationAutomaton",
-    "AdaptiveLearningController",
-]
+def __getattr__(name: str):
+    return getattr(_canonical, name)
 
+
+def __dir__():
+    return dir(_canonical)

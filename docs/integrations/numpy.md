@@ -17,7 +17,7 @@ All core operations in `adaptive_ml.ala`, `adaptive_ml.rla`, and `adaptive_ml.ra
 
 ```python
 import numpy as np
-from adaptive_ml.rao import LowMemoryAdamW
+from robust_adapt.rao import LowMemoryAdamW
 
 # Optimize arbitrary NumPy parameter arrays
 w = np.zeros(100, dtype=np.float32)

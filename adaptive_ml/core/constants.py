@@ -1,28 +1,14 @@
-"""Numerical constants, epsilon guards, and stability bounds for AdaptiveML.
+"""Compatibility forwarding module for adaptive_ml.core.constants -> robust_adapt.core.constants."""
 
-Certified in Phase 6 Mathematical Verification Report (DOC-DES-P6-010).
-"""
+import robust_adapt.core.constants as _canonical
+from robust_adapt.core.constants import *  # noqa: F401, F403
 
-from typing import Final
+__all__ = getattr(_canonical, "__all__", [name for name in dir(_canonical) if not name.startswith("_")])
 
-# Denominator and division safety guards
-EPS_DIV: Final[float] = 1e-12
-EPS_VAR: Final[float] = 1e-8
-EPS_SOFTMAX: Final[float] = 1e-12
-EPS_LOG: Final[float] = 1e-12
 
-# RLA Robust Loss Constants
-EPS_CLIP_RCE: Final[float] = 1e-4
-EPS_RELIABILITY: Final[float] = 1e-4
+def __getattr__(name: str):
+    return getattr(_canonical, name)
 
-# RAO Quantization Constants
-EPS_QUANT: Final[float] = 1e-12
-DEFAULT_BLOCK_SIZE: Final[int] = 256
-INT8_MAX: Final[int] = 127
-UINT8_MAX: Final[int] = 255
 
-# ULC Arbitration Constants
-DEFAULT_TAU_R: Final[float] = 0.65
-DEFAULT_DELTA_HYST: Final[float] = 0.15
-DEFAULT_RECOVERY_STEPS: Final[int] = 100
-
+def __dir__():
+    return dir(_canonical)
