@@ -3,7 +3,7 @@
 Mathematical formulations and analytical gradients specified in DOC-DES-P6-004 and DOC-DES-P6-009 (Algorithm 6).
 """
 
-from typing import Optional, Tuple
+from typing import Any, Optional, Tuple
 import numpy as np
 from robust_adapt.core.constants import EPS_CLIP_RCE, EPS_DIV, EPS_LOG
 from robust_adapt.core.exceptions import ValidationError

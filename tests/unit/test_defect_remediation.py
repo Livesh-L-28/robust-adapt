@@ -180,3 +180,64 @@ class TestDEF003TelemetryExceptionHandling:
                 get_process_memory_bytes()
 
             assert "Simulated programming bug" in str(exc_info.value)
+
+
+class TestDEFALPHA001LossesAnyImport:
+    """Regression tests for DEF-ALPHA-001: Python 3.10-3.13 eager annotation evaluation compatibility."""
+
+    def test_losses_module_any_type_annotation_isolated_subprocess(self) -> None:
+        """Verify that robust_adapt.rla.losses imports in a fresh subprocess without NameError.
+
+        Ensures eager annotation evaluation (Python <3.14) resolves typing.Any without error.
+        """
+        code = (
+            "import robust_adapt\n"
+            "from robust_adapt.rla.losses import ReliabilityWeightedLoss, FocalLoss\n"
+            "loss = ReliabilityWeightedLoss(base_loss=FocalLoss(), min_reliability=0.1)\n"
+            "assert loss.min_reliability == 0.1\n"
+            "print('DEF_ALPHA_001_PASSED')\n"
+        )
+        res = subprocess.run(
+            [sys.executable, "-c", code],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        assert "DEF_ALPHA_001_PASSED" in res.stdout
+
+    def test_reliability_weighted_loss_instantiation_and_forward(self) -> None:
+        """Verify ReliabilityWeightedLoss instantiates, computes forward loss, and respects reliability weights."""
+        from robust_adapt.rla.losses import FocalLoss, ReliabilityWeightedLoss
+
+        base_loss = FocalLoss(alpha=1.0, gamma=2.0)
+        rwl = ReliabilityWeightedLoss(base_loss=base_loss, min_reliability=0.25)
+        assert rwl.base_loss is base_loss
+        assert rwl.min_reliability == 0.25
+
+        logits = np.array([[2.0, -2.0], [-1.0, 1.0]], dtype=np.float64)
+        y = np.array([0, 1], dtype=np.int64)
+        reliabilities = np.array([0.9, 0.1], dtype=np.float64)  # sample 1 is below min_reliability (0.25)
+
+        loss, grad = rwl.forward(logits, y, reliabilities)
+        assert np.isfinite(loss)
+        assert loss > 0.0
+        assert grad.shape == logits.shape
+        # Gradient for sample 1 below min_reliability must be zero
+        np.testing.assert_allclose(grad[1], [0.0, 0.0])
+
+    def test_canonical_losses_independent_and_legacy_unimportable(self) -> None:
+        """Verify canonical robust_adapt.rla.losses is self-sufficient and adaptive_ml is unimportable."""
+        import importlib.util
+        import pytest
+        import robust_adapt.rla.losses as canonical_losses
+
+        # Canonical losses are present and functional
+        assert hasattr(canonical_losses, "ReliabilityWeightedLoss")
+        assert hasattr(canonical_losses, "SymmetricCrossEntropyLoss")
+        assert hasattr(canonical_losses, "GeneralizedCrossEntropyLoss")
+        assert hasattr(canonical_losses, "FocalLoss")
+
+        # Legacy namespace is not importable
+        assert importlib.util.find_spec("adaptive_ml") is None
+        with pytest.raises(ModuleNotFoundError):
+            import adaptive_ml  # type: ignore[import-not-found]
