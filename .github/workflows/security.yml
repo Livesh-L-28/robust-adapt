@@ -28,7 +28,7 @@ jobs:
       - name: Run Bandit AST Security Scan
         run: |
           # Audit for unsafe deserialization (pickle), hardcoded passwords, or eval
-          bandit -r robust_adapt adaptive_ml -ll -ii
+          bandit -r robust_adapt -ll -ii
       - name: Run Pip-Audit Dependency Scan
         run: |
           pip-audit --desc

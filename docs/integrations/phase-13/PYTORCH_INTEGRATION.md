@@ -21,7 +21,7 @@
 ```python
 import torch
 import torch.nn as nn
-from adaptive_ml.integrations.torch_optim import create_torch_low_memory_adamw
+from robust_adapt.integrations.torch_optim import create_torch_low_memory_adamw
 
 model = nn.Sequential(nn.Linear(10, 32), nn.ReLU(), nn.Linear(32, 2))
 optimizer = create_torch_low_memory_adamw(model.parameters(), lr=1e-3, block_size=64)

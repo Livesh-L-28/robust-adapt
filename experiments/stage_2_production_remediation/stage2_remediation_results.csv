@@ -1,0 +1,11 @@
+metric,value,unit
+def006_stored_before,198,samples
+def006_purged_count,50,samples
+def006_class0_retention,0.5000,ratio
+def006_class1_retention,1.0000,ratio
+def006_class2_retention,1.0000,ratio
+def006_purge_latency,0.0233,ms
+def007_norm_qm_before,860.8194,norm
+def007_norm_qm_after,0.0000,norm
+def007_lr_scaled,0.0025,rate
+def007_reset_latency,0.0056,ms

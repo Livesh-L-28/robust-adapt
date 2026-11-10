@@ -1,0 +1,652 @@
+{
+  "audit_metadata": {
+    "audit_id": "AUDIT-STAGE1-FOUR-PILLAR-V3",
+    "audit_version": "3.0.0-stage1",
+    "baseline_commit": "67e9ef1b347ca223828a1f225e85e35a086a1f30",
+    "branch": "master",
+    "target_experiment": "experiments/four_pillar_validation_v2/",
+    "audit_directory": "experiments/ulc_v3_independent_audit/",
+    "timestamp_utc": "2026-11-02T13:18:32Z",
+    "host_os": "Windows 11 AMD64 (Build 26200)",
+    "python_version": "3.14.3",
+    "pytorch_version": "2.12.1+cpu",
+    "total_artifacts": 62
+  },
+  "baseline_artifacts_verified": {
+    "ABLATION_ANALYSIS.md": {
+      "path": "experiments/four_pillar_validation_v2\\ABLATION_ANALYSIS.md",
+      "sha256": "edef4b99031d1117ee2da3b5bc58de2c85055ec3d626bae9a7fb74f917f35487",
+      "size_bytes": 11199
+    },
+    "EXPERIMENT_PROTOCOL.md": {
+      "path": "experiments/four_pillar_validation_v2\\EXPERIMENT_PROTOCOL.md",
+      "sha256": "37d9fe5df051eb6b5c036645d6266ebac31732bd9ad3cca65129a628d2bf1fa1",
+      "size_bytes": 8634
+    },
+    "MEMORY_ACCOUNTING.md": {
+      "path": "experiments/four_pillar_validation_v2\\MEMORY_ACCOUNTING.md",
+      "sha256": "154f48ef71e88e957d07e330aa392fe94aa7bc1c502b27dba8a4672e6c595fa1",
+      "size_bytes": 8148
+    },
+    "README.md": {
+      "path": "experiments/four_pillar_validation_v2\\README.md",
+      "sha256": "21b48fa49c236fc836e39c0a090d7f8c0a985907c20e33e5eb8e3a9b6855ca96",
+      "size_bytes": 5706
+    },
+    "RESEARCH_CONCLUSION.md": {
+      "path": "experiments/four_pillar_validation_v2\\RESEARCH_CONCLUSION.md",
+      "sha256": "94682094c570b3357122e9f321f6f01a849a5d7e73a0120b0b663e35d5b1bd58",
+      "size_bytes": 10635
+    },
+    "RESULTS.md": {
+      "path": "experiments/four_pillar_validation_v2\\RESULTS.md",
+      "sha256": "4cb6af666bd5fe5c8e90947c826e687aa37fae3ea3d5af9f7e05f547c69e9add",
+      "size_bytes": 12008
+    },
+    "ULC_DIAGNOSTICS.md": {
+      "path": "experiments/four_pillar_validation_v2\\ULC_DIAGNOSTICS.md",
+      "sha256": "b65de66e2be42bd9219eee016b6fd9ec0e600162c0dd0c0ffedd80499c536726",
+      "size_bytes": 11245
+    },
+    "generate_tables.py": {
+      "path": "experiments/four_pillar_validation_v2\\generate_tables.py",
+      "sha256": "f52bc514ed242c8bf4e02304e702df4e695369dc3386b72e780ed76d3ac63b07",
+      "size_bytes": 3345
+    },
+    "raw_study_results.json": {
+      "path": "experiments/four_pillar_validation_v2\\raw_study_results.json",
+      "sha256": "84a86a784f3c1353c3b08fd7b4f98cd59006096f43b15f202973f859ffe1f6d8",
+      "size_bytes": 121127
+    },
+    "run_experiments.py": {
+      "path": "experiments/four_pillar_validation_v2\\run_experiments.py",
+      "sha256": "1a26194cc932f71ae2f61965296b8a6736bac7f5669760ff68bf88332457552e",
+      "size_bytes": 24719
+    }
+  },
+  "audit_scripts_verified": {
+    "audit_controller_ablation.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_controller_ablation.py",
+      "sha256": "e95ae780feccbdd40367356471b71522dbc577d92400f5c9b1525f2ee23e3001",
+      "size_bytes": 7780
+    },
+    "audit_generalization.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_generalization.py",
+      "sha256": "22b294b3f50930a4d31382d596c3bff4a4bbc11527e198f6053e90104a7d64a0",
+      "size_bytes": 20481
+    },
+    "audit_minority.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_minority.py",
+      "sha256": "a8130a74c011870270177ae702b21d78e069d9431ffc2edce4a8608be10158db",
+      "size_bytes": 10323
+    },
+    "audit_pareto.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_pareto.py",
+      "sha256": "9724168bd2c08bc1e828551fb62f21a24338cafc8baa907f8537a920734d5e51",
+      "size_bytes": 6167
+    },
+    "audit_reproduce.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_reproduce.py",
+      "sha256": "51f3a4e223a045225aa78cd904b1736041dd6a7c82039bfb93703d65024ca9c1",
+      "size_bytes": 5378
+    },
+    "audit_statistics.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_statistics.py",
+      "sha256": "d4f57a8689cc082efc2a42c9a944c64ebff8d11495ce58e399c1bb6910d53d9f",
+      "size_bytes": 8990
+    },
+    "memory_benchmark.py": {
+      "path": "experiments/ulc_v3_independent_audit\\memory_benchmark.py",
+      "sha256": "949e4b9d4ec77ea1b892c4bc5855d7e3b704eb989777d2113aae20f6c6d9c75a",
+      "size_bytes": 10191
+    },
+    "minority_analysis.py": {
+      "path": "experiments/ulc_v3_independent_audit\\minority_analysis.py",
+      "sha256": "129747bf4505334e12791a1562c8e289c4a1a8e5c6ad5b318a5f143ebc33c321",
+      "size_bytes": 13395
+    },
+    "pareto_analysis.py": {
+      "path": "experiments/ulc_v3_independent_audit\\pareto_analysis.py",
+      "sha256": "2ccdc61162a5fe5a2d65f41ec4fe13948006f1744d6dbcbdb4fae129d151ab8d",
+      "size_bytes": 8529
+    },
+    "performance_benchmark.py": {
+      "path": "experiments/ulc_v3_independent_audit\\performance_benchmark.py",
+      "sha256": "7233fc46b3637206414a198975477d9f93a56a0492a206f673a3fdd68279a61e",
+      "size_bytes": 8214
+    },
+    "reproduce.py": {
+      "path": "experiments/ulc_v3_independent_audit\\reproduce.py",
+      "sha256": "949ced4ea13c411a0104d0983ec2f6ee8f06631270c9f99c0f687d1f138b4282",
+      "size_bytes": 11371
+    },
+    "statistical_analysis.py": {
+      "path": "experiments/ulc_v3_independent_audit\\statistical_analysis.py",
+      "sha256": "e426e4108a53d8b167b96d916199a98cb815b3982b238e593b4bbe3706e17871",
+      "size_bytes": 8993
+    },
+    "ulc_audit.py": {
+      "path": "experiments/ulc_v3_independent_audit\\ulc_audit.py",
+      "sha256": "f26a17fe61d8c1a7a69e73fef584e3ff75e85c65e85fd8dc2cd0f1a29fb45aa6",
+      "size_bytes": 13319
+    }
+  },
+  "generated_data_artifacts": {
+    "confidence_intervals.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\confidence_intervals.csv",
+      "sha256": "d2e562533dbb5ed3c84fb0db3b84735e7412348bf47ab2109f47ff1dc9f4b0d8",
+      "size_bytes": 4806
+    },
+    "dominance_matrix.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\dominance_matrix.csv",
+      "sha256": "f2ac6dd9426a48a4a16cb76da5cc998829052b0cfa2da925d828d62619776a26",
+      "size_bytes": 592
+    },
+    "effect_sizes.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\effect_sizes.csv",
+      "sha256": "b43735102ef1847349f8ed3b483007bbfd75bb77d025269ac1de56806f19a157",
+      "size_bytes": 3403
+    },
+    "long_run_memory_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\long_run_memory_results.csv",
+      "sha256": "08659f964b737a9fac295f2a867ce9660fff0d61921a3500ea54f7a35f21e1c1",
+      "size_bytes": 639
+    },
+    "minority_ablation_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\minority_ablation_results.csv",
+      "sha256": "797bfba3efea659f4dfa9f61318020281dc1e9fb702bd103e56f0076b3540574",
+      "size_bytes": 625
+    },
+    "minority_metrics_by_regime.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\minority_metrics_by_regime.csv",
+      "sha256": "75fe13a14923bfa9cc3f29145c49139da64e8c5b62f4466ff79f35feccb4a916",
+      "size_bytes": 1430
+    },
+    "minority_metrics_by_seed.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\minority_metrics_by_seed.csv",
+      "sha256": "4fcbde61f0f975eaa4b3e1654a08a311a7ffaea6b17bc38290b92822e04b244c",
+      "size_bytes": 600
+    },
+    "optimizer_memory_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\optimizer_memory_results.csv",
+      "sha256": "c3d07c38213c42cc6e6c4fa4a3f77bd13f540ce8a0c367e1aae248672da6ebb9",
+      "size_bytes": 409
+    },
+    "paired_comparisons.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\paired_comparisons.csv",
+      "sha256": "27bb98e4d09f4b72488171f80c01fc24dc08954e57603efb487dc0b10123a595",
+      "size_bytes": 5056
+    },
+    "performance_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\performance_results.csv",
+      "sha256": "30ac54c2db288a5b89259cde157f8aa9a835988b52dabd059e1dc4dd96518901",
+      "size_bytes": 1266
+    },
+    "reproduction_comparison.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\reproduction_comparison.csv",
+      "sha256": "367bae2be1bf667a3a5e1b9303dc9cc73a1e0ea5e652f74ca86f1e667f5e4461",
+      "size_bytes": 5673
+    },
+    "reproduction_seed_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\reproduction_seed_results.csv",
+      "sha256": "de5b8fd24c31a392e3bdb567df6510f495148ae7e2baf4dbb6087bdbd349d998",
+      "size_bytes": 7226
+    },
+    "threshold_sweep.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\threshold_sweep.csv",
+      "sha256": "5fcf21c39eb01c157e4b1ce953a7cb7ac97da6f46aef6ab382cfed489b95fec5",
+      "size_bytes": 1053
+    },
+    "ulc_ablation_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\ulc_ablation_results.csv",
+      "sha256": "7b468cdbc20a26ecf8861116f297877bd21fbc72d764649e53bbd5d084246bac",
+      "size_bytes": 736
+    },
+    "ulc_state_transition_matrix.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\ulc_state_transition_matrix.csv",
+      "sha256": "bfbfeb2b2bb006485428bc158a38c1c98c662546f044c3eea8da7c18ad303237",
+      "size_bytes": 189
+    },
+    "controller_ablation_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\controller_ablation_results.json",
+      "sha256": "6db82aba279347c150016d38f229f35d2f328b346994b4c9ccd5d51d53a5a05b",
+      "size_bytes": 1065
+    },
+    "environment_matrix.json": {
+      "path": "experiments/ulc_v3_independent_audit\\environment_matrix.json",
+      "sha256": "03a02978a7847e276a02bb32f2145dba78b582a2109f1522a52de9283f0840a6",
+      "size_bytes": 1673
+    },
+    "generalization_battery_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\generalization_battery_results.json",
+      "sha256": "645c264ae011f01754037fb5bb08aa6aea29fdb20aba795e8eac74bfa2acfa30",
+      "size_bytes": 19917
+    },
+    "minority_class_audit_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\minority_class_audit_results.json",
+      "sha256": "4180bd36ef5397dfaba284a6682b0bbee061ffe0ce84c43d02e362c037e320ad",
+      "size_bytes": 4806
+    },
+    "pareto_audit_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\pareto_audit_results.json",
+      "sha256": "51ceeb04ac75d30ec79fb81a56a9b230eba8b987400fc13f9d6b1b8539d4335f",
+      "size_bytes": 6120
+    },
+    "pareto_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\pareto_results.json",
+      "sha256": "9e5da0b887a312c0a7c6a2e62608eb9256eb69526d208b9a270f2957ba3220b4",
+      "size_bytes": 5205
+    },
+    "reproduced_study_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\reproduced_study_results.json",
+      "sha256": "9519c748f0714cb618fedf164ae501aed864e0052084c1d2bd2b7ccd269f3d9f",
+      "size_bytes": 32961
+    },
+    "reproduction_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\reproduction_results.json",
+      "sha256": "1d8ca828d2dfdc9c7c4a64ce4e5b07c4aeb9ac7e3cd8fe0961461b5bcec6ef83",
+      "size_bytes": 95505
+    },
+    "statistical_audit_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\statistical_audit_results.json",
+      "sha256": "0bc08264c364749eb0823e6a2c3070c22bbdd100eefab6e94f2635d86dbf60ff",
+      "size_bytes": 16290
+    },
+    "statistical_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\statistical_results.json",
+      "sha256": "c6de60b354ece848989e83403e6828498c71ced24b8b6a0a46688f2a01133be4",
+      "size_bytes": 31019
+    },
+    "ulc_runtime_trace.json": {
+      "path": "experiments/ulc_v3_independent_audit\\ulc_runtime_trace.json",
+      "sha256": "d1bb16963e2a6c4a1658af1149b0ef97998e43b8ef7c92ff0bf5c096c58ab693",
+      "size_bytes": 15828
+    }
+  },
+  "generated_figures": {
+    "figures\\minority\\precision_recall_curve.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\minority\\precision_recall_curve.png",
+      "sha256": "79495052cbbb9ca07a502c8404956ad1f0a0927d5e84de862fbe0f6d8c724241",
+      "size_bytes": 83184
+    },
+    "figures\\minority\\regime_minority_recall.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\minority\\regime_minority_recall.png",
+      "sha256": "33bc409feed5b6fb369394b1e33feaf7785299e91528210c563dcc01ae4e9e04",
+      "size_bytes": 68869
+    },
+    "figures\\minority\\threshold_vs_f1.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\minority\\threshold_vs_f1.png",
+      "sha256": "8b6ae3d3413fead23aa8c2643d7f2f108172958bd78b4f5c46c0e788ca68a4a8",
+      "size_bytes": 127119
+    },
+    "figures\\pareto\\false_resets_vs_quality.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\pareto\\false_resets_vs_quality.png",
+      "sha256": "bcfc67558109135b8fa0586993819574c737caab1aba713e33722f1acc9aaa1c",
+      "size_bytes": 105783
+    },
+    "figures\\pareto\\minority_recall_vs_accuracy.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\pareto\\minority_recall_vs_accuracy.png",
+      "sha256": "32a2ef7d163d1133fe11e0cd3794c03c797362b7b2b67f8759d30d34cde85e66",
+      "size_bytes": 104135
+    },
+    "figures\\pareto\\quality_vs_latency.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\pareto\\quality_vs_latency.png",
+      "sha256": "a1fac361db500fae48f3643deb6b0057e82e991c3f1ad55123fe5491340d1c84",
+      "size_bytes": 105164
+    },
+    "figures\\pareto\\quality_vs_memory.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\pareto\\quality_vs_memory.png",
+      "sha256": "c63faa8ec3656504b73941fdebefb039c664f420d81959ec9f0ddc45fca2c35b",
+      "size_bytes": 107861
+    },
+    "figures\\resources\\long_run_rss_stability.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\resources\\long_run_rss_stability.png",
+      "sha256": "d8f2f7ac62c52c0191727603067c99c3d4396a0e78a1038f9090c46cdf54e0f1",
+      "size_bytes": 70721
+    },
+    "figures\\resources\\optimizer_memory_scaling.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\resources\\optimizer_memory_scaling.png",
+      "sha256": "0503a1f6f2d25afcff0c9683e0a0fcf802102595cc9125b8de5df89b67220c54",
+      "size_bytes": 80842
+    },
+    "figures\\resources\\throughput_latency_profile.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\resources\\throughput_latency_profile.png",
+      "sha256": "5c55130d36c9c046f1ebd0229f35981b0309be2e05d005a8f44a112c8d5b1483",
+      "size_bytes": 153205
+    },
+    "figures\\ulc\\ablation_macro_f1.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\ulc\\ablation_macro_f1.png",
+      "sha256": "35181fec03f6357968df561c56257fb0a5a591033ca853a63532f472c9d3d8a6",
+      "size_bytes": 76813
+    },
+    "figures\\ulc\\state_transitions.png": {
+      "path": "experiments/ulc_v3_independent_audit/figures\\ulc\\state_transitions.png",
+      "sha256": "83fbc02a9efc250992eabd5b07ed3f8a481f2aedf2f2b2e165468d13be1ec164",
+      "size_bytes": 92681
+    }
+  },
+  "acceptance_gates": {
+    "G1_baseline_integrity": "PASS",
+    "G2_reproduction": "PASS",
+    "G3_raw_evidence": "PASS",
+    "G4_statistics": "PASS",
+    "G5_pareto": "PASS",
+    "G6_minority_analysis": "PASS",
+    "G7_ulc_audit": "PASS",
+    "G8_resource_audit": "PASS",
+    "G9_integrity": "PASS",
+    "G10_research_verdict": "PASS"
+  },
+  "audit_artifacts_verified": {
+    "AUDIT_PROTOCOL.md": {
+      "path": "experiments/ulc_v3_independent_audit\\AUDIT_PROTOCOL.md",
+      "sha256": "deecac32235ff6096553b3bf74d1b355111a9ac142ce559771d0362bf2dc7d3b",
+      "size_bytes": 8679
+    },
+    "FINAL_RESEARCH_VERDICT.md": {
+      "path": "experiments/ulc_v3_independent_audit\\FINAL_RESEARCH_VERDICT.md",
+      "sha256": "3e2ef7a57e086dfdfe955f79515473add7a3563cb1611209692376b0afb56772",
+      "size_bytes": 12128
+    },
+    "GENERALIZATION_RESULTS.md": {
+      "path": "experiments/ulc_v3_independent_audit\\GENERALIZATION_RESULTS.md",
+      "sha256": "42dc5499b4375b91e6be8d0e049c4e327f76f52d8b31ceaadf99a9f2a92b2583",
+      "size_bytes": 9499
+    },
+    "MEMORY_AND_ENVIRONMENT_AUDIT.md": {
+      "path": "experiments/ulc_v3_independent_audit\\MEMORY_AND_ENVIRONMENT_AUDIT.md",
+      "sha256": "621720a930625c75604038eafc2a8f4c79431a9057edf0065c37fd836683be95",
+      "size_bytes": 7953
+    },
+    "MINORITY_CLASS_ANALYSIS.md": {
+      "path": "experiments/ulc_v3_independent_audit\\MINORITY_CLASS_ANALYSIS.md",
+      "sha256": "4dd052bedf697ab6c0bff2506dc8e829a391189ba7194f906bc0bb4630bf0817",
+      "size_bytes": 8484
+    },
+    "PARETO_ANALYSIS.md": {
+      "path": "experiments/ulc_v3_independent_audit\\PARETO_ANALYSIS.md",
+      "sha256": "c63c1605abedff92e8b209513028f2f28771adc50c0ef9c639960caf424e086d",
+      "size_bytes": 8438
+    },
+    "README.md": {
+      "path": "experiments/ulc_v3_independent_audit\\README.md",
+      "sha256": "4f84a63f525af1ad0210b6f4a507d8d380b4f2a55eb0e72ab5d75aa59951387b",
+      "size_bytes": 14551
+    },
+    "REPRODUCTION_AUDIT.md": {
+      "path": "experiments/ulc_v3_independent_audit\\REPRODUCTION_AUDIT.md",
+      "sha256": "18a91103c6beda9f037cec5654fc74062a5c105011a1100dd3d26fcb451eb391",
+      "size_bytes": 7315
+    },
+    "STATISTICAL_REANALYSIS.md": {
+      "path": "experiments/ulc_v3_independent_audit\\STATISTICAL_REANALYSIS.md",
+      "sha256": "0869054c6c1b217256f16c5a0f999e524e6ffbcd37228318a42684ffff767715",
+      "size_bytes": 8866
+    },
+    "ULC_IMPLEMENTATION_AUDIT.md": {
+      "path": "experiments/ulc_v3_independent_audit\\ULC_IMPLEMENTATION_AUDIT.md",
+      "sha256": "a0f5c788eba97abecfc87aa4901259ec298bdc94058a129b2d9b47c830ab98ed",
+      "size_bytes": 9139
+    },
+    "audit_controller_ablation.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_controller_ablation.py",
+      "sha256": "e95ae780feccbdd40367356471b71522dbc577d92400f5c9b1525f2ee23e3001",
+      "size_bytes": 7780
+    },
+    "audit_generalization.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_generalization.py",
+      "sha256": "22b294b3f50930a4d31382d596c3bff4a4bbc11527e198f6053e90104a7d64a0",
+      "size_bytes": 20481
+    },
+    "audit_minority.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_minority.py",
+      "sha256": "a8130a74c011870270177ae702b21d78e069d9431ffc2edce4a8608be10158db",
+      "size_bytes": 10323
+    },
+    "audit_pareto.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_pareto.py",
+      "sha256": "9724168bd2c08bc1e828551fb62f21a24338cafc8baa907f8537a920734d5e51",
+      "size_bytes": 6167
+    },
+    "audit_reproduce.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_reproduce.py",
+      "sha256": "51f3a4e223a045225aa78cd904b1736041dd6a7c82039bfb93703d65024ca9c1",
+      "size_bytes": 5378
+    },
+    "audit_statistics.py": {
+      "path": "experiments/ulc_v3_independent_audit\\audit_statistics.py",
+      "sha256": "d4f57a8689cc082efc2a42c9a944c64ebff8d11495ce58e399c1bb6910d53d9f",
+      "size_bytes": 8990
+    },
+    "confidence_intervals.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\confidence_intervals.csv",
+      "sha256": "d2e562533dbb5ed3c84fb0db3b84735e7412348bf47ab2109f47ff1dc9f4b0d8",
+      "size_bytes": 4806
+    },
+    "controller_ablation_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\controller_ablation_results.json",
+      "sha256": "6db82aba279347c150016d38f229f35d2f328b346994b4c9ccd5d51d53a5a05b",
+      "size_bytes": 1065
+    },
+    "dominance_matrix.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\dominance_matrix.csv",
+      "sha256": "f2ac6dd9426a48a4a16cb76da5cc998829052b0cfa2da925d828d62619776a26",
+      "size_bytes": 592
+    },
+    "effect_sizes.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\effect_sizes.csv",
+      "sha256": "b43735102ef1847349f8ed3b483007bbfd75bb77d025269ac1de56806f19a157",
+      "size_bytes": 3403
+    },
+    "environment_matrix.json": {
+      "path": "experiments/ulc_v3_independent_audit\\environment_matrix.json",
+      "sha256": "03a02978a7847e276a02bb32f2145dba78b582a2109f1522a52de9283f0840a6",
+      "size_bytes": 1673
+    },
+    "generalization_battery_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\generalization_battery_results.json",
+      "sha256": "645c264ae011f01754037fb5bb08aa6aea29fdb20aba795e8eac74bfa2acfa30",
+      "size_bytes": 19917
+    },
+    "long_run_memory_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\long_run_memory_results.csv",
+      "sha256": "08659f964b737a9fac295f2a867ce9660fff0d61921a3500ea54f7a35f21e1c1",
+      "size_bytes": 639
+    },
+    "memory_benchmark.py": {
+      "path": "experiments/ulc_v3_independent_audit\\memory_benchmark.py",
+      "sha256": "949e4b9d4ec77ea1b892c4bc5855d7e3b704eb989777d2113aae20f6c6d9c75a",
+      "size_bytes": 10191
+    },
+    "minority_ablation_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\minority_ablation_results.csv",
+      "sha256": "797bfba3efea659f4dfa9f61318020281dc1e9fb702bd103e56f0076b3540574",
+      "size_bytes": 625
+    },
+    "minority_analysis.py": {
+      "path": "experiments/ulc_v3_independent_audit\\minority_analysis.py",
+      "sha256": "129747bf4505334e12791a1562c8e289c4a1a8e5c6ad5b318a5f143ebc33c321",
+      "size_bytes": 13395
+    },
+    "minority_class_audit_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\minority_class_audit_results.json",
+      "sha256": "4180bd36ef5397dfaba284a6682b0bbee061ffe0ce84c43d02e362c037e320ad",
+      "size_bytes": 4806
+    },
+    "minority_metrics_by_regime.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\minority_metrics_by_regime.csv",
+      "sha256": "75fe13a14923bfa9cc3f29145c49139da64e8c5b62f4466ff79f35feccb4a916",
+      "size_bytes": 1430
+    },
+    "minority_metrics_by_seed.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\minority_metrics_by_seed.csv",
+      "sha256": "4fcbde61f0f975eaa4b3e1654a08a311a7ffaea6b17bc38290b92822e04b244c",
+      "size_bytes": 600
+    },
+    "optimizer_memory_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\optimizer_memory_results.csv",
+      "sha256": "c3d07c38213c42cc6e6c4fa4a3f77bd13f540ce8a0c367e1aae248672da6ebb9",
+      "size_bytes": 409
+    },
+    "paired_comparisons.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\paired_comparisons.csv",
+      "sha256": "27bb98e4d09f4b72488171f80c01fc24dc08954e57603efb487dc0b10123a595",
+      "size_bytes": 5056
+    },
+    "pareto_analysis.py": {
+      "path": "experiments/ulc_v3_independent_audit\\pareto_analysis.py",
+      "sha256": "2ccdc61162a5fe5a2d65f41ec4fe13948006f1744d6dbcbdb4fae129d151ab8d",
+      "size_bytes": 8529
+    },
+    "pareto_audit_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\pareto_audit_results.json",
+      "sha256": "51ceeb04ac75d30ec79fb81a56a9b230eba8b987400fc13f9d6b1b8539d4335f",
+      "size_bytes": 6120
+    },
+    "pareto_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\pareto_results.json",
+      "sha256": "9e5da0b887a312c0a7c6a2e62608eb9256eb69526d208b9a270f2957ba3220b4",
+      "size_bytes": 5205
+    },
+    "performance_benchmark.py": {
+      "path": "experiments/ulc_v3_independent_audit\\performance_benchmark.py",
+      "sha256": "7233fc46b3637206414a198975477d9f93a56a0492a206f673a3fdd68279a61e",
+      "size_bytes": 8214
+    },
+    "performance_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\performance_results.csv",
+      "sha256": "30ac54c2db288a5b89259cde157f8aa9a835988b52dabd059e1dc4dd96518901",
+      "size_bytes": 1266
+    },
+    "reproduce.py": {
+      "path": "experiments/ulc_v3_independent_audit\\reproduce.py",
+      "sha256": "949ced4ea13c411a0104d0983ec2f6ee8f06631270c9f99c0f687d1f138b4282",
+      "size_bytes": 11371
+    },
+    "reproduced_study_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\reproduced_study_results.json",
+      "sha256": "9519c748f0714cb618fedf164ae501aed864e0052084c1d2bd2b7ccd269f3d9f",
+      "size_bytes": 32961
+    },
+    "reproduction_comparison.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\reproduction_comparison.csv",
+      "sha256": "367bae2be1bf667a3a5e1b9303dc9cc73a1e0ea5e652f74ca86f1e667f5e4461",
+      "size_bytes": 5673
+    },
+    "reproduction_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\reproduction_results.json",
+      "sha256": "1d8ca828d2dfdc9c7c4a64ce4e5b07c4aeb9ac7e3cd8fe0961461b5bcec6ef83",
+      "size_bytes": 95505
+    },
+    "reproduction_seed_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\reproduction_seed_results.csv",
+      "sha256": "de5b8fd24c31a392e3bdb567df6510f495148ae7e2baf4dbb6087bdbd349d998",
+      "size_bytes": 7226
+    },
+    "statistical_analysis.py": {
+      "path": "experiments/ulc_v3_independent_audit\\statistical_analysis.py",
+      "sha256": "e426e4108a53d8b167b96d916199a98cb815b3982b238e593b4bbe3706e17871",
+      "size_bytes": 8993
+    },
+    "statistical_audit_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\statistical_audit_results.json",
+      "sha256": "0bc08264c364749eb0823e6a2c3070c22bbdd100eefab6e94f2635d86dbf60ff",
+      "size_bytes": 16290
+    },
+    "statistical_results.json": {
+      "path": "experiments/ulc_v3_independent_audit\\statistical_results.json",
+      "sha256": "c6de60b354ece848989e83403e6828498c71ced24b8b6a0a46688f2a01133be4",
+      "size_bytes": 31019
+    },
+    "threshold_sweep.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\threshold_sweep.csv",
+      "sha256": "5fcf21c39eb01c157e4b1ce953a7cb7ac97da6f46aef6ab382cfed489b95fec5",
+      "size_bytes": 1053
+    },
+    "ulc_ablation_results.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\ulc_ablation_results.csv",
+      "sha256": "7b468cdbc20a26ecf8861116f297877bd21fbc72d764649e53bbd5d084246bac",
+      "size_bytes": 736
+    },
+    "ulc_audit.py": {
+      "path": "experiments/ulc_v3_independent_audit\\ulc_audit.py",
+      "sha256": "f26a17fe61d8c1a7a69e73fef584e3ff75e85c65e85fd8dc2cd0f1a29fb45aa6",
+      "size_bytes": 13319
+    },
+    "ulc_runtime_trace.json": {
+      "path": "experiments/ulc_v3_independent_audit\\ulc_runtime_trace.json",
+      "sha256": "d1bb16963e2a6c4a1658af1149b0ef97998e43b8ef7c92ff0bf5c096c58ab693",
+      "size_bytes": 15828
+    },
+    "ulc_state_transition_matrix.csv": {
+      "path": "experiments/ulc_v3_independent_audit\\ulc_state_transition_matrix.csv",
+      "sha256": "bfbfeb2b2bb006485428bc158a38c1c98c662546f044c3eea8da7c18ad303237",
+      "size_bytes": 189
+    },
+    "figures\\minority\\precision_recall_curve.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\minority\\precision_recall_curve.png",
+      "sha256": "79495052cbbb9ca07a502c8404956ad1f0a0927d5e84de862fbe0f6d8c724241",
+      "size_bytes": 83184
+    },
+    "figures\\minority\\regime_minority_recall.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\minority\\regime_minority_recall.png",
+      "sha256": "33bc409feed5b6fb369394b1e33feaf7785299e91528210c563dcc01ae4e9e04",
+      "size_bytes": 68869
+    },
+    "figures\\minority\\threshold_vs_f1.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\minority\\threshold_vs_f1.png",
+      "sha256": "8b6ae3d3413fead23aa8c2643d7f2f108172958bd78b4f5c46c0e788ca68a4a8",
+      "size_bytes": 127119
+    },
+    "figures\\pareto\\false_resets_vs_quality.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\pareto\\false_resets_vs_quality.png",
+      "sha256": "bcfc67558109135b8fa0586993819574c737caab1aba713e33722f1acc9aaa1c",
+      "size_bytes": 105783
+    },
+    "figures\\pareto\\minority_recall_vs_accuracy.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\pareto\\minority_recall_vs_accuracy.png",
+      "sha256": "32a2ef7d163d1133fe11e0cd3794c03c797362b7b2b67f8759d30d34cde85e66",
+      "size_bytes": 104135
+    },
+    "figures\\pareto\\quality_vs_latency.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\pareto\\quality_vs_latency.png",
+      "sha256": "a1fac361db500fae48f3643deb6b0057e82e991c3f1ad55123fe5491340d1c84",
+      "size_bytes": 105164
+    },
+    "figures\\pareto\\quality_vs_memory.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\pareto\\quality_vs_memory.png",
+      "sha256": "c63faa8ec3656504b73941fdebefb039c664f420d81959ec9f0ddc45fca2c35b",
+      "size_bytes": 107861
+    },
+    "figures\\resources\\long_run_rss_stability.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\resources\\long_run_rss_stability.png",
+      "sha256": "d8f2f7ac62c52c0191727603067c99c3d4396a0e78a1038f9090c46cdf54e0f1",
+      "size_bytes": 70721
+    },
+    "figures\\resources\\optimizer_memory_scaling.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\resources\\optimizer_memory_scaling.png",
+      "sha256": "0503a1f6f2d25afcff0c9683e0a0fcf802102595cc9125b8de5df89b67220c54",
+      "size_bytes": 80842
+    },
+    "figures\\resources\\throughput_latency_profile.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\resources\\throughput_latency_profile.png",
+      "sha256": "5c55130d36c9c046f1ebd0229f35981b0309be2e05d005a8f44a112c8d5b1483",
+      "size_bytes": 153205
+    },
+    "figures\\ulc\\ablation_macro_f1.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\ulc\\ablation_macro_f1.png",
+      "sha256": "35181fec03f6357968df561c56257fb0a5a591033ca853a63532f472c9d3d8a6",
+      "size_bytes": 76813
+    },
+    "figures\\ulc\\state_transitions.png": {
+      "path": "experiments/ulc_v3_independent_audit\\figures\\ulc\\state_transitions.png",
+      "sha256": "83fbc02a9efc250992eabd5b07ed3f8a481f2aedf2f2b2e165468d13be1ec164",
+      "size_bytes": 92681
+    },
+    "logs\\reproduction.log": {
+      "path": "experiments/ulc_v3_independent_audit\\logs\\reproduction.log",
+      "sha256": "35aad5bc33d457e339c27001aabc1e9af660b2d4e5948ae9720d437a932d2cc1",
+      "size_bytes": 3350
+    }
+  }
+}

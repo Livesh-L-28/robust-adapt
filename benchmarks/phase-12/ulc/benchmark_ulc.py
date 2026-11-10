@@ -18,11 +18,11 @@ _BENCHMARK_ROOT = Path(__file__).resolve().parent.parent
 if str(_BENCHMARK_ROOT) not in sys.path:
     sys.path.insert(0, str(_BENCHMARK_ROOT))
 
-from adaptive_ml.ala.classifier import AdaptiveClassifier
-from adaptive_ml.core.config import ULCConfig
-from adaptive_ml.rla.pipeline import RobustLearningPipeline
-from adaptive_ml.ulc.controller import AdaptiveLearningController
-from adaptive_ml.ulc.directives import ControllerState
+from robust_adapt.ala.classifier import AdaptiveClassifier
+from robust_adapt.core.config import ULCConfig
+from robust_adapt.rla.pipeline import RobustLearningPipeline
+from robust_adapt.ulc.controller import AdaptiveLearningController
+from robust_adapt.ulc.directives import ControllerState
 
 
 def run_ulc_benchmark(seeds: List[int] = [42, 101, 2024, 7, 99]) -> Dict[str, Any]:

@@ -1,0 +1,55 @@
+{
+  "audit_id": "STAGE1.1-MINORITY-THRESHOLD-RECONCILIATION",
+  "leakage_controls": {
+    "tuning_seeds": [
+      42,
+      101,
+      2024,
+      7,
+      99
+    ],
+    "test_seeds": [
+      13,
+      21,
+      55,
+      88,
+      144
+    ],
+    "zero_leakage_verified": true,
+    "protocol": "Optimal threshold selected strictly on tuning seeds, then applied frozen to independent test seeds."
+  },
+  "optimal_threshold_selected": 0.4,
+  "independent_test_set_performance": {
+    "default_threshold_0_50": {
+      "mean_recall": 0.34825999999999996,
+      "mean_precision": 0.12491999999999999,
+      "mean_minority_f1": 0.18384,
+      "mean_macro_f1": 0.49638,
+      "mean_accuracy": 0.6904600000000001,
+      "mean_balanced_accuracy": 0.5384,
+      "mean_fpr": 0.27149999999999996,
+      "mean_fnr": 0.65174,
+      "mean_pr_auc": 0.13614,
+      "mean_brier_score": 0.20234000000000002
+    },
+    "calibrated_threshold_0_35": {
+      "mean_recall": 0.78366,
+      "mean_precision": 0.18405999999999997,
+      "mean_minority_f1": 0.29802,
+      "mean_macro_f1": 0.52374,
+      "mean_accuracy": 0.63076,
+      "mean_balanced_accuracy": 0.69874,
+      "mean_fpr": 0.38624,
+      "mean_fnr": 0.21634000000000003,
+      "mean_pr_auc": 0.13614,
+      "mean_brier_score": 0.20234000000000002
+    },
+    "tradeoff_analysis": {
+      "recall_gain": 0.43540000000000006,
+      "macro_f1_gain": 0.027359999999999995,
+      "precision_penalty": 0.059139999999999984,
+      "fpr_increase": 0.11474000000000006,
+      "accuracy_penalty": -0.059700000000000086
+    }
+  }
+}

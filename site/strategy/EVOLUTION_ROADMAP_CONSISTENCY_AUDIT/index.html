@@ -1,0 +1,5358 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Adaptive, Robust, and Resource-Efficient Learning for Python">
+      
+      
+        <meta name="author" content="AdaptiveML Core Team">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>AdaptiveML Evolution Roadmap v2.0 — Consistency, Traceability & Governance Audit - AdaptiveML Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adaptiveml-evolution-roadmap-v20-consistency-traceability-governance-audit" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AdaptiveML Documentation" class="md-header__button md-logo" aria-label="AdaptiveML Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AdaptiveML Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AdaptiveML Evolution Roadmap v2.0 — Consistency, Traceability &amp; Governance Audit
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/adaptiveml/adaptiveml" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    adaptiveml/adaptiveml
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AdaptiveML Documentation" class="md-nav__button md-logo" aria-label="AdaptiveML Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AdaptiveML Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/adaptiveml/adaptiveml" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    adaptiveml/adaptiveml
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/problem-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problem Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/architecture-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/design-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/environment-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation-verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/optional-integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-Minute Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/first-adaptive-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Adaptive Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/first-streaming-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Streaming Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/concept-drift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/label-noise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Label Noise & Robustness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/class-imbalance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class Imbalance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/resource-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/controller-arbitration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithms
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALA 3.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ALA 3.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ala/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ala/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ala/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ala/recurring-concept-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recurring Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ala/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ala/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RLA 3.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RLA 3.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rla/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rla/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rla/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rla/asymmetric-noise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asymmetric Noise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rla/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rla/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Minority Intelligence 2.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Minority Intelligence 2.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/minority-intelligence/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/minority-intelligence/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/minority-intelligence/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/minority-intelligence/threshold-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic FP Thresholds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/minority-intelligence/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/minority-intelligence/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAO 2.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAO 2.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rao/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rao/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rao/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rao/vectorized-optimizer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vectorized Low-Memory AdamW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rao/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/rao/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ULC-v5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ULC-v5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ulc/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ulc/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ulc/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ulc/intervention-hierarchy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-Tier Intervention Hierarchy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ulc/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ulc/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Public API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Public API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Foundations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/ala/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALA API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/rla/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RLA API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/minority/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Minority Intelligence API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/rao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAO API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/ulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ULC API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integrations API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State & Persistence API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework Integrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Framework Integrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview & Data Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pure NumPy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/scikit-learn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scikit-Learn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/pytorch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/dataframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabular DataFrames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/deferred-frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deferred Frameworks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operational Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operational Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/checkpoints-and-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkpoints & Recovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability & Telemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/cpu-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Performance Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/ala/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALA Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/rla/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RLA Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/rao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAO Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/ulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ULC Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Industry Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Industry Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/01_streaming_anomaly_detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. IoT Anomaly & Drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/02_recurring_demand_shifts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Recurring Retail Demand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/03_extreme_label_noise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Extreme Label Noise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/04_fraud_detection_streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Financial Fraud Streams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/05_low_memory_pytorch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Low-Memory PyTorch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/06_unified_coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. ULC-v5 Master Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture & Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture & Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/system-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/security-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/research-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting & FAQ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting & FAQ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequently Asked Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community & Governance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community & Governance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/code-of-conduct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of Conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License & Trademark
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-executive-summary-audit-mandate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Executive Summary &amp; Audit Mandate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-complete-inventory-of-files-reviewed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Complete Inventory of Files Reviewed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Complete Inventory of Files Reviewed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-foundation-governance-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Foundation &amp; Governance Documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-strategic-evolution-documents-under-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Strategic Evolution Documents Under Audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-verification-defect-remediation-audits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Verification &amp; Defect Remediation Audits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-authoritative-22-phase-preservation-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Authoritative 22-Phase Preservation Audit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Authoritative 22-Phase Preservation Audit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audit-findings-on-phase-preservation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Findings on Phase Preservation:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-definitive-evolution-item-count-reconciliation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Definitive Evolution-Item Count Reconciliation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Definitive Evolution-Item Count Reconciliation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-the-discrepancy-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 The Discrepancy Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-root-cause-of-the-discrepancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Root Cause of the Discrepancy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-breakdown-by-priority-tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Breakdown by Priority Tier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-breakdown-by-evolution-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Breakdown by Evolution Classification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-complete-64-initiative-canonical-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Complete 64-Initiative Canonical Inventory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-phase-status-governance-terminology-reconciliation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Phase Status &amp; Governance Terminology Reconciliation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Phase Status &amp; Governance Terminology Reconciliation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-reconciled-22-phase-status-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Reconciled 22-Phase Status Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-research-evidence-feasibility-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Research Evidence &amp; Feasibility Audit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Research Evidence &amp; Feasibility Audit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-bibliographic-prior-art-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Bibliographic &amp; Prior-Art Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-feasibility-evidence-gaps-identified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Feasibility &amp; Evidence Gaps Identified
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-industry-validation-public-dataset-claims-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Industry Validation &amp; Public Dataset Claims Audit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Industry Validation &amp; Public Dataset Claims Audit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-public-datasets-as-benchmark-proxies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Public Datasets as Benchmark Proxies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-flagship-sector-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Flagship Sector Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-critical-benchmark-methodology-corrections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Critical Benchmark Methodology Corrections
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-brand-governance-def-004-decision-status-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Brand Governance &amp; DEF-004 Decision Status Audit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Brand Governance &amp; DEF-004 Decision Status Audit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-def-004-remains-open-unresolved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 DEF-004 Remains Open &amp; Unresolved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-audit-of-suggested-brand-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Audit of Suggested Brand Names
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-audit-verdict-actionable-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Audit Verdict &amp; Actionable Recommendations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Audit Verdict &amp; Actionable Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-final-audit-verdict-reconciled-corrected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Final Audit Verdict: RECONCILED &amp; CORRECTED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-recommended-actions-for-the-project-owner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Recommended Actions for the Project Owner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="adaptiveml-evolution-roadmap-v20-consistency-traceability-governance-audit">AdaptiveML Evolution Roadmap v2.0 — Consistency, Traceability &amp; Governance Audit<a class="headerlink" href="#adaptiveml-evolution-roadmap-v20-consistency-traceability-governance-audit" title="Permanent link">&para;</a></h1>
+<p><strong>Document Identifier:</strong> <code>DOC-STRAT-AUDIT-001</code><br />
+<strong>Distribution Identifier:</strong> <code>aml-core</code><br />
+<strong>Package Version:</strong> <code>0.1.0.dev0</code><br />
+<strong>Working Codename:</strong> AdaptiveML (<em>Provisional — Subject to formal legal and trademark clearance</em>)<br />
+<strong>Verification Baseline:</strong> Commit <a href="file:///c:/projects/AdaptiveML"><code>67e9ef1b347ca223828a1f225e85e35a086a1f30</code></a><br />
+<strong>Audit Date:</strong> November 2, 2026<br />
+<strong>Auditor:</strong> Principal Enterprise Software Quality, Architecture &amp; Governance Auditor<br />
+<strong>Audit Scope:</strong> Full audit of <code>docs/strategy/ADAPTIVEML_EVOLUTION_ROADMAP_V2.md</code>, all documents in <code>docs/strategy/evolution/</code>, <code>EVOLUTION_ROADMAP_COMPLETION_REPORT.md</code>, defect registers, and baseline foundation documents.<br />
+<strong>Audit Verdict:</strong> <strong><code>RECONCILED &amp; CORRECTED — READY FOR PROJECT OWNER REVIEW</code></strong>  </p>
+<hr />
+<h2 id="1-executive-summary-audit-mandate">1. Executive Summary &amp; Audit Mandate<a class="headerlink" href="#1-executive-summary-audit-mandate" title="Permanent link">&para;</a></h2>
+<p>This formal consistency and governance audit was conducted in <code>C:\projects\AdaptiveML</code> to evaluate the newly generated <strong>Evolution Roadmap v2.0</strong> suite. </p>
+<p>The audit focused on reconciling:
+1. <strong>Initiative Count Discrepancies:</strong> Resolving the apparent conflict between the reported "47 proposed evolution items", the mapping ranges summing to 58, and the actual inventory of unique initiatives defined in the registers.
+2. <strong>Authoritative Phase Preservation:</strong> Ensuring that the original 22-phase roadmap (<a href="file:///c:/projects/AdaptiveML/docs/foundation/ROADMAP.md"><code>docs/foundation/ROADMAP.md</code></a>) is strictly preserved without reopening completed phases or altering historical acceptance criteria.
+3. <strong>Phase Status &amp; Governance Terminology:</strong> Decomposing phase statuses into six explicit governance dimensions (Implementation, Technical Verification, Deliverable Submission, Owner Acceptance, Legal Clearance, Release Authorization).
+4. <strong>Academic Research &amp; Industry Grounding:</strong> Verifying that academic citations are authentic, hypotheses are distinguished from established facts, and public dataset benchmarks are recognized as proxies rather than live operational deployments.
+5. <strong>Brand Governance (DEF-004):</strong> Re-affirming that DEF-004 remains open, that suggested names (e.g., OpenAML) are unverified, and that package identity remains invariant (<code>aml-core==0.1.0.dev0</code>, <code>adaptive_ml</code>).</p>
+<hr />
+<h2 id="2-complete-inventory-of-files-reviewed">2. Complete Inventory of Files Reviewed<a class="headerlink" href="#2-complete-inventory-of-files-reviewed" title="Permanent link">&para;</a></h2>
+<p>The audit team inspected the following documents across the project workspace:</p>
+<h3 id="21-foundation-governance-documents">2.1 Foundation &amp; Governance Documents<a class="headerlink" href="#21-foundation-governance-documents" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="file:///c:/projects/AdaptiveML/docs/foundation/ROADMAP.md"><code>docs/foundation/ROADMAP.md</code></a> — Authoritative 22-Phase Master Development Roadmap.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/foundation/PRODUCT_SPECIFICATION.md"><code>docs/foundation/PRODUCT_SPECIFICATION.md</code></a> — Core vision, pillar decoupling, and scope.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/foundation/PROJECT_CHARTER.md"><code>docs/foundation/PROJECT_CHARTER.md</code></a> — Boundary definitions, roles, and RFC governance.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/foundation/SUCCESS_CRITERIA.md"><code>docs/foundation/SUCCESS_CRITERIA.md</code></a> — Quantitative targets and statistical testing rules.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/foundation/SCOPE_AND_REQUIREMENTS.md"><code>docs/foundation/SCOPE_AND_REQUIREMENTS.md</code></a> — Functional and non-functional requirements.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/foundation/RESEARCH_GOVERNANCE.md"><code>docs/foundation/RESEARCH_GOVERNANCE.md</code></a> — The Ten Inviolable Research Governance Rules.</li>
+</ul>
+<h3 id="22-strategic-evolution-documents-under-audit">2.2 Strategic Evolution Documents Under Audit<a class="headerlink" href="#22-strategic-evolution-documents-under-audit" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/ADAPTIVEML_EVOLUTION_ROADMAP_V2.md"><code>docs/strategy/ADAPTIVEML_EVOLUTION_ROADMAP_V2.md</code></a> — Master Evolution Roadmap v2.0.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/EVOLUTION_ROADMAP_COMPLETION_REPORT.md"><code>docs/strategy/EVOLUTION_ROADMAP_COMPLETION_REPORT.md</code></a> — Initial roadmap delivery report.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/ALA_EVOLUTION_REGISTER.md"><code>docs/strategy/evolution/ALA_EVOLUTION_REGISTER.md</code></a> — Adaptive Learning Algorithms Register.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/RLA_EVOLUTION_REGISTER.md"><code>docs/strategy/evolution/RLA_EVOLUTION_REGISTER.md</code></a> — Robust Learning Algorithms Register.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/RAO_EVOLUTION_REGISTER.md"><code>docs/strategy/evolution/RAO_EVOLUTION_REGISTER.md</code></a> — Resource-Aware Optimization Register.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/ULC_EVOLUTION_REGISTER.md"><code>docs/strategy/evolution/ULC_EVOLUTION_REGISTER.md</code></a> — Unified Learning Controller Register.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/DEVELOPER_EXPERIENCE_ROADMAP.md"><code>docs/strategy/evolution/DEVELOPER_EXPERIENCE_ROADMAP.md</code></a> — Developer Experience Strategy.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/RESEARCH_ROADMAP.md"><code>docs/strategy/evolution/RESEARCH_ROADMAP.md</code></a> — Long-Term Research Strategy.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/INDUSTRY_APPLICATION_ROADMAP.md"><code>docs/strategy/evolution/INDUSTRY_APPLICATION_ROADMAP.md</code></a> — Industry Validation Strategy.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/ECOSYSTEM_ROADMAP.md"><code>docs/strategy/evolution/ECOSYSTEM_ROADMAP.md</code></a> — Open-Source Ecosystem Strategy.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/ENGINEERING_IMPROVEMENT_REGISTER.md"><code>docs/strategy/evolution/ENGINEERING_IMPROVEMENT_REGISTER.md</code></a> — Engineering Improvement Register.</li>
+</ul>
+<h3 id="23-verification-defect-remediation-audits">2.3 Verification &amp; Defect Remediation Audits<a class="headerlink" href="#23-verification-defect-remediation-audits" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="file:///c:/projects/AdaptiveML/docs/verification/ENTERPRISE_DEFECT_REGISTER.md"><code>docs/verification/ENTERPRISE_DEFECT_REGISTER.md</code></a> — Canonical defect register.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/verification/remediation/DEF-004_OWNER_DECISION_REQUIRED.md"><code>docs/verification/remediation/DEF-004_OWNER_DECISION_REQUIRED.md</code></a> — Governance brief on trademark collision.</li>
+<li><a href="file:///c:/projects/AdaptiveML/docs/verification/remediation/REMEDIATION_ACCEPTANCE_REPORT.md"><code>docs/verification/remediation/REMEDIATION_ACCEPTANCE_REPORT.md</code></a> — Engineering sign-off on DEF-001, DEF-002, DEF-003, and DEF-005.</li>
+</ul>
+<hr />
+<h2 id="3-authoritative-22-phase-preservation-audit">3. Authoritative 22-Phase Preservation Audit<a class="headerlink" href="#3-authoritative-22-phase-preservation-audit" title="Permanent link">&para;</a></h2>
+<p>The audit team conducted a line-by-line verification comparing <code>docs/foundation/ROADMAP.md</code> against <code>ADAPTIVEML_EVOLUTION_ROADMAP_V2.md</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Original Master Phases (0 to 21):
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>┌────────────────────────────────────────────────────────────────────────┐
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│ RESEARCH &amp; FOUNDATION (Phases 0 - 6)                                   │
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  0: Foundation -&gt; 1: Market -&gt; 2: Prior Art -&gt; 3: Legal -&gt;             │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  4: Lit Review -&gt; 5: Gap ID -&gt; 6: Math &amp; Algorithm Design              │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├────────────────────────────────────────────────────────────────────────┤
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ ARCHITECTURE &amp; CORE IMPLEMENTATION (Phases 7 - 11)                     │
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│  7: Tech Arch -&gt; 8: ALA Dev -&gt; 9: RLA Dev -&gt; 10: RAO Dev -&gt; 11: ULC    │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>├────────────────────────────────────────────────────────────────────────┤
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ EMPIRICAL VALIDATION &amp; INTEGRATION (Phases 12 - 15)                    │
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  12: Benchmarking -&gt; 13: Frameworks -&gt; 14: Prod Eng -&gt; 15: Docs &amp; DX   │
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├────────────────────────────────────────────────────────────────────────┤
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│ AUDIT, RELEASE &amp; PUBLICATION (Phases 16 - 19)                          │
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  16: Legal Audit -&gt; 17: Alpha/Beta -&gt; 18: PyPI 1.0 -&gt; 19: Publication  │
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├────────────────────────────────────────────────────────────────────────┤
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│ ECOSYSTEM &amp; CONTINUOUS R&amp;D (Phases 20 - 21)                            │
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│  20: Global Ecosystem -&gt; 21: Continuous R&amp;D                            │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>└────────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="audit-findings-on-phase-preservation">Audit Findings on Phase Preservation:<a class="headerlink" href="#audit-findings-on-phase-preservation" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Zero Renumbering or Replacement:</strong> Phases 0 through 21 retain their exact original numbering, official phase titles, and chronological order.</li>
+<li><strong>Zero Modification of Historical Deliverables:</strong> The deliverables for completed phases (e.g., <code>adaptiveml/ala/</code> for Phase 8, <code>benchmarks/</code> for Phase 12, wheel rebuild for Phase 14) are unaltered.</li>
+<li><strong>Zero Modification of Acceptance Gates:</strong> The acceptance criteria (e.g., <span class="arithmatex">\(\ge 90\%\)</span> test coverage, <code>mypy --strict</code>, Wilcoxon <span class="arithmatex">\(p &lt; 0.01\)</span>, zero CVEs) remain authoritative and unchanged.</li>
+<li><strong>Correction Required:</strong> The initial roadmap draft mapped new evolution work directly under completed phases (e.g., "Phase 8: EVO-ALA-001"), which could be misinterpreted as reopening Phase 8 or expanding its scope. <strong>Correction:</strong> All proposed evolution work is formally reclassified as <strong>Follow-on Evolution Work</strong> extending the capabilities of the original phase, to be executed during future evolution stages (e.g., Post-1.0 Evolution or Phase 21 Continuous R&amp;D).</li>
+</ol>
+<hr />
+<h2 id="4-definitive-evolution-item-count-reconciliation">4. Definitive Evolution-Item Count Reconciliation<a class="headerlink" href="#4-definitive-evolution-item-count-reconciliation" title="Permanent link">&para;</a></h2>
+<h3 id="41-the-discrepancy-analysis">4.1 The Discrepancy Analysis<a class="headerlink" href="#41-the-discrepancy-analysis" title="Permanent link">&para;</a></h3>
+<p>The user audit raised a valid discrepancy:
+- The initial summary claimed "47 proposed evolution items".
+- The completion report's textual mapping table cited ID ranges that summed to 58.
+- The actual count of unique initiatives defined across the 9 evolution documents is <strong>64</strong>.</p>
+<h3 id="42-root-cause-of-the-discrepancy">4.2 Root Cause of the Discrepancy<a class="headerlink" href="#42-root-cause-of-the-discrepancy" title="Permanent link">&para;</a></h3>
+<p>The discrepancy arose from draft fragmentation during initial compilation:
+1. <strong>The "47" Figure:</strong> An early drafting tally counted only the prioritized core engineering, algorithmic improvements, and flagship applications, omitting the 7 standalone research directions (<code>EVO-RES-001</code> through <code>EVO-RES-007</code>), 2 sector references (<code>EVO-IND-005</code>, <code>EVO-IND-006</code>), 4 deferred pillar items (<code>EVO-ALA-006</code>, <code>EVO-RLA-006</code>, <code>EVO-RAO-006</code>, <code>EVO-ULC-006</code>), and 4 deferred DX/Ecosystem items (<code>EVO-DX-007</code>, <code>EVO-DX-008</code>, <code>EVO-ECO-006</code>, <code>EVO-ECO-007</code>).
+2. <strong>The "58" Figure:</strong> A subsequent partial synthesis added the 7 research items and some pillar items, but omitted several deferred opportunities and sector references (<span class="arithmatex">\(47 + 7 + 4 = 58\)</span>).
+3. <strong>The Definitive Canonical Count:</strong> A complete, automated parsing of all 9 evolution documents reveals <strong>exactly 64 unique initiatives</strong>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Definitive Initiative Inventory by Register:
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>┌──────────────────────────────────────────────┬───────────────┐
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│ Domain / Evolution Register                  │ Item Count    │
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├──────────────────────────────────────────────┼───────────────┤
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│ Adaptive Learning Algorithms (ALA)           │ 6 initiatives │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│ Robust Learning Algorithms (RLA)             │ 6 initiatives │
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│ Resource-Aware Optimization (RAO)            │ 6 initiatives │
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│ Unified Learning Controller (ULC)            │ 6 initiatives │
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│ Developer Experience (DX)                    │ 8 initiatives │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│ Scientific Research Roadmap (RES)            │ 7 initiatives │
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│ Industry Application Roadmap (IND)           │ 6 initiatives │
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│ Open-Source Ecosystem Roadmap (ECO)          │ 7 initiatives │
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│ Engineering Improvement Register (ENG)       │ 12 initiatives│
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>├──────────────────────────────────────────────┼───────────────┤
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│ TOTAL UNIQUE EVOLUTION INITIATIVES           │ 64 initiatives│
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>└──────────────────────────────────────────────┴───────────────┘
+</code></pre></div>
+<h3 id="43-breakdown-by-priority-tier">4.3 Breakdown by Priority Tier<a class="headerlink" href="#43-breakdown-by-priority-tier" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌────────────────────────────────────────────────────────┬─────────────┐
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│ Priority Class                                         │ Initiatives │
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├────────────────────────────────────────────────────────┼─────────────┤
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│ P0: Release and governance blockers                    │ 1 item      │
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│ P1: Core algorithm reliability &amp; foundational science  │ 15 items    │
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│ P2: Developer experience &amp; production hardening        │ 19 items    │
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│ P3: Industry reference applications &amp; publications     │ 17 items    │
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│ P4: Ecosystem growth &amp; deferred opportunities          │ 12 items    │
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>├────────────────────────────────────────────────────────┼─────────────┤
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│ TOTAL CANONICAL INITIATIVES                            │ 64 items    │
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>└────────────────────────────────────────────────────────┴─────────────┘
+</code></pre></div>
+<h3 id="44-breakdown-by-evolution-classification">4.4 Breakdown by Evolution Classification<a class="headerlink" href="#44-breakdown-by-evolution-classification" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>┌────────────────────────────────────────────────────────┬─────────────┐
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>│ Evolution Classification                               │ Initiatives │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├────────────────────────────────────────────────────────┼─────────────┤
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│ Proposed Enhancement (Architectural refinement)        │ 22 items    │
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│ New Engineering (New tool, adapter, or CI capability)  │ 17 items    │
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│ New Research (Theoretical hypothesis requiring proofs) │ 15 items    │
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│ Deferred Opportunity (Exploratory / long-term R&amp;D)     │ 10 items    │
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>├────────────────────────────────────────────────────────┼─────────────┤
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│ TOTAL CANONICAL INITIATIVES                            │ 64 items    │
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>└────────────────────────────────────────────────────────┴─────────────┘
+</code></pre></div>
+<hr />
+<h2 id="5-complete-64-initiative-canonical-inventory">5. Complete 64-Initiative Canonical Inventory<a class="headerlink" href="#5-complete-64-initiative-canonical-inventory" title="Permanent link">&para;</a></h2>
+<p>The following table establishes the canonical, reconciled inventory of all 64 evolution initiatives:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Initiative ID</th>
+<th style="text-align: left;">Initiative Title</th>
+<th style="text-align: left;">Domain</th>
+<th style="text-align: left;">Priority</th>
+<th style="text-align: left;">Classification</th>
+<th style="text-align: left;">Execution Status</th>
+<th style="text-align: left;">Original Phase Association</th>
+<th style="text-align: left;">Future Execution Stage</th>
+<th style="text-align: left;">Key Dependencies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-001</strong></td>
+<td style="text-align: left;">OIDC Trusted Publishing Build Pipeline</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P0</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 (Prod Eng)</td>
+<td style="text-align: left;">Pre-Release Hardening</td>
+<td style="text-align: left;">DEF-004 Owner Sign-off</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ALA-001</strong></td>
+<td style="text-align: left;">GK Streaming Quantile Tree Pruning</td>
+<td style="text-align: left;">ALA</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 8 (ALA)</td>
+<td style="text-align: left;">Evolution Wave 1</td>
+<td style="text-align: left;">Pure NumPy core</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ALA-002</strong></td>
+<td style="text-align: left;">Multivariate MMD Covariate Drift Detector</td>
+<td style="text-align: left;">ALA</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 8 &amp; Phase 12</td>
+<td style="text-align: left;">Evolution Wave 1</td>
+<td style="text-align: left;">Phase 12 benchmarks</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RLA-001</strong></td>
+<td style="text-align: left;">LSH Density Margin Reliability Scoring</td>
+<td style="text-align: left;">RLA</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 9 (RLA)</td>
+<td style="text-align: left;">Evolution Wave 1</td>
+<td style="text-align: left;">Pure NumPy core</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RLA-002</strong></td>
+<td style="text-align: left;">Noise-Rate-Agnostic Online Peer Loss</td>
+<td style="text-align: left;">RLA</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 9 &amp; Phase 12</td>
+<td style="text-align: left;">Evolution Wave 1</td>
+<td style="text-align: left;">Phase 12 benchmarks</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RAO-001</strong></td>
+<td style="text-align: left;">Factored Second Moments (NumPy Adafactor)</td>
+<td style="text-align: left;">RAO</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 10 (RAO)</td>
+<td style="text-align: left;">Evolution Wave 1</td>
+<td style="text-align: left;">Pure NumPy core</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RAO-002</strong></td>
+<td style="text-align: left;">CPU-Native 4-bit NormalFloat (NF4) State</td>
+<td style="text-align: left;">RAO</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 10 &amp; Phase 12</td>
+<td style="text-align: left;">Evolution Wave 1</td>
+<td style="text-align: left;">Phase 12 benchmarks</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ULC-001</strong></td>
+<td style="text-align: left;">Continuous Bayesian Belief State Arbitrat.</td>
+<td style="text-align: left;">ULC</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 11 (ULC)</td>
+<td style="text-align: left;">Evolution Wave 1</td>
+<td style="text-align: left;"><a href="file:///c:/projects/AdaptiveML/adaptive_ml/ulc/directives.py"><code>adaptive_ml.ulc.directives</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ULC-002</strong></td>
+<td style="text-align: left;">Spatial Error Ratio Drift/Noise Disentang.</td>
+<td style="text-align: left;">ULC</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 11 &amp; Phase 12</td>
+<td style="text-align: left;">Evolution Wave 1</td>
+<td style="text-align: left;">Phase 12 benchmarks</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RES-001</strong></td>
+<td style="text-align: left;">Multivariate Covariate Shift Paper</td>
+<td style="text-align: left;">RES</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 19 (Publish)</td>
+<td style="text-align: left;">Academic Pre-print</td>
+<td style="text-align: left;">EVO-ALA-002 validation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RES-002</strong></td>
+<td style="text-align: left;">Noise-Rate-Agnostic Peer Loss Paper</td>
+<td style="text-align: left;">RES</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 19 (Publish)</td>
+<td style="text-align: left;">Academic Pre-print</td>
+<td style="text-align: left;">EVO-RLA-002 validation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RES-003</strong></td>
+<td style="text-align: left;">4-bit CPU NormalFloat Optimization Paper</td>
+<td style="text-align: left;">RES</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 19 (Publish)</td>
+<td style="text-align: left;">Academic Pre-print</td>
+<td style="text-align: left;">EVO-RAO-002 validation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RES-004</strong></td>
+<td style="text-align: left;">Drift vs Noise Spatial Disentangle Paper</td>
+<td style="text-align: left;">RES</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 19 (Publish)</td>
+<td style="text-align: left;">Academic Pre-print</td>
+<td style="text-align: left;">EVO-ULC-002 validation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-002</strong></td>
+<td style="text-align: left;">IEEE 754 Floating-Point Sanity Guards</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 (Prod Eng)</td>
+<td style="text-align: left;">Pre-Release Hardening</td>
+<td style="text-align: left;"><a href="file:///c:/projects/AdaptiveML/adaptive_ml/core/validation.py"><code>adaptive_ml.core.validation</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-003</strong></td>
+<td style="text-align: left;">NumPy In-Place Memory Allocation Optim.</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 10 &amp; Phase 14</td>
+<td style="text-align: left;">Pre-Release Hardening</td>
+<td style="text-align: left;">Pure NumPy core</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-004</strong></td>
+<td style="text-align: left;">Native Darwin/macOS Ctypes Telemetry</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P1</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 (Prod Eng)</td>
+<td style="text-align: left;">Pre-Release Hardening</td>
+<td style="text-align: left;"><a href="file:///c:/projects/AdaptiveML/adaptive_ml/core/telemetry.py"><code>adaptive_ml.core.telemetry</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ALA-003</strong></td>
+<td style="text-align: left;">Recency-Decayed Reservoir Replay</td>
+<td style="text-align: left;">ALA</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 8 (ALA)</td>
+<td style="text-align: left;">Evolution Wave 2</td>
+<td style="text-align: left;"><a href="file:///c:/projects/AdaptiveML/adaptive_ml/ala/replay.py"><code>adaptive_ml.ala.replay</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ALA-004</strong></td>
+<td style="text-align: left;">Vectorized Streaming Continuous Regress.</td>
+<td style="text-align: left;">ALA</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 8 &amp; Phase 13</td>
+<td style="text-align: left;">Evolution Wave 2</td>
+<td style="text-align: left;">Base estimator protocols</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RLA-003</strong></td>
+<td style="text-align: left;">Streaming Noise Transition Matrix (T) Est.</td>
+<td style="text-align: left;">RLA</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 9 (RLA)</td>
+<td style="text-align: left;">Evolution Wave 2</td>
+<td style="text-align: left;"><a href="file:///c:/projects/AdaptiveML/adaptive_ml/rla/losses.py"><code>adaptive_ml.rla.losses</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RLA-004</strong></td>
+<td style="text-align: left;">Robust Continuous Losses (Huber/Cauchy)</td>
+<td style="text-align: left;">RLA</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 9 &amp; Phase 13</td>
+<td style="text-align: left;">Evolution Wave 2</td>
+<td style="text-align: left;">Pure NumPy core</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RAO-003</strong></td>
+<td style="text-align: left;">Volatility-Gated Parameter Update Skip</td>
+<td style="text-align: left;">RAO</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 10 (RAO)</td>
+<td style="text-align: left;">Evolution Wave 2</td>
+<td style="text-align: left;"><a href="file:///c:/projects/AdaptiveML/adaptive_ml/rao/adamw.py"><code>adaptive_ml.rao.adamw</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RAO-004</strong></td>
+<td style="text-align: left;">Zero-Copy PyTorch Tensor Buffer Sharing</td>
+<td style="text-align: left;">RAO</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 10 &amp; Phase 13</td>
+<td style="text-align: left;">Evolution Wave 2</td>
+<td style="text-align: left;">PyTorch adapter</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ULC-003</strong></td>
+<td style="text-align: left;">Explainable Intervention Audit Logging</td>
+<td style="text-align: left;">ULC</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 11 (ULC)</td>
+<td style="text-align: left;">Evolution Wave 2</td>
+<td style="text-align: left;"><a href="file:///c:/projects/AdaptiveML/adaptive_ml/ulc/controller.py"><code>adaptive_ml.ulc.controller</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ULC-004</strong></td>
+<td style="text-align: left;">Multi-Tenant Memory Budget Coordinator</td>
+<td style="text-align: left;">ULC</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 11 &amp; Phase 14</td>
+<td style="text-align: left;">Evolution Wave 2</td>
+<td style="text-align: left;"><a href="file:///c:/projects/AdaptiveML/adaptive_ml/rao/memory.py"><code>adaptive_ml.rao.memory</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-DX-001</strong></td>
+<td style="text-align: left;">Fluent Streaming Pipeline Builder API</td>
+<td style="text-align: left;">DX</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 15 (Docs &amp; DX)</td>
+<td style="text-align: left;">DX Wave 1</td>
+<td style="text-align: left;">Core protocols</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-DX-002</strong></td>
+<td style="text-align: left;">Real-Time Terminal Progress Formatter</td>
+<td style="text-align: left;">DX</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 15 (Docs &amp; DX)</td>
+<td style="text-align: left;">DX Wave 1</td>
+<td style="text-align: left;">Telemetry module</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-DX-003</strong></td>
+<td style="text-align: left;">PyTorch Lightning &amp; HF Trainer Callbacks</td>
+<td style="text-align: left;">DX</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 13 &amp; Phase 15</td>
+<td style="text-align: left;">DX Wave 1</td>
+<td style="text-align: left;">PyTorch integration</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-DX-004</strong></td>
+<td style="text-align: left;">Lightweight <code>aml</code> CLI Developer Utility</td>
+<td style="text-align: left;">DX</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 &amp; Phase 15</td>
+<td style="text-align: left;">DX Wave 1</td>
+<td style="text-align: left;">Pure Python argparse</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RES-005</strong></td>
+<td style="text-align: left;">Elastic Parameter Masking Paper</td>
+<td style="text-align: left;">RES</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 19 (Publish)</td>
+<td style="text-align: left;">Academic Pre-print</td>
+<td style="text-align: left;">PyTorch integration</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ECO-001</strong></td>
+<td style="text-align: left;">Dynamic Plugin Registry via PEP 621</td>
+<td style="text-align: left;">ECO</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 &amp; Phase 20</td>
+<td style="text-align: left;">Ecosystem Wave 1</td>
+<td style="text-align: left;">Python entry points</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ECO-002</strong></td>
+<td style="text-align: left;">Interactive Benchmark Explorer Web App</td>
+<td style="text-align: left;">ECO</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 15 &amp; Phase 20</td>
+<td style="text-align: left;">Ecosystem Wave 1</td>
+<td style="text-align: left;">GitHub Pages deploy</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-005</strong></td>
+<td style="text-align: left;">Property-Based Fuzzing with Hypothesis</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 (Prod Eng)</td>
+<td style="text-align: left;">Quality Wave 1</td>
+<td style="text-align: left;">pytest-hypothesis</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-006</strong></td>
+<td style="text-align: left;">Checkpoint Schema Evolution &amp; Migration</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 (Prod Eng)</td>
+<td style="text-align: left;">Quality Wave 1</td>
+<td style="text-align: left;"><a href="file:///c:/projects/AdaptiveML/adaptive_ml/state"><code>adaptive_ml.state</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-007</strong></td>
+<td style="text-align: left;">Automated Multi-OS CI Wheel Test Matrix</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 &amp; Phase 18</td>
+<td style="text-align: left;">Quality Wave 1</td>
+<td style="text-align: left;">GitHub Actions runners</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-008</strong></td>
+<td style="text-align: left;">Structured Zero-Overhead JSON Logging</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P2</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 (Prod Eng)</td>
+<td style="text-align: left;">Quality Wave 1</td>
+<td style="text-align: left;">Telemetry module</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ALA-005</strong></td>
+<td style="text-align: left;">Elastic Parameter Masking for Deep Stream</td>
+<td style="text-align: left;">ALA</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 8 &amp; Phase 21</td>
+<td style="text-align: left;">Continuous R&amp;D</td>
+<td style="text-align: left;">PyTorch integration</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RLA-005</strong></td>
+<td style="text-align: left;">Tail Guardian for Extreme Imbalance</td>
+<td style="text-align: left;">RLA</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 9 (RLA)</td>
+<td style="text-align: left;">Evolution Wave 2</td>
+<td style="text-align: left;"><a href="file:///c:/projects/AdaptiveML/adaptive_ml/rla/scorer.py"><code>adaptive_ml.rla.scorer</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RAO-005</strong></td>
+<td style="text-align: left;">Stochastic Rounding Unbiased State Bits</td>
+<td style="text-align: left;">RAO</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 10 &amp; Phase 21</td>
+<td style="text-align: left;">Continuous R&amp;D</td>
+<td style="text-align: left;">Mathematical proofs</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ULC-005</strong></td>
+<td style="text-align: left;">Contextual Bandit Directive Self-Tuning</td>
+<td style="text-align: left;">ULC</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 11 &amp; Phase 21</td>
+<td style="text-align: left;">Continuous R&amp;D</td>
+<td style="text-align: left;">ULC automaton</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-DX-005</strong></td>
+<td style="text-align: left;">Interactive Pyodide Wasm Browser Demos</td>
+<td style="text-align: left;">DX</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 15 (Docs &amp; DX)</td>
+<td style="text-align: left;">DX Wave 2</td>
+<td style="text-align: left;">MkDocs portal</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-DX-006</strong></td>
+<td style="text-align: left;">Comprehensive 10-Minute Domain Recipes</td>
+<td style="text-align: left;">DX</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 15 (Docs &amp; DX)</td>
+<td style="text-align: left;">DX Wave 2</td>
+<td style="text-align: left;">Tutorial suite</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RES-006</strong></td>
+<td style="text-align: left;">Counterfactual Controller Attribution</td>
+<td style="text-align: left;">RES</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 19 (Publish)</td>
+<td style="text-align: left;">Academic Pre-print</td>
+<td style="text-align: left;">ULC audit logs</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RES-007</strong></td>
+<td style="text-align: left;">Sub-10MB TinyML Adaptation Paper</td>
+<td style="text-align: left;">RES</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Research</td>
+<td style="text-align: left;">Research Pending</td>
+<td style="text-align: left;">Phase 19 (Publish)</td>
+<td style="text-align: left;">Academic Pre-print</td>
+<td style="text-align: left;">Edge benchmarks</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-IND-001</strong></td>
+<td style="text-align: left;">Predictive Maintenance Reference (Flag.1)</td>
+<td style="text-align: left;">IND</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 12 &amp; Phase 15</td>
+<td style="text-align: left;">Sector Blueprints</td>
+<td style="text-align: left;">NASA C-MAPSS dataset</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-IND-002</strong></td>
+<td style="text-align: left;">Financial Fraud Reference (Flagship 2)</td>
+<td style="text-align: left;">IND</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 12 &amp; Phase 15</td>
+<td style="text-align: left;">Sector Blueprints</td>
+<td style="text-align: left;">ULB Fraud dataset</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-IND-003</strong></td>
+<td style="text-align: left;">Cybersecurity Network Intrusion Blueprint</td>
+<td style="text-align: left;">IND</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 12 &amp; Phase 15</td>
+<td style="text-align: left;">Sector Blueprints</td>
+<td style="text-align: left;">CIC-IDS2017 dataset</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-IND-004</strong></td>
+<td style="text-align: left;">Wearable Edge Personalization Blueprint</td>
+<td style="text-align: left;">IND</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 12 &amp; Phase 15</td>
+<td style="text-align: left;">Sector Blueprints</td>
+<td style="text-align: left;">UCI HAR dataset</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ECO-003</strong></td>
+<td style="text-align: left;">Academic Paper Submission Artifact Kit</td>
+<td style="text-align: left;">ECO</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 19 &amp; Phase 20</td>
+<td style="text-align: left;">Ecosystem Wave 1</td>
+<td style="text-align: left;">Citation CFF</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ECO-004</strong></td>
+<td style="text-align: left;">Polars Streaming Zero-Copy Adapter</td>
+<td style="text-align: left;">ECO</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 13 &amp; Phase 20</td>
+<td style="text-align: left;">Ecosystem Wave 1</td>
+<td style="text-align: left;">Polars API</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ECO-005</strong></td>
+<td style="text-align: left;">ONNX Model Export for Streaming Trees</td>
+<td style="text-align: left;">ECO</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 13 &amp; Phase 20</td>
+<td style="text-align: left;">Ecosystem Wave 1</td>
+<td style="text-align: left;">ONNX runtime</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-009</strong></td>
+<td style="text-align: left;">AVX2 / AVX-512 SIMD Quantization Kernel</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 (Prod Eng)</td>
+<td style="text-align: left;">Performance Wave 1</td>
+<td style="text-align: left;">Cython/C compilers</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-010</strong></td>
+<td style="text-align: left;">Automated Software Bill of Materials SBOM</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P3</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 14 &amp; Phase 16</td>
+<td style="text-align: left;">Quality Wave 1</td>
+<td style="text-align: left;">Syft / CycloneDX</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ALA-006</strong></td>
+<td style="text-align: left;">Asynchronous Multi-Stream Engine (No-GIL)</td>
+<td style="text-align: left;">ALA</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Deferred Opportunity</td>
+<td style="text-align: left;">Deferred</td>
+<td style="text-align: left;">Phase 21 (Contin. R&amp;D)</td>
+<td style="text-align: left;">Post-2.0 Exploration</td>
+<td style="text-align: left;">PEP 703 Python 3.14</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RLA-006</strong></td>
+<td style="text-align: left;">Latent Contrastive Purification</td>
+<td style="text-align: left;">RLA</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Deferred Opportunity</td>
+<td style="text-align: left;">Deferred</td>
+<td style="text-align: left;">Phase 21 (Contin. R&amp;D)</td>
+<td style="text-align: left;">Post-2.0 Exploration</td>
+<td style="text-align: left;">GPU infrastructure</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-RAO-006</strong></td>
+<td style="text-align: left;">C/SIMD Vector Extension Kernels</td>
+<td style="text-align: left;">RAO</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Deferred Opportunity</td>
+<td style="text-align: left;">Deferred</td>
+<td style="text-align: left;">Phase 21 (Contin. R&amp;D)</td>
+<td style="text-align: left;">Post-2.0 Exploration</td>
+<td style="text-align: left;">Wheel build matrix</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ULC-006</strong></td>
+<td style="text-align: left;">Distributed Edge Mesh Gossip Consensus</td>
+<td style="text-align: left;">ULC</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Deferred Opportunity</td>
+<td style="text-align: left;">Deferred</td>
+<td style="text-align: left;">Phase 21 (Contin. R&amp;D)</td>
+<td style="text-align: left;">Post-2.0 Exploration</td>
+<td style="text-align: left;">Distributed network</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-DX-007</strong></td>
+<td style="text-align: left;">Terminal User Interface (TUI) Monitor</td>
+<td style="text-align: left;">DX</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Deferred Opportunity</td>
+<td style="text-align: left;">Deferred</td>
+<td style="text-align: left;">Phase 20 (Ecosystem)</td>
+<td style="text-align: left;">Post-2.0 Exploration</td>
+<td style="text-align: left;">Python Textual/Curses</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-DX-008</strong></td>
+<td style="text-align: left;">C ABI Foreign Function Interface (FFI)</td>
+<td style="text-align: left;">DX</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Deferred Opportunity</td>
+<td style="text-align: left;">Deferred</td>
+<td style="text-align: left;">Phase 20 (Ecosystem)</td>
+<td style="text-align: left;">Post-2.0 Exploration</td>
+<td style="text-align: left;">C/Rust bindings</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-IND-005</strong></td>
+<td style="text-align: left;">Demand Forecasting Reference Blueprint</td>
+<td style="text-align: left;">IND</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 12 &amp; Phase 15</td>
+<td style="text-align: left;">Sector Blueprints</td>
+<td style="text-align: left;">M5 Walmart dataset</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-IND-006</strong></td>
+<td style="text-align: left;">Recommendation Systems Blueprint</td>
+<td style="text-align: left;">IND</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Deferred Opportunity</td>
+<td style="text-align: left;">Deferred</td>
+<td style="text-align: left;">Phase 12 &amp; Phase 15</td>
+<td style="text-align: left;">Sector Blueprints</td>
+<td style="text-align: left;">MovieLens 25M</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ECO-006</strong></td>
+<td style="text-align: left;">Interactive Marimo/Jupyter Live Widgets</td>
+<td style="text-align: left;">ECO</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Proposed Enhancement</td>
+<td style="text-align: left;">Proposed</td>
+<td style="text-align: left;">Phase 20 (Ecosystem)</td>
+<td style="text-align: left;">Ecosystem Wave 2</td>
+<td style="text-align: left;">Jupyter widget API</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ECO-007</strong></td>
+<td style="text-align: left;">Automated Conda-Forge Feedstock CI</td>
+<td style="text-align: left;">ECO</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Deferred Opportunity</td>
+<td style="text-align: left;">Deferred</td>
+<td style="text-align: left;">Phase 18 &amp; Phase 20</td>
+<td style="text-align: left;">Post-GA Distribution</td>
+<td style="text-align: left;">Conda-Forge team</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-011</strong></td>
+<td style="text-align: left;">Python 3.14 Free-Threaded Concurrency</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">New Engineering</td>
+<td style="text-align: left;">Deferred</td>
+<td style="text-align: left;">Phase 21 (Contin. R&amp;D)</td>
+<td style="text-align: left;">Post-2.0 Exploration</td>
+<td style="text-align: left;">PEP 703 runtime</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EVO-ENG-012</strong></td>
+<td style="text-align: left;">Native Rust Core Engine (AML-Engine)</td>
+<td style="text-align: left;">ENG</td>
+<td style="text-align: left;"><strong>P4</strong></td>
+<td style="text-align: left;">Deferred Opportunity</td>
+<td style="text-align: left;">Deferred</td>
+<td style="text-align: left;">Phase 21 (Contin. R&amp;D)</td>
+<td style="text-align: left;">Post-2.0 Exploration</td>
+<td style="text-align: left;">PyO3 toolchain</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-phase-status-governance-terminology-reconciliation">6. Phase Status &amp; Governance Terminology Reconciliation<a class="headerlink" href="#6-phase-status-governance-terminology-reconciliation" title="Permanent link">&para;</a></h2>
+<p>To eliminate ambiguity between engineering deliverable submission, technical verification, and formal project owner sign-off, project status is evaluated across domain-appropriate criteria and distinct governance dimensions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Governance Evaluation Taxonomy:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>1. Domain Work Completed: Research/design/code/packaging deliverable for the specific domain is finished.
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>2. Technical Verification Passed: Unit/integration tests pass (&gt;= 90%), static analysis (Mypy strict), Bandit (0 findings).
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>3. Deliverables Submitted: Formal markdown reports and artifacts committed in docs/ or packaged in dist/.
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>4. Owner Acceptance: Formal sign-off by the Project Owner (ACCEPTED for Phase 0 baseline; PENDING for Phases 1–16).
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>5. Trademark Clearance: Decomposed governance gate (BLOCKED by DEF-004; no trademark clearance granted).
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>6. Release Authorization: Explicit approval to tag, publish, or release packages (HOLD / UNAUTHORIZED).
+</code></pre></div>
+<h3 id="61-reconciled-22-phase-status-table">6.1 Reconciled 22-Phase Status Table<a class="headerlink" href="#61-reconciled-22-phase-status-table" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Phase ID</th>
+<th style="text-align: left;">Official Phase Title</th>
+<th style="text-align: left;">Domain Category</th>
+<th style="text-align: left;">Domain Work Done</th>
+<th style="text-align: left;">Tech. Verif.</th>
+<th style="text-align: left;">Deliv. Subm.</th>
+<th style="text-align: left;">Owner Accept.</th>
+<th style="text-align: left;">Trademark Clear.</th>
+<th style="text-align: left;">Release Auth.</th>
+<th style="text-align: left;">Governed Phase Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Phase 0</strong></td>
+<td style="text-align: left;">Project Foundation</td>
+<td style="text-align: left;">Research &amp; Foundation</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (<code>DOC-FDN-001..010</code>)</td>
+<td style="text-align: left;"><strong>ACCEPTED</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;"><strong>ACCEPTED BY OWNER (Baseline sign-off at Phase 1 kickoff)</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 1</strong></td>
+<td style="text-align: left;">Product &amp; Market Research</td>
+<td style="text-align: left;">Research &amp; Foundation</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (<code>MARKET_ANALYSIS.md</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Deliverables submitted; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 2</strong></td>
+<td style="text-align: left;">Novelty &amp; Prior-Art Research</td>
+<td style="text-align: left;">Research &amp; Foundation</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (<code>PRIOR_ART_REPORT.md</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Deliverables submitted; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 3</strong></td>
+<td style="text-align: left;">Legal &amp; IP Assessment</td>
+<td style="text-align: left;">Legal Assessment</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (<code>TRADEMARK_CLEARANCE</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;"><strong>BLOCKED (DEF-004)</strong></td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Assessment complete; Trademark BLOCKED by DEF-004</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 4</strong></td>
+<td style="text-align: left;">Comprehensive Literature Review</td>
+<td style="text-align: left;">Research &amp; Foundation</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (<code>LITERATURE_REVIEW.md</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Deliverables submitted; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 5</strong></td>
+<td style="text-align: left;">Research Gap Identification</td>
+<td style="text-align: left;">Research &amp; Foundation</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (<code>RESEARCH_GAPS.md</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Deliverables submitted; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 6</strong></td>
+<td style="text-align: left;">Mathematical &amp; Algorithm Design</td>
+<td style="text-align: left;">Research &amp; Foundation</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (<code>phase-6-design/</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Derivations submitted; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 7</strong></td>
+<td style="text-align: left;">Technical Architecture</td>
+<td style="text-align: left;">Engineering Architecture</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (<code>phase-7-arch/</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Architecture submitted; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 8</strong></td>
+<td style="text-align: left;">ALA Development</td>
+<td style="text-align: left;">Engineering / Code</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (54 tests pass)</td>
+<td style="text-align: left;">YES (<code>adaptive_ml/ala/</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Code verified; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 9</strong></td>
+<td style="text-align: left;">RLA Development</td>
+<td style="text-align: left;">Engineering / Code</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (54 tests pass)</td>
+<td style="text-align: left;">YES (<code>adaptive_ml/rla/</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Code verified; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 10</strong></td>
+<td style="text-align: left;">RAO Development</td>
+<td style="text-align: left;">Engineering / Code</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (54 tests pass)</td>
+<td style="text-align: left;">YES (<code>adaptive_ml/rao/</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Code verified; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 11</strong></td>
+<td style="text-align: left;">Unified Learning Controller (ULC)</td>
+<td style="text-align: left;">Engineering / Code</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (54 tests pass)</td>
+<td style="text-align: left;">YES (<code>adaptive_ml/ulc/</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Code verified; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 12</strong></td>
+<td style="text-align: left;">Research Experiments &amp; Benchmarks</td>
+<td style="text-align: left;">Empirical Benchmarking</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (multi-seed stats)</td>
+<td style="text-align: left;">YES (<code>BENCHMARK_REPORT</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Benchmarks recorded; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 13</strong></td>
+<td style="text-align: left;">Framework Integrations</td>
+<td style="text-align: left;">Engineering / Code</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (sklearn/torch)</td>
+<td style="text-align: left;">YES (<code>integrations/</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Adapters verified; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 14</strong></td>
+<td style="text-align: left;">Production Engineering</td>
+<td style="text-align: left;">Engineering / Quality</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (Bandit 0, wheels)</td>
+<td style="text-align: left;">YES (Rebuilt dist/)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Wheels rebuilt; Bandit 0; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 15</strong></td>
+<td style="text-align: left;">Documentation &amp; Developer Experience</td>
+<td style="text-align: left;">Documentation &amp; DX</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (0 broken links)</td>
+<td style="text-align: left;">YES (MkDocs portal)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;">N/A</td>
+<td style="text-align: left;">Docs site built; 10 tutorials; Owner review pending</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 16</strong></td>
+<td style="text-align: left;">Legal &amp; Release Audit</td>
+<td style="text-align: left;">Legal &amp; Release Audit</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES (SBOM, Remediated)</td>
+<td style="text-align: left;">YES (<code>PHASE_16_AUDIT</code>)</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;"><strong>BLOCKED (DEF-004)</strong></td>
+<td style="text-align: left;"><strong>HOLD</strong></td>
+<td style="text-align: left;"><strong>BLOCKED BY DEF-004 (Owner triage required)</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 17</strong></td>
+<td style="text-align: left;">Alpha &amp; Beta Releases</td>
+<td style="text-align: left;">Release Management</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;"><strong>BLOCKED (DEF-004)</strong></td>
+<td style="text-align: left;"><strong>UNAUTHORIZED</strong></td>
+<td style="text-align: left;"><strong>LOCKED (Awaiting Phase 16 owner clearance)</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 18</strong></td>
+<td style="text-align: left;">PyPI 1.0 Release</td>
+<td style="text-align: left;">Release Management</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;"><strong>BLOCKED (DEF-004)</strong></td>
+<td style="text-align: left;"><strong>UNAUTHORIZED</strong></td>
+<td style="text-align: left;"><strong>LOCKED (Post-Phase 17 milestone)</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 19</strong></td>
+<td style="text-align: left;">Research Publication</td>
+<td style="text-align: left;">Academic Publication</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;"><strong>UNAUTHORIZED</strong></td>
+<td style="text-align: left;"><strong>LOCKED (Post-Phase 18 milestone)</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 20</strong></td>
+<td style="text-align: left;">Global Ecosystem Growth</td>
+<td style="text-align: left;">Ecosystem Community</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;"><strong>UNAUTHORIZED</strong></td>
+<td style="text-align: left;"><strong>LOCKED (Post-Phase 18 milestone)</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase 21</strong></td>
+<td style="text-align: left;">Continuous R&amp;D</td>
+<td style="text-align: left;">Advanced R&amp;D</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;"><strong>PENDING</strong></td>
+<td style="text-align: left;">PENDING DEF-004</td>
+<td style="text-align: left;"><strong>UNAUTHORIZED</strong></td>
+<td style="text-align: left;"><strong>LOCKED (Long-term evolutionary stage)</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-research-evidence-feasibility-audit">7. Research Evidence &amp; Feasibility Audit<a class="headerlink" href="#7-research-evidence-feasibility-audit" title="Permanent link">&para;</a></h2>
+<p>The audit team scrutinized all seven research directions in <a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/RESEARCH_ROADMAP.md"><code>RESEARCH_ROADMAP.md</code></a> to ensure compliance with the <strong>Ten Inviolable Research Governance Rules</strong>:</p>
+<h3 id="71-bibliographic-prior-art-verification">7.1 Bibliographic &amp; Prior-Art Verification<a class="headerlink" href="#71-bibliographic-prior-art-verification" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Cited Work</th>
+<th style="text-align: left;">Verified Authors, Year &amp; Venue</th>
+<th style="text-align: left;">Confirmed Contribution</th>
+<th style="text-align: left;">Supports Stated Gap?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ADWIN</strong></td>
+<td style="text-align: left;">Bifet &amp; Gavaldà (2007), <em>SDM</em></td>
+<td style="text-align: left;">Adaptive windowing for 1D error streams</td>
+<td style="text-align: left;"><strong>YES.</strong> Confirms univariate boundary; motivates multivariate MMD.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kernel Two-Sample</strong></td>
+<td style="text-align: left;">Gretton et al. (2012), <em>JMLR</em></td>
+<td style="text-align: left;">Maximum Mean Discrepancy (MMD) theory</td>
+<td style="text-align: left;"><strong>YES.</strong> Mathematical basis for kernel covariate shift testing.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>JL Lemma</strong></td>
+<td style="text-align: left;">Dasgupta &amp; Gupta (2003), <em>Random Struct. &amp; Alg.</em></td>
+<td style="text-align: left;">Elementary proof of Johnson-Lindenstrauss</td>
+<td style="text-align: left;"><strong>YES.</strong> Bounds pairwise distance preservation under random projections.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GCE Loss</strong></td>
+<td style="text-align: left;">Zhang &amp; Sabuncu (2018), <em>NeurIPS</em></td>
+<td style="text-align: left;">Box-Cox <span class="arithmatex">\(q\)</span>-loss robust to label noise</td>
+<td style="text-align: left;"><strong>YES.</strong> Shows noise resilience, but requires fixed hyperparameter <span class="arithmatex">\(q\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SCE Loss</strong></td>
+<td style="text-align: left;">Wang et al. (2019), <em>ICCV</em></td>
+<td style="text-align: left;">Symmetric cross entropy via Reverse CE</td>
+<td style="text-align: left;"><strong>YES.</strong> Proves bounded gradient, but requires tuning <span class="arithmatex">\(\alpha, \beta\)</span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Peer Loss</strong></td>
+<td style="text-align: left;">Liu &amp; Guo (2020), <em>ICML</em></td>
+<td style="text-align: left;">Learning with noisy labels without noise rates</td>
+<td style="text-align: left;"><strong>YES.</strong> Directly motivates online noise-rate-agnostic peer loss.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Confident Learn</strong></td>
+<td style="text-align: left;">Northcutt et al. (2021), <em>JAIR</em></td>
+<td style="text-align: left;">Cleanlab out-of-fold label uncertainty</td>
+<td style="text-align: left;"><strong>YES.</strong> Informs streaming transition matrix <span class="arithmatex">\(\mathbf{T}\)</span> estimation.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>8-bit Adam</strong></td>
+<td style="text-align: left;">Dettmers et al. (2022), <em>ICLR</em></td>
+<td style="text-align: left;">Block-wise dynamic quantization for optimizers</td>
+<td style="text-align: left;"><strong>YES.</strong> Foundation for AdaptiveML's existing <a href="file:///c:/projects/AdaptiveML/adaptive_ml/rao/quantizer.py"><code>BlockQuantizer</code></a>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>QLoRA / NF4</strong></td>
+<td style="text-align: left;">Dettmers et al. (2023), <em>NeurIPS</em></td>
+<td style="text-align: left;">NormalFloat 4-bit quantile representation</td>
+<td style="text-align: left;"><strong>YES.</strong> Theoretical basis for proposed 4-bit state exploration.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Adafactor</strong></td>
+<td style="text-align: left;">Shazeer &amp; Stern (2018), <em>ICML</em></td>
+<td style="text-align: left;">Rank-1 row/col factored second moments</td>
+<td style="text-align: left;"><strong>YES.</strong> Informs proposed NumPy-native factored optimizer state.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stochastic Round</strong></td>
+<td style="text-align: left;">Connolly et al. (2021), <em>SIAM Sci. Comp.</em></td>
+<td style="text-align: left;">Unbiased expectation in quantized arithmetic</td>
+<td style="text-align: left;"><strong>YES.</strong> Theoretical remedy for gradient vanishing in 4-bit state.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EWC</strong></td>
+<td style="text-align: left;">Kirkpatrick et al. (2017), <em>PNAS</em></td>
+<td style="text-align: left;">Elastic weight consolidation via Fisher info</td>
+<td style="text-align: left;"><strong>YES.</strong> Identifies <span class="arithmatex">\(\mathcal{O}(d)\)</span> memory doubling; motivates binary masks.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>TinyML Bonsai</strong></td>
+<td style="text-align: left;">Kumar et al. (2017), <em>ICML</em></td>
+<td style="text-align: left;">Tree algorithms in sub-10KB RAM</td>
+<td style="text-align: left;"><strong>YES.</strong> Grounds micro-edge embedded CPU feasibility.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-feasibility-evidence-gaps-identified">7.2 Feasibility &amp; Evidence Gaps Identified<a class="headerlink" href="#72-feasibility-evidence-gaps-identified" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Computational Feasibility of CPU-Native 4-bit NormalFloat (NF4):</strong></li>
+<li><em>Evidence Gap:</em> On GPUs, NF4 utilizes ultra-fast warp-level shared memory lookup tables. On standard CPUs in pure NumPy, packing two 4-bit nibbles into a single <code>uint8</code> byte requires bit-masking (<code>val &amp; 0x0F</code>) and bit-shifting (<code>val &gt;&gt; 4</code>). In interpreted Python/NumPy, loop and array dispatch overhead could negate memory bandwidth savings.</li>
+<li><em>Mandatory Prerequisite:</em> A C/NumPy micro-benchmark must measure step latency before asserting CPU speed gains over 8-bit quantization.</li>
+<li><strong>Estimator Variance of Spatial Error Ratio <span class="arithmatex">\(\Lambda(t)\)</span>:</strong></li>
+<li><em>Evidence Gap:</em> In high dimensions (<span class="arithmatex">\(d &gt; 50\)</span>), local density and error variance estimation suffer from the curse of dimensionality, where pairwise Euclidean distances become equidistant.</li>
+<li><em>Mandatory Prerequisite:</em> Verification must evaluate random projections or streaming Locality-Sensitive Hashing (LSH) to bound variance in high-dimensional manifolds.</li>
+<li><strong>Early-Stream Variance of Online Peer Loss:</strong></li>
+<li><em>Evidence Gap:</em> During the first <span class="arithmatex">\(1,000\)</span> steps of a cold stream, peer buffer samples may be auto-correlated, introducing non-zero gradient covariance.</li>
+<li><em>Mandatory Prerequisite:</em> Warm-up schedules and peer buffer decorrelation lag <span class="arithmatex">\(\tau\)</span> must be analyzed mathematically before claiming noise-rate agnosticism.</li>
+</ol>
+<hr />
+<h2 id="8-industry-validation-public-dataset-claims-audit">8. Industry Validation &amp; Public Dataset Claims Audit<a class="headerlink" href="#8-industry-validation-public-dataset-claims-audit" title="Permanent link">&para;</a></h2>
+<p>The audit team reviewed <a href="file:///c:/projects/AdaptiveML/docs/strategy/evolution/INDUSTRY_APPLICATION_ROADMAP.md"><code>INDUSTRY_APPLICATION_ROADMAP.md</code></a> against real-world engineering constraints:</p>
+<h3 id="81-public-datasets-as-benchmark-proxies">8.1 Public Datasets as Benchmark Proxies<a class="headerlink" href="#81-public-datasets-as-benchmark-proxies" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[!CAUTION]
+<strong>Scientific Integrity Mandate:</strong> Public benchmark datasets are <strong>offline academic proxies</strong>, not live production environments. Demonstrating high accuracy on a public Kaggle or OpenML benchmark does <strong>not</strong> prove operational readiness in live industrial manufacturing or production financial clearing houses.</p>
+</blockquote>
+<h3 id="82-flagship-sector-verification">8.2 Flagship Sector Verification<a class="headerlink" href="#82-flagship-sector-verification" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>+-------------------------------------------------------------------------------------------------------+
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>|                                FLAGSHIP BENCHMARK SPECIFICATIONS                                       |
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>+--------------------------+------------------------------------+---------------------------------------+
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>| Dimension                | Flagship 1: Predictive Maintenance | Flagship 2: Financial Fraud           |
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>+--------------------------+------------------------------------+---------------------------------------+
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>| **Target Sector**        | Industrial IoT &amp; Heavy Equipment   | Payments, Banking &amp; FinTech           |
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>| **Public Dataset Proxy** | NASA C-MAPSS Turbofan Simulation   | ULB Credit Card Fraud (OpenML #42175) |
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>| **License Verification** | Public Domain (NASA Open Data)     | Open Database License (ODbL v1.0)     |
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>| **Prediction Task**      | Remaining Useful Life (RUL) Regress| Binary Fraud Classification           |
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>| **Target Variable**      | $y \in \mathbb{R}_{\ge 0}$ (Cycles)| $y \in \{0, 1\}$ (Fraud: 0.172%)      |
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>| **Realistic Baselines**  | HistGradientBoosting, ARIMA, LSTM  | XGBoost, Isolation Forest, River Tree |
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>| **Primary Metric**       | RMSE, Asymmetric Early Penalty     | PR-AUC, False Positive Rate at 90% Rec|
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>| **Class Imbalance**      | Moderate (Run-to-failure cycles)   | Extreme (492 frauds in 284,807 rows)  |
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>| **Temporal Leakage Risk**| Sequence boundary leakage across ID| Lookahead bias; lacks raw timestamps  |
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>| **Execution Constraint** | Edge CPU gateway ($\le 512\text{ MB}$ RAM) | Multi-core CPU server ($\le 5\text{ ms}$)    |
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>+--------------------------+------------------------------------+---------------------------------------+
+</code></pre></div>
+<h3 id="83-critical-benchmark-methodology-corrections">8.3 Critical Benchmark Methodology Corrections<a class="headerlink" href="#83-critical-benchmark-methodology-corrections" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Financial Fraud Temporal Delay Simulation:</strong> The ULB dataset contains relative seconds, but lacks transaction dispute resolution timestamps (real chargebacks occur 14–60 days after transaction). Any streaming evaluation that assumes immediate label availability suffers from <strong>catastrophic temporal lookahead leakage</strong>. The benchmark harness must explicitly simulate synthetic label arrival delay windows (<span class="arithmatex">\(\Delta t_{\text{feedback}}\)</span>) to evaluate ALA and RLA validly.</li>
+<li><strong>C-MAPSS Simulation Boundary:</strong> NASA C-MAPSS is a thermodynamically simulated dataset produced in MATLAB Simulink. It does not contain physical packet loss, sensor brownouts, or analog wire disconnection spikes. Realistic robust learning evaluations must inject synthetic telemetry dropout and sensor clipping.</li>
+</ol>
+<hr />
+<h2 id="9-brand-governance-def-004-decision-status-audit">9. Brand Governance &amp; DEF-004 Decision Status Audit<a class="headerlink" href="#9-brand-governance-def-004-decision-status-audit" title="Permanent link">&para;</a></h2>
+<h3 id="91-def-004-remains-open-unresolved">9.1 DEF-004 Remains Open &amp; Unresolved<a class="headerlink" href="#91-def-004-remains-open-unresolved" title="Permanent link">&para;</a></h3>
+<p>The audit confirms that <strong>DEF-004 (Trademark Collision with Adaptive ML, Inc. / Datadog)</strong> remains strictly <strong>OPEN</strong>:
+- No unilateral trademark clearance has been claimed.
+- No permanent brand rename has been executed in repository metadata.
+- Distribution name remains <strong><code>aml-core</code></strong> in <a href="file:///c:/projects/AdaptiveML/pyproject.toml"><code>pyproject.toml</code></a>.
+- Package version remains <strong><code>0.1.0.dev0</code></strong>.
+- Import namespace remains <strong><code>adaptive_ml</code></strong>.</p>
+<h3 id="92-audit-of-suggested-brand-names">9.2 Audit of Suggested Brand Names<a class="headerlink" href="#92-audit-of-suggested-brand-names" title="Permanent link">&para;</a></h3>
+<p>In earlier drafts and discussion briefs, alternative brand names were suggested (e.g., <code>OpenAML</code>, <code>ContinuaML</code>, <code>DriftML</code>, <code>libadaptive</code>).</p>
+<blockquote>
+<p>[!WARNING]
+<strong>UNVERIFIED CANDIDATE NAMES DISCLAIMER:</strong><br />
+None of the suggested candidate names (<code>OpenAML</code>, <code>ContinuaML</code>, <code>DriftML</code>, <code>libadaptive</code>, <code>streamml</code>) have undergone formal commercial trademark searches (USPTO TESS, EUIPO eSearch), PyPI namespace reservations, GitHub organization checks, or domain availability clearances.</p>
+<p>They must be treated strictly as <strong>unverified informal suggestions</strong>. The Project Owner must not assume any candidate name is legally or commercially available without formal clearance by qualified intellectual property counsel.</p>
+</blockquote>
+<hr />
+<h2 id="10-audit-verdict-actionable-recommendations">10. Audit Verdict &amp; Actionable Recommendations<a class="headerlink" href="#10-audit-verdict-actionable-recommendations" title="Permanent link">&para;</a></h2>
+<h3 id="101-final-audit-verdict-reconciled-corrected">10.1 Final Audit Verdict: <code>RECONCILED &amp; CORRECTED</code><a class="headerlink" href="#101-final-audit-verdict-reconciled-corrected" title="Permanent link">&para;</a></h3>
+<p>The Evolution Roadmap v2.0 suite has been rigorously reconciled:
+- The 22 original phases are 100% preserved without reopening completed gates.
+- The definitive initiative count is firmly established at <strong>64 unique initiatives</strong>.
+- Phase statuses are decomposed into 6 unambiguous governance dimensions.
+- Research and industry claims are grounded in verifiable literature and realistic dataset constraints.
+- DEF-004 is properly isolated awaiting formal Project Owner determination.</p>
+<h3 id="102-recommended-actions-for-the-project-owner">10.2 Recommended Actions for the Project Owner<a class="headerlink" href="#102-recommended-actions-for-the-project-owner" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    Review["1. Review Reconciled Evolution Roadmap v2.0 &amp; Audit"] --&gt; DefectTriage["2. Formal Decision on DEF-004 Brand Identity"]
+    DefectTriage --&gt; OptA["Option A: Adopt 'aml-core' as permanent brand"]
+    DefectTriage --&gt; OptB["Option B: Execute formal rebrand with legal FTO"]
+    DefectTriage --&gt; OptC["Option C: Retain 'AdaptiveML' with outside counsel"]
+    OptA --&gt; CommitAuth["3. Authorize Commit of Remediations &amp; Roadmap to master"]
+    OptB --&gt; CommitAuth
+    OptC --&gt; CommitAuth
+    CommitAuth --&gt; Phase17Auth["4. Authorize Advancement to Phase 17 (Alpha/Beta Release)"]</code></pre>
+<ol>
+<li><strong>Review and Ratify:</strong> Inspect <a href="file:///c:/projects/AdaptiveML/docs/strategy/ADAPTIVEML_EVOLUTION_ROADMAP_V2.md"><code>docs/strategy/ADAPTIVEML_EVOLUTION_ROADMAP_V2.md</code></a> and this Consistency Audit Report.</li>
+<li><strong>Triage DEF-004:</strong> Select the brand strategy for public distribution (recommending Option A: adopting <code>aml-core</code> as the primary distribution brand to avoid collision with Datadog's <em>Adaptive ML, Inc.</em>).</li>
+<li><strong>Authorize Repository Commit:</strong> Authorize committing the verified defect remediations (DEF-001, DEF-002, DEF-003, DEF-005) and the strategic roadmap to <code>master</code>.</li>
+<li><strong>Authorize Phase 17 Advancement:</strong> Grant formal release authorization to unblock Phase 17 alpha/beta release preparation.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

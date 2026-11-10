@@ -15,6 +15,14 @@ from robust_adapt.core.exceptions import ConfigurationError, ValidationError
 from robust_adapt.core.validation import check_array_2d, check_labels_1d
 
 
+def _stable_softmax(logits: np.ndarray) -> np.ndarray:
+    """Numerically stable softmax transformation."""
+    z = np.asarray(logits, dtype=np.float64)
+    shifted = z - np.max(z, axis=-1, keepdims=True)
+    exp_shifted = np.exp(shifted)
+    return exp_shifted / np.sum(exp_shifted, axis=-1, keepdims=True)
+
+
 class MultiSignalReliabilityEngine:
     """Computes composite sample reliability scores combining prediction, spatial, and temporal signals.
 
@@ -74,6 +82,7 @@ class MultiSignalReliabilityEngine:
         X: np.ndarray,
         y: np.ndarray,
         probas: np.ndarray,
+        input_type: str = "probabilities",
     ) -> np.ndarray:
         """Compute composite sample reliability scores in [0, 1].
 
@@ -84,16 +93,26 @@ class MultiSignalReliabilityEngine:
         y : np.ndarray of shape (N,)
             Reported ground-truth integer labels.
         probas : np.ndarray of shape (N, n_classes)
-            Predicted class posterior probabilities.
+            Predicted class posterior probabilities (or raw logits if input_type='logits').
+        input_type : str, default='probabilities'
+            Type of input predictions: 'probabilities' or 'logits'.
 
         Returns
         -------
         np.ndarray of shape (N,)
             Reliability scores r_i in [0, 1].
         """
+        if input_type == "probabilities":
+            prob_arr = np.asarray(probas, dtype=np.float64)
+        elif input_type == "logits":
+            prob_arr = _stable_softmax(probas)
+        else:
+            raise ValidationError(
+                f"input_type must be 'probabilities' or 'logits', got {input_type!r}"
+            )
+
         X_arr = check_array_2d(X, name="X")
         y_arr = check_labels_1d(y, expected_len=X_arr.shape[0], n_classes=self.n_classes, name="y")
-        prob_arr = np.asarray(probas, dtype=np.float64)
         n_samples = X_arr.shape[0]
 
         # 1. Prediction Margin & Entropy Signal
@@ -147,6 +166,18 @@ class MultiSignalReliabilityEngine:
             self._recent_agreement.append(pred_match)
 
         return reliability
+
+    def compute_reliability_from_logits(
+        self,
+        X: np.ndarray,
+        y: np.ndarray,
+        logits: np.ndarray,
+    ) -> np.ndarray:
+        """Compute composite sample reliability directly from unnormalized network logits.
+
+        Applies numerically stable softmax before reliability scoring.
+        """
+        return self.compute_reliability(X, y, logits, input_type="logits")
 
     def clear(self) -> None:
         """Reset historical search index."""

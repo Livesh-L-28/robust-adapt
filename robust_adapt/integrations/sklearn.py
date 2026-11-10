@@ -320,3 +320,18 @@ class SklearnReliabilityFilter(BaseEstimator, TransformerMixin):
         self.filtered_count_ += int(np.sum(~mask))
 
         return X_arr[mask], y_arr[mask], reliabilities[mask]
+
+
+# Canonical Ergonomic Aliases (ALPHA-DEF-004)
+ScikitLearnAdaptiveClassifier = SklearnAdaptiveClassifier
+ScikitLearnDriftDetectorTransformer = SklearnDriftDetectorTransformer
+ScikitLearnReliabilityFilter = SklearnReliabilityFilter
+
+__all__ = [
+    "SklearnAdaptiveClassifier",
+    "SklearnDriftDetectorTransformer",
+    "SklearnReliabilityFilter",
+    "ScikitLearnAdaptiveClassifier",
+    "ScikitLearnDriftDetectorTransformer",
+    "ScikitLearnReliabilityFilter",
+]

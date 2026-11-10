@@ -14,7 +14,7 @@ This guide details the technical migration of the repository and codebase former
 The migration preserves:
 - 100% mathematical and algorithmic equivalence (ALA, RLA, RAO, ULC, Adaptive Minority Intelligence).
 - Complete historical Git commit history and development artifacts (Phases 0 through 16).
-- Full backwards-compatibility via an in-tree `adaptive_ml` compatibility layer.
+- Discontinuation of the legacy `adaptive_ml` compatibility namespace in favor of the canonical `robust_adapt` namespace.
 
 ---
 
@@ -126,26 +126,13 @@ Existing user code with `except AdaptiveMLError:` will continue to catch all lib
 
 ---
 
-## 6. Compatibility Layer & Deprecation Timeline
+## 6. Discontinuation of Legacy Namespace
 
-### 6.1 Compatibility Shim
+The transitional `adaptive_ml` compatibility namespace has been discontinued. The package is now distributed and imported exclusively via:
+- Distribution: `robust-adapt`
+- Import: `robust_adapt`
 
-The repository maintains an active `adaptive_ml` package directory that acts as a transparent compatibility shim. When user code imports `adaptive_ml`:
-
-1. It imports symbols directly from `robust_adapt`.
-2. It emits a Python `FutureWarning`:
-   ```text
-   FutureWarning: The 'adaptive_ml' package has been rebranded to 'robust_adapt'.
-   Please update your imports from 'adaptive_ml' to 'robust_adapt'.
-   The 'adaptive_ml' compatibility namespace will be deprecated in future releases.
-   ```
-3. Execution proceeds without error.
-
-### 6.2 Deprecation Schedule
-
-- **v0.1.x (Current Pre-release)**: `adaptive_ml` compatibility shim is active and emits `FutureWarning`.
-- **v1.0.0 (General Availability)**: `adaptive_ml` compatibility shim remains included for at least one minor cycle.
-- **v2.0.0 (Future Major Release)**: Legacy `adaptive_ml` namespace will be fully retired.
+Any attempt to import `adaptive_ml` will result in a `ModuleNotFoundError`. All code and scripts must use `robust_adapt`.
 
 ---
 

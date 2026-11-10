@@ -1,0 +1,879 @@
+[
+  {
+    "config_name": "static_baseline",
+    "seed": 42,
+    "accuracy": 0.7469256381798002,
+    "macro_f1": 0.7312043889855172,
+    "balanced_accuracy": 0.726981641549361,
+    "drift_resets": 0,
+    "total_time_sec": 4.828483900055289,
+    "samples_per_sec": 9330.050784571145,
+    "scenarios": {}
+  },
+  {
+    "config_name": "static_baseline",
+    "seed": 101,
+    "accuracy": 0.7468812430632631,
+    "macro_f1": 0.7300689201543153,
+    "balanced_accuracy": 0.7257419220438788,
+    "drift_resets": 0,
+    "total_time_sec": 4.902738000033423,
+    "samples_per_sec": 9188.743106340351,
+    "scenarios": {}
+  },
+  {
+    "config_name": "static_baseline",
+    "seed": 202,
+    "accuracy": 0.7500998890122087,
+    "macro_f1": 0.7351061557381922,
+    "balanced_accuracy": 0.7308374734297557,
+    "drift_resets": 0,
+    "total_time_sec": 4.839021800085902,
+    "samples_per_sec": 9309.732805750178,
+    "scenarios": {}
+  },
+  {
+    "config_name": "static_baseline",
+    "seed": 303,
+    "accuracy": 0.7538512763596005,
+    "macro_f1": 0.7389390768707428,
+    "balanced_accuracy": 0.7345083216777146,
+    "drift_resets": 0,
+    "total_time_sec": 4.950621100142598,
+    "samples_per_sec": 9099.868297071325,
+    "scenarios": {}
+  },
+  {
+    "config_name": "static_baseline",
+    "seed": 404,
+    "accuracy": 0.739511653718091,
+    "macro_f1": 0.7248089769731793,
+    "balanced_accuracy": 0.721048643599659,
+    "drift_resets": 0,
+    "total_time_sec": 4.993200100027025,
+    "samples_per_sec": 9022.27010685115,
+    "scenarios": {}
+  },
+  {
+    "config_name": "static_baseline",
+    "seed": 505,
+    "accuracy": 0.7436182019977803,
+    "macro_f1": 0.7289379628019852,
+    "balanced_accuracy": 0.7250074474296662,
+    "drift_resets": 0,
+    "total_time_sec": 5.151880300138146,
+    "samples_per_sec": 8744.3801826669,
+    "scenarios": {}
+  },
+  {
+    "config_name": "static_baseline",
+    "seed": 606,
+    "accuracy": 0.7513651498335183,
+    "macro_f1": 0.7373087258542406,
+    "balanced_accuracy": 0.7331515498124532,
+    "drift_resets": 0,
+    "total_time_sec": 4.923136800061911,
+    "samples_per_sec": 9150.669954861598,
+    "scenarios": {}
+  },
+  {
+    "config_name": "static_baseline",
+    "seed": 707,
+    "accuracy": 0.7437291897891232,
+    "macro_f1": 0.7285501659182048,
+    "balanced_accuracy": 0.7245410431713404,
+    "drift_resets": 0,
+    "total_time_sec": 4.783169900067151,
+    "samples_per_sec": 9418.4402689454,
+    "scenarios": {}
+  },
+  {
+    "config_name": "static_baseline",
+    "seed": 808,
+    "accuracy": 0.747746947835738,
+    "macro_f1": 0.7352758695441848,
+    "balanced_accuracy": 0.7316555228721691,
+    "drift_resets": 0,
+    "total_time_sec": 5.367466600146145,
+    "samples_per_sec": 8393.15888780256,
+    "scenarios": {}
+  },
+  {
+    "config_name": "static_baseline",
+    "seed": 909,
+    "accuracy": 0.7459489456159822,
+    "macro_f1": 0.7325736069981961,
+    "balanced_accuracy": 0.7287962617210892,
+    "drift_resets": 0,
+    "total_time_sec": 5.078120599966496,
+    "samples_per_sec": 8871.39230216337,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ala_only",
+    "seed": 42,
+    "accuracy": 0.7297891231964484,
+    "macro_f1": 0.7115885288175656,
+    "balanced_accuracy": 0.7079966197172827,
+    "drift_resets": 221,
+    "total_time_sec": 3.2993914000689983,
+    "samples_per_sec": 13654.033285974467,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ala_only",
+    "seed": 101,
+    "accuracy": 0.7274361820199778,
+    "macro_f1": 0.7095035407768808,
+    "balanced_accuracy": 0.7060142710211226,
+    "drift_resets": 210,
+    "total_time_sec": 3.182297999970615,
+    "samples_per_sec": 14156.436638057148,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ala_only",
+    "seed": 202,
+    "accuracy": 0.7447058823529412,
+    "macro_f1": 0.7273147623115319,
+    "balanced_accuracy": 0.72305588160415,
+    "drift_resets": 202,
+    "total_time_sec": 3.0719716001767665,
+    "samples_per_sec": 14664.849114297718,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ala_only",
+    "seed": 303,
+    "accuracy": 0.7366481687014429,
+    "macro_f1": 0.7184408468374557,
+    "balanced_accuracy": 0.7145388450057171,
+    "drift_resets": 213,
+    "total_time_sec": 2.928002000087872,
+    "samples_per_sec": 15385.918451779748,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ala_only",
+    "seed": 404,
+    "accuracy": 0.7405105438401776,
+    "macro_f1": 0.7240205877090127,
+    "balanced_accuracy": 0.720015180622477,
+    "drift_resets": 191,
+    "total_time_sec": 3.0323821001220495,
+    "samples_per_sec": 14856.307191032025,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ala_only",
+    "seed": 505,
+    "accuracy": 0.7352497225305217,
+    "macro_f1": 0.7162792195558426,
+    "balanced_accuracy": 0.7124453859191735,
+    "drift_resets": 221,
+    "total_time_sec": 3.1118856000248343,
+    "samples_per_sec": 14476.75325842328,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ala_only",
+    "seed": 606,
+    "accuracy": 0.7287902330743619,
+    "macro_f1": 0.7114420697830053,
+    "balanced_accuracy": 0.7079044324622931,
+    "drift_resets": 208,
+    "total_time_sec": 3.2893320999573916,
+    "samples_per_sec": 13695.789488870265,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ala_only",
+    "seed": 707,
+    "accuracy": 0.7308102108768035,
+    "macro_f1": 0.7159594202907683,
+    "balanced_accuracy": 0.7125283274213763,
+    "drift_resets": 201,
+    "total_time_sec": 2.9112396999262273,
+    "samples_per_sec": 15474.507303930211,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ala_only",
+    "seed": 808,
+    "accuracy": 0.7225083240843507,
+    "macro_f1": 0.7079354857057361,
+    "balanced_accuracy": 0.7048493142378365,
+    "drift_resets": 217,
+    "total_time_sec": 3.2883325999137014,
+    "samples_per_sec": 13699.952371357535,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ala_only",
+    "seed": 909,
+    "accuracy": 0.7189789123196448,
+    "macro_f1": 0.7037817271691579,
+    "balanced_accuracy": 0.7007535728218887,
+    "drift_resets": 226,
+    "total_time_sec": 3.480940700042993,
+    "samples_per_sec": 12941.903893807668,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rla_only",
+    "seed": 42,
+    "accuracy": 0.7423751387347391,
+    "macro_f1": 0.7130664732442205,
+    "balanced_accuracy": 0.7103030477809209,
+    "drift_resets": 0,
+    "total_time_sec": 5.966769200051203,
+    "samples_per_sec": 7550.149585074181,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rla_only",
+    "seed": 101,
+    "accuracy": 0.7449056603773585,
+    "macro_f1": 0.721585928999253,
+    "balanced_accuracy": 0.7175600056616924,
+    "drift_resets": 0,
+    "total_time_sec": 6.480048599885777,
+    "samples_per_sec": 6952.108353137057,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rla_only",
+    "seed": 202,
+    "accuracy": 0.7496115427302996,
+    "macro_f1": 0.7227180402535853,
+    "balanced_accuracy": 0.7189713988688426,
+    "drift_resets": 0,
+    "total_time_sec": 6.153707699850202,
+    "samples_per_sec": 7320.789708795665,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rla_only",
+    "seed": 303,
+    "accuracy": 0.7420199778024418,
+    "macro_f1": 0.7163349942348569,
+    "balanced_accuracy": 0.7128292177793019,
+    "drift_resets": 0,
+    "total_time_sec": 5.853492200141773,
+    "samples_per_sec": 7696.260362132008,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rla_only",
+    "seed": 404,
+    "accuracy": 0.7431076581576027,
+    "macro_f1": 0.7155373654340025,
+    "balanced_accuracy": 0.7123327607904955,
+    "drift_resets": 0,
+    "total_time_sec": 6.049127700040117,
+    "samples_per_sec": 7447.354764836794,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rla_only",
+    "seed": 505,
+    "accuracy": 0.7493451720310765,
+    "macro_f1": 0.7236044645024398,
+    "balanced_accuracy": 0.719666591135482,
+    "drift_resets": 0,
+    "total_time_sec": 6.2744384000543505,
+    "samples_per_sec": 7179.925457489513,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rla_only",
+    "seed": 606,
+    "accuracy": 0.7437069922308546,
+    "macro_f1": 0.7140326272328748,
+    "balanced_accuracy": 0.7112747776089877,
+    "drift_resets": 0,
+    "total_time_sec": 6.200862199999392,
+    "samples_per_sec": 7265.1187120404675,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rla_only",
+    "seed": 707,
+    "accuracy": 0.7416870144284129,
+    "macro_f1": 0.7107509767388532,
+    "balanced_accuracy": 0.7084491775330078,
+    "drift_resets": 0,
+    "total_time_sec": 6.016192599898204,
+    "samples_per_sec": 7488.124632306861,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rla_only",
+    "seed": 808,
+    "accuracy": 0.7450832408435072,
+    "macro_f1": 0.717146496908224,
+    "balanced_accuracy": 0.7138980501982093,
+    "drift_resets": 0,
+    "total_time_sec": 6.185423800023273,
+    "samples_per_sec": 7283.251957583004,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rla_only",
+    "seed": 909,
+    "accuracy": 0.7422641509433963,
+    "macro_f1": 0.7132187234057521,
+    "balanced_accuracy": 0.7103988111091415,
+    "drift_resets": 0,
+    "total_time_sec": 5.9843071000650525,
+    "samples_per_sec": 7528.022751290669,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rao_only",
+    "seed": 42,
+    "accuracy": 0.7431742508324084,
+    "macro_f1": 0.7250647372788861,
+    "balanced_accuracy": 0.7208535812092225,
+    "drift_resets": 0,
+    "total_time_sec": 5.096657400019467,
+    "samples_per_sec": 8839.126600863525,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rao_only",
+    "seed": 101,
+    "accuracy": 0.7462153163152053,
+    "macro_f1": 0.7323516904762577,
+    "balanced_accuracy": 0.7284579829426995,
+    "drift_resets": 0,
+    "total_time_sec": 5.117768399883062,
+    "samples_per_sec": 8802.664849200555,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rao_only",
+    "seed": 202,
+    "accuracy": 0.7477913429522752,
+    "macro_f1": 0.730013979342137,
+    "balanced_accuracy": 0.7255853795894633,
+    "drift_resets": 0,
+    "total_time_sec": 5.014800699893385,
+    "samples_per_sec": 8983.407855262874,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rao_only",
+    "seed": 303,
+    "accuracy": 0.7459489456159822,
+    "macro_f1": 0.7333970629439783,
+    "balanced_accuracy": 0.7298258198602707,
+    "drift_resets": 0,
+    "total_time_sec": 5.185837799916044,
+    "samples_per_sec": 8687.120912406735,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rao_only",
+    "seed": 404,
+    "accuracy": 0.7404217536071033,
+    "macro_f1": 0.724976413313509,
+    "balanced_accuracy": 0.7210774216102964,
+    "drift_resets": 0,
+    "total_time_sec": 4.932164300000295,
+    "samples_per_sec": 9133.921187499229,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rao_only",
+    "seed": 505,
+    "accuracy": 0.7454384017758047,
+    "macro_f1": 0.7323505033714983,
+    "balanced_accuracy": 0.7286615932171479,
+    "drift_resets": 0,
+    "total_time_sec": 5.003805899992585,
+    "samples_per_sec": 9003.14698459162,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rao_only",
+    "seed": 606,
+    "accuracy": 0.748834628190899,
+    "macro_f1": 0.7316282234876301,
+    "balanced_accuracy": 0.7271781077451945,
+    "drift_resets": 0,
+    "total_time_sec": 5.185731600038707,
+    "samples_per_sec": 8687.298818099984,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rao_only",
+    "seed": 707,
+    "accuracy": 0.7462819089900111,
+    "macro_f1": 0.7307988612429765,
+    "balanced_accuracy": 0.7266351759231173,
+    "drift_resets": 0,
+    "total_time_sec": 5.467352200066671,
+    "samples_per_sec": 8239.820364865216,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rao_only",
+    "seed": 808,
+    "accuracy": 0.7539622641509434,
+    "macro_f1": 0.742557383302846,
+    "balanced_accuracy": 0.7390318425339546,
+    "drift_resets": 0,
+    "total_time_sec": 4.819053099956363,
+    "samples_per_sec": 9348.309525870949,
+    "scenarios": {}
+  },
+  {
+    "config_name": "rao_only",
+    "seed": 909,
+    "accuracy": 0.7529633740288568,
+    "macro_f1": 0.7387296309620126,
+    "balanced_accuracy": 0.7344645092339899,
+    "drift_resets": 0,
+    "total_time_sec": 5.112795900087804,
+    "samples_per_sec": 8811.225967229857,
+    "scenarios": {}
+  },
+  {
+    "config_name": "minority_only",
+    "seed": 42,
+    "accuracy": 0.7356270810210876,
+    "macro_f1": 0.729067013189101,
+    "balanced_accuracy": 0.7287519591556527,
+    "drift_resets": 0,
+    "total_time_sec": 5.275189799955115,
+    "samples_per_sec": 8539.977082982554,
+    "scenarios": {}
+  },
+  {
+    "config_name": "minority_only",
+    "seed": 101,
+    "accuracy": 0.735338512763596,
+    "macro_f1": 0.7283117042546734,
+    "balanced_accuracy": 0.7276501635304202,
+    "drift_resets": 0,
+    "total_time_sec": 4.763722100062296,
+    "samples_per_sec": 9456.890862590593,
+    "scenarios": {}
+  },
+  {
+    "config_name": "minority_only",
+    "seed": 202,
+    "accuracy": 0.741354051054384,
+    "macro_f1": 0.7326690120907953,
+    "balanced_accuracy": 0.730803330300791,
+    "drift_resets": 0,
+    "total_time_sec": 5.197268899995834,
+    "samples_per_sec": 8668.014079478573,
+    "scenarios": {}
+  },
+  {
+    "config_name": "minority_only",
+    "seed": 303,
+    "accuracy": 0.7363596004439512,
+    "macro_f1": 0.7292843069245771,
+    "balanced_accuracy": 0.7285646903055232,
+    "drift_resets": 0,
+    "total_time_sec": 4.964983900077641,
+    "samples_per_sec": 9073.544024844778,
+    "scenarios": {}
+  },
+  {
+    "config_name": "minority_only",
+    "seed": 404,
+    "accuracy": 0.7373362930077692,
+    "macro_f1": 0.7296314276480256,
+    "balanced_accuracy": 0.7284591366448361,
+    "drift_resets": 0,
+    "total_time_sec": 5.00975209986791,
+    "samples_per_sec": 8992.460924601002,
+    "scenarios": {}
+  },
+  {
+    "config_name": "minority_only",
+    "seed": 505,
+    "accuracy": 0.7337624861265261,
+    "macro_f1": 0.726424707882001,
+    "balanced_accuracy": 0.7255808878155855,
+    "drift_resets": 0,
+    "total_time_sec": 5.010476600145921,
+    "samples_per_sec": 8991.16064102325,
+    "scenarios": {}
+  },
+  {
+    "config_name": "minority_only",
+    "seed": 606,
+    "accuracy": 0.7318534961154273,
+    "macro_f1": 0.724463104153291,
+    "balanced_accuracy": 0.7236273090622157,
+    "drift_resets": 0,
+    "total_time_sec": 5.0350769001524895,
+    "samples_per_sec": 8947.23176892008,
+    "scenarios": {}
+  },
+  {
+    "config_name": "minority_only",
+    "seed": 707,
+    "accuracy": 0.7334517203107658,
+    "macro_f1": 0.7273265505641155,
+    "balanced_accuracy": 0.7274112080177877,
+    "drift_resets": 0,
+    "total_time_sec": 5.052954399958253,
+    "samples_per_sec": 8915.576202384134,
+    "scenarios": {}
+  },
+  {
+    "config_name": "minority_only",
+    "seed": 808,
+    "accuracy": 0.7383573806881243,
+    "macro_f1": 0.7318745492698507,
+    "balanced_accuracy": 0.7315631903959315,
+    "drift_resets": 0,
+    "total_time_sec": 5.449064600048587,
+    "samples_per_sec": 8267.474017393428,
+    "scenarios": {}
+  },
+  {
+    "config_name": "minority_only",
+    "seed": 909,
+    "accuracy": 0.7341398446170921,
+    "macro_f1": 0.72766761068683,
+    "balanced_accuracy": 0.7274530559407415,
+    "drift_resets": 0,
+    "total_time_sec": 4.8844337000045925,
+    "samples_per_sec": 9223.177704297152,
+    "scenarios": {}
+  },
+  {
+    "config_name": "ulc_v4_legacy",
+    "seed": 42,
+    "accuracy": 0.66834628190899,
+    "macro_f1": 0.6467414209591056,
+    "balanced_accuracy": 0.6457226505388467,
+    "drift_resets": 261,
+    "total_time_sec": 3.15000949986279,
+    "samples_per_sec": 14301.544170569108,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 261,
+      "Standard Operational Transition": 618,
+      "Scenario E: Epistemic Boundary Uncertainty": 7,
+      "Safety Valve: Dwell Timeout Escape": 1,
+      "Scenario A: Noise vs Drift (Verified Noise)": 14
+    }
+  },
+  {
+    "config_name": "ulc_v4_legacy",
+    "seed": 101,
+    "accuracy": 0.6526526082130966,
+    "macro_f1": 0.62675798329203,
+    "balanced_accuracy": 0.6271743170672305,
+    "drift_resets": 292,
+    "total_time_sec": 2.873773599974811,
+    "samples_per_sec": 15676.252297813186,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 292,
+      "Standard Operational Transition": 588,
+      "Scenario A: Noise vs Drift (Verified Noise)": 16,
+      "Safety Valve: Dwell Timeout Escape": 1,
+      "Scenario E: Epistemic Boundary Uncertainty": 4
+    }
+  },
+  {
+    "config_name": "ulc_v4_legacy",
+    "seed": 202,
+    "accuracy": 0.656204217536071,
+    "macro_f1": 0.6327357932770199,
+    "balanced_accuracy": 0.6324493114915413,
+    "drift_resets": 292,
+    "total_time_sec": 2.8852578999940306,
+    "samples_per_sec": 15613.855524004703,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 292,
+      "Standard Operational Transition": 592,
+      "Scenario A: Noise vs Drift (Verified Noise)": 14,
+      "Scenario E: Epistemic Boundary Uncertainty": 3
+    }
+  },
+  {
+    "config_name": "ulc_v4_legacy",
+    "seed": 303,
+    "accuracy": 0.6635516093229745,
+    "macro_f1": 0.641743210908848,
+    "balanced_accuracy": 0.6409052159954686,
+    "drift_resets": 281,
+    "total_time_sec": 3.18814880005084,
+    "samples_per_sec": 14130.457147822464,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 281,
+      "Standard Operational Transition": 606,
+      "Scenario E: Epistemic Boundary Uncertainty": 3,
+      "Scenario A: Noise vs Drift (Verified Noise)": 11
+    }
+  },
+  {
+    "config_name": "ulc_v4_legacy",
+    "seed": 404,
+    "accuracy": 0.6559600443951166,
+    "macro_f1": 0.6350351739574054,
+    "balanced_accuracy": 0.6342619832781928,
+    "drift_resets": 286,
+    "total_time_sec": 2.7112741998862475,
+    "samples_per_sec": 16615.80374345394,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 286,
+      "Standard Operational Transition": 596,
+      "Scenario E: Epistemic Boundary Uncertainty": 6,
+      "Scenario A: Noise vs Drift (Verified Noise)": 12,
+      "Scenario F: Adversarial / Inverted Label": 1
+    }
+  },
+  {
+    "config_name": "ulc_v4_legacy",
+    "seed": 505,
+    "accuracy": 0.6555826859045505,
+    "macro_f1": 0.6313866864348372,
+    "balanced_accuracy": 0.6312847560836489,
+    "drift_resets": 274,
+    "total_time_sec": 2.840238699922338,
+    "samples_per_sec": 15861.342922069129,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 274,
+      "Standard Operational Transition": 608,
+      "Safety Valve: Dwell Timeout Escape": 1,
+      "Scenario A: Noise vs Drift (Verified Noise)": 13,
+      "Scenario E: Epistemic Boundary Uncertainty": 4,
+      "Scenario F: Adversarial / Inverted Label": 1
+    }
+  },
+  {
+    "config_name": "ulc_v4_legacy",
+    "seed": 606,
+    "accuracy": 0.6704328523862375,
+    "macro_f1": 0.6507334150328793,
+    "balanced_accuracy": 0.6493748398734045,
+    "drift_resets": 278,
+    "total_time_sec": 3.1600772000383586,
+    "samples_per_sec": 14255.980834725544,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 278,
+      "Standard Operational Transition": 604,
+      "Scenario A: Noise vs Drift (Verified Noise)": 15,
+      "Scenario E: Epistemic Boundary Uncertainty": 4
+    }
+  },
+  {
+    "config_name": "ulc_v4_legacy",
+    "seed": 707,
+    "accuracy": 0.6635072142064373,
+    "macro_f1": 0.6423995592313851,
+    "balanced_accuracy": 0.6414432002103061,
+    "drift_resets": 280,
+    "total_time_sec": 2.9920796998776495,
+    "samples_per_sec": 15056.417114103664,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 280,
+      "Standard Operational Transition": 604,
+      "Scenario A: Noise vs Drift (Verified Noise)": 13,
+      "Scenario E: Epistemic Boundary Uncertainty": 4
+    }
+  },
+  {
+    "config_name": "ulc_v4_legacy",
+    "seed": 808,
+    "accuracy": 0.681465038845727,
+    "macro_f1": 0.6627814043387961,
+    "balanced_accuracy": 0.6609907345293949,
+    "drift_resets": 258,
+    "total_time_sec": 2.9917880999855697,
+    "samples_per_sec": 15057.884614293804,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 258,
+      "Standard Operational Transition": 627,
+      "Scenario A: Noise vs Drift (Verified Noise)": 13,
+      "Scenario E: Epistemic Boundary Uncertainty": 3
+    }
+  },
+  {
+    "config_name": "ulc_v4_legacy",
+    "seed": 909,
+    "accuracy": 0.6668368479467258,
+    "macro_f1": 0.6475168694660696,
+    "balanced_accuracy": 0.6462164854773427,
+    "drift_resets": 268,
+    "total_time_sec": 2.974148999899626,
+    "samples_per_sec": 15147.190003433045,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 268,
+      "Standard Operational Transition": 618,
+      "Scenario A: Noise vs Drift (Verified Noise)": 12,
+      "Scenario E: Epistemic Boundary Uncertainty": 3
+    }
+  },
+  {
+    "config_name": "ulc_v4_1_production",
+    "seed": 42,
+    "accuracy": 0.6533407325194228,
+    "macro_f1": 0.6283362391169476,
+    "balanced_accuracy": 0.628499680803697,
+    "drift_resets": 281,
+    "total_time_sec": 2.9357642999384552,
+    "samples_per_sec": 15345.2373546965,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 281,
+      "Standard Operational Transition": 602,
+      "Scenario E: Epistemic Boundary Uncertainty": 5,
+      "Scenario A: Noise vs Drift (Verified Noise)": 13
+    }
+  },
+  {
+    "config_name": "ulc_v4_1_production",
+    "seed": 101,
+    "accuracy": 0.6734073251942286,
+    "macro_f1": 0.6514919192671733,
+    "balanced_accuracy": 0.6503665356061039,
+    "drift_resets": 262,
+    "total_time_sec": 2.996930900029838,
+    "samples_per_sec": 15032.044949568732,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 262,
+      "Standard Operational Transition": 620,
+      "Scenario E: Epistemic Boundary Uncertainty": 4,
+      "Scenario A: Noise vs Drift (Verified Noise)": 15
+    }
+  },
+  {
+    "config_name": "ulc_v4_1_production",
+    "seed": 202,
+    "accuracy": 0.6576026637069923,
+    "macro_f1": 0.6364485091321376,
+    "balanced_accuracy": 0.6356684208102565,
+    "drift_resets": 294,
+    "total_time_sec": 3.035156700061634,
+    "samples_per_sec": 14842.726241806618,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 294,
+      "Standard Operational Transition": 587,
+      "Scenario E: Epistemic Boundary Uncertainty": 7,
+      "Scenario A: Noise vs Drift (Verified Noise)": 13
+    }
+  },
+  {
+    "config_name": "ulc_v4_1_production",
+    "seed": 303,
+    "accuracy": 0.6611542730299667,
+    "macro_f1": 0.6414732126268181,
+    "balanced_accuracy": 0.6403737263975535,
+    "drift_resets": 255,
+    "total_time_sec": 2.984833199996501,
+    "samples_per_sec": 15092.970689301099,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 255,
+      "Standard Operational Transition": 627,
+      "Safety Valve: Dwell Timeout Escape": 1,
+      "Scenario E: Epistemic Boundary Uncertainty": 4,
+      "Scenario A: Noise vs Drift (Verified Noise)": 14
+    }
+  },
+  {
+    "config_name": "ulc_v4_1_production",
+    "seed": 404,
+    "accuracy": 0.6631298557158712,
+    "macro_f1": 0.6396741667191177,
+    "balanced_accuracy": 0.6391729362713334,
+    "drift_resets": 263,
+    "total_time_sec": 3.0027014000806957,
+    "samples_per_sec": 15003.156823648635,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 263,
+      "Standard Operational Transition": 622,
+      "Scenario A: Noise vs Drift (Verified Noise)": 13,
+      "Scenario E: Epistemic Boundary Uncertainty": 3
+    }
+  },
+  {
+    "config_name": "ulc_v4_1_production",
+    "seed": 505,
+    "accuracy": 0.6669478357380688,
+    "macro_f1": 0.6459707045995979,
+    "balanced_accuracy": 0.6448921161030323,
+    "drift_resets": 275,
+    "total_time_sec": 2.860865900060162,
+    "samples_per_sec": 15746.980660314288,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 275,
+      "Standard Operational Transition": 608,
+      "Scenario A: Noise vs Drift (Verified Noise)": 14,
+      "Scenario E: Epistemic Boundary Uncertainty": 4
+    }
+  },
+  {
+    "config_name": "ulc_v4_1_production",
+    "seed": 606,
+    "accuracy": 0.6634184239733629,
+    "macro_f1": 0.6437196006835794,
+    "balanced_accuracy": 0.6425603509655486,
+    "drift_resets": 284,
+    "total_time_sec": 2.917937400052324,
+    "samples_per_sec": 15438.987827220752,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 284,
+      "Standard Operational Transition": 597,
+      "Scenario A: Noise vs Drift (Verified Noise)": 16,
+      "Scenario E: Epistemic Boundary Uncertainty": 4
+    }
+  },
+  {
+    "config_name": "ulc_v4_1_production",
+    "seed": 707,
+    "accuracy": 0.6538068812430633,
+    "macro_f1": 0.6288222619576105,
+    "balanced_accuracy": 0.6289664218946397,
+    "drift_resets": 290,
+    "total_time_sec": 2.7716523001436144,
+    "samples_per_sec": 16253.842517571817,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 290,
+      "Standard Operational Transition": 593,
+      "Scenario E: Epistemic Boundary Uncertainty": 4,
+      "Scenario A: Noise vs Drift (Verified Noise)": 14
+    }
+  },
+  {
+    "config_name": "ulc_v4_1_production",
+    "seed": 808,
+    "accuracy": 0.6595782463928967,
+    "macro_f1": 0.6388123010653695,
+    "balanced_accuracy": 0.6379132185898301,
+    "drift_resets": 275,
+    "total_time_sec": 2.8029955001547933,
+    "samples_per_sec": 16072.09144556677,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 275,
+      "Standard Operational Transition": 610,
+      "Scenario A: Noise vs Drift (Verified Noise)": 13,
+      "Scenario E: Epistemic Boundary Uncertainty": 3
+    }
+  },
+  {
+    "config_name": "ulc_v4_1_production",
+    "seed": 909,
+    "accuracy": 0.656581576026637,
+    "macro_f1": 0.6327899225627588,
+    "balanced_accuracy": 0.632564367059161,
+    "drift_resets": 276,
+    "total_time_sec": 2.9810550999827683,
+    "samples_per_sec": 15112.099068635265,
+    "scenarios": {
+      "Scenario A: Resolved Genuine Drift": 276,
+      "Standard Operational Transition": 606,
+      "Scenario A: Noise vs Drift (Verified Noise)": 15,
+      "Scenario E: Epistemic Boundary Uncertainty": 3,
+      "Scenario F: Adversarial / Inverted Label": 1
+    }
+  }
+]

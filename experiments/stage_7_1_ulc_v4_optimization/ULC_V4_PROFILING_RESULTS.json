@@ -1,0 +1,14 @@
+{
+  "prediction_ms": 0.117,
+  "reliability_scoring_ms": 0.0795,
+  "prior_tracking_ms": 0.0206,
+  "threshold_updating_ms": 0.0066,
+  "evidence_synthesis_ms": 0.0329,
+  "automaton_transition_ms": 0.0097,
+  "conflict_resolution_ms": 0.0002,
+  "explanation_generation_ms": 0.0038,
+  "model_partial_fit_ms": 1.0447,
+  "total_step_overhead_ms": 1.315,
+  "percentage_in_controller_overhead": 3.55,
+  "percentage_in_explainer": 0.29
+}

@@ -1,0 +1,8 @@
+Competitor,Primary_Pillar,Category,License,Hardware_Target,Primary_API_Idiom,Core_Strength,Critical_Limitation,AdaptiveML_Differentiation
+River,ALA,Direct Competitor,BSD-3,CPU,learn_one(dict),Comprehensive streaming algorithms,High Python loop overhead on numeric matrices,Vectorized 2D NumPy partial_fit support
+Cleanlab,RLA,Indirect Competitor,AGPL-3,CPU/GPU,find_label_issues(pred_probs),Industry standard offline label curation,Requires multi-pass cross-val; cannot run online,In-training single-pass robust losses & streaming weights
+Avalanche,ALA,Research Framework,MIT,GPU/CPU,strategy.train(experience),Deep continual learning benchmark coverage,Heavy PyTorch coupling; complex strategy plugins,Lightweight CPU-first scikit-learn compatible modules
+bitsandbytes,RAO,Direct Competitor,MIT,CUDA/CPU,AdamW8bit(params),Dominant 8-bit optimizer for GPUs,CPU execution has latency penalty and AVX compile issues,Pure CPU/NumPy optimizer memory reduction without C-extension
+imbalanced-learn,RLA,Complementary,MIT,CPU,fit_resample(X y),Standard for static tabular resampling,Requires global distance matrix; corrupts noisy data,Streaming-compatible class-balanced loss formulations
+Menelaus,ALA,Complementary,Apache-2,CPU,detector.update(y_true y_pred),Clean modular drift detection primitives,Detection-only; no adaptive estimators or retraining,Couples drift detection directly to model elasticity
+DeepSpeed,RAO,Infrastructure,Apache-2,Multi-GPU/CPU,deepspeed.initialize(),Massive distributed model scaling,Extreme complexity; high CPU offload latency overhead,Single-node and local CPU focus without cluster setup

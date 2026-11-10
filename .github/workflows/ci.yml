@@ -26,10 +26,10 @@ jobs:
           pip install ruff mypy
       - name: Run Ruff Lint Check
         run: |
-          ruff check robust_adapt adaptive_ml tests
+          ruff check robust_adapt tests
       - name: Run Ruff Format Check
         run: |
-          ruff format --check robust_adapt adaptive_ml tests
+          ruff format --check robust_adapt tests
 
   test-matrix:
     name: Test Matrix (${{ matrix.os }} - Python ${{ matrix.python-version }})
@@ -80,6 +80,5 @@ jobs:
           test_env/bin/pip install dist/*.whl
           test_env/bin/python -c "import robust_adapt; print('ROBUST-ADAPT version:', robust_adapt.__version__)"
           test_env/bin/python -c "from robust_adapt.ala import AdaptiveClassifier; clf = AdaptiveClassifier(4, 2); print('ROBUST-ADAPT ALA initialized successfully')"
-          test_env/bin/python -c "import adaptive_ml; print('adaptive_ml compatibility version:', adaptive_ml.__version__)"
-          test_env/bin/python -c "from robust_adapt import AdaptiveClassifier as C1; from adaptive_ml import AdaptiveClassifier as C2; assert C1 is C2; print('Cross-namespace class identity verified')"
+          test_env/bin/python -c "import importlib.util; assert importlib.util.find_spec('adaptive_ml') is None, 'adaptive_ml must not be present in wheel'"
 

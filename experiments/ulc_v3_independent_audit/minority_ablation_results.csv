@@ -1,0 +1,7 @@
+variant,minority_recall,minority_precision,macro_f1,notes
+1. No Replay Buffer,0.1904,0.5210,0.6120,Tree split starvation under 90:10 imbalance
+2. Existing Buggy Replay (Unpurged),0.2286,0.1234,0.5000,Leaks stale pre-drift samples into tree
+3. Purged Class-Balanced Replay,0.2490,0.5573,0.6455,Baseline ULC-v3 configuration
+4. Threshold Shift to 0.35 (Pre-tuned),0.6272,0.1757,0.5298,High minority sensitivity at accuracy cost
+5. Linear Surrogate Only (RAO),0.6408,0.1690,0.5182,Continuous gradients penalize false negatives
+6. Tree Classifier Only (ALA),0.0000,0.0000,0.4737,Impurity split fails under heavy imbalance

@@ -1,0 +1,117 @@
+{
+  "Scenario_A": {
+    "name": "Drift with Clean Labels (Deadlock Elimination)",
+    "state": "CONFIRMED_DRIFT",
+    "expected_state": "CONFIRMED_DRIFT",
+    "passed": true,
+    "spatial_discordance": 0.05999999999999999,
+    "retained_samples": 30,
+    "deadlock_prevented": true,
+    "explanation": {
+      "state": "CONFIRMED_DRIFT",
+      "scenario": "Scenario A: Resolved Genuine Drift",
+      "confidence": 0.95,
+      "evidence": {
+        "delta_drift": 1.4,
+        "mean_reliability": 0.538,
+        "predictive_entropy": 0.0007,
+        "loss_trend": 0.5,
+        "resource_utilization": 0.0737,
+        "imbalance_ratio": 1.08,
+        "observed_delay": 0.0,
+        "recurring_similarity": 0.0,
+        "is_emerging_class": false,
+        "asymmetric_noise_rate": 0.0
+      },
+      "actions": {
+        "learning_rate_scale": 2.5,
+        "reset_momentum": true,
+        "suppress_adwin": false,
+        "freeze_buffer": false,
+        "purge_replay_policy": "partial",
+        "keep_minority_in_replay": false,
+        "skip_expensive_ops": false
+      },
+      "narrative": "Controller State: CONFIRMED_DRIFT. Primary Drivers: significant drift detected (delta=1.40); elevated sample corruption (reliability=0.54). Arbitration Policy: Scenario A: Resolved Genuine Drift. Action Directives: LR Scale=2.5x, Reset Momentum=True, Replay Policy=partial (Keep Minority=False)."
+    }
+  },
+  "Scenario_B": {
+    "name": "Severe Label Noise without Drift",
+    "state": "NOISE_BURST",
+    "expected_state": "NOISE_BURST",
+    "passed": true,
+    "spatial_discordance": 0.5333333333333333,
+    "suppress_adwin": true,
+    "freeze_buffer": true
+  },
+  "Scenario_C": {
+    "name": "Drift with Simultaneous Label Noise",
+    "state": "NOISE_BURST",
+    "expected_state": "NOISE_BURST",
+    "passed": true,
+    "action": "Suppressed unverified drift until noise resolves"
+  },
+  "Scenario_D": {
+    "name": "Minority Emergence",
+    "state": "STABLE",
+    "passed": true,
+    "threshold": 0.4829919771590414
+  },
+  "Scenario_E": {
+    "name": "Resource Exhaustion",
+    "state": "ELEVATED_VARIANCE",
+    "passed": true
+  },
+  "Scenario_F": {
+    "name": "Pure Concept Drift",
+    "state": "CONFIRMED_DRIFT",
+    "passed": true
+  },
+  "Scenario_G": {
+    "name": "Recurring Concept Restoration",
+    "state": "CONFIRMED_DRIFT",
+    "passed": true
+  },
+  "Scenario_H": {
+    "name": "Delayed Labels Handling",
+    "state": "NOISE_BURST",
+    "passed": true
+  },
+  "Scenario_I": {
+    "name": "Conflicting Evidence Deadband",
+    "state": "ADAPTATION_PENDING",
+    "passed": true
+  },
+  "Scenario_J": {
+    "name": "Optional Pillar Failure & Fallback",
+    "state": "ELEVATED_VARIANCE",
+    "passed": true
+  },
+  "Regression_Scenario_A_Deadlock": {
+    "deadlock_states_over_20_steps": [
+      "CONFIRMED_DRIFT",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE",
+      "STABLE"
+    ],
+    "stayed_in_noise_burst": false,
+    "deadlock_eliminated": true,
+    "passed": true
+  }
+}

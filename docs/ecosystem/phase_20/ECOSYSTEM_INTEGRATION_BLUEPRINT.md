@@ -41,7 +41,7 @@ All adaptive classifiers inherit from `sklearn.base.BaseEstimator` and `Classifi
 ```python
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from adaptive_ml.ala import ConceptDriftClassifier
+from robust_adapt.ala import ConceptDriftClassifier
 
 pipeline = Pipeline([
     ('scaler', StandardScaler()),
@@ -53,12 +53,12 @@ pipeline.named_steps['adaptive_clf'].partial_fit(X_batch, y_batch)
 ```
 
 ### 2.2 PyTorch Deep Learning Integration
-AdaptiveML provides native PyTorch loss functions and optimizer budget callbacks:
+ROBUST-ADAPT provides native PyTorch loss functions and optimizer budget callbacks:
 
 ```python
 import torch
-from adaptive_ml.rla.losses import GeneralizedCrossEntropyLoss
-from adaptive_ml.rao import PyTorchBudgetHook
+from robust_adapt.rla.losses import GeneralizedCrossEntropyLoss
+from robust_adapt.rao import PyTorchBudgetHook
 
 criterion = GeneralizedCrossEntropyLoss(q=0.7)
 model = MyNeuralNet()

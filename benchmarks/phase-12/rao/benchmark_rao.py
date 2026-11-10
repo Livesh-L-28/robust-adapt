@@ -18,8 +18,8 @@ _BENCHMARK_ROOT = Path(__file__).resolve().parent.parent
 if str(_BENCHMARK_ROOT) not in sys.path:
     sys.path.insert(0, str(_BENCHMARK_ROOT))
 
-from adaptive_ml.rao.adamw import LowMemoryAdamW
-from adaptive_ml.rao.quantizer import BlockQuantizer
+from robust_adapt.rao.adamw import LowMemoryAdamW
+from robust_adapt.rao.quantizer import BlockQuantizer
 
 
 class ParamWrapper:

@@ -1,0 +1,308 @@
+{
+  "canonical_confirmatory_N5": {
+    "ULC-v1 Baseline": {
+      "accuracy": {
+        "mean": 91.50800000000001,
+        "std": 0.5540487343185639,
+        "ci_95": [
+          90.82005763334628,
+          92.19594236665374
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.60784,
+        "std": 0.04195352190221938,
+        "ci_95": [
+          0.5557478222561612,
+          0.6599321777438389
+        ]
+      },
+      "minority_recall": {
+        "mean": 15.204000000000002,
+        "std": 5.374284138376013,
+        "ci_95": [
+          8.53094486926097,
+          21.877055130739034
+        ]
+      }
+    },
+    "ULC-v2 Baseline": {
+      "accuracy": {
+        "mean": 73.72999999999999,
+        "std": 0.41212862069989464,
+        "ci_95": [
+          73.21827472904755,
+          74.24172527095243
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.5581799999999999,
+        "std": 0.0029431275881279897,
+        "ci_95": [
+          0.5545256244317011,
+          0.5618343755682987
+        ]
+      },
+      "minority_recall": {
+        "mean": 50.294,
+        "std": 1.308101678005192,
+        "ci_95": [
+          48.66977724043102,
+          51.91822275956898
+        ]
+      }
+    },
+    "ULC-v3 Audited": {
+      "accuracy": {
+        "mean": 73.72999999999999,
+        "std": 0.41212862069989464,
+        "ci_95": [
+          73.21827472904755,
+          74.24172527095243
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.5581799999999999,
+        "std": 0.0029431275881279897,
+        "ci_95": [
+          0.5545256244317011,
+          0.5618343755682987
+        ]
+      },
+      "minority_recall": {
+        "mean": 50.294,
+        "std": 1.308101678005192,
+        "ci_95": [
+          48.66977724043102,
+          51.91822275956898
+        ]
+      }
+    },
+    "ULC-v4 Original": {
+      "accuracy": {
+        "mean": 71.146,
+        "std": 0.41572827664233186,
+        "ci_95": [
+          70.62980516585792,
+          71.66219483414208
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.48646,
+        "std": 0.0036575948381415927,
+        "ci_95": [
+          0.48191849616946364,
+          0.49100150383053637
+        ]
+      },
+      "minority_recall": {
+        "mean": 24.796000000000003,
+        "std": 1.6858914555806972,
+        "ci_95": [
+          22.70268927472611,
+          26.889310725273894
+        ]
+      }
+    },
+    "ULC-v4.1 Hybrid": {
+      "accuracy": {
+        "mean": 86.468,
+        "std": 0.7807176186048325,
+        "ci_95": [
+          85.49861104021501,
+          87.437388959785
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.70028,
+        "std": 0.017975316408898077,
+        "ci_95": [
+          0.6779606967587499,
+          0.7225993032412501
+        ]
+      },
+      "minority_recall": {
+        "mean": 62.222,
+        "std": 6.4675319867782655,
+        "ci_95": [
+          54.191498374786164,
+          70.25250162521384
+        ]
+      }
+    }
+  },
+  "exploratory_N3": {
+    "ULC-v1 Baseline": {
+      "accuracy": {
+        "mean": 91.26999999999998,
+        "std": 0.29816103031751034
+      },
+      "macro_f1": {
+        "mean": 0.5889000000000001,
+        "std": 0.02464284886128228
+      },
+      "minority_recall": {
+        "mean": 12.67,
+        "std": 2.9971152797314953
+      }
+    },
+    "ULC-v2 Baseline": {
+      "accuracy": {
+        "mean": 73.66333333333334,
+        "std": 2.178676968559896
+      },
+      "macro_f1": {
+        "mean": 0.5499,
+        "std": 0.003439476704383928
+      },
+      "minority_recall": {
+        "mean": 46.59,
+        "std": 7.790243898620891
+      }
+    },
+    "ULC-v3 Audited": {
+      "accuracy": {
+        "mean": 73.66333333333334,
+        "std": 2.178676968559896
+      },
+      "macro_f1": {
+        "mean": 0.5499,
+        "std": 0.003439476704383928
+      },
+      "minority_recall": {
+        "mean": 46.59,
+        "std": 7.790243898620891
+      }
+    },
+    "ULC-v4 Original": {
+      "accuracy": {
+        "mean": 71.79666666666668,
+        "std": 0.9300179209742857
+      },
+      "macro_f1": {
+        "mean": 0.48456666666666665,
+        "std": 0.002289832599412756
+      },
+      "minority_recall": {
+        "mean": 22.613333333333333,
+        "std": 2.884048080967675
+      }
+    },
+    "ULC-v4.1 Hybrid": {
+      "accuracy": {
+        "mean": 87.15666666666668,
+        "std": 1.906156691705412
+      },
+      "macro_f1": {
+        "mean": 0.6995333333333335,
+        "std": 0.012940762471096219
+      },
+      "minority_recall": {
+        "mean": 57.31,
+        "std": 6.6403614359460885
+      }
+    }
+  },
+  "pairwise_comparisons": {
+    "ULC-v4.1_vs_ULC-v4 Original": {
+      "accuracy": {
+        "delta_mean": 15.322000000000003,
+        "cohens_d": 13.412668598001694,
+        "cliffs_delta": 1.0,
+        "t_stat": 29.991638744808586,
+        "p_raw": 7.361028749004098e-06,
+        "p_holm": 6.624925874103688e-05,
+        "significant_alpha_01": true
+      },
+      "macro_f1": {
+        "delta_mean": 0.21381999999999998,
+        "cohens_d": 11.13801445262907,
+        "cliffs_delta": 1.0,
+        "t_stat": 24.905357450453707,
+        "p_raw": 1.542860808240722e-05,
+        "p_holm": 0.00011668591451707937,
+        "significant_alpha_01": true
+      },
+      "minority_recall": {
+        "delta_mean": 37.426,
+        "cohens_d": 5.173314442447272,
+        "cliffs_delta": 1.0,
+        "t_stat": 11.567882762293523,
+        "p_raw": 0.00031900926430351585,
+        "p_holm": 0.0009570277929105476,
+        "significant_alpha_01": true
+      }
+    },
+    "ULC-v4.1_vs_ULC-v3 Audited": {
+      "accuracy": {
+        "delta_mean": 12.738,
+        "cohens_d": 11.29638919449586,
+        "cliffs_delta": 1.0,
+        "t_stat": 25.25949413918684,
+        "p_raw": 1.4585739314634922e-05,
+        "p_holm": 0.00011668591451707937,
+        "significant_alpha_01": true
+      },
+      "macro_f1": {
+        "delta_mean": 0.1421,
+        "cohens_d": 7.299764552127224,
+        "cliffs_delta": 1.0,
+        "t_stat": 16.322769758299778,
+        "p_raw": 8.244918268658523e-05,
+        "p_holm": 0.0003297967307463409,
+        "significant_alpha_01": true
+      },
+      "minority_recall": {
+        "delta_mean": 11.928,
+        "cohens_d": 1.7095621598577277,
+        "cliffs_delta": 1.0,
+        "t_stat": 3.8226972012032414,
+        "p_raw": 0.018734923852827743,
+        "p_holm": 0.018734923852827743,
+        "significant_alpha_01": false
+      }
+    },
+    "ULC-v4.1_vs_ULC-v1 Baseline": {
+      "accuracy": {
+        "delta_mean": -5.039999999999997,
+        "cohens_d": -8.831239384689733,
+        "cliffs_delta": -1.0,
+        "t_stat": -19.74725158973966,
+        "p_raw": 3.879146212177683e-05,
+        "p_holm": 0.00019395731060888413,
+        "significant_alpha_01": true
+      },
+      "macro_f1": {
+        "delta_mean": 0.09244,
+        "cohens_d": 3.4303851093057176,
+        "cliffs_delta": 1.0,
+        "t_stat": 7.670574293410631,
+        "p_raw": 0.0015529828472363313,
+        "p_holm": 0.0031059656944726626,
+        "significant_alpha_01": true
+      },
+      "minority_recall": {
+        "delta_mean": 47.018,
+        "cohens_d": 10.026978931501686,
+        "cliffs_delta": 1.0,
+        "t_stat": 22.42100649979598,
+        "p_raw": 2.343112837739368e-05,
+        "p_holm": 0.00014058677026436208,
+        "significant_alpha_01": true
+      }
+    }
+  },
+  "power_and_limitations": {
+    "canonical_sample_size_N": 5,
+    "degrees_of_freedom": 4,
+    "observed_effect_size_acc_vs_v4": 13.412668598001694,
+    "observed_effect_size_f1_vs_v4": 11.13801445262907,
+    "observed_effect_size_rec_vs_v4": 5.173314442447272,
+    "statistical_power_assessment": "Because Cohen's d exceeds 10.0 for accuracy and Macro F1 improvements over ULC-v4, the statistical power (1 - beta) exceeds 0.999 even at N=5. However, for subtle effects (e.g. latency deltas < 0.2ms), N=5 has low statistical power and cannot establish non-inferiority without larger streaming cohorts.",
+    "limitations": [
+      "Canonical benchmark has N=5 seeds; while effect sizes are enormous (d > 10), sample variance estimates carry wider confidence intervals.",
+      "Exploratory seeds (N=3) confirm directionality but should not be pooled without pre-registration.",
+      "Normality assumptions of paired t-tests are validated via non-parametric Cliff's delta consistency."
+    ]
+  }
+}

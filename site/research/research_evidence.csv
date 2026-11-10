@@ -1,0 +1,12 @@
+Evidence_ID,Focus_Area,Classification,Source_Title,Publication_Year,Access_Date,Confidence,Core_Observation
+EVD-ALA-001,Streaming ML,FACT,River Documentation & JMLR,2021,2026-11-01,High,River enforces single-instance dicts via learn_one; batch requires pandas
+EVD-ALA-002,Concept Drift,OBSERVATION,Menelaus & River ADWIN Issue Trackers,2022,2026-11-01,High,ADWIN/DDM trigger false alarms on noisy/bursty streams when delta is loose
+EVD-ALA-003,Continual Learning,FACT,Avalanche Library (ContinualAI),2021,2026-11-01,High,Avalanche couples strictly to PyTorch and discrete task-benchmark scenarios
+EVD-RLA-001,Label Noise,FACT,Cleanlab Open Source JAIR,2021,2026-11-01,High,Confident Learning requires out-of-fold predicted probabilities via cross-validation
+EVD-RLA-002,Imbalanced + Noise,FACT,Learning with Noisy Labels Over Imbalanced Subpopulations (ACL),2023,2026-11-01,High,Small-loss criteria mistake rare minority classes for corrupted label noise
+EVD-RLA-003,Imbalanced ML,FACT,imbalanced-learn Documentation,2023,2026-11-01,High,SMOTE requires global pairwise distance matrices and assumes clean ground-truth
+EVD-RAO-001,Low-Memory Opt,FACT,bitsandbytes Repository & CPU Kernels,2022,2026-11-01,High,bitsandbytes CPU backend requires AVX2/AVX-512 and incurs quantization latency
+EVD-RAO-002,Factorized States,FACT,Adafactor PyTorch & Paper,2018,2026-11-01,High,Adafactor drops first moment and risks convergence instability on small/medium models
+EVD-RAO-003,Low-Rank Opt,FACT,GaLore (Zhao et al. NeurIPS),2024,2026-11-01,High,GaLore saves 65-80% memory but SVD on CPU introduces compute latency and fp16 NaN risks
+EVD-ULC-001,ML Orchestration,OBSERVATION,MLOps Toolkits (ZenML / Prefect / Ray),2022,2026-11-01,High,Workflow tools orchestrate DAGs and containers not in-loop algorithmic trade-offs
+EVD-DX-001,Developer Trust,OBSERVATION,Python ML Community Discussions,2023,2026-11-01,High,Developers reject libraries with non-standard APIs or heavy compiled dependencies

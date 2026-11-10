@@ -1,0 +1,34 @@
+{
+  "import_latency_ms": 1806.9766999688,
+  "resident_memory_mb": 316.50390625,
+  "throughput": {
+    "ala_3_0": {
+      "samples_per_sec": 21846.10987204718,
+      "latency_per_batch_ms": 2.288737001363188,
+      "total_time_sec": 0.2288737001363188
+    },
+    "rla_3_0": {
+      "samples_per_sec": 12035.293258747663,
+      "latency_per_batch_ms": 4.154447999317199,
+      "total_time_sec": 0.4154447999317199
+    },
+    "minority_2_0": {
+      "samples_per_sec": 921540.0800679597,
+      "latency_per_batch_ms": 0.054256999865174294,
+      "total_time_sec": 0.005425699986517429
+    },
+    "ulc_v5": {
+      "samples_per_sec": 19662.05643828851,
+      "latency_per_batch_ms": 2.5429690000601113,
+      "total_time_sec": 0.25429690000601113
+    }
+  },
+  "rao_speedup": {
+    "params_50000": {
+      "vectorized_time_ms": 38.943500025197864,
+      "standard_time_ms": 860.9927000943571,
+      "speedup": 22.108765250613413
+    }
+  },
+  "replay_memory_bounded": true
+}

@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "stage": 6,
+    "title": "RAO 2.0 (Advanced Resource-Aware Optimization)",
+    "date": "2026-11-02",
+    "python_version": "3.14.3"
+  },
+  "dynamic_budget_manager": {
+    "initial_batch_size": 512,
+    "throttled_batch_size": 64,
+    "final_batch_size": 77,
+    "state_sequence": [
+      "BudgetState.NORMAL",
+      "BudgetState.NORMAL",
+      "BudgetState.NORMAL",
+      "BudgetState.NORMAL",
+      "BudgetState.NORMAL",
+      "BudgetState.CRITICAL",
+      "BudgetState.CRITICAL",
+      "BudgetState.CRITICAL",
+      "BudgetState.NORMAL",
+      "BudgetState.NORMAL"
+    ],
+    "throttled_step_count": 3,
+    "shed_expensive_ops_during_lag": false,
+    "status": "PASS"
+  },
+  "execution_profiler": {
+    "profiled_steps": 100,
+    "mean_ema_latency_ms": 0.255,
+    "min_latency_ms": 0.198,
+    "max_latency_ms": 0.58,
+    "peak_memory_mb": 207.72,
+    "predictive_breach_alert_functional": true,
+    "status": "PASS"
+  },
+  "device_capabilities": {
+    "platform": "Windows",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "cpu_cores": 32,
+    "has_cuda": false,
+    "cuda_device_name": null,
+    "has_mps": false,
+    "recommended_backend": "numpy_cpu",
+    "status": "PASS"
+  },
+  "checkpoint_recovery": {
+    "target_failed_step": 200,
+    "rolled_back_to_step": 100,
+    "restored_state_status": "valid_baseline",
+    "corruption_recovered": true,
+    "status": "PASS"
+  }
+}

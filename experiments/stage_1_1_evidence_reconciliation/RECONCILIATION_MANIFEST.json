@@ -1,0 +1,207 @@
+{
+  "manifest_id": "STAGE1.1-EVIDENCE-RECONCILIATION-MANIFEST",
+  "timestamp_utc": "2026-11-02T14:15:00Z",
+  "baseline_commit": "67e9ef1b347ca223828a1f225e85e35a086a1f30",
+  "branch": "master",
+  "directory": "experiments/stage_1_1_evidence_reconciliation",
+  "host_environment": {
+    "os": "Windows 11 Enterprise AMD64 (Build 26200)",
+    "python": "3.14.3",
+    "pytorch": "2.12.1+cpu"
+  },
+  "acceptance_gates_stage_1_1": {
+    "Gate_1_1_A_Discrepancy_Resolution": "PASS",
+    "Gate_1_1_B_Study_Separation": "PASS",
+    "Gate_1_1_C_Statistical_Recalculation": "PASS",
+    "Gate_1_1_D_Pareto_Deconstruction": "PASS",
+    "Gate_1_1_E_Ablation_Reconciliation": "PASS",
+    "Gate_1_1_F_Minority_Validation_Without_Leakage": "PASS",
+    "Gate_1_1_G_Generalization_Provenance": "PASS",
+    "Gate_1_1_H_Resource_Consistency": "PASS",
+    "Gate_1_1_I_Production_Code_Preservation": "PASS",
+    "Gate_1_1_J_Canonical_Verdict": "PASS"
+  },
+  "artifacts": {
+    "FINAL_STAGE_1_1_VERDICT.md": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/FINAL_STAGE_1_1_VERDICT.md",
+      "sha256": "68ac93bd320c5ffa37f55d26e8ca99a611e2ca8b6975a77f31c6a547194b570c",
+      "size_bytes": 13539
+    },
+    "GENERALIZATION_EVIDENCE_RECONCILIATION.md": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/GENERALIZATION_EVIDENCE_RECONCILIATION.md",
+      "sha256": "f3408e6c689c4193d848ce1954771038497495f34b798bcf92a889f013ae61b2",
+      "size_bytes": 8696
+    },
+    "MINORITY_THRESHOLD_RECONCILIATION.md": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/MINORITY_THRESHOLD_RECONCILIATION.md",
+      "sha256": "5e19d42cd573554118abe365a8f2a7afea66e605431b177f44ab0ba22d6a1228",
+      "size_bytes": 10050
+    },
+    "PARETO_RECONCILIATION.md": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/PARETO_RECONCILIATION.md",
+      "sha256": "091d40b55d48223ae00deb6aadf10965b596e9585c6550caa18b4383b90ead99",
+      "size_bytes": 11284
+    },
+    "RECONCILIATION_PROTOCOL.md": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/RECONCILIATION_PROTOCOL.md",
+      "sha256": "63f77f848a53da718f77c8d9a2bf7bb73567bb81dc5f973ab577fa117e7314ef",
+      "size_bytes": 11703
+    },
+    "REPRODUCTION_RECONCILIATION.md": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/REPRODUCTION_RECONCILIATION.md",
+      "sha256": "4557c416c6e4d867217198861af8e6435ab43520f2940f1d807a1da0ad9dcb5e",
+      "size_bytes": 11781
+    },
+    "RESOURCE_RECONCILIATION.md": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/RESOURCE_RECONCILIATION.md",
+      "sha256": "b444efdfdf3b33c57a82f05af12e64779ce14b7a04ad8f1baedf5c1050b4f8f2",
+      "size_bytes": 8616
+    },
+    "STATISTICAL_RECONCILIATION.md": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/STATISTICAL_RECONCILIATION.md",
+      "sha256": "4f564d44da81ba35632872dac6223b9472d42a18c86249846292f005edf68059",
+      "size_bytes": 8544
+    },
+    "ULC_ABLATION_RECONCILIATION.md": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/ULC_ABLATION_RECONCILIATION.md",
+      "sha256": "dc81b803df61eb4aba8627fc8e4d67955b04cc61882ae3334113902798cd4911",
+      "size_bytes": 11386
+    },
+    "ablation_reconciliation.json": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/ablation_reconciliation.json",
+      "sha256": "5a457e52a8be219366ea007eac15309ef6a1e012a8cc3c38bd094e64f375dcfe",
+      "size_bytes": 4485
+    },
+    "ablation_reconciliation_comparison.csv": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/ablation_reconciliation_comparison.csv",
+      "sha256": "c581f9a1215d643e3328f0012c760d54bf52ebd6a921ed708740a2b079db4d7d",
+      "size_bytes": 2525
+    },
+    "generalization_evidence_matrix.csv": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/generalization_evidence_matrix.csv",
+      "sha256": "194bb13dbe93b82be786156870a63ba45d53488140c2aca5dbfc15a4d550b1ce",
+      "size_bytes": 3057
+    },
+    "generalization_reconciliation.json": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/generalization_reconciliation.json",
+      "sha256": "a1dfe4de105d5d53e5fb79d74d2bab09dd9645cd31d0939554b7c2a6a7797e1b",
+      "size_bytes": 1089
+    },
+    "generate_manifest.py": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/generate_manifest.py",
+      "sha256": "e9c25505bfbcc636289280d347770bb93f9dd2b193027adb1519492b601a5b1c",
+      "size_bytes": 2367
+    },
+    "minority_threshold_reconciliation.json": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/minority_threshold_reconciliation.json",
+      "sha256": "dd0ea0b29f3ad6ff9d803337779e304ba4d81cf05ce7ffc1eabfbd088f6b4dd9",
+      "size_bytes": 1614
+    },
+    "minority_threshold_reconciliation_per_seed.csv": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/minority_threshold_reconciliation_per_seed.csv",
+      "sha256": "a9146ff1d79a614ca84c6786a033fe770bff30d3155eb41124db4bc9f93d8cd8",
+      "size_bytes": 2113
+    },
+    "pareto_reconciliation.json": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/pareto_reconciliation.json",
+      "sha256": "8aa9e7b7a1896d552f87f9280bcdddde8c81a46d8c5a8b298358a658c33ec853",
+      "size_bytes": 6549
+    },
+    "pareto_reconciliation_dominance_baseline.csv": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/pareto_reconciliation_dominance_baseline.csv",
+      "sha256": "10f8336ec4c81745377ea308ce60cecb4f0c48af91b5bb2f48686cf378fac888",
+      "size_bytes": 590
+    },
+    "pareto_reconciliation_dominance_reproduced.csv": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/pareto_reconciliation_dominance_reproduced.csv",
+      "sha256": "d65c18260cc42bc5a3370fcb6c203fd96a6829b94a25a876e3e774915c692421",
+      "size_bytes": 590
+    },
+    "reconcile_ablation.py": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/reconcile_ablation.py",
+      "sha256": "b2f22353cfbd1cb20c5fd92a2a480fa57a3c22b18f75af119fd38d71465e279d",
+      "size_bytes": 7915
+    },
+    "reconcile_generalization.py": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/reconcile_generalization.py",
+      "sha256": "d6f4b1a7a3e77b80c106d54b65740d24d9da4611a28c569c3bb95ed5d8c6947c",
+      "size_bytes": 9069
+    },
+    "reconcile_minority_threshold.py": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/reconcile_minority_threshold.py",
+      "sha256": "56f53adf33fc95e638ed79cca5732f901e0801e5f4f8b16c47c67b88a08fbc9f",
+      "size_bytes": 10829
+    },
+    "reconcile_pareto.py": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/reconcile_pareto.py",
+      "sha256": "615a68f80a756a110d3f0256d0995c6cb73cb4663746265e02ca7f0b6d21ebd2",
+      "size_bytes": 10088
+    },
+    "reconcile_reproduction.py": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/reconcile_reproduction.py",
+      "sha256": "919921582c958325b65c35d7bf94d28779896a0b1d42f6d2b12eeae8bb9a3b91",
+      "size_bytes": 6189
+    },
+    "reconcile_resources.py": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/reconcile_resources.py",
+      "sha256": "479217d455b8dcbdfadfddd6dba6575de8028888a6275093c123a773a998220e",
+      "size_bytes": 5901
+    },
+    "reconcile_statistics.py": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/reconcile_statistics.py",
+      "sha256": "e0ae301795e8b0d23cf1767df1273dcb6a47b3238c663981d29b024dec9e861c",
+      "size_bytes": 9034
+    },
+    "reproduction_reconciliation.json": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/reproduction_reconciliation.json",
+      "sha256": "264b752f094e9822d041a55573645fd6d25357c3e1ed8c61c5236dce2470acf7",
+      "size_bytes": 2092
+    },
+    "reproduction_reconciliation_seed_matrix.csv": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/reproduction_reconciliation_seed_matrix.csv",
+      "sha256": "46c3e3f9dae8bace8fb49afcd6c4171e76fc6972f205d21d044ed5089550d79e",
+      "size_bytes": 39142
+    },
+    "resource_reconciliation.json": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/resource_reconciliation.json",
+      "sha256": "6040a30d981ef5ae6c74e2c9bce89d5bb47f348bc4ddf474dce90b8f93e4818c",
+      "size_bytes": 1432
+    },
+    "resource_reconciliation_heap_audit.csv": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/resource_reconciliation_heap_audit.csv",
+      "sha256": "6ce2d6326dd08f92a58e8d57848aafa99cd82aed52dac60ea914074de3d8b171",
+      "size_bytes": 269
+    },
+    "resource_reconciliation_optimizer_scaling.csv": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/resource_reconciliation_optimizer_scaling.csv",
+      "sha256": "49b48be7d5c4aeb9a49cc2296850c881ff541be8e15c9ef674437ea266a00c6b",
+      "size_bytes": 628
+    },
+    "statistical_reconciliation.json": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/statistical_reconciliation.json",
+      "sha256": "45de75d49ebd63dbe55cb5bae522a4bd563f812d5df647e7859f46d39c4b8d1a",
+      "size_bytes": 2825
+    },
+    "statistical_reconciliation_n20_exploratory.csv": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/statistical_reconciliation_n20_exploratory.csv",
+      "sha256": "94279fd804c48df0fabf0d31539ccafa5da9d74794333b2982c675899d0d726d",
+      "size_bytes": 1336
+    },
+    "statistical_reconciliation_n5_confirmatory.csv": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/statistical_reconciliation_n5_confirmatory.csv",
+      "sha256": "06111667a32176083a3749efd19423e010dbcd3b76afed29e6d87a90622c8ebe",
+      "size_bytes": 2891
+    },
+    "figures/pareto_reconciled_minority_accuracy.png": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/figures/pareto_reconciled_minority_accuracy.png",
+      "sha256": "9967a9662708cee62734b5d6757ffd6da1da5db91415e3aa0534c22d5508cbce",
+      "size_bytes": 156220
+    },
+    "figures/pareto_reconciled_quality_latency.png": {
+      "path": "experiments/stage_1_1_evidence_reconciliation/figures/pareto_reconciled_quality_latency.png",
+      "sha256": "5754623ed72837d3a14a9d7408405f07410995255bfc46cd6747b2da95300609",
+      "size_bytes": 172112
+    }
+  },
+  "total_artifacts": 36
+}

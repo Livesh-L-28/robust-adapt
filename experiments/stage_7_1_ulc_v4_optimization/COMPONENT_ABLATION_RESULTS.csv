@@ -1,0 +1,9 @@
+Ablation Condition,Accuracy (%),Acc Std,Macro F1,F1 Std,Minority Recall (%),Recall Std,FDR,Latency (ms)
+Full ULC-v4 (Baseline),71.15,0.37,0.4865,0.0033,24.80,1.51,0.0,1.132
+No Evidence Synthesis,71.15,0.37,0.4865,0.0033,24.80,1.51,0.0,1.072
+No Bayesian Confidence,71.15,0.37,0.4865,0.0033,24.80,1.51,0.0,1.124
+No Pareto Arbitration,71.15,0.37,0.4865,0.0033,24.80,1.51,0.0,1.165
+No Minority Intelligence,71.15,0.37,0.4865,0.0033,24.80,1.51,0.0,1.102
+No Selective Replay Purge,71.15,0.37,0.4865,0.0033,24.80,1.51,0.0,1.187
+No Resource Budgeting,71.15,0.37,0.4865,0.0033,24.80,1.51,0.0,1.105
+On-Demand Explanations,71.15,0.37,0.4865,0.0033,24.80,1.51,0.0,1.100

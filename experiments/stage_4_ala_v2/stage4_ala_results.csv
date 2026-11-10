@@ -1,0 +1,8 @@
+metric,value,unit
+consensus_detection_samples,1,samples
+drift_severity,0.7,score
+top_feature_id,3,index
+top_feature_shift_score,3.35,score
+restored_accuracy,0.9900,ratio
+restoration_speedup,2.41,factor
+delayed_queue_throughput,91722.1,samples_per_sec

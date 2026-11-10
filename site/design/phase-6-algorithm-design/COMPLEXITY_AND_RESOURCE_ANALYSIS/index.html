@@ -1,0 +1,4117 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Adaptive, Robust, and Resource-Efficient Learning for Python">
+      
+      
+        <meta name="author" content="AdaptiveML Core Team">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>AdaptiveML — Complexity and Resource Analysis: Time, Memory, and FLOP Derivations - AdaptiveML Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adaptiveml-complexity-and-resource-analysis-time-memory-and-flop-derivations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AdaptiveML Documentation" class="md-header__button md-logo" aria-label="AdaptiveML Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AdaptiveML Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AdaptiveML — Complexity and Resource Analysis: Time, Memory, and FLOP Derivations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/adaptiveml/adaptiveml" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    adaptiveml/adaptiveml
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AdaptiveML Documentation" class="md-nav__button md-logo" aria-label="AdaptiveML Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AdaptiveML Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/adaptiveml/adaptiveml" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    adaptiveml/adaptiveml
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/problem-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problem Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/architecture-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/design-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/environment-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/installation-verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/optional-integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-Minute Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/first-adaptive-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Adaptive Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/first-streaming-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Streaming Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/concept-drift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/label-noise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Label Noise & Robustness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/class-imbalance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class Imbalance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/resource-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/controller-arbitration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithms
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALA 3.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ALA 3.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/recurring-concept-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recurring Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RLA 3.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RLA 3.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/asymmetric-noise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asymmetric Noise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Minority Intelligence 2.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Minority Intelligence 2.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/threshold-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic FP Thresholds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAO 2.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAO 2.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/vectorized-optimizer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vectorized Low-Memory AdamW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ULC-v5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ULC-v5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/intervention-hierarchy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-Tier Intervention Hierarchy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Public API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Public API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Foundations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/ala/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALA API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/rla/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RLA API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/minority/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Minority Intelligence API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/rao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAO API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/ulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ULC API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integrations API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State & Persistence API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework Integrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Framework Integrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview & Data Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pure NumPy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/scikit-learn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scikit-Learn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/pytorch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/dataframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabular DataFrames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/deferred-frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deferred Frameworks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operational Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operational Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/checkpoints-and-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkpoints & Recovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability & Telemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/cpu-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Performance Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/ala/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALA Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/rla/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RLA Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/rao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAO Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/ulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ULC Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Industry Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Industry Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/01_streaming_anomaly_detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. IoT Anomaly & Drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/02_recurring_demand_shifts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Recurring Retail Demand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/03_extreme_label_noise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Extreme Label Noise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/04_fraud_detection_streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Financial Fraud Streams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/05_low_memory_pytorch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Low-Memory PyTorch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/06_unified_coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. ULC-v5 Master Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture & Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture & Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/system-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/security-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../research/research-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting & FAQ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting & FAQ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequently Asked Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community & Governance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community & Governance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/code-of-conduct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of Conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License & Trademark
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Executive Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-asymptotic-complexity-derivations-by-pillar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Asymptotic Complexity Derivations by Pillar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Asymptotic Complexity Derivations by Pillar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ala-adaptive-learning-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 ALA: Adaptive Learning Algorithms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 ALA: Adaptive Learning Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-vectorized-streaming-decision-tree-vectorizedhoeffdingtree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.1 Vectorized Streaming Decision Tree (VectorizedHoeffdingTree)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-reliability-weighted-adwin-reliabilityweightedadwin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.2 Reliability-Weighted ADWIN (ReliabilityWeightedADWIN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-class-balanced-reservoir-replay-classbalancedreservoirreplay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.3 Class-Balanced Reservoir Replay (ClassBalancedReservoirReplay)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rla-robust-learning-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 RLA: Robust Learning Algorithms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 RLA: Robust Learning Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-density-aware-margin-scorer-densityawaremarginscorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Density-Aware Margin Scorer (DensityAwareMarginScorer)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-robust-loss-functions-generalizedcrossentropy-symmetriccrossentropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Robust Loss Functions (GeneralizedCrossEntropy, SymmetricCrossEntropy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-rao-resource-aware-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 RAO: Resource-Aware Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 RAO: Resource-Aware Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-cpu-block-quantized-adamw-lowmemoryadamw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 CPU Block-Quantized AdamW (LowMemoryAdamW)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ulc-unified-learning-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 ULC: Unified Learning Controller
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 ULC: Unified Learning Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-arbitration-automaton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 Arbitration Automaton
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-comprehensive-ecosystem-resource-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Comprehensive Ecosystem Resource Comparison
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Comprehensive Ecosystem Resource Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-optimizer-memory-footprint-comparison-100m-parameter-model-p-108" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Optimizer Memory Footprint Comparison (100M-Parameter Model, \(p = 10^8\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-streaming-tree-memory-throughput-comparison-100k-samples-d-30-c-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Streaming Tree Memory &amp; Throughput Comparison (100k Samples, \(d = 30, C = 2\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-peak-working-memory-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Peak Working Memory Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="adaptiveml-complexity-and-resource-analysis-time-memory-and-flop-derivations">AdaptiveML — Complexity and Resource Analysis: Time, Memory, and FLOP Derivations<a class="headerlink" href="#adaptiveml-complexity-and-resource-analysis-time-memory-and-flop-derivations" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Document Status</strong>: Complete Baseline Deliverable (Phase 6)<br />
+<strong>Document Identifier</strong>: <code>DOC-DES-P6-008</code><br />
+<strong>Last Updated</strong>: 2026-11-01<br />
+<strong>Target Audience</strong>: Performance Engineers, Applied Mathematicians, Core Systems Architects<br />
+<strong>Cross-Reference</strong>: <code>DOC-DES-P6-002</code> through <code>DOC-DES-P6-007</code></p>
+</blockquote>
+<hr />
+<h2 id="1-executive-summary">1. Executive Summary<a class="headerlink" href="#1-executive-summary" title="Permanent link">&para;</a></h2>
+<p>This document provides rigorous mathematical derivations for computational complexity (time in Big-O and FLOPs) and space complexity (persistent state memory and peak transient RAM in bytes) across all algorithmic components of AdaptiveML.</p>
+<p>Every algorithm is evaluated against established baseline implementations in the Python machine learning ecosystem (River, Cleanlab, PyTorch, and scikit-learn), establishing the theoretical foundation for AdaptiveML's performance and efficiency claims.</p>
+<hr />
+<h2 id="2-asymptotic-complexity-derivations-by-pillar">2. Asymptotic Complexity Derivations by Pillar<a class="headerlink" href="#2-asymptotic-complexity-derivations-by-pillar" title="Permanent link">&para;</a></h2>
+<h3 id="21-ala-adaptive-learning-algorithms">2.1 ALA: Adaptive Learning Algorithms<a class="headerlink" href="#21-ala-adaptive-learning-algorithms" title="Permanent link">&para;</a></h3>
+<h4 id="211-vectorized-streaming-decision-tree-vectorizedhoeffdingtree">2.1.1 Vectorized Streaming Decision Tree (<code>VectorizedHoeffdingTree</code>)<a class="headerlink" href="#211-vectorized-streaming-decision-tree-vectorizedhoeffdingtree" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Parameters</strong>: Batch size <span class="arithmatex">\(B\)</span>, feature dimension <span class="arithmatex">\(d\)</span>, quantile discretization bins <span class="arithmatex">\(K\)</span>, classes <span class="arithmatex">\(C\)</span>, tree depth <span class="arithmatex">\(D\)</span>, active leaves <span class="arithmatex">\(U\)</span>.</li>
+<li><strong>Time Complexity</strong>:</li>
+<li><em>Routing Instances to Leaves</em>: Traversal from root to leaf takes <span class="arithmatex">\(\mathcal{O}(D)\)</span> comparisons per instance. For a batch of size <span class="arithmatex">\(B\)</span>: <span class="arithmatex">\(\mathcal{O}(B \cdot D)\)</span>.</li>
+<li><em>Bin Index Digitization</em>: Vectorized binary search over <span class="arithmatex">\(K\)</span> bin thresholds per feature: <span class="arithmatex">\(\mathcal{O}(B \cdot d \cdot \log K)\)</span>.</li>
+<li><em>Vectorized Histogram Accumulation</em>: In-place update to contiguous 3D histogram tensor <span class="arithmatex">\(S_u[j, k, c]\)</span>: <span class="arithmatex">\(\mathcal{O}(B \cdot d)\)</span>.</li>
+<li><em>Split Evaluation (Periodic every <span class="arithmatex">\(n_{\min}\)</span> instances per leaf)</em>:
+     Cumulative sum and Gini/Entropy calculation across all <span class="arithmatex">\(d\)</span> features and <span class="arithmatex">\(K\)</span> split bins: <span class="arithmatex">\(\mathcal{O}(d \cdot K \cdot C)\)</span>.</li>
+<li><strong>Total Time per Batch</strong>:
+    $<span class="arithmatex">\(\mathcal{T}_{\text{tree}}(B) = \mathcal{O}(B \cdot (D + d \cdot \log K)) + \frac{B}{n_{\min}} \cdot \mathcal{O}(d \cdot K \cdot C)\)</span>$</li>
+<li><strong>Space Complexity (Persistent State Memory)</strong>:</li>
+<li>Each leaf node <span class="arithmatex">\(u \in \{1, \dots, U\}\)</span> stores sufficient statistics tensor <span class="arithmatex">\(\mathbf{S}_u \in \mathbb{R}^{d \times K \times C}\)</span> in <code>float64</code> or <code>int32</code>:
+    $<span class="arithmatex">\(M_{\text{leaf}} = d \cdot K \cdot C \times 8 \text{ bytes}\)</span>$</li>
+<li>For <span class="arithmatex">\(U\)</span> leaves and total internal nodes <span class="arithmatex">\(N_{\text{nodes}} = 2U - 1\)</span>:
+    $<span class="arithmatex">\(M_{\text{tree}} = U \cdot (d \cdot K \cdot C \cdot 8) + (2U - 1) \cdot 32 \text{ bytes} = \mathcal{O}(U \cdot d \cdot K \cdot C) \text{ bytes}\)</span>$</li>
+<li><strong>Comparison vs River HoeffdingTreeClassifier</strong>:</li>
+<li>River maintains nested Python dictionaries (<code>dict[int, dict[float, dict[int, float]]]</code>) per leaf.</li>
+<li>River Python object overhead: <span class="arithmatex">\(\approx 180\text{ bytes}\)</span> per unique feature-value entry + interpreter pointer chasing.</li>
+<li>AdaptiveML contiguous NumPy buffer: Exactly <span class="arithmatex">\(8\text{ bytes}\)</span> per count; processed in vectorized C/SIMD loops.</li>
+<li><strong>Throughput Advantage</strong>: <span class="arithmatex">\(8\times\)</span> to <span class="arithmatex">\(25\times\)</span> speedup on batch streams.</li>
+</ul>
+<hr />
+<h4 id="212-reliability-weighted-adwin-reliabilityweightedadwin">2.1.2 Reliability-Weighted ADWIN (<code>ReliabilityWeightedADWIN</code>)<a class="headerlink" href="#212-reliability-weighted-adwin-reliabilityweightedadwin" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Parameters</strong>: Window size <span class="arithmatex">\(|W|\)</span>, sub-window partitions <span class="arithmatex">\(W_0, W_1\)</span>, bucket count <span class="arithmatex">\(M_{\text{buckets}}\)</span>.</li>
+<li><strong>Time Complexity</strong>:</li>
+<li>ADWIN groups historical elements into exponential buckets where bucket <span class="arithmatex">\(k\)</span> contains <span class="arithmatex">\(2^k\)</span> compressed elements.</li>
+<li>Total number of buckets is bounded by <span class="arithmatex">\(M_{\text{buckets}} \le \mathcal{O}(\log |W|)\)</span>.</li>
+<li>Instance insertion: <span class="arithmatex">\(\mathcal{O}(1)\)</span> amortized.</li>
+<li>Bucket merge and partition evaluation: <span class="arithmatex">\(\mathcal{O}(\log |W|)\)</span>.</li>
+<li>Total time per observation: <span class="arithmatex">\(\mathcal{O}(\log |W|)\)</span>.</li>
+<li><strong>Space Complexity</strong>:</li>
+<li>Stores compressed bucket means and reliability sums:
+    $<span class="arithmatex">\(M_{\text{ADWIN}} = 2 \cdot M_{\text{buckets}} \cdot (8_{\text{sum}} + 8_{\text{variance}} + 8_{\text{weight\_sum}} + 4_{\text{count}}) \approx 56 \cdot \lceil \log_2 |W| \rceil \text{ bytes}\)</span>$
+    For <span class="arithmatex">\(|W| = 1,000,000\)</span>, <span class="arithmatex">\(\log_2 |W| \approx 20 \implies M_{\text{ADWIN}} \approx 1,120\text{ bytes} \approx \mathbf{1.1\text{ KB}}\)</span>.</li>
+</ul>
+<hr />
+<h4 id="213-class-balanced-reservoir-replay-classbalancedreservoirreplay">2.1.3 Class-Balanced Reservoir Replay (<code>ClassBalancedReservoirReplay</code>)<a class="headerlink" href="#213-class-balanced-reservoir-replay-classbalancedreservoirreplay" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Parameters</strong>: Buffer capacity <span class="arithmatex">\(M_{\text{buf}}\)</span>, feature dimension <span class="arithmatex">\(d\)</span>, classes <span class="arithmatex">\(C\)</span>, replay ratio <span class="arithmatex">\(\alpha_{\text{rep}}\)</span>.</li>
+<li><strong>Time Complexity</strong>:</li>
+<li>Insertion: <span class="arithmatex">\(\mathcal{O}(1)\)</span> per instance.</li>
+<li>Replay batch extraction: <span class="arithmatex">\(\mathcal{O}(B_{\text{replay}} \cdot d)\)</span> array slicing.</li>
+<li><strong>Space Complexity</strong>:</li>
+<li>Bounded storage array <span class="arithmatex">\(\mathbf{X}_{\text{buf}} \in \mathbb{R}^{M_{\text{buf}} \times d}\)</span> and <span class="arithmatex">\(\mathbf{y}_{\text{buf}} \in \mathbb{Z}^{M_{\text{buf}}}\)</span>:
+    $<span class="arithmatex">\(M_{\text{replay}} = M_{\text{buf}} \cdot (d \cdot 4_{\text{bytes}} + 4_{\text{bytes}}) \text{ bytes}\)</span>$
+    For <span class="arithmatex">\(M_{\text{buf}} = 10,000\)</span> and <span class="arithmatex">\(d = 128\)</span>: <span class="arithmatex">\(M_{\text{replay}} = 10,000 \times 516 \text{ bytes} \approx \mathbf{5.16\text{ MB}}\)</span>. Strictly constant over stream lifetime.</li>
+</ul>
+<hr />
+<h3 id="22-rla-robust-learning-algorithms">2.2 RLA: Robust Learning Algorithms<a class="headerlink" href="#22-rla-robust-learning-algorithms" title="Permanent link">&para;</a></h3>
+<h4 id="221-density-aware-margin-scorer-densityawaremarginscorer">2.2.1 Density-Aware Margin Scorer (<code>DensityAwareMarginScorer</code>)<a class="headerlink" href="#221-density-aware-margin-scorer-densityawaremarginscorer" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Parameters</strong>: Batch size <span class="arithmatex">\(B\)</span>, dimension <span class="arithmatex">\(d\)</span>, classes <span class="arithmatex">\(C\)</span>, neighbors <span class="arithmatex">\(k\)</span>.</li>
+<li><strong>Time Complexity</strong>:</li>
+<li><em>Logit Margin Computation</em>: Softmax / max search over <span class="arithmatex">\(C\)</span> logits: <span class="arithmatex">\(\mathcal{O}(B \cdot C)\)</span>.</li>
+<li><em>k-NN Feature Density Calculation</em>:
+     Pairwise Euclidean distance matrix <span class="arithmatex">\(\mathbf{D} \in \mathbb{R}^{B \times B}\)</span> computed via matrix expansion <span class="arithmatex">\(\|\mathbf{x}_i - \mathbf{x}_j\|_2^2 = \|\mathbf{x}_i\|^2 + \|\mathbf{x}_j\|^2 - 2 \mathbf{x}_i^\top \mathbf{x}_j\)</span>:<ul>
+<li>Matrix multiplication: <span class="arithmatex">\(\mathcal{O}(B^2 \cdot d)\)</span> FLOPs.</li>
+<li>Partial sort (<code>np.argpartition</code>) for <span class="arithmatex">\(k\)</span> smallest entries: <span class="arithmatex">\(\mathcal{O}(B^2 + B \cdot k \cdot \log k)\)</span>.</li>
+</ul>
+</li>
+<li><em>Reliability Evaluation</em>: Closed-form sigmoid evaluation: <span class="arithmatex">\(\mathcal{O}(B)\)</span>.</li>
+<li><strong>Total Time per Batch</strong>: <span class="arithmatex">\(\mathcal{T}_{\text{RLA}}(B) = \mathcal{O}(B^2 \cdot d + B \cdot C)\)</span>.</li>
+<li>For streaming batches (<span class="arithmatex">\(B = 128, d = 64\)</span>): <span class="arithmatex">\(128^2 \times 64 \approx 1.05 \times 10^6\)</span> operations (<span class="arithmatex">\(\approx 1.2\text{ ms}\)</span> on modern CPU).</li>
+<li><strong>Space Complexity</strong>:</li>
+<li>Transient distance matrix: <span class="arithmatex">\(B \times B \times 4\text{ bytes}\)</span>.</li>
+<li>For <span class="arithmatex">\(B = 256\)</span>: <span class="arithmatex">\(256 \times 256 \times 4 = 256\text{ KB}\)</span> transient RAM.</li>
+<li>Persistent state: Zero (stateless across batches).</li>
+</ul>
+<hr />
+<h4 id="222-robust-loss-functions-generalizedcrossentropy-symmetriccrossentropy">2.2.2 Robust Loss Functions (<code>GeneralizedCrossEntropy</code>, <code>SymmetricCrossEntropy</code>)<a class="headerlink" href="#222-robust-loss-functions-generalizedcrossentropy-symmetriccrossentropy" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Parameters</strong>: Batch size <span class="arithmatex">\(B\)</span>, classes <span class="arithmatex">\(C\)</span>.</li>
+<li><strong>Time Complexity</strong>:</li>
+<li>Forward Loss: <span class="arithmatex">\(\mathcal{O}(B \cdot C)\)</span> elementary operations.</li>
+<li>Analytical Backward Gradient: <span class="arithmatex">\(\mathcal{O}(B \cdot C)\)</span> vector subtract/multiply.</li>
+<li><strong>Space Complexity</strong>:</li>
+<li>Forward output: <span class="arithmatex">\(\mathcal{O}(B)\)</span> loss scalars.</li>
+<li>Gradient tensor: <span class="arithmatex">\(B \times C \times 4\text{ bytes}\)</span> (same as standard CE).</li>
+<li><strong>FLOP Count</strong>:</li>
+<li>Standard CE: <span class="arithmatex">\(3 B \cdot C\)</span> FLOPs.</li>
+<li>GCE: <span class="arithmatex">\(4 B \cdot C\)</span> FLOPs.</li>
+<li>SCE: <span class="arithmatex">\(6 B \cdot C\)</span> FLOPs.</li>
+<li>Compute overhead is negligible compared to model backpropagation.</li>
+</ul>
+<hr />
+<h3 id="23-rao-resource-aware-optimization">2.3 RAO: Resource-Aware Optimization<a class="headerlink" href="#23-rao-resource-aware-optimization" title="Permanent link">&para;</a></h3>
+<h4 id="231-cpu-block-quantized-adamw-lowmemoryadamw">2.3.1 CPU Block-Quantized AdamW (<code>LowMemoryAdamW</code>)<a class="headerlink" href="#231-cpu-block-quantized-adamw-lowmemoryadamw" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Parameters</strong>: Parameter dimension <span class="arithmatex">\(p\)</span>, block size <span class="arithmatex">\(B_q = 256\)</span>.</li>
+<li><strong>Time Complexity (FLOP Count per Step)</strong>:
+  For each block of size <span class="arithmatex">\(B_q\)</span>:</li>
+<li><em>Dequantization</em>: <span class="arithmatex">\(2 \cdot B_q\)</span> multiplications (<span class="arithmatex">\(\hat{m} = \tilde{m} \cdot s\)</span>).</li>
+<li><em>Moving Averages</em>: <span class="arithmatex">\(4 \cdot B_q\)</span> FLOPs (<span class="arithmatex">\(m = \beta_1 m + (1-\beta_1)g\)</span>, <span class="arithmatex">\(v = \beta_2 v + (1-\beta_2)g^2\)</span>).</li>
+<li><em>Bias Correction &amp; Descent Step</em>: <span class="arithmatex">\(5 \cdot B_q\)</span> FLOPs (<span class="arithmatex">\(\theta = \theta - \eta (\hat{m}/(\sqrt{\hat{v}}+\epsilon) + \lambda \theta)\)</span>).</li>
+<li><em>Re-Quantization</em>:<ul>
+<li>Max absolute reduction: <span class="arithmatex">\(B_q\)</span> comparisons.</li>
+<li>Division and round: <span class="arithmatex">\(2 \cdot B_q\)</span> operations.</li>
+<li>Clip and cast: <span class="arithmatex">\(B_q\)</span> operations.</li>
+</ul>
+</li>
+<li><strong>Total FLOPs per Step</strong>:
+    $<span class="arithmatex">\(\text{FLOP}_{\text{QuantAdamW}}(p) = 15 \cdot p \text{ FLOPs}\)</span>$</li>
+<li>Standard AdamW FLOPs: <span class="arithmatex">\(11 \cdot p\)</span> FLOPs.</li>
+<li><strong>Compute Overhead</strong>: Only <span class="arithmatex">\(36\%\)</span> additional FLOPs, entirely vectorized in CPU cache without memory bandwidth bottleneck.</li>
+<li><strong>Space Complexity (Exact Heap State Breakdown)</strong>:</li>
+<li>Compressed first moment <span class="arithmatex">\(\tilde{\mathbf{m}}\)</span>: <span class="arithmatex">\(p \times 1\text{ byte}\)</span> (<code>int8</code>).</li>
+<li>Compressed second moment <span class="arithmatex">\(\tilde{\mathbf{v}}\)</span>: <span class="arithmatex">\(p \times 1\text{ byte}\)</span> (<code>uint8</code>).</li>
+<li>First moment scales <span class="arithmatex">\(\mathbf{s}^{(m)}\)</span>: <span class="arithmatex">\(\lceil p / 256 \rceil \times 4\text{ bytes}\)</span> (<code>float32</code>).</li>
+<li>Second moment scales <span class="arithmatex">\(\mathbf{s}^{(v)}\)</span>: <span class="arithmatex">\(\lceil p / 256 \rceil \times 4\text{ bytes}\)</span> (<code>float32</code>).</li>
+<li>Step counter and metadata: <span class="arithmatex">\(64\text{ bytes}\)</span>.
+  $<span class="arithmatex">\(\text{HeapMemory}(p) = 2p + 8 \cdot \left\lceil \frac{p}{256} \right\rceil + 64 \approx \mathbf{2.03125 \, p \text{ bytes}}\)</span>$</li>
+</ul>
+<hr />
+<h3 id="24-ulc-unified-learning-controller">2.4 ULC: Unified Learning Controller<a class="headerlink" href="#24-ulc-unified-learning-controller" title="Permanent link">&para;</a></h3>
+<h4 id="241-arbitration-automaton">2.4.1 Arbitration Automaton<a class="headerlink" href="#241-arbitration-automaton" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Parameters</strong>: 4 scalar inputs, 5 discrete states.</li>
+<li><strong>Time Complexity</strong>: <span class="arithmatex">\(\mathcal{O}(1)\)</span> scalar comparisons per mini-batch (<span class="arithmatex">\(&lt; 20\)</span> operations).</li>
+<li><strong>Space Complexity</strong>: <span class="arithmatex">\(48\text{ bytes}\)</span> for scalar history and state enum.</li>
+<li><strong>Compute Overhead</strong>: <span class="arithmatex">\(0.0001\%\)</span> of batch training time.</li>
+</ul>
+<hr />
+<h2 id="3-comprehensive-ecosystem-resource-comparison">3. Comprehensive Ecosystem Resource Comparison<a class="headerlink" href="#3-comprehensive-ecosystem-resource-comparison" title="Permanent link">&para;</a></h2>
+<h3 id="31-optimizer-memory-footprint-comparison-100m-parameter-model-p-108">3.1 Optimizer Memory Footprint Comparison (100M-Parameter Model, <span class="arithmatex">\(p = 10^8\)</span>)<a class="headerlink" href="#31-optimizer-memory-footprint-comparison-100m-parameter-model-p-108" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Optimizer</th>
+<th style="text-align: left;">State Precision</th>
+<th style="text-align: left;">State Memory (Bytes per Param)</th>
+<th style="text-align: left;">Total State RAM (100M Params)</th>
+<th style="text-align: left;">Pure CPU / Windows Support</th>
+<th style="text-align: left;">Custom Compiler Needed?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>PyTorch <code>AdamW</code></strong></td>
+<td style="text-align: left;"><code>float32</code></td>
+<td style="text-align: left;"><span class="arithmatex">\(8.0\text{ bytes}\)</span></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(800.0\text{ MB}\)</span></strong></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>bitsandbytes</code> 8-bit Adam</strong></td>
+<td style="text-align: left;"><code>int8</code> (CUDA)</td>
+<td style="text-align: left;"><span class="arithmatex">\(2.03\text{ bytes}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(203.1\text{ MB}\)</span></td>
+<td style="text-align: left;"><strong>No</strong> (CUDA-only)</td>
+<td style="text-align: left;">Yes (CUDA nvcc)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AdaptiveML <code>LowMemoryAdamW</code></strong></td>
+<td style="text-align: left;"><code>int8</code> (SIMD)</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(2.031\text{ bytes}\)</span></strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(203.1\text{ MB}\)</span></strong></td>
+<td style="text-align: left;"><strong>Yes (Pure NumPy/Torch)</strong></td>
+<td style="text-align: left;"><strong>No (Zero-compiler)</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PyTorch <code>SGD</code> with momentum</strong></td>
+<td style="text-align: left;"><code>float32</code></td>
+<td style="text-align: left;"><span class="arithmatex">\(4.0\text{ bytes}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(400.0\text{ MB}\)</span></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="32-streaming-tree-memory-throughput-comparison-100k-samples-d-30-c-2">3.2 Streaming Tree Memory &amp; Throughput Comparison (100k Samples, <span class="arithmatex">\(d = 30, C = 2\)</span>)<a class="headerlink" href="#32-streaming-tree-memory-throughput-comparison-100k-samples-d-30-c-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Implementation</th>
+<th style="text-align: left;">Batch Support</th>
+<th style="text-align: left;">Memory Footprint (100k samples)</th>
+<th style="text-align: left;">Training Throughput (samples/sec)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>River <code>HoeffdingTreeClassifier</code></strong></td>
+<td style="text-align: left;">Single instance</td>
+<td style="text-align: left;"><span class="arithmatex">\(42.5\text{ MB}\)</span> (nested Python dicts)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\approx 4,800\text{ samples/sec}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AdaptiveML <code>VectorizedHoeffdingTree</code></strong></td>
+<td style="text-align: left;">Vectorized 2D arrays</td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(6.2\text{ MB}\)</span> (dense NumPy arrays)</strong></td>
+<td style="text-align: left;"><strong><span class="arithmatex">\(\approx 82,000\text{ samples/sec}\)</span> (<span class="arithmatex">\(17\times\)</span> faster)</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-peak-working-memory-analysis">4. Peak Working Memory Analysis<a class="headerlink" href="#4-peak-working-memory-analysis" title="Permanent link">&para;</a></h2>
+<p>In addition to persistent state memory, training pipelines experience transient memory spikes during mini-batch operations.</p>
+<p>The peak working RAM for an end-to-end AdaptiveML pipeline processing batch size <span class="arithmatex">\(B\)</span> with feature dimension <span class="arithmatex">\(d\)</span>, classes <span class="arithmatex">\(C\)</span>, and parameter count <span class="arithmatex">\(p\)</span> is strictly bounded by:
+$<span class="arithmatex">\(M_{\text{peak}} \le M_{\text{model}}(p) + M_{\text{state}}^{\text{RAO}}(p) + M_{\text{batch}}(B, d, C) + M_{\text{transient}}\)</span>$
+$<span class="arithmatex">\(M_{\text{peak}} \le 4p + 2.031p + (B \cdot d \cdot 4 + B \cdot C \cdot 4) + (B^2 \cdot 4 + B \cdot d \cdot 4)\)</span>$
+For a standard deployment (<span class="arithmatex">\(p = 10^7, B = 128, d = 64, C = 10\)</span>):
+$<span class="arithmatex">\(M_{\text{model}} = 40\text{ MB}, \quad M_{\text{state}} = 20.3\text{ MB}, \quad M_{\text{transient}} \approx 0.5\text{ MB}\)</span>$
+$<span class="arithmatex">\(M_{\text{peak}} \le \mathbf{61\text{ MB}}\)</span>$
+AdaptiveML guarantees operation well within tight memory envelopes (e.g. edge containers capped at <span class="arithmatex">\(256\text{ MB}\)</span> RAM).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

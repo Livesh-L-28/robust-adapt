@@ -1,0 +1,62 @@
+{
+  "host_system": {
+    "os": "Windows",
+    "os_release": "11",
+    "os_version": "10.0.26200",
+    "architecture": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "physical_cores": 24,
+    "logical_cores": 32,
+    "total_ram_gb": 15.71
+  },
+  "python_environment": {
+    "active_version": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "active_version_tuple": [
+      3,
+      14,
+      3
+    ],
+    "compiler": "MSC v.1944 64 bit (AMD64)",
+    "build": [
+      "tags/v3.14.3:323c59a",
+      "Feb  3 2026 16:04:56"
+    ]
+  },
+  "installed_dependencies": {
+    "torch": "2.12.1+cpu",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.8.0",
+    "psutil": "7.2.2",
+    "safetensors": "0.8.0",
+    "pytest": "8.2.2",
+    "matplotlib": "3.11.0"
+  },
+  "compatibility_table": {
+    "Python 3.14": {
+      "status": "TESTED_OPERATIONAL",
+      "active_version": "3.14.3",
+      "evidence": "All 54 tests pass; full validation executed"
+    },
+    "Python 3.11": {
+      "status": "INSTALLED_VERIFIED",
+      "installed_version": "3.11.9",
+      "evidence": "Bytecode compilation pyc present"
+    },
+    "Python 3.13": {
+      "status": "UNTESTED_ON_HOST",
+      "installed_version": null,
+      "evidence": "Not installed locally"
+    },
+    "Python 3.12": {
+      "status": "UNTESTED_ON_HOST",
+      "installed_version": null,
+      "evidence": "Not installed locally"
+    },
+    "Python 3.10": {
+      "status": "UNTESTED_ON_HOST",
+      "installed_version": null,
+      "evidence": "Not installed locally"
+    }
+  }
+}

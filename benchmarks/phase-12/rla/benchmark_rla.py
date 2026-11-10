@@ -21,9 +21,9 @@ if str(_BENCHMARK_ROOT) not in sys.path:
     sys.path.insert(0, str(_BENCHMARK_ROOT))
 
 from datasets.generators import generate_imbalanced_multiclass_stream, inject_label_noise
-from adaptive_ml.rla.losses import GeneralizedCrossEntropyLoss, SymmetricCrossEntropyLoss
-from adaptive_ml.rla.pipeline import RobustLearningPipeline
-from adaptive_ml.rla.scorer import DensityAwareMarginScorer
+from robust_adapt.rla.losses import GeneralizedCrossEntropyLoss, SymmetricCrossEntropyLoss
+from robust_adapt.rla.pipeline import RobustLearningPipeline
+from robust_adapt.rla.scorer import DensityAwareMarginScorer
 
 
 def softmax(x: np.ndarray) -> np.ndarray:

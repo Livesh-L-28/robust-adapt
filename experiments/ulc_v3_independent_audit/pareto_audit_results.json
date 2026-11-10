@@ -1,0 +1,228 @@
+{
+  "objectives": {
+    "accuracy": "Accuracy",
+    "macro_f1": "Macro F1",
+    "balanced_accuracy": "Balanced Accuracy",
+    "minority_recall": "Minority Recall",
+    "brier_score": "Brier Score",
+    "false_resets": "False Resets",
+    "latency_mean_ms": "Mean Latency (ms)",
+    "latency_p95_ms": "P95 Latency (ms)",
+    "optimizer_state_bytes": "Optimizer State (Bytes)"
+  },
+  "profiles": {
+    "Static_Baseline": {
+      "accuracy": 0.8106,
+      "macro_f1": 0.555,
+      "balanced_accuracy": 0.5658,
+      "minority_recall": 0.2599,
+      "brier_score": 0.1628,
+      "false_resets": 0.0,
+      "latency_mean_ms": 0.5766,
+      "latency_p95_ms": 0.7971,
+      "optimizer_state_bytes": 0.0
+    },
+    "ALA_Only": {
+      "accuracy": 0.9,
+      "macro_f1": 0.4737,
+      "balanced_accuracy": 0.5,
+      "minority_recall": 0.0,
+      "brier_score": 0.1253,
+      "false_resets": 10.0,
+      "latency_mean_ms": 0.6969,
+      "latency_p95_ms": 0.8701,
+      "optimizer_state_bytes": 0.0
+    },
+    "RLA_Only": {
+      "accuracy": 0.8105,
+      "macro_f1": 0.5377,
+      "balanced_accuracy": 0.5446,
+      "minority_recall": 0.2122,
+      "brier_score": 0.1601,
+      "false_resets": 0.0,
+      "latency_mean_ms": 0.683,
+      "latency_p95_ms": 0.9134,
+      "optimizer_state_bytes": 0.0
+    },
+    "RAO_Only": {
+      "accuracy": 0.6486,
+      "macro_f1": 0.5182,
+      "balanced_accuracy": 0.6451,
+      "minority_recall": 0.6408,
+      "brier_score": 0.2553,
+      "false_resets": 0.0,
+      "latency_mean_ms": 0.0452,
+      "latency_p95_ms": 0.0505,
+      "optimizer_state_bytes": 24.0
+    },
+    "ALA_plus_RLA": {
+      "accuracy": 0.8804,
+      "macro_f1": 0.4848,
+      "balanced_accuracy": 0.5,
+      "minority_recall": 0.0245,
+      "brier_score": 0.1263,
+      "false_resets": 10.0,
+      "latency_mean_ms": 0.7841,
+      "latency_p95_ms": 0.8626,
+      "optimizer_state_bytes": 0.0
+    },
+    "ALA_plus_RAO": {
+      "accuracy": 0.7,
+      "macro_f1": 0.5624,
+      "balanced_accuracy": 0.6973,
+      "minority_recall": 0.6939,
+      "brier_score": 0.211,
+      "false_resets": 10.0,
+      "latency_mean_ms": 0.0458,
+      "latency_p95_ms": 0.0521,
+      "optimizer_state_bytes": 24.0
+    },
+    "RLA_plus_RAO": {
+      "accuracy": 0.6422,
+      "macro_f1": 0.5129,
+      "balanced_accuracy": 0.6385,
+      "minority_recall": 0.634,
+      "brier_score": 0.2606,
+      "false_resets": 0.0,
+      "latency_mean_ms": 0.1712,
+      "latency_p95_ms": 0.1939,
+      "optimizer_state_bytes": 24.0
+    },
+    "Uncoordinated_Three_Pillars": {
+      "accuracy": 0.8804,
+      "macro_f1": 0.4848,
+      "balanced_accuracy": 0.5,
+      "minority_recall": 0.0245,
+      "brier_score": 0.1263,
+      "false_resets": 10.0,
+      "latency_mean_ms": 0.9011,
+      "latency_p95_ms": 1.1231,
+      "optimizer_state_bytes": 24.0
+    },
+    "Full_ULC_v1": {
+      "accuracy": 0.7369,
+      "macro_f1": 0.4998,
+      "balanced_accuracy": 0.511,
+      "minority_recall": 0.2286,
+      "brier_score": 0.2037,
+      "false_resets": 1.0,
+      "latency_mean_ms": 1.3736,
+      "latency_p95_ms": 2.1752,
+      "optimizer_state_bytes": 24.0
+    },
+    "Optimized_ULC_v2": {
+      "accuracy": 0.9,
+      "macro_f1": 0.4737,
+      "balanced_accuracy": 0.5,
+      "minority_recall": 0.0,
+      "brier_score": 0.1216,
+      "false_resets": 1.0,
+      "latency_mean_ms": 1.1061,
+      "latency_p95_ms": 1.5141,
+      "optimizer_state_bytes": 24.0
+    },
+    "MultiObjective_ULC_v3": {
+      "accuracy": 0.9056,
+      "macro_f1": 0.6455,
+      "balanced_accuracy": 0.6138,
+      "minority_recall": 0.249,
+      "brier_score": 0.1205,
+      "false_resets": 1.0,
+      "latency_mean_ms": 1.0601,
+      "latency_p95_ms": 1.6563,
+      "optimizer_state_bytes": 24.0
+    }
+  },
+  "pareto_front": [
+    "Static_Baseline",
+    "ALA_Only",
+    "RLA_Only",
+    "RAO_Only",
+    "ALA_plus_RLA",
+    "ALA_plus_RAO",
+    "Optimized_ULC_v2",
+    "MultiObjective_ULC_v3"
+  ],
+  "dominated_models": {
+    "RLA_plus_RAO": [
+      "RAO_Only"
+    ],
+    "Uncoordinated_Three_Pillars": [
+      "ALA_plus_RLA"
+    ],
+    "Full_ULC_v1": [
+      "Static_Baseline",
+      "MultiObjective_ULC_v3"
+    ]
+  },
+  "tradeoffs_with_ulc_v3": [
+    {
+      "model": "Static_Baseline",
+      "advantages_over_ulc_v3": [
+        "Minority Recall (25.99% vs 24.90%)",
+        "False Resets (0.0 vs 1.0)",
+        "Mean Latency (0.577ms vs 1.060ms)",
+        "Optimizer Memory (0B vs 24B)"
+      ]
+    },
+    {
+      "model": "ALA_Only",
+      "advantages_over_ulc_v3": [
+        "Mean Latency (0.697ms vs 1.060ms)",
+        "Optimizer Memory (0B vs 24B)"
+      ]
+    },
+    {
+      "model": "RLA_Only",
+      "advantages_over_ulc_v3": [
+        "False Resets (0.0 vs 1.0)",
+        "Mean Latency (0.683ms vs 1.060ms)",
+        "Optimizer Memory (0B vs 24B)"
+      ]
+    },
+    {
+      "model": "RAO_Only",
+      "advantages_over_ulc_v3": [
+        "Minority Recall (64.08% vs 24.90%)",
+        "False Resets (0.0 vs 1.0)",
+        "Mean Latency (0.045ms vs 1.060ms)"
+      ]
+    },
+    {
+      "model": "ALA_plus_RLA",
+      "advantages_over_ulc_v3": [
+        "Mean Latency (0.784ms vs 1.060ms)",
+        "Optimizer Memory (0B vs 24B)"
+      ]
+    },
+    {
+      "model": "ALA_plus_RAO",
+      "advantages_over_ulc_v3": [
+        "Minority Recall (69.39% vs 24.90%)",
+        "Mean Latency (0.046ms vs 1.060ms)"
+      ]
+    },
+    {
+      "model": "RLA_plus_RAO",
+      "advantages_over_ulc_v3": [
+        "Minority Recall (63.40% vs 24.90%)",
+        "False Resets (0.0 vs 1.0)",
+        "Mean Latency (0.171ms vs 1.060ms)"
+      ]
+    },
+    {
+      "model": "Uncoordinated_Three_Pillars",
+      "advantages_over_ulc_v3": [
+        "Mean Latency (0.901ms vs 1.060ms)"
+      ]
+    },
+    {
+      "model": "Full_ULC_v1",
+      "advantages_over_ulc_v3": []
+    },
+    {
+      "model": "Optimized_ULC_v2",
+      "advantages_over_ulc_v3": []
+    }
+  ]
+}

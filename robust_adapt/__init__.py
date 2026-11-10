@@ -237,6 +237,9 @@ __all__ = [
     "load_state",
     "CheckpointManager",
     "is_safetensors_available",
+    # Integrations
+    "ScikitLearnAdaptiveClassifier",
+    "SklearnAdaptiveClassifier",
 ]
 
 
@@ -250,4 +253,10 @@ def __getattr__(name: str):
             return VectorizedLowMemoryAdamW
         except Exception as e:
             raise AttributeError(f"VectorizedLowMemoryAdamW requires PyTorch optional integration: {e}") from e
+    if name in ("ScikitLearnAdaptiveClassifier", "SklearnAdaptiveClassifier"):
+        try:
+            from robust_adapt.integrations.sklearn import SklearnAdaptiveClassifier
+            return SklearnAdaptiveClassifier
+        except Exception as e:
+            raise AttributeError(f"{name} requires scikit-learn: {e}") from e
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

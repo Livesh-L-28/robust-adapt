@@ -91,7 +91,7 @@ ruff check adaptive_ml/
 A clear and concise description of the defect.
 
 ### Reproduction Steps
-1. Execute `from adaptive_ml.ala import ...`
+1. Execute `from robust_adapt.ala import ...`
 2. Pass streaming batch `...`
 3. Error observed: `...`
 

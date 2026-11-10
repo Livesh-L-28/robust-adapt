@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "stage": 2,
+    "title": "Production Defect Remediation & Architecture Hardening",
+    "date": "2026-11-02",
+    "defects_tested": [
+      "DEF-006",
+      "DEF-007"
+    ],
+    "python_version": "3.14.3"
+  },
+  "def_006_replay_buffer": {
+    "initial_stored": 198,
+    "counts_before_purge": {
+      "0": 100,
+      "1": 75,
+      "2": 23
+    },
+    "selective_purged_count": 50,
+    "counts_after_selective_purge": {
+      "0": 50,
+      "1": 75,
+      "2": 23
+    },
+    "minority_retention_ratio": {
+      "0": 0.5,
+      "1": 1.0,
+      "2": 1.0
+    },
+    "ingest_time_ms": 1.306,
+    "purge_time_ms": 0.0233,
+    "status": "PASS"
+  },
+  "def_007_optimizer": {
+    "step_before": 10,
+    "step_after": 0,
+    "norm_qm_before": 860.8194,
+    "norm_qm_after": 0.0,
+    "lr_before": 0.001,
+    "lr_scaled": 0.0025,
+    "reset_time_ms": 0.0056,
+    "status": "PASS"
+  },
+  "cross_pillar_coordination": {
+    "drift_directive_state": "ControllerState.CONFIRMED_DRIFT",
+    "drift_lr_scale": 2.5,
+    "drift_reset_momentum": true,
+    "drift_purge_replay": true,
+    "noise_directive_state": "ControllerState.RECOVERY",
+    "noise_suppress_adwin": false,
+    "noise_freeze_buffer": false,
+    "noise_retained_samples": 20,
+    "status": "PASS"
+  }
+}

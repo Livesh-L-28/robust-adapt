@@ -1,0 +1,5 @@
+param_count,standard_adamw_bytes,standard_adamw_kb,lowmem_theory_bytes,lowmem_measured_bytes,lowmem_measured_kb,bytes_per_param,memory_reduction_pct,step_time_ms
+1000,8000,7.81,2504,2504,2.45,2.504,68.70%,1.1890
+10000,80000,78.12,25000,25000,24.41,2.500,68.75%,11.9878
+100000,800000,781.25,250000,250000,244.14,2.500,68.75%,120.3000
+1000000,8000000,7812.50,2500000,2500000,2441.41,2.500,68.75%,1211.1445

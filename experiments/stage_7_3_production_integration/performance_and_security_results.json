@@ -1,0 +1,32 @@
+{
+  "component_latency_ms": {
+    "spatial_discordance": 0.06432490004226565,
+    "evidence_synthesis": 0.0157024001237005,
+    "controller_init": 0.0011285999789834023,
+    "controller_step_mean": 0.10555969644337893,
+    "controller_step_p50": 0.09965000208467245,
+    "controller_step_p95": 0.13473486760631193,
+    "controller_step_p99": 0.21341099636629224,
+    "on_demand_explain": 0.009646001271903515,
+    "checkpoint_save": 4.173099994659424,
+    "checkpoint_load": 0.33599999733269215
+  },
+  "memory_and_resources": {
+    "initial_rss_mb": 39.09375,
+    "final_rss_mb": 40.29296875,
+    "rss_delta_mb": 1.19921875,
+    "history_length_at_5000_steps": 1000,
+    "history_strictly_bounded": true,
+    "intervention_history_strictly_bounded": true,
+    "safetensors_bytes": 80,
+    "meta_json_bytes": 946
+  },
+  "security_controls": {
+    "nan_features_rejected": true,
+    "inf_features_rejected": true,
+    "shape_mismatch_rejected": true,
+    "1d_feature_array_rejected": true,
+    "invalid_config_rejected": true,
+    "version_mismatch_rejected": true
+  }
+}

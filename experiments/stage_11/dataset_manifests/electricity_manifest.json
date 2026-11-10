@@ -1,0 +1,32 @@
+{
+  "dataset_name": "Electricity (Elec2)",
+  "source": "OpenML Data ID 151 (Harries & Wales, 1999)",
+  "license": "Public Domain / Open Access",
+  "file_name": "electricity.csv.gz",
+  "sha256": "7a4cbf4664cce046ead026a288f257161a152f79cef3cc00a5a182c784c10dec",
+  "n_rows": 45312,
+  "n_features": 8,
+  "feature_names": [
+    "date",
+    "day",
+    "period",
+    "nswprice",
+    "nswdemand",
+    "vicprice",
+    "vicdemand",
+    "transfer"
+  ],
+  "target_name": "target",
+  "target_mapping": {
+    "DOWN": 0,
+    "UP": 1
+  },
+  "class_distribution": {
+    "0": 26075,
+    "1": 19237
+  },
+  "imbalance_ratio": 1.3554608306908562,
+  "total_missing_values": 0,
+  "temporal_order_preserved": true,
+  "ingestion_time_sec": 0.2816693000495434
+}

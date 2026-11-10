@@ -1,0 +1,19 @@
+{
+  "audit_id": "STAGE1.1-GENERALIZATION-RECONCILIATION",
+  "total_evaluated_regimes": 7,
+  "synthetic_benchmarks_verified": 5,
+  "real_world_benchmarks_verified": 0,
+  "unverifiable_real_world_claims": 2,
+  "governance_classification": {
+    "synthetic_drift_battery": "VERIFIED (SYNTHETIC SIMULATION)",
+    "synthetic_noise_battery": "VERIFIED (SYNTHETIC SIMULATION)",
+    "synthetic_imbalance_battery": "VERIFIED (SYNTHETIC SIMULATION)",
+    "financial_fraud_stream": "NOT VERIFIABLE AS REAL DATA (SYNTHETIC SIMULATION ONLY)",
+    "predictive_maintenance_stream": "NOT VERIFIABLE AS REAL DATA (SYNTHETIC SIMULATION ONLY)"
+  },
+  "key_architectural_findings": [
+    "ULC-v3 excels in streams with simultaneous concept drift and adversarial noise bursts (false resets suppressed to 1.0 vs 10.0).",
+    "ULC-v3 retains robust minority detection under extreme class imbalance (99.9:0.1).",
+    "ULC-v3 suffers from an adaptation lag in pure noise-free concept drift, trailing uncoordinated gradient models by +0.04 to +0.14 Macro F1 due to 3-step warning deadbands."
+  ]
+}

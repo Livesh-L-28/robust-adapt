@@ -76,3 +76,10 @@ dmypy.json
 .DS_Store
 Thumbs.db
 
+# Internal development snapshots
+.stage_*_snapshot/
+
+# Large dataset raw files (>100MB)
+*.arff
+
+

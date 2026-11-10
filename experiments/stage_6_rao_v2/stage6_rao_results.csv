@@ -1,0 +1,8 @@
+metric,value,unit
+initial_batch_size,512,samples
+throttled_batch_size,64,samples
+ema_step_latency_ms,0.255,ms
+peak_memory_mb,207.72,mb
+cpu_cores,32,cores
+recommended_backend,numpy_cpu,string
+recovered_checkpoint_step,100,step

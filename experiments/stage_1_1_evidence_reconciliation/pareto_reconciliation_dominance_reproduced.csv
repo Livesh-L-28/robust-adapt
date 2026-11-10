@@ -1,0 +1,12 @@
+Configuration,Static_Baseline,ALA_Only,RLA_Only,RAO_Only,ALA_plus_RLA,ALA_plus_RAO,RLA_plus_RAO,Uncoordinated_Three_Pillars,Full_ULC_v1,Optimized_ULC_v2,MultiObjective_ULC_v3
+Static_Baseline,0,0,0,0,0,0,0,0,1,0,0
+ALA_Only,0,0,0,0,0,0,0,0,0,0,0
+RLA_Only,0,0,0,0,0,0,0,0,0,0,0
+RAO_Only,0,0,0,0,0,0,1,0,0,0,0
+ALA_plus_RLA,0,0,0,0,0,0,0,1,0,0,0
+ALA_plus_RAO,0,0,0,0,0,0,0,0,0,0,0
+RLA_plus_RAO,0,0,0,0,0,0,0,0,0,0,0
+Uncoordinated_Three_Pillars,0,0,0,0,0,0,0,0,0,0,0
+Full_ULC_v1,0,0,0,0,0,0,0,0,0,0,0
+Optimized_ULC_v2,0,0,0,0,0,0,0,0,0,0,0
+MultiObjective_ULC_v3,0,0,0,0,0,0,0,0,1,1,0

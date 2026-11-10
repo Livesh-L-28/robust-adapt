@@ -1,0 +1,6 @@
+param_count,standard_adamw_bytes,low_memory_adamw_bytes,bytes_per_param,reduction_pct,theoretical_formula
+8,64,24,3.000,62.50%,1 byte (8-bit quant m) + 0.25 bytes (scales/offsets) + 0.5-1.0 bytes (v)
+1000,8000,2504,2.504,68.70%,1 byte (8-bit quant m) + 0.25 bytes (scales/offsets) + 0.5-1.0 bytes (v)
+10000,80000,25000,2.500,68.75%,1 byte (8-bit quant m) + 0.25 bytes (scales/offsets) + 0.5-1.0 bytes (v)
+100000,800000,250000,2.500,68.75%,1 byte (8-bit quant m) + 0.25 bytes (scales/offsets) + 0.5-1.0 bytes (v)
+1000000,8000000,2500000,2.500,68.75%,1 byte (8-bit quant m) + 0.25 bytes (scales/offsets) + 0.5-1.0 bytes (v)

@@ -24,9 +24,9 @@ In strict compliance with **Non-Functional Requirement NFR-DEP-001 and NFR-SEC-0
 > **Verified Baseline Capability:** The following snippet runs out-of-the-box on commodity CPU hardware with only Python standard library and NumPy installed.
 
 ```python
-# Verified Working Implementation in aml-core==0.1.0.dev0
+# Verified Working Implementation in robust-adapt==0.1.0.dev0
 import numpy as np
-from adaptive_ml.ala import AdaptiveClassifier
+from robust_adapt.ala import AdaptiveClassifier
 
 X, y = np.random.randn(200, 10), np.random.randint(0, 2, 200)
 clf = AdaptiveClassifier(n_features=10, n_classes=2)
@@ -39,7 +39,7 @@ predictions = clf.predict(X)
 ```python
 # [PROPOSED / ILLUSTRATIVE API: Planned under EVO-DX-001]
 import numpy as np
-from adaptive_ml.pipeline import make_adaptive_stream  # [PROPOSED]
+from robust_adapt.pipeline import make_adaptive_stream  # [PROPOSED]
 
 # Fluent streaming constructor chaining drift adaptation and noise suppression
 stream_model = (
@@ -63,9 +63,9 @@ for X_batch, y_batch in data_generator:
 # [PROPOSED / ILLUSTRATIVE API: Planned under EVO-DX-003]
 import torch
 import torch.nn as nn
-from adaptive_ml.integrations.torch_optim import create_torch_low_memory_adamw
-from adaptive_ml.integrations.torch_module import TorchSymmetricCrossEntropyLoss
-from adaptive_ml.ulc import AdaptiveLearningController
+from robust_adapt.integrations.torch_optim import create_torch_low_memory_adamw
+from robust_adapt.integrations.torch_module import TorchSymmetricCrossEntropyLoss
+from robust_adapt.ulc import AdaptiveLearningController
 
 model = nn.Sequential(nn.Linear(128, 64), nn.ReLU(), nn.Linear(64, 2))
 loss_fn = TorchSymmetricCrossEntropyLoss(alpha=1.0, beta=0.5)

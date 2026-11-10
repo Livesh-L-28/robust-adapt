@@ -1,0 +1,6 @@
+Model,Accuracy (%),Acc Std,Macro F1,F1 Std,Minority Recall (%),Recall Std,Drift Alarms,False Drift Resets,Step Latency (ms)
+ULC-v1 Baseline,91.51,0.50,0.6079,0.0375,15.20,4.81,0.0,0.0,0.987
+ULC-v2 Baseline,73.73,0.37,0.5582,0.0026,50.29,1.17,0.0,0.0,1.273
+ULC-v3 Audited,73.73,0.37,0.5582,0.0026,50.29,1.17,0.0,0.0,1.265
+ULC-v4 Original,71.15,0.37,0.4865,0.0033,24.80,1.51,0.0,0.0,1.210
+ULC-v4.1 Hybrid (Optimized),86.47,0.70,0.7003,0.0161,62.22,5.78,4.0,0.0,1.468

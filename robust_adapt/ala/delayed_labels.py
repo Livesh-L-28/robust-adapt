@@ -48,12 +48,21 @@ class DelayedLabelQueue:
         self,
         max_queue_size: int = 10000,
         max_wait_time: Optional[float] = None,
+        *,
+        max_delay: Optional[float] = None,
     ) -> None:
+        if max_delay is not None and max_wait_time is not None:
+            if max_delay != max_wait_time:
+                raise ValidationError(
+                    f"Conflicting parameters: max_wait_time={max_wait_time} and max_delay={max_delay}"
+                )
+        effective_wait = max_delay if max_delay is not None else max_wait_time
+
         if max_queue_size < 10:
             raise ConfigurationError(f"max_queue_size must be >= 10, got {max_queue_size}")
 
         self.max_queue_size = int(max_queue_size)
-        self.max_wait_time = float(max_wait_time) if max_wait_time is not None else None
+        self.max_wait_time = float(effective_wait) if effective_wait is not None else None
 
         # Queue of waiting samples indexed by unique sample_id
         self._waiting_samples: OrderedDict[str, UnlabelledSample] = OrderedDict()
@@ -82,6 +91,11 @@ class DelayedLabelQueue:
         if not self._delays_history:
             return 0.0
         return float(np.mean(self._delays_history[-500:]))
+
+    @property
+    def max_delay(self) -> Optional[float]:
+        """Alias for max_wait_time."""
+        return self.max_wait_time
 
     def enqueue(
         self,

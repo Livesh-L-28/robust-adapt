@@ -110,3 +110,54 @@ class BlockQuantizer:
             out[start:end] = q_flat[start:end].astype(np.float32) * scales[b]
 
         return np.ascontiguousarray(out, dtype=np.float64)
+
+    def quantize(
+        self,
+        vector: np.ndarray,
+        signed: bool = True,
+    ) -> Tuple[Union[ByteArray1D, UByteArray1D], FloatArray1D]:
+        """Quantize continuous values into int8/uint8 with dynamic block scaling.
+
+        Parameters
+        ----------
+        vector : np.ndarray
+            Input array of continuous values.
+        signed : bool, default=True
+            If True, quantizes into signed int8 (via quantize_signed).
+            If False, quantizes non-negative values into unsigned uint8 (via quantize_unsigned).
+
+        Returns
+        -------
+        Tuple[Union[ByteArray1D, UByteArray1D], FloatArray1D]
+            Quantized array and block scale factors.
+        """
+        if signed:
+            return self.quantize_signed(vector)
+        return self.quantize_unsigned(vector)
+
+    def dequantize(
+        self,
+        q_vector: np.ndarray,
+        scales: np.ndarray,
+        signed: bool = True,
+    ) -> FloatArray1D:
+        """Dequantize int8/uint8 array back to float64/float32.
+
+        Parameters
+        ----------
+        q_vector : np.ndarray
+            Quantized integer array.
+        scales : np.ndarray
+            Block scale factors.
+        signed : bool, default=True
+            If True, assumes signed int8 (via dequantize_signed).
+            If False, assumes unsigned uint8 (via dequantize_unsigned).
+
+        Returns
+        -------
+        FloatArray1D
+            Dequantized floating-point array.
+        """
+        if signed:
+            return self.dequantize_signed(q_vector, scales)
+        return self.dequantize_unsigned(q_vector, scales)

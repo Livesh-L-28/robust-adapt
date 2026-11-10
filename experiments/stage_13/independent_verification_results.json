@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-11-06T07:36:19Z",
+  "python_version": "3.14.3",
+  "platform": "win32",
+  "git_commit": "67e9ef1b347ca223828a1f225e85e35a086a1f30",
+  "ala_3_0": {
+    "restorations": 2,
+    "resets": 1,
+    "verified": true
+  },
+  "rla_3_0": {
+    "retained_samples": 576,
+    "abstained_samples": 0,
+    "verified": true
+  },
+  "minority_2_0": {
+    "false_positives_in_500": 0,
+    "fp_rate_per_1k": 0.0,
+    "target_fp_budget": 1.5,
+    "verified": true
+  },
+  "rao_2_0": {
+    "vectorized_time_ms": 16.155000077560544,
+    "standard_time_ms": 496.44849984906614,
+    "speedup": 30.7303310099415,
+    "verified": true
+  },
+  "ulc_v5": {
+    "total_resets": 0,
+    "total_hard_resets": 0,
+    "tier_counts": {
+      "TIER_0_NOOP": 39,
+      "TIER_1_PARAM_DAMPING": 1,
+      "TIER_2_CONCEPT_RESTORE": 0,
+      "TIER_3_SOFT_REPLAY_RESET": 0,
+      "TIER_4_HARD_RESET": 0
+    },
+    "verified": true
+  },
+  "all_algorithms_verified": true
+}

@@ -1,0 +1,12 @@
+metric,value,unit
+phase1_imbalance_ratio,2.53,ratio
+phase2_imbalance_ratio,5.33,ratio
+fixed_recall,0.3182,ratio
+adaptive_recall,1.0,ratio
+fixed_f1,0.4118,score
+adaptive_f1,0.095,score
+recall_gain_pct,68.18,percent
+minority_retention_ratio,1.0,ratio
+ece_before,0.18,error
+ece_after,0.1124,error
+ece_reduction_pct,37.55,percent

@@ -1,0 +1,37 @@
+{
+  "Stage_1_ULC_v1_Baseline": {
+    "accuracy": 0.7751020408163265,
+    "macro_f1": 0.43664251296575574,
+    "minority_recall": 0.0,
+    "brier_score": 0.15130816669728356,
+    "false_resets": 0.0
+  },
+  "Stage_2_Add_Replay_Purge_Fix": {
+    "accuracy": 0.7751020408163265,
+    "macro_f1": 0.43664251296575574,
+    "minority_recall": 0.0,
+    "brier_score": 0.15130816669728356,
+    "false_resets": 0.0
+  },
+  "Stage_3_Add_Tree_Adaptation": {
+    "accuracy": 0.7751020408163265,
+    "macro_f1": 0.43664251296575574,
+    "minority_recall": 0.0,
+    "brier_score": 0.15130816669728356,
+    "false_resets": 0.0
+  },
+  "Stage_4_Add_Optimizer_Momenta_Reset": {
+    "accuracy": 0.9,
+    "macro_f1": 0.4736842105263158,
+    "minority_recall": 0.0,
+    "brier_score": 0.0931078478345163,
+    "false_resets": 0.0
+  },
+  "Stage_5_Full_ULC_v3_Ensemble": {
+    "accuracy": 0.8326530612244898,
+    "macro_f1": 0.5230188425772744,
+    "minority_recall": 0.1346938775510204,
+    "brier_score": 0.1345943182094517,
+    "false_resets": 0.0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "safetensors_available": true,
+  "roundtrip_state_preserved": true,
+  "config_restored_accurately": true,
+  "checkpoint_manager_pruning": true,
+  "corruption_detected": true,
+  "version_mismatch_rejected": true
+}

@@ -19,8 +19,8 @@ if str(_BENCHMARK_ROOT) not in sys.path:
     sys.path.insert(0, str(_BENCHMARK_ROOT))
 
 from datasets.generators import RotatingHyperplaneGenerator, SEAGenerator
-from adaptive_ml.ala.adwin import ReliabilityWeightedADWIN
-from adaptive_ml.ala.classifier import AdaptiveClassifier
+from robust_adapt.ala.adwin import ReliabilityWeightedADWIN
+from robust_adapt.ala.classifier import AdaptiveClassifier
 
 
 def run_ala_benchmark(seeds: List[int] = [42, 101, 2024, 7, 99]) -> Dict[str, Any]:

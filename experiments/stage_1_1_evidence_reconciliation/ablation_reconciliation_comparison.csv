@@ -1,0 +1,12 @@
+experiment_source,condition_name,ablation_type,overall_accuracy,macro_f1,minority_recall,brier_score,false_resets,operational_notes
+audit_controller_ablation.py (Cumulative Construction),Stage_1_ULC_v1_Baseline,Forward Cumulative,0.7751,0.4366,0.0000,0.1513,0.0,Incremental addition of bug fixes & ULC-v3 features to ULC-v1 baseline
+audit_controller_ablation.py (Cumulative Construction),Stage_2_Add_Replay_Purge_Fix,Forward Cumulative,0.7751,0.4366,0.0000,0.1513,0.0,Incremental addition of bug fixes & ULC-v3 features to ULC-v1 baseline
+audit_controller_ablation.py (Cumulative Construction),Stage_3_Add_Tree_Adaptation,Forward Cumulative,0.7751,0.4366,0.0000,0.1513,0.0,Incremental addition of bug fixes & ULC-v3 features to ULC-v1 baseline
+audit_controller_ablation.py (Cumulative Construction),Stage_4_Add_Optimizer_Momenta_Reset,Forward Cumulative,0.9000,0.4737,0.0000,0.0931,0.0,Incremental addition of bug fixes & ULC-v3 features to ULC-v1 baseline
+audit_controller_ablation.py (Cumulative Construction),Stage_5_Full_ULC_v3_Ensemble,Forward Cumulative,0.8327,0.5230,0.1347,0.1346,0.0,Incremental addition of bug fixes & ULC-v3 features to ULC-v1 baseline
+ulc_audit.py (Leave-One-Out Ablation),1_Full_ULC_v3,Leave-One-Out (Backward),0.8327,0.5230,0.1347,0.1346,0.0,"Identical metrics in conditions 2, 3, 4, 6 caused by absence of triggered drift resets in that synthetic run"
+ulc_audit.py (Leave-One-Out Ablation),2_No_Replay_Purge,Leave-One-Out (Backward),0.8327,0.5230,0.1347,0.1346,0.0,"Identical metrics in conditions 2, 3, 4, 6 caused by absence of triggered drift resets in that synthetic run"
+ulc_audit.py (Leave-One-Out Ablation),3_No_Tree_Reset,Leave-One-Out (Backward),0.8327,0.5230,0.1347,0.1346,0.0,"Identical metrics in conditions 2, 3, 4, 6 caused by absence of triggered drift resets in that synthetic run"
+ulc_audit.py (Leave-One-Out Ablation),4_No_Momenta_Flush,Leave-One-Out (Backward),0.8327,0.5230,0.1347,0.1346,0.0,"Identical metrics in conditions 2, 3, 4, 6 caused by absence of triggered drift resets in that synthetic run"
+ulc_audit.py (Leave-One-Out Ablation),5_Tree_Only_No_Ensemble,Leave-One-Out (Backward),0.9000,0.4737,0.0000,0.0931,0.0,"Identical metrics in conditions 2, 3, 4, 6 caused by absence of triggered drift resets in that synthetic run"
+ulc_audit.py (Leave-One-Out Ablation),6_No_RLA_Sample_Filter,Leave-One-Out (Backward),0.8327,0.5230,0.1347,0.1346,0.0,"Identical metrics in conditions 2, 3, 4, 6 caused by absence of triggered drift resets in that synthetic run"

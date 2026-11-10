@@ -1,0 +1,4201 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Adaptive, Robust, and Resource-Efficient Learning for Python">
+      
+      
+        <meta name="author" content="AdaptiveML Core Team">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>AdaptiveML — Mathematical Foundations and Unified Notation - AdaptiveML Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adaptiveml-mathematical-foundations-and-unified-notation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AdaptiveML Documentation" class="md-header__button md-logo" aria-label="AdaptiveML Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AdaptiveML Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AdaptiveML — Mathematical Foundations and Unified Notation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/adaptiveml/adaptiveml" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    adaptiveml/adaptiveml
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AdaptiveML Documentation" class="md-nav__button md-logo" aria-label="AdaptiveML Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AdaptiveML Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/adaptiveml/adaptiveml" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    adaptiveml/adaptiveml
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/problem-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problem Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/architecture-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/design-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/environment-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/installation-verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/optional-integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional Integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-Minute Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/first-adaptive-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Adaptive Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/first-streaming-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Streaming Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/concept-drift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concept Drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/label-noise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Label Noise & Robustness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/class-imbalance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class Imbalance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/resource-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/controller-arbitration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithms
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALA 3.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ALA 3.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/recurring-concept-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recurring Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ala/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RLA 3.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RLA 3.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/asymmetric-noise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asymmetric Noise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rla/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Minority Intelligence 2.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Minority Intelligence 2.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/threshold-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic FP Thresholds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/minority-intelligence/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAO 2.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAO 2.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/algorithm-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/vectorized-optimizer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vectorized Low-Memory AdamW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/rao/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ULC-v5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ULC-v5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/intervention-hierarchy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-Tier Intervention Hierarchy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithms/ulc/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Public API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Public API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Foundations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/ala/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALA API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/rla/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RLA API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/minority/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Minority Intelligence API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/rao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAO API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/ulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ULC API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integrations API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State & Persistence API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework Integrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Framework Integrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview & Data Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pure NumPy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/scikit-learn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scikit-Learn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/pytorch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/dataframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tabular DataFrames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integrations/deferred-frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deferred Frameworks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operational Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operational Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/checkpoints-and-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkpoints & Recovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability & Telemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/cpu-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Performance Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/ala/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALA Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/rla/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RLA Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/rao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAO Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/ulc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ULC Component Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Industry Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Industry Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/01_streaming_anomaly_detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. IoT Anomaly & Drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/02_recurring_demand_shifts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Recurring Retail Demand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/03_extreme_label_noise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Extreme Label Noise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/04_fraud_detection_streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Financial Fraud Streams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/05_low_memory_pytorch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Low-Memory PyTorch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/06_unified_coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. ULC-v5 Master Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture & Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture & Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/system-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/security-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../research/research-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting & FAQ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting & FAQ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequently Asked Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community & Governance
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community & Governance
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/code-of-conduct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of Conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License & Trademark
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-executive-summary-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Executive Summary &amp; Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-global-mathematical-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Global Mathematical Notation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Global Mathematical Notation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-typography-symbol-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Typography &amp; Symbol Taxonomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-vector-and-matrix-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Vector and Matrix Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-spaces-domains-and-data-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Spaces, Domains, and Data Streams
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Spaces, Domains, and Data Streams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-feature-space-and-label-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Feature Space and Label Space
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-streaming-process-and-time-horizon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Streaming Process and Time Horizon
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-formal-drift-and-non-stationarity-formulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Formal Drift and Non-Stationarity Formulations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Formal Drift and Non-Stationarity Formulations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-joint-distribution-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Joint Distribution Decomposition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-mathematical-taxonomy-of-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Mathematical Taxonomy of Drift
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-formal-data-imperfection-and-label-corruption-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Formal Data Imperfection and Label Corruption Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Formal Data Imperfection and Label Corruption Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-latent-ground-truth-and-observed-noisy-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Latent Ground Truth and Observed Noisy Labels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-transition-matrices-and-noise-regimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Transition Matrices and Noise Regimes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-optimization-gradients-and-resource-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Optimization, Gradients, and Resource Constraints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Optimization, Gradients, and Resource Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-objective-functions-and-empiric-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Objective Functions and Empiric Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-resource-constraints-and-state-budgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Resource Constraints and State Budgets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pillar-specific-formal-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Pillar-Specific Formal Definitions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Pillar-Specific Formal Definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-ala-adaptive-learning-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 ALA: Adaptive Learning Foundations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-rla-robust-learning-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 RLA: Robust Learning Foundations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-rao-resource-aware-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 RAO: Resource-Aware Foundations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-ulc-unified-controller-state-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 ULC: Unified Controller State Formulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-summary-standards-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Summary &amp; Standards Compliance
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="adaptiveml-mathematical-foundations-and-unified-notation">AdaptiveML — Mathematical Foundations and Unified Notation<a class="headerlink" href="#adaptiveml-mathematical-foundations-and-unified-notation" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Document Status</strong>: Complete Baseline Deliverable (Phase 6)<br />
+<strong>Document Identifier</strong>: <code>DOC-DES-P6-002</code><br />
+<strong>Last Updated</strong>: 2026-11-01<br />
+<strong>Target Audience</strong>: Research Scientists, Applied Mathematicians, Core Algorithmic Engineers<br />
+<strong>Cross-Reference</strong>: <code>DOC-DES-P6-001</code> (Algorithm Design Document)</p>
+</blockquote>
+<hr />
+<h2 id="1-executive-summary-purpose">1. Executive Summary &amp; Purpose<a class="headerlink" href="#1-executive-summary-purpose" title="Permanent link">&para;</a></h2>
+<p>This document establishes the formal mathematical language, coordinate spaces, probability spaces, and algebraic conventions governing all algorithmic pillars within the <strong>AdaptiveML</strong> framework:
+- <strong>ALA</strong>: Adaptive Learning Algorithms (concept drift detection, online stream adaptation, bounded replay)
+- <strong>RLA</strong>: Robust Learning Algorithms (sample reliability, label corruption, robust loss formulation, class imbalance)
+- <strong>RAO</strong>: Resource-Aware Optimization (memory-bounded optimization, block quantization, gradient accumulation)
+- <strong>ULC</strong>: Unified Learning Controller (dual-evidence drift-noise arbitration automaton)</p>
+<p>Every equation, proof, pseudocode listing, and software contract in Phases 6 through 11 strictly adheres to the definitions, bounds, and indexing conventions formalized herein.</p>
+<hr />
+<h2 id="2-global-mathematical-notation">2. Global Mathematical Notation<a class="headerlink" href="#2-global-mathematical-notation" title="Permanent link">&para;</a></h2>
+<h3 id="21-typography-symbol-taxonomy">2.1 Typography &amp; Symbol Taxonomy<a class="headerlink" href="#21-typography-symbol-taxonomy" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Symbol Class</th>
+<th style="text-align: left;">Typographic Convention</th>
+<th style="text-align: left;">Example</th>
+<th style="text-align: left;">Meaning / Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Scalars</strong></td>
+<td style="text-align: left;">Lowercase italic Roman or Greek</td>
+<td style="text-align: left;"><span class="arithmatex">\(s, \alpha, \lambda, \epsilon, \beta\)</span></td>
+<td style="text-align: left;">Hyperparameters, loss values, learning rates</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Integers / Counts</strong></td>
+<td style="text-align: left;">Lowercase italic Roman (<span class="arithmatex">\(i, j, k, t, n, p\)</span>)</td>
+<td style="text-align: left;"><span class="arithmatex">\(t, n, d, C, B\)</span></td>
+<td style="text-align: left;">Stream step <span class="arithmatex">\(t\)</span>, batch size <span class="arithmatex">\(B\)</span>, dimension <span class="arithmatex">\(d\)</span>, classes <span class="arithmatex">\(C\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vectors</strong></td>
+<td style="text-align: left;">Lowercase bold Roman or Greek</td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathbf{x}, \mathbf{y}, \mathbf{g}, \boldsymbol{\theta}, \mathbf{m}\)</span></td>
+<td style="text-align: left;">Instances <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^d\)</span>, parameters <span class="arithmatex">\(\boldsymbol{\theta} \in \mathbb{R}^p\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Matrices</strong></td>
+<td style="text-align: left;">Uppercase bold Roman</td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathbf{X}, \mathbf{W}, \mathbf{T}, \mathbf{H}\)</span></td>
+<td style="text-align: left;">Mini-batch matrix <span class="arithmatex">\(\mathbf{X} \in \mathbb{R}^{B \times d}\)</span>, transition matrix <span class="arithmatex">\(\mathbf{T}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tensors</strong></td>
+<td style="text-align: left;">Bold script or sans-serif uppercase</td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathbf{\mathcal{T}}, \mathbf{\Theta}\)</span></td>
+<td style="text-align: left;">Multi-dimensional weight tensors</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sets / Domains</strong></td>
+<td style="text-align: left;">Calligraphic or blackboard uppercase</td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathcal{X}, \mathcal{Y}, \mathbb{R}, \mathbb{N}, \mathcal{S}\)</span></td>
+<td style="text-align: left;">Feature space <span class="arithmatex">\(\mathcal{X}\)</span>, label space <span class="arithmatex">\(\mathcal{Y}\)</span>, state set <span class="arithmatex">\(\mathcal{S}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Probability Measures</strong></td>
+<td style="text-align: left;">Uppercase Roman (<span class="arithmatex">\(P, \mathbb{P}, \mathbb{E}, \mathbb{V}\)</span>)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathbb{P}(A), \mathbb{E}_{X}[f(X)]\)</span></td>
+<td style="text-align: left;">Probability, mathematical expectation, variance</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Estimators / Predictions</strong></td>
+<td style="text-align: left;">Hat notation</td>
+<td style="text-align: left;"><span class="arithmatex">\(\hat{y}, \hat{\mathbf{y}}, \hat{\mu}, \hat{\boldsymbol{\theta}}\)</span></td>
+<td style="text-align: left;">Class prediction <span class="arithmatex">\(\hat{y}\)</span>, estimated mean <span class="arithmatex">\(\hat{\mu}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Noisy / Corrupted Variables</strong></td>
+<td style="text-align: left;">Tilde notation</td>
+<td style="text-align: left;"><span class="arithmatex">\(\tilde{y}, \tilde{\mathbf{y}}, \tilde{\mathbf{g}}\)</span></td>
+<td style="text-align: left;">Corrupted label <span class="arithmatex">\(\tilde{y}\)</span>, quantized gradient <span class="arithmatex">\(\tilde{\mathbf{g}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Optimal / Ground Truth</strong></td>
+<td style="text-align: left;">Star notation</td>
+<td style="text-align: left;"><span class="arithmatex">\(y^*, \mathbf{y}^*, \boldsymbol{\theta}^*\)</span></td>
+<td style="text-align: left;">True uncorrupted label <span class="arithmatex">\(y^*\)</span>, optimal parameter <span class="arithmatex">\(\boldsymbol{\theta}^*\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="22-vector-and-matrix-operations">2.2 Vector and Matrix Operations<a class="headerlink" href="#22-vector-and-matrix-operations" title="Permanent link">&para;</a></h3>
+<p>For vectors <span class="arithmatex">\(\mathbf{u}, \mathbf{v} \in \mathbb{R}^d\)</span> and matrix <span class="arithmatex">\(\mathbf{A} \in \mathbb{R}^{m \times n}\)</span>:
+- <strong>Inner Product</strong>: <span class="arithmatex">\(\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u}^\top \mathbf{v} = \sum_{i=1}^d u_i v_i\)</span>
+- <strong>Hadamard (Element-Wise) Product</strong>: <span class="arithmatex">\(\mathbf{u} \odot \mathbf{v} = [u_1 v_1, u_2 v_2, \dots, u_d v_d]^\top\)</span>
+- <strong>Hadamard Division</strong>: <span class="arithmatex">\(\frac{\mathbf{u}}{\mathbf{v}} = [u_1 / v_1, \dots, u_d / v_d]^\top\)</span> (subject to <span class="arithmatex">\(v_i \ne 0\)</span>)
+- <strong>Element-Wise Power</strong>: <span class="arithmatex">\(\mathbf{u}^p = [u_1^p, u_2^p, \dots, u_d^p]^\top\)</span>
+- <strong>Euclidean (<span class="arithmatex">\(L_2\)</span>) Norm</strong>: <span class="arithmatex">\(\|\mathbf{u}\|_2 = \sqrt{\sum_{i=1}^d u_i^2}\)</span>
+- <strong>Manhattan (<span class="arithmatex">\(L_1\)</span>) Norm</strong>: <span class="arithmatex">\(\|\mathbf{u}\|_1 = \sum_{i=1}^d |u_i|\)</span>
+- <strong>Infinity (<span class="arithmatex">\(L_\infty\)</span>) Norm</strong>: <span class="arithmatex">\(\|\mathbf{u}\|_\infty = \max_{1 \le i \le d} |u_i|\)</span>
+- <strong>Frobenius Norm</strong>: <span class="arithmatex">\(\|\mathbf{A}\|_F = \sqrt{\sum_{i=1}^m \sum_{j=1}^n A_{ij}^2}\)</span>
+- <strong>Standard Probability Simplex</strong>: <span class="arithmatex">\(\Delta^{C-1} = \left\{ \mathbf{p} \in \mathbb{R}^C \;\middle|\; p_c \ge 0, \; \sum_{c=1}^C p_c = 1 \right\}\)</span></p>
+<hr />
+<h2 id="3-spaces-domains-and-data-streams">3. Spaces, Domains, and Data Streams<a class="headerlink" href="#3-spaces-domains-and-data-streams" title="Permanent link">&para;</a></h2>
+<h3 id="31-feature-space-and-label-space">3.1 Feature Space and Label Space<a class="headerlink" href="#31-feature-space-and-label-space" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Feature Space</strong>: <span class="arithmatex">\(\mathcal{X} \subseteq \mathbb{R}^d\)</span>, compact metric space equipped with metric <span class="arithmatex">\(D_{\mathcal{X}}(\mathbf{x}_i, \mathbf{x}_j) = \|\mathbf{x}_i - \mathbf{x}_j\|_2\)</span>.</li>
+<li><strong>Discrete Classification Space</strong>: <span class="arithmatex">\(\mathcal{Y} = \{0, 1, \dots, C-1\}\)</span>, with cardinal size <span class="arithmatex">\(|\mathcal{Y}| = C \ge 2\)</span>.</li>
+<li><strong>Continuous Regression Space</strong>: <span class="arithmatex">\(\mathcal{Y} \subseteq \mathbb{R}\)</span> or <span class="arithmatex">\(\mathcal{Y} \subseteq \mathbb{R}^m\)</span>.</li>
+<li><strong>One-Hot Label Encoding</strong>: Function <span class="arithmatex">\(\mathbf{e}: \mathcal{Y} \to \Delta^{C-1}\)</span> where <span class="arithmatex">\(\mathbf{e}(y)_c = \mathbb{I}(y = c)\)</span>, <span class="arithmatex">\(\mathbb{I}\)</span> being the indicator function.</li>
+<li><strong>Hypothesis Space</strong>: Class of parameter-indexed functions <span class="arithmatex">\(\mathcal{H} = \{ f_{\boldsymbol{\theta}}: \mathcal{X} \to \Delta^{C-1} \mid \boldsymbol{\theta} \in \Theta \subseteq \mathbb{R}^p \}\)</span>. For an input <span class="arithmatex">\(\mathbf{x}\)</span>, model output is <span class="arithmatex">\(\hat{\mathbf{p}} = f_{\boldsymbol{\theta}}(\mathbf{x})\)</span>, with predicted class <span class="arithmatex">\(\hat{y} = \arg\max_{c \in \mathcal{Y}} \hat{p}_c\)</span>.</li>
+</ul>
+<hr />
+<h3 id="32-streaming-process-and-time-horizon">3.2 Streaming Process and Time Horizon<a class="headerlink" href="#32-streaming-process-and-time-horizon" title="Permanent link">&para;</a></h3>
+<p>Data arrives sequentially as a stochastic process over discrete time steps <span class="arithmatex">\(t \in \mathbb{N}^+ = \{1, 2, 3, \dots\}\)</span>:
+- <strong>Instantaneous Observation</strong>: <span class="arithmatex">\(\mathbf{z}_t = (\mathbf{x}_t, y_t) \in \mathcal{Z} = \mathcal{X} \times \mathcal{Y}\)</span>.
+- <strong>Mini-Batch of Size <span class="arithmatex">\(B\)</span></strong>: <span class="arithmatex">\(\mathbf{Z}_\tau = \{ (\mathbf{x}_{\tau, b}, y_{\tau, b}) \}_{b=1}^B \in \mathcal{Z}^B\)</span>, where <span class="arithmatex">\(\tau = \lfloor (t-1)/B \rfloor + 1\)</span> indexes mini-batches.
+- <strong>Sliding History Window of Length <span class="arithmatex">\(W\)</span></strong>: <span class="arithmatex">\(\mathcal{W}_t = (\mathbf{z}_{t-W+1}, \dots, \mathbf{z}_t) \in \mathcal{Z}^W\)</span>.
+- <strong>Filtration</strong>: <span class="arithmatex">\(\mathcal{F}_t = \sigma(\mathbf{z}_1, \dots, \mathbf{z}_t)\)</span> denotes the sigma-algebra representing information observable up to time <span class="arithmatex">\(t\)</span>.</p>
+<hr />
+<h2 id="4-formal-drift-and-non-stationarity-formulations">4. Formal Drift and Non-Stationarity Formulations<a class="headerlink" href="#4-formal-drift-and-non-stationarity-formulations" title="Permanent link">&para;</a></h2>
+<h3 id="41-joint-distribution-decomposition">4.1 Joint Distribution Decomposition<a class="headerlink" href="#41-joint-distribution-decomposition" title="Permanent link">&para;</a></h3>
+<p>At any time step <span class="arithmatex">\(t\)</span>, the observation <span class="arithmatex">\(\mathbf{z}_t = (\mathbf{x}_t, y_t)\)</span> is drawn from an underlying joint probability measure <span class="arithmatex">\(P_t(\mathbf{x}, y)\)</span> defined over the measurable space <span class="arithmatex">\((\mathcal{X} \times \mathcal{Y}, \mathcal{B}(\mathcal{X}) \otimes 2^{\mathcal{Y}})\)</span>:
+$<span class="arithmatex">\(P_t(\mathbf{x}, y) = P_t(\mathbf{x}) \cdot P_t(y \mid \mathbf{x}) = P_t(y) \cdot P_t(\mathbf{x} \mid y)\)</span>$</p>
+<h3 id="42-mathematical-taxonomy-of-drift">4.2 Mathematical Taxonomy of Drift<a class="headerlink" href="#42-mathematical-taxonomy-of-drift" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Strict Concept Drift</strong>:
+   $<span class="arithmatex">\(\exists \, t_1, t_2 \in \mathbb{N}^+, \; t_1 \ne t_2 \quad \text{such that} \quad P_{t_1}(\mathbf{x}, y) \ne P_{t_2}(\mathbf{x}, y)\)</span>$</p>
+</li>
+<li>
+<p><strong>Real Concept Drift (Posterior Shift)</strong>:
+   $<span class="arithmatex">\(\exists \, \mathbf{x} \in \mathcal{X} \quad \text{such that} \quad P_{t_1}(y \mid \mathbf{x}) \ne P_{t_2}(y \mid \mathbf{x})\)</span>$
+   Directly impacts optimal decision boundary <span class="arithmatex">\(\arg\max_y P_t(y \mid \mathbf{x})\)</span> and mandates model parameter adaptation.</p>
+</li>
+<li>
+<p><strong>Virtual Drift (Covariate Shift)</strong>:
+   $<span class="arithmatex">\(P_{t_1}(\mathbf{x}) \ne P_{t_2}(\mathbf{x}) \quad \text{while} \quad P_{t_1}(y \mid \mathbf{x}) = P_{t_2}(y \mid \mathbf{x}) \quad \forall \mathbf{x} \in \mathcal{X}\)</span>$
+   The marginal distribution of inputs shifts, but the conditional posterior remains invariant.</p>
+</li>
+<li>
+<p><strong>Class Prior Drift (Prior Shift)</strong>:
+   $<span class="arithmatex">\(P_{t_1}(y) \ne P_{t_2}(y) \quad \text{while} \quad P_{t_1}(\mathbf{x} \mid y) = P_{t_2}(\mathbf{x} \mid y) \quad \forall y \in \mathcal{Y}\)</span>$</p>
+</li>
+<li>
+<p><strong>Drift Velocity and Acceleration</strong>:</p>
+</li>
+<li>Total Variation Drift Metric: <span class="arithmatex">\(d_{TV}(P_{t_1}, P_{t_2}) = \sup_{A \in \mathcal{B}(\mathcal{X} \times \mathcal{Y})} |P_{t_1}(A) - P_{t_2}(A)|\)</span>.</li>
+<li>Drift Velocity: <span class="arithmatex">\(v(t) = \lim_{\Delta t \to 0} \frac{d_{TV}(P_t, P_{t+\Delta t})}{\Delta t}\)</span>.</li>
+<li>Abrupt Drift: <span class="arithmatex">\(v(t) \to \infty\)</span> for isolated <span class="arithmatex">\(t \in \{t^*\}\)</span>, where <span class="arithmatex">\(P_{t^*-1} \ne P_{t^*}\)</span>.</li>
+<li>Gradual Drift: <span class="arithmatex">\(0 &lt; v(t) &lt; v_{\max} &lt; \infty\)</span> sustained over an interval <span class="arithmatex">\([t_a, t_b]\)</span>.</li>
+</ol>
+<hr />
+<h2 id="5-formal-data-imperfection-and-label-corruption-models">5. Formal Data Imperfection and Label Corruption Models<a class="headerlink" href="#5-formal-data-imperfection-and-label-corruption-models" title="Permanent link">&para;</a></h2>
+<h3 id="51-latent-ground-truth-and-observed-noisy-labels">5.1 Latent Ground Truth and Observed Noisy Labels<a class="headerlink" href="#51-latent-ground-truth-and-observed-noisy-labels" title="Permanent link">&para;</a></h3>
+<p>Let <span class="arithmatex">\((\mathbf{x}_i, y_i^*)\)</span> represent the uncorrupted instance with latent true label <span class="arithmatex">\(y_i^* \in \mathcal{Y}\)</span>.<br />
+The learner observes <span class="arithmatex">\((\mathbf{x}_i, \tilde{y}_i)\)</span>, where <span class="arithmatex">\(\tilde{y}_i \in \mathcal{Y}\)</span> is the observed label potentially corrupted by a stochastic transition channel.</p>
+<h3 id="52-transition-matrices-and-noise-regimes">5.2 Transition Matrices and Noise Regimes<a class="headerlink" href="#52-transition-matrices-and-noise-regimes" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Transition Probability Matrix <span class="arithmatex">\(\mathbf{T}(\mathbf{x}) \in \mathbb{R}^{C \times C}\)</span></strong>:
+   $<span class="arithmatex">\(T_{jk}(\mathbf{x}) = \mathbb{P}(\tilde{y} = k \mid y^* = j, \mathbf{X} = \mathbf{x})\)</span>$
+   where <span class="arithmatex">\(\sum_{k=0}^{C-1} T_{jk}(\mathbf{x}) = 1\)</span> for all <span class="arithmatex">\(j \in \mathcal{Y}\)</span>, <span class="arithmatex">\(\mathbf{x} \in \mathcal{X}\)</span>.</p>
+</li>
+<li>
+<p><strong>Uniform Symmetric Noise</strong>:
+   $<span class="arithmatex">\(T_{jk} = \begin{cases} 1 - \eta, &amp; j = k \\ \frac{\eta}{C - 1}, &amp; j \ne k \end{cases}\)</span>$
+   where <span class="arithmatex">\(\eta \in [0, \frac{C-1}{C})\)</span> is the overall corruption rate.</p>
+</li>
+<li>
+<p><strong>Class-Conditional Asymmetric Noise</strong>:
+   $<span class="arithmatex">\(T_{jk}(\mathbf{x}) = T_{jk} \quad \text{(independent of } \mathbf{x} \text{, but class-dependent)}\)</span>$</p>
+</li>
+<li>
+<p><strong>Instance-Dependent (Feature-Dependent) Noise</strong>:
+   $<span class="arithmatex">\(T_{jk}(\mathbf{x}) = \sigma\left(\mathbf{w}_{jk}^\top \phi(\mathbf{x})\right)\)</span>$
+   where noise probability increases in regions of high feature ambiguity or low margin.</p>
+</li>
+</ol>
+<hr />
+<h2 id="6-optimization-gradients-and-resource-constraints">6. Optimization, Gradients, and Resource Constraints<a class="headerlink" href="#6-optimization-gradients-and-resource-constraints" title="Permanent link">&para;</a></h2>
+<h3 id="61-objective-functions-and-empiric-risk">6.1 Objective Functions and Empiric Risk<a class="headerlink" href="#61-objective-functions-and-empiric-risk" title="Permanent link">&para;</a></h3>
+<p>Given parameterized model <span class="arithmatex">\(f_{\boldsymbol{\theta}}\)</span> and loss function <span class="arithmatex">\(\mathcal{L}: \Delta^{C-1} \times \mathcal{Y} \to \mathbb{R}_{\ge 0}\)</span>:
+- <strong>True Risk</strong>: <span class="arithmatex">\(R(\boldsymbol{\theta}) = \mathbb{E}_{(\mathbf{x}, y^*) \sim \mathcal{D}} [\mathcal{L}(f_{\boldsymbol{\theta}}(\mathbf{x}), y^*)]\)</span>
+- <strong>Observed Empirical Risk</strong>: <span class="arithmatex">\(\hat{R}_N(\boldsymbol{\theta}) = \frac{1}{N} \sum_{i=1}^N \mathcal{L}(f_{\boldsymbol{\theta}}(\mathbf{x}_i), \tilde{y}_i)\)</span>
+- <strong>Instance Loss</strong>: <span class="arithmatex">\(\ell_i(\boldsymbol{\theta}) = \mathcal{L}(f_{\boldsymbol{\theta}}(\mathbf{x}_i), \tilde{y}_i)\)</span>
+- <strong>Instantaneous Gradient</strong>: <span class="arithmatex">\(\mathbf{g}_t(\boldsymbol{\theta}) = \nabla_{\boldsymbol{\theta}} \ell_t(\boldsymbol{\theta}) \in \mathbb{R}^p\)</span>
+- <strong>Mini-Batch Gradient</strong>: <span class="arithmatex">\(\mathbf{g}_\tau(\boldsymbol{\theta}) = \frac{1}{B} \sum_{b=1}^B \nabla_{\boldsymbol{\theta}} \ell_{\tau, b}(\boldsymbol{\theta})\)</span></p>
+<h3 id="62-resource-constraints-and-state-budgets">6.2 Resource Constraints and State Budgets<a class="headerlink" href="#62-resource-constraints-and-state-budgets" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Parameter Dimension</strong>: <span class="arithmatex">\(p = \dim(\boldsymbol{\theta}) \in \mathbb{N}^+\)</span>.</li>
+<li><strong>Host RAM Budget</strong>: <span class="arithmatex">\(M_{\text{RAM}} \le M_{\max}\)</span> bytes.</li>
+<li><strong>Peak Working Memory</strong>: <span class="arithmatex">\(M_{\text{peak}} = \sup_t \text{MemoryUsage}(t) \le M_{\max}\)</span>.</li>
+<li><strong>Optimizer State Footprint</strong>:</li>
+<li>Uncompressed FP32 AdamW: <span class="arithmatex">\(S_{\text{Adam}} = p \cdot (4_{\text{param}} + 4_{\text{grad}} + 4_{m_t} + 4_{v_t}) = 16p\)</span> bytes.</li>
+<li>Compressed 8-Bit AdamW: <span class="arithmatex">\(S_{\text{Quant}} = p \cdot (4_{\text{param}} + 4_{\text{grad}} + 1_{m_t} + 1_{v_t}) + 2 \cdot \frac{p}{B_q} \cdot 4_{\text{scales}} = 10p + \mathcal{O}(p/B_q)\)</span> bytes.</li>
+<li><strong>Compute Budget</strong>: Maximum allowable floating-point operations per sample: <span class="arithmatex">\(C_{\text{sample}} \le \kappa_{\text{FLOP}}\)</span>.</li>
+</ul>
+<hr />
+<h2 id="7-pillar-specific-formal-definitions">7. Pillar-Specific Formal Definitions<a class="headerlink" href="#7-pillar-specific-formal-definitions" title="Permanent link">&para;</a></h2>
+<h3 id="71-ala-adaptive-learning-foundations">7.1 ALA: Adaptive Learning Foundations<a class="headerlink" href="#71-ala-adaptive-learning-foundations" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Hoeffding Bound for Stream Split</strong>:
+  For an attribute evaluation metric <span class="arithmatex">\(G \in [0, 1]\)</span> computed over <span class="arithmatex">\(n\)</span> independent observations, the true mean <span class="arithmatex">\(\mathbb{E}[G]\)</span> lies within <span class="arithmatex">\([\hat{G} - \epsilon_H, \hat{G} + \epsilon_H]\)</span> with probability at least <span class="arithmatex">\(1 - \delta\)</span>, where:
+  $<span class="arithmatex">\(\epsilon_H = \sqrt{\frac{R_G^2 \ln(1 / \delta)}{2n}}\)</span>$
+  where <span class="arithmatex">\(R_G = \ln(C)\)</span> for Information Gain and <span class="arithmatex">\(R_G = 1\)</span> for Gini Impurity.</p>
+</li>
+<li>
+<p><strong>ADWIN Window Invariant</strong>:
+  Given a sliding window <span class="arithmatex">\(W\)</span> partitioned into sub-windows <span class="arithmatex">\(W_0\)</span> and <span class="arithmatex">\(W_1\)</span> (<span class="arithmatex">\(W = W_0 \cdot W_1\)</span>), a drift event is detected whenever:
+  $<span class="arithmatex">\(|\hat{\mu}_{W_0} - \hat{\mu}_{W_1}| \ge \epsilon_{\text{cut}}\)</span>$
+  $<span class="arithmatex">\(\epsilon_{\text{cut}} = \sqrt{\frac{1}{2m} \ln\left(\frac{4 |W|}{\delta}\right)}, \quad m = \left(\frac{1}{|W_0|} + \frac{1}{|W_1|}\right)^{-1}\)</span>$</p>
+</li>
+</ul>
+<h3 id="72-rla-robust-learning-foundations">7.2 RLA: Robust Learning Foundations<a class="headerlink" href="#72-rla-robust-learning-foundations" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Margin Definition</strong>:
+  For model logits <span class="arithmatex">\(\mathbf{z}(\mathbf{x}) \in \mathbb{R}^C\)</span> and given label <span class="arithmatex">\(y \in \mathcal{Y}\)</span>:
+  $<span class="arithmatex">\(\mathcal{M}(\mathbf{x}, y) = z_y(\mathbf{x}) - \max_{j \ne y} z_j(\mathbf{x})\)</span>$</p>
+</li>
+<li>
+<p><strong>Local Feature Density (<span class="arithmatex">\(\rho_k\)</span>)</strong>:
+  Let <span class="arithmatex">\(\mathcal{N}_k(\mathbf{x})\)</span> denote the set of <span class="arithmatex">\(k\)</span>-nearest neighbors of <span class="arithmatex">\(\mathbf{x}\)</span> in feature space <span class="arithmatex">\(\mathcal{X}\)</span>:
+  $<span class="arithmatex">\(\rho_k(\mathbf{x}) = \left( \frac{1}{k} \sum_{\mathbf{x}' \in \mathcal{N}_k(\mathbf{x})} \|\mathbf{x} - \mathbf{x}'\|_2 \right)^{-1}\)</span>$</p>
+</li>
+<li>
+<p><strong>Class-Balanced Effective Number of Samples</strong>:
+  Given class sample count <span class="arithmatex">\(n_y\)</span>, the effective number of samples <span class="arithmatex">\(E_{n_y}\)</span> under uniform random volume overlap parameter <span class="arithmatex">\(\beta \in [0, 1)\)</span> is:
+  $<span class="arithmatex">\(E_{n_y} = \frac{1 - \beta^{n_y}}{1 - \beta}\)</span>$</p>
+</li>
+</ul>
+<h3 id="73-rao-resource-aware-foundations">7.3 RAO: Resource-Aware Foundations<a class="headerlink" href="#73-rao-resource-aware-foundations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Block Quantization Operator</strong>:
+  For a vector slice <span class="arithmatex">\(\mathbf{v} \in \mathbb{R}^{B_q}\)</span> with block size <span class="arithmatex">\(B_q\)</span>:
+  $<span class="arithmatex">\(\text{scale}(\mathbf{v}) = \frac{\max_{i} |v_i|}{q_{\max}} + \epsilon_{\text{quant}}\)</span>$
+  $<span class="arithmatex">\(Q(\mathbf{v}) = \text{clip}\left( \left\lfloor \frac{\mathbf{v}}{\text{scale}(\mathbf{v})} \right\rceil, -q_{\max}, q_{\max} \right) \in \mathbb{Z}^{B_q}\)</span>$
+  $<span class="arithmatex">\(\tilde{\mathbf{v}} = Q(\mathbf{v}) \cdot \text{scale}(\mathbf{v})\)</span>$
+  where <span class="arithmatex">\(\lfloor \cdot \rceil\)</span> denotes round-to-nearest integer and <span class="arithmatex">\(q_{\max} = 127\)</span> for signed 8-bit integers (<code>int8</code>).</li>
+</ul>
+<h3 id="74-ulc-unified-controller-state-formulation">7.4 ULC: Unified Controller State Formulation<a class="headerlink" href="#74-ulc-unified-controller-state-formulation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Controller Finite State Space</strong>: <span class="arithmatex">\(\mathcal{S} = \{ S_0: \text{STABLE}, \; S_1: \text{SUSPECTED\_DRIFT}, \; S_2: \text{DRIFT\_CONFIRMED}, \; S_3: \text{NOISY\_BURST} \}\)</span>.</li>
+<li><strong>Evidence Vector</strong>: <span class="arithmatex">\(\mathbf{e}_t = \left( \Delta_{\text{ADWIN}}(t), \; \bar{R}_{\mathcal{W}}(t), \; \nabla \mathcal{L}_{\text{trend}}(t), \; H_{\text{class}}(t) \right)^\top \in [0, 1]^4\)</span>.</li>
+<li><strong>State Transition Kernel</strong>: <span class="arithmatex">\(\Gamma: \mathcal{S} \times [0, 1]^4 \to \mathcal{S}\)</span>.</li>
+</ul>
+<hr />
+<h2 id="8-summary-standards-compliance">8. Summary &amp; Standards Compliance<a class="headerlink" href="#8-summary-standards-compliance" title="Permanent link">&para;</a></h2>
+<p>All subsequent Phase 6 specifications (<code>DOC-DES-P6-003</code> through <code>DOC-DES-P6-011</code>) directly import and conform to the definitions established in this document. Any extension or modification to these notations must be formally recorded in <code>PHASE_6_DECISIONS.md</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "status": "VERIFIED",
+  "files_verified": 284,
+  "manifest_total": 284,
+  "bitwise_match": true,
+  "runtime_smoke_test": "PASSED"
+}

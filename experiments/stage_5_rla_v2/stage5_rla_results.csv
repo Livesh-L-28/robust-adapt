@@ -1,0 +1,8 @@
+metric,value,unit
+clean_reliability,0.8200,ratio
+corrupt_reliability,0.2600,ratio
+corruption_detection_accuracy,1.0000,score
+rare_pattern_retention_rate,1.0,ratio
+corrupt_outlier_rejection_rate,1.0,ratio
+correction_precision,1.0000,ratio
+correction_recall,1.0000,ratio

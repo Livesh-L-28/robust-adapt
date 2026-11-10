@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "stage": 3,
+    "title": "Adaptive Minority Intelligence",
+    "date": "2026-11-02",
+    "python_version": "3.14.3"
+  },
+  "prior_tracking": {
+    "phase1_priors": [
+      0.7165,
+      0.2835
+    ],
+    "phase1_imbalance_ratio": 2.53,
+    "phase2_priors": [
+      0.8421,
+      0.1579
+    ],
+    "phase2_imbalance_ratio": 5.33,
+    "phase3_priors": [
+      0.7614,
+      0.106,
+      0.1326
+    ],
+    "phase3_n_classes": 3,
+    "class2_emerged": true,
+    "total_time_ms": 0.7,
+    "status": "PASS"
+  },
+  "threshold_adaptation": {
+    "fixed_threshold": 0.5,
+    "fixed_recall": 0.3182,
+    "fixed_f1": 0.4118,
+    "adaptive_threshold": 0.1,
+    "adaptive_recall": 1.0,
+    "adaptive_f1": 0.095,
+    "recall_improvement_pct": 68.18,
+    "status": "PASS"
+  },
+  "replay_retention": {
+    "initial_minority_samples": 25,
+    "majority_flood_samples": 25000,
+    "imbalance_ratio": 1000.0,
+    "retained_minority_samples": 25,
+    "retained_majority_samples": 325,
+    "minority_retention_ratio": 1.0,
+    "sampled_minority_fraction": 0.5,
+    "status": "PASS"
+  },
+  "calibration": {
+    "ece_before": 0.18,
+    "ece_after": 0.1124,
+    "ece_reduction_pct": 37.55,
+    "brier_score_before": 0.4496,
+    "brier_score_after": 0.2781,
+    "learned_temperatures": [
+      3.1847,
+      0.8861
+    ],
+    "status": "PASS"
+  }
+}

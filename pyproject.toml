@@ -76,11 +76,10 @@ all = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["robust_adapt*", "adaptive_ml*"]
+include = ["robust_adapt*"]
 
 [tool.setuptools.package-data]
 robust_adapt = ["py.typed"]
-adaptive_ml = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

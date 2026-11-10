@@ -1,0 +1,5 @@
+Model,MeanLatency_ms,StdLatency_ms,P50_ms,P95_ms,P99_ms,Throughput_Batches_Sec,Throughput_Samples_Sec
+ULC-v1,0.5123,0.1189,0.4930,0.7580,0.8858,1951.90,58557.04
+ULC-v4 Original,0.9547,0.4361,0.9749,1.6017,2.4030,1047.41,31422.43
+ULC-v4.1 Hybrid (No Explanations),0.6384,0.1266,0.6376,0.8150,0.9393,1566.42,46992.48
+ULC-v4.1 Hybrid (With Explanations),0.6195,0.1722,0.6198,0.9541,1.0145,1614.10,48423.02

@@ -102,13 +102,61 @@ class ConceptMemory:
     def store_concept(
         self,
         concept_id: str,
-        model_state: Dict[str, Any],
-        X: np.ndarray,
-        y: Optional[np.ndarray] = None,
+        arg2: Any = None,
+        arg3: Any = None,
+        arg4: Any = None,
         n_classes: int = 2,
+        *,
+        model_state: Optional[Any] = None,
+        X: Optional[np.ndarray] = None,
+        y: Optional[np.ndarray] = None,
     ) -> ConceptSignature:
-        """Store a model state dict along with its statistical concept signature."""
-        sig = self.extract_signature(concept_id, X, y=y, n_classes=n_classes)
+        """Store a model state dict along with its statistical concept signature.
+
+        Supports both positional conventions and keyword arguments:
+        - Legacy: (concept_id, model_state, X, y=None, n_classes=2)
+        - Intuitive: (concept_id, X, y=None, model_state=None, n_classes=2)
+        - Keyword arguments: (concept_id=..., X=..., y=..., model_state=..., n_classes=...)
+        """
+        resolved_model_state = model_state
+        resolved_X = X
+        resolved_y = y
+
+        # Resolve positional arguments if provided
+        if arg2 is not None:
+            is_arg2_data = isinstance(arg2, np.ndarray) or hasattr(arg2, "__array__")
+            if is_arg2_data:
+                # Intuitive ordering: (concept_id, X, [y or model_state], [model_state])
+                if resolved_X is None:
+                    resolved_X = arg2
+                if arg3 is not None:
+                    is_arg3_data = isinstance(arg3, np.ndarray) or hasattr(arg3, "__array__")
+                    if is_arg3_data:
+                        if resolved_y is None:
+                            resolved_y = arg3
+                        if arg4 is not None and resolved_model_state is None:
+                            resolved_model_state = arg4
+                    else:
+                        # arg3 is model_state
+                        if resolved_model_state is None:
+                            resolved_model_state = arg3
+                        if arg4 is not None and resolved_y is None:
+                            resolved_y = arg4
+            else:
+                # Legacy ordering: (concept_id, model_state, X, [y])
+                if resolved_model_state is None:
+                    resolved_model_state = arg2
+                if arg3 is not None and resolved_X is None:
+                    resolved_X = arg3
+                if arg4 is not None and resolved_y is None:
+                    resolved_y = arg4
+
+        if resolved_X is None:
+            raise ValueError("store_concept requires feature data 'X' (as positional or keyword argument).")
+        if resolved_model_state is None:
+            resolved_model_state = {}
+
+        sig = self.extract_signature(concept_id, resolved_X, y=resolved_y, n_classes=n_classes)
 
         # Enforce LRU eviction if capacity reached
         if len(self._signatures) >= self.max_concepts and concept_id not in self._signatures:
@@ -116,7 +164,7 @@ class ConceptMemory:
             self.remove_concept(lru_id)
 
         self._signatures[concept_id] = sig
-        self._models[concept_id] = model_state
+        self._models[concept_id] = resolved_model_state
         if concept_id in self._access_history:
             self._access_history.remove(concept_id)
         self._access_history.append(concept_id)
@@ -166,6 +214,14 @@ class ConceptMemory:
             return best_id, self._models[best_id], best_sim
 
         return None
+
+    def get_model(self, concept_id: str) -> Optional[Any]:
+        """Retrieve stored model state for a concept ID."""
+        return self._models.get(concept_id)
+
+    def get_signature(self, concept_id: str) -> Optional[ConceptSignature]:
+        """Retrieve stored concept signature for a concept ID."""
+        return self._signatures.get(concept_id)
 
     def remove_concept(self, concept_id: str) -> None:
         """Remove a stored concept."""

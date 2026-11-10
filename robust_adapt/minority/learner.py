@@ -54,6 +54,9 @@ class MinorityIntelligence20Learner:
         lr: float = 0.01,
         minority_class: int = 1,
         random_state: Optional[int] = 42,
+        *,
+        n_features: Optional[int] = None,
+        n_classes: int = 2,
     ) -> None:
         if target_fp_budget_per_1k <= 0.0:
             raise ConfigurationError(f"target_fp_budget_per_1k must be positive, got {target_fp_budget_per_1k}")
@@ -61,12 +64,15 @@ class MinorityIntelligence20Learner:
             raise ConfigurationError(f"sublinear_cost_power must be in (0, 1], got {sublinear_cost_power}")
         if lr <= 0.0:
             raise ConfigurationError(f"lr must be positive, got {lr}")
+        if n_classes != 2:
+            raise ConfigurationError(f"MinorityIntelligence20Learner currently supports binary classification (n_classes=2), got {n_classes}")
 
         self.target_fp_budget_per_1k = float(target_fp_budget_per_1k)
         self.sublinear_cost_power = float(sublinear_cost_power)
         self.lr = float(lr)
         self.minority_class = int(minority_class)
         self.random_state = random_state
+        self.n_classes = int(n_classes)
 
         self.prior_tracker = BetaBinomialPriorTracker(minority_class=minority_class)
         self.threshold_mgr = DynamicFPBudgetThresholdManager(
@@ -76,7 +82,16 @@ class MinorityIntelligence20Learner:
             max_threshold=max_threshold,
         )
 
-        self.weights: Optional[np.ndarray] = None
+        if n_features is not None:
+            if n_features <= 0:
+                raise ConfigurationError(f"n_features must be positive, got {n_features}")
+            self.n_features: Optional[int] = int(n_features)
+            rng = np.random.RandomState(self.random_state)
+            self.weights: Optional[np.ndarray] = rng.normal(0.0, 0.01, size=self.n_features)
+        else:
+            self.n_features = None
+            self.weights = None
+
         self.bias: float = 0.0
         self.total_samples_seen: int = 0
         self.total_batches_seen: int = 0
@@ -89,9 +104,14 @@ class MinorityIntelligence20Learner:
 
         # Initialize weights if first batch
         if self.weights is None:
+            self.n_features = n_features
             rng = np.random.RandomState(self.random_state)
             self.weights = rng.normal(0.0, 0.01, size=n_features)
             self.bias = 0.0
+        elif X_val.shape[1] != self.weights.shape[0]:
+            raise ValidationError(
+                f"Feature dimension mismatch: expected {self.weights.shape[0]}, got {X_val.shape[1]}"
+            )
 
         self.total_samples_seen += n_samples
         self.total_batches_seen += 1
