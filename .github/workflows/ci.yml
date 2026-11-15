@@ -51,6 +51,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .[dev,all]
       - name: Execute Full Pytest Test Suite
+        env:
+          PYTHONPATH: .
         run: |
           pytest -v tests/
 

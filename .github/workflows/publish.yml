@@ -77,7 +77,6 @@ jobs:
           repository-url: ${{ github.event.inputs.target == 'testpypi' && 'https://test.pypi.org/legacy/' || '' }}
           skip-existing: true
           packages-dir: dist/
-        continue-on-error: true
 
   github-release:
     name: Create GitHub Release
@@ -105,3 +104,4 @@ jobs:
             dist/*.whl
             dist/*.tar.gz
             dist/SHA256SUMS.txt
+
