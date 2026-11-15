@@ -31,6 +31,7 @@
   - [4. ULC: Unified Learning Controller](#4-ulc-unified-learning-controller)
   - [5. Adaptive Minority Intelligence](#5-adaptive-minority-intelligence)
 - [Installation](#installation)
+- [Interactive Demo Suite](#interactive-demo-suite)
 - [5-Minute Executable Quickstart](#5-minute-executable-quickstart)
 - [Pillar-by-Pillar Code Examples](#pillar-by-pillar-code-examples)
   - [ALA — Streaming Concept Drift Detection](#ala--streaming-concept-drift-detection)
@@ -184,6 +185,29 @@ git clone https://github.com/Livesh-L-28/robust-adapt.git
 cd robust-adapt
 pip install -e ".[dev,all]"
 ```
+
+---
+
+## Interactive Demo Suite
+
+For an immediate hands-on walkthrough, the [`demo_project/`](demo_project/) directory provides 7 self-contained demonstrations validating the core pillars, Scikit-Learn integrations, and security guarantees of ROBUST-ADAPT:
+
+```bash
+# Run the entire test & demonstration suite with a single command:
+python demo_project/run_all_demos.py
+```
+
+| Demo Script | Pillar / Focus | Key Capability Demonstrated |
+|---|---|---|
+| [`01_concept_drift_stream.py`](demo_project/01_concept_drift_stream.py) | **ALA** (Adaptive Architecture) | Real-time drift detection and online decision boundary updating across shifting phases. |
+| [`02_noisy_labels_defense.py`](demo_project/02_noisy_labels_defense.py) | **RLA** (Robust Losses) | Bounded Generalized Cross-Entropy gradients and Bayesian label rectification under 35% label noise. |
+| [`03_imbalanced_fraud_detection.py`](demo_project/03_imbalanced_fraud_detection.py) | **Minority Intelligence** | Dynamic prior tracking & adaptive decision thresholds boosting minority recall by +20% on 2% fraud data. |
+| [`04_resource_budget_optimization.py`](demo_project/04_resource_budget_optimization.py) | **RAO** (Resource Efficiency) | 8-bit Block Quantizer (73.4% RAM savings) & dynamic SLA latency governor. |
+| [`05_ulc_drift_vs_noise_burst.py`](demo_project/05_ulc_drift_vs_noise_burst.py) | **ULC-v5** (Arbitration) | Statistical divergence + cosine similarity distinguishing noise bursts from genuine drifts. |
+| [`06_sklearn_pipeline_integration.py`](demo_project/06_sklearn_pipeline_integration.py) | **Ecosystem** | Native drop-in integration inside `sklearn.pipeline.Pipeline` with `StandardScaler` and `partial_fit`. |
+| [`07_tamper_resistant_checkpoint.py`](demo_project/07_tamper_resistant_checkpoint.py) | **Security** | Zero-Pickle SafeTensors persistence with HMAC-SHA256 signature verification & tamper rejection. |
+
+See the [`demo_project/README.md`](demo_project/README.md) for step-by-step instructions, visualization outputs, and execution details.
 
 ---
 

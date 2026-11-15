@@ -22,9 +22,25 @@ pip install -r requirements.txt
 
 ### 2. Run All Demonstrations
 
-Execute the entire master test and demonstration suite with a single command:
-
+#### From Repository Root:
 ```bash
+# Windows PowerShell (using project venv):
+.venv\Scripts\python.exe demo_project\run_all_demos.py
+
+# Or with virtual environment activated / global Python:
+python demo_project/run_all_demos.py
+```
+
+#### From inside `demo_project/`:
+```bash
+cd demo_project
+python run_all_demos.py
+```
+
+#### If Cloning Fresh from GitHub:
+```bash
+git clone https://github.com/Livesh-L-28/robust-adapt.git
+cd robust-adapt/demo_project
 python run_all_demos.py
 ```
 
@@ -159,3 +175,4 @@ Cumulative Execution Time: ~2.5 seconds
 - **GitHub Repository:** [https://github.com/Livesh-L-28/robust-adapt](https://github.com/Livesh-L-28/robust-adapt)
 - **Release v1.0.0:** [https://github.com/Livesh-L-28/robust-adapt/releases/tag/v1.0.0](https://github.com/Livesh-L-28/robust-adapt/releases/tag/v1.0.0)
 - **License:** Apache 2.0
+
