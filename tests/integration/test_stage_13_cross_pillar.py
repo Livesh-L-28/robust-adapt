@@ -18,7 +18,11 @@ import pytest
 
 from robust_adapt.ala import ALA30AdaptiveLearner, AdaptiveClassifier
 from robust_adapt.rla import RLA30RobustLearner, MultiSignalReliabilityEngine
-from robust_adapt.minority import MinorityIntelligence20Learner, DynamicFPBudgetThresholdManager, BetaBinomialPriorTracker
+from robust_adapt.minority import (
+    MinorityIntelligence20Learner,
+    DynamicFPBudgetThresholdManager,
+    BetaBinomialPriorTracker,
+)
 from robust_adapt.rao import DynamicResourceBudgetManager, BlockQuantizer
 from robust_adapt.ulc import (
     UnifiedLearningControllerV5,
@@ -43,7 +47,7 @@ def test_config_1_ala_only(synthetic_stream_data) -> None:
     model = ALA30AdaptiveLearner(n_features=4, n_classes=2, grace_period=10)
 
     for i in range(0, 100, 20):
-        model.partial_fit(X[i:i+20], y[i:i+20])
+        model.partial_fit(X[i : i + 20], y[i : i + 20])
 
     preds = model.predict(X[100:150])
     assert preds.shape == (50,)
@@ -63,7 +67,7 @@ def test_config_2_rla_only(synthetic_stream_data) -> None:
 
     model = RLA30RobustLearner(n_features=4, n_classes=2, security_mode="standard")
     for i in range(0, 100, 20):
-        stats = model.fit_batch(X[i:i+20], y_corrupt[i:i+20])
+        stats = model.fit_batch(X[i : i + 20], y_corrupt[i : i + 20])
         assert stats["retained"] <= 20
         assert stats["total_seen"] > 0
 
@@ -82,7 +86,7 @@ def test_config_3_minority_only() -> None:
 
     model = MinorityIntelligence20Learner(target_fp_budget_per_1k=2.0)
     for i in range(0, 200, 25):
-        stats = model.fit_batch(X[i:i+25], y[i:i+25])
+        stats = model.fit_batch(X[i : i + 25], y[i : i + 25])
         assert stats["prior"] < 0.20
 
     preds = model.predict(X[200:])
@@ -113,7 +117,7 @@ def test_config_5_ala_plus_rla(synthetic_stream_data) -> None:
     rla = MultiSignalReliabilityEngine(n_classes=2, buffer_size=100)
 
     for i in range(0, 100, 20):
-        X_b, y_b = X[i:i+20], y[i:i+20]
+        X_b, y_b = X[i : i + 20], y[i : i + 20]
         # Prequential probas from ALA
         probas = ala.predict_proba(X_b)
         # RLA computes reliability weights
@@ -135,7 +139,7 @@ def test_config_6_rla_plus_minority() -> None:
     prior_tracker = BetaBinomialPriorTracker(alpha_prior=1.0, beta_prior=10.0)
 
     for i in range(0, 100, 20):
-        X_b, y_b = X[i:i+20], y[i:i+20]
+        X_b, y_b = X[i : i + 20], y[i : i + 20]
         rla.fit_batch(X_b, y_b)
         prior_tracker.update(y_b)
 
@@ -149,7 +153,7 @@ def test_config_7_ala_plus_ulc(synthetic_stream_data) -> None:
     ulc = UnifiedLearningControllerV5(n_features=4, n_classes=2)
 
     for i in range(0, 100, 20):
-        directive, telemetry = ulc.step(X[i:i+20], y[i:i+20])
+        directive, telemetry = ulc.step(X[i : i + 20], y[i : i + 20])
         assert directive.tier in InterventionTier
         assert "confidence" in telemetry
 
@@ -163,7 +167,7 @@ def test_config_8_rla_plus_ulc(synthetic_stream_data) -> None:
     rla = RLA30RobustLearner(n_features=4, n_classes=2)
 
     for i in range(0, 100, 20):
-        X_b, y_b = X[i:i+20], y[i:i+20]
+        X_b, y_b = X[i : i + 20], y[i : i + 20]
         directive, _ = ulc.step(X_b, y_b)
         # Controller telemetry gates RLA execution
         if ulc.config.gate_rla_on_clean_stream and directive.tier == InterventionTier.TIER_0_NOOP:
@@ -181,7 +185,7 @@ def test_config_9_all_pillars_plus_ulc_v5(synthetic_stream_data) -> None:
     budget = DynamicResourceBudgetManager(max_step_time_ms=50.0, max_memory_mb=1024.0)
 
     for i in range(0, 100, 20):
-        X_b, y_b = X[i:i+20], y[i:i+20]
+        X_b, y_b = X[i : i + 20], y[i : i + 20]
         # Step through full stack
         directive, telemetry = ulc.step(X_b, y_b)
         rla.fit_batch(X_b, y_b)
@@ -204,7 +208,7 @@ def test_config_10_ulc_disabled_manual_composition(synthetic_stream_data) -> Non
     minority = MinorityIntelligence20Learner()
 
     for i in range(0, 100, 20):
-        X_b, y_b = X[i:i+20], y[i:i+20]
+        X_b, y_b = X[i : i + 20], y[i : i + 20]
         # Manually chain pillars without central arbitrator
         rla_stats = rla.fit_batch(X_b, y_b)
         if rla_stats["retained"] > 0:

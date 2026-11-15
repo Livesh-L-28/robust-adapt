@@ -79,7 +79,9 @@ class AdaptiveThresholdManager:
         if cost_matrix is not None:
             c_mat = np.asarray(cost_matrix, dtype=np.float64)
             if c_mat.shape != (self.n_classes, self.n_classes):
-                raise ValidationError(f"cost_matrix shape must be {(self.n_classes, self.n_classes)}, got {c_mat.shape}")
+                raise ValidationError(
+                    f"cost_matrix shape must be {(self.n_classes, self.n_classes)}, got {c_mat.shape}"
+                )
             self.cost_matrix = c_mat
             if self.mode == "cost_sensitive":
                 self._compute_cost_sensitive_threshold()
@@ -148,7 +150,7 @@ class AdaptiveThresholdManager:
             for c in range(self.n_classes):
                 ratio = priors_arr[c] / self._pi_0
                 # When prior drops below balanced, threshold drops (raising sensitivity/recall)
-                new_tau = self.base_threshold * (ratio ** self.gamma)
+                new_tau = self.base_threshold * (ratio**self.gamma)
                 self._thresholds[c] = np.clip(new_tau, self.tau_min, self.tau_max)
             return self.thresholds
 
@@ -208,7 +210,7 @@ class AdaptiveThresholdManager:
                 tn = int(np.sum((preds == 0) & (labels == 0)))
 
                 if metric in ("f1", "f_beta"):
-                    b2 = beta ** 2
+                    b2 = beta**2
                     denom = (1.0 + b2) * tp + b2 * fn + fp
                     score = ((1.0 + b2) * tp) / max(denom, 1e-8)
                     if score > best_score:
@@ -382,7 +384,7 @@ class DynamicFPBudgetThresholdManager:
         preds = (p_arr >= self.threshold).astype(np.int64)
 
         # Compute empirical False Positive Rate: FP / (FP + TN)
-        neg_mask = (y_arr == 0)
+        neg_mask = y_arr == 0
         n_neg = int(np.sum(neg_mask))
         if n_neg == 0:
             self.history_thresholds.append(self.threshold)
@@ -400,9 +402,7 @@ class DynamicFPBudgetThresholdManager:
 
         # PID terms
         p_term = self.kp * error
-        self._integral_error = float(np.clip(
-            self._integral_error + error, -self.anti_windup_max, self.anti_windup_max
-        ))
+        self._integral_error = float(np.clip(self._integral_error + error, -self.anti_windup_max, self.anti_windup_max))
         i_term = self.ki * self._integral_error
         d_term = self.kd * (error - self._prev_error)
         self._prev_error = error

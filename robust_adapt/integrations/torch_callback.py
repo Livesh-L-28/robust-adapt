@@ -14,6 +14,7 @@ from typing import Any, Dict, Optional, Union
 try:
     import torch
     import torch.nn as nn
+
     _TORCH_AVAILABLE = True
 except ImportError:
     _TORCH_AVAILABLE = False
@@ -100,7 +101,9 @@ class TorchCheckpointAdapter:
         metadata: Dict[str, Any] = {
             "format": "robust_adapt_hybrid_v1",
             "optimizer_state": optimizer.state_dict() if hasattr(optimizer, "state_dict") else {},
-            "controller_state": controller.state_dict() if (controller is not None and hasattr(controller, "state_dict")) else {},
+            "controller_state": controller.state_dict()
+            if (controller is not None and hasattr(controller, "state_dict"))
+            else {},
         }
 
         if is_safetensors_available() and model_tensors:

@@ -65,7 +65,7 @@ def compute_spatial_discordance(
     # Vectorized pairwise squared Euclidean distances
     # Shape: (n_samples, n_samples)
     diff = X_arr[:, np.newaxis, :] - X_arr[np.newaxis, :, :]
-    dist_sq = np.sum(diff ** 2, axis=-1)
+    dist_sq = np.sum(diff**2, axis=-1)
 
     # Exclude self-distance by setting diagonal to infinity
     np.fill_diagonal(dist_sq, np.inf)

@@ -99,7 +99,7 @@ class DensityAwareMarginScorer:
         k = min(self.n_neighbors, n_samples - 1)
         if k > 0:
             # Pairwise squared Euclidean distance matrix: ||x - y||^2 = ||x||^2 + ||y||^2 - 2x.y
-            sq_norms = np.sum(X_val ** 2, axis=1, keepdims=True)
+            sq_norms = np.sum(X_val**2, axis=1, keepdims=True)
             D_sq = sq_norms + sq_norms.T - 2.0 * np.dot(X_val, X_val.T)
             D_sq = np.maximum(0.0, D_sq)  # Denominator safety
 

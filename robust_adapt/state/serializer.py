@@ -19,6 +19,7 @@ from robust_adapt.core.exceptions import SerializationError, ValidationError
 
 try:
     import safetensors.numpy as sn
+
     _SAFETENSORS_AVAILABLE = True
 except ImportError:
     sn = None

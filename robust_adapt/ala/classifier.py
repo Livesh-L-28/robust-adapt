@@ -12,6 +12,7 @@ from robust_adapt.core.exceptions import ValidationError
 from robust_adapt.core.types import FloatArray2D, IntArray1D
 from robust_adapt.core.validation import check_array_2d, check_labels_1d, check_sample_weights
 
+
 # Pure-Python scikit-learn protocol mixins (zero mandatory sklearn dependency)
 class BaseEstimator:
     """Lightweight base estimator mixin supporting standard get_params and set_params."""
@@ -19,9 +20,18 @@ class BaseEstimator:
     def get_params(self, deep: bool = True) -> Dict[str, Any]:
         """Get parameters for this estimator."""
         out = {}
-        for key in ["n_features", "n_classes", "grace_period", "delta", "tau_tie",
-                    "enable_drift_detection", "replay_capacity", "replay_ratio",
-                    "n_estimators", "random_state"]:
+        for key in [
+            "n_features",
+            "n_classes",
+            "grace_period",
+            "delta",
+            "tau_tie",
+            "enable_drift_detection",
+            "replay_capacity",
+            "replay_ratio",
+            "n_estimators",
+            "random_state",
+        ]:
             if hasattr(self, key):
                 out[key] = getattr(self, key)
         return out
@@ -222,7 +232,11 @@ class AdaptiveClassifier(BaseEstimator, ClassifierMixin):
                 drift_detected = self._drift_detector.update(errors[i], reliability=w_val[i])
                 if drift_detected:
                     self.drift_count_ += 1
-                    if self.enable_concept_memory and self._concept_memory is not None and self.cooldown_remaining_ == 0:
+                    if (
+                        self.enable_concept_memory
+                        and self._concept_memory is not None
+                        and self.cooldown_remaining_ == 0
+                    ):
                         fp = self._fingerprinter.compute_fingerprint(X_val, y_val)
                         match_snap, sim = self._concept_memory.find_matching_concept(fp)
                         if match_snap is not None and sim >= self.concept_similarity_threshold:

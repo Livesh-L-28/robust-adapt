@@ -209,7 +209,9 @@ class ClassAwareCalibrator:
             bin_lower = bin_boundaries[b]
             bin_upper = bin_boundaries[b + 1]
 
-            in_bin = (confs > bin_lower) & (confs <= bin_upper) if b > 0 else (confs >= bin_lower) & (confs <= bin_upper)
+            in_bin = (
+                (confs > bin_lower) & (confs <= bin_upper) if b > 0 else (confs >= bin_lower) & (confs <= bin_upper)
+            )
             prop_in_bin = np.mean(in_bin)
 
             if prop_in_bin > 0:

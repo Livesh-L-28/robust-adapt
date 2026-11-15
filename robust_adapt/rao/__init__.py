@@ -30,10 +30,12 @@ __all__ = [
 def __getattr__(name: str):
     if name == "LowMemoryAdamW":
         from robust_adapt.rao.adamw import LowMemoryAdamW
+
         return LowMemoryAdamW
     if name == "VectorizedLowMemoryAdamW":
         try:
             from robust_adapt.integrations.torch_optim import VectorizedLowMemoryAdamW
+
             return VectorizedLowMemoryAdamW
         except (ImportError, Exception) as e:
             raise AttributeError(f"VectorizedLowMemoryAdamW requires PyTorch optional integration: {e}") from e

@@ -14,7 +14,8 @@ Validates:
 
 import math
 import pytest
-import torch
+
+torch = pytest.importorskip("torch")
 import torch.nn as nn
 
 from robust_adapt.core.exceptions import ConfigurationError
@@ -66,7 +67,7 @@ def test_state_memory_reduction():
     w = nn.Parameter(torch.randn(128, 128))
     opt = VectorizedLowMemoryAdamW([w], lr=1e-3, block_size=64)
 
-    loss = (w ** 2).sum()
+    loss = (w**2).sum()
     loss.backward()
     opt.step()
 
@@ -96,15 +97,17 @@ def test_parameter_groups_support():
     p1 = nn.Parameter(torch.randn(16, 16))
     p2 = nn.Parameter(torch.randn(16, 16))
 
-    opt = VectorizedLowMemoryAdamW([
-        {"params": [p1], "lr": 1e-2},
-        {"params": [p2], "lr": 1e-4, "weight_decay": 0.05},
-    ])
+    opt = VectorizedLowMemoryAdamW(
+        [
+            {"params": [p1], "lr": 1e-2},
+            {"params": [p2], "lr": 1e-4, "weight_decay": 0.05},
+        ]
+    )
     assert len(opt.param_groups) == 2
     assert opt.param_groups[0]["lr"] == 1e-2
     assert opt.param_groups[1]["lr"] == 1e-4
 
-    loss = (p1.sum() + p2.sum())
+    loss = p1.sum() + p2.sum()
     loss.backward()
     opt.step()
 
@@ -135,7 +138,7 @@ def test_loss_convergence():
 
     # Simple quadratic regression target
     X = torch.randn(64, 8)
-    y = (X[:, 0:1] * 2.0)
+    y = X[:, 0:1] * 2.0
 
     initial_loss = nn.MSELoss()(model(X), y).item()
     for _ in range(50):

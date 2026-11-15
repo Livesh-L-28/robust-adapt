@@ -107,9 +107,7 @@ class MultiSignalReliabilityEngine:
         elif input_type == "logits":
             prob_arr = _stable_softmax(probas)
         else:
-            raise ValidationError(
-                f"input_type must be 'probabilities' or 'logits', got {input_type!r}"
-            )
+            raise ValidationError(f"input_type must be 'probabilities' or 'logits', got {input_type!r}")
 
         X_arr = check_array_2d(X, name="X")
         y_arr = check_labels_1d(y, expected_len=X_arr.shape[0], n_classes=self.n_classes, name="y")
@@ -151,9 +149,7 @@ class MultiSignalReliabilityEngine:
 
         # Composite score
         composite = (
-            self.w_margin * margin_scores
-            + self.w_neighbor * neighbor_scores
-            + self.w_temporal * temporal_scores
+            self.w_margin * margin_scores + self.w_neighbor * neighbor_scores + self.w_temporal * temporal_scores
         )
         reliability = np.clip(composite, 0.0, 1.0)
 

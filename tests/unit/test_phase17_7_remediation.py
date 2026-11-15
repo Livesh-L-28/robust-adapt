@@ -24,6 +24,7 @@ from robust_adapt.rla.reliability import MultiSignalReliabilityEngine, _stable_s
 # ALPHA-DEF-001: DelayedLabelQueue max_delay alias
 # ---------------------------------------------------------------------------
 
+
 def test_delayed_label_queue_max_delay_alias():
     """Verify max_delay alias and property behavior."""
     # Test initialization with max_delay alias
@@ -49,6 +50,7 @@ def test_delayed_label_queue_max_delay_alias():
 # ---------------------------------------------------------------------------
 # ALPHA-DEF-002: ConceptMemory.store_concept signature flexibility
 # ---------------------------------------------------------------------------
+
 
 def test_concept_memory_store_concept_signatures():
     """Verify ConceptMemory.store_concept supports both legacy and intuitive ordering."""
@@ -91,6 +93,7 @@ def test_concept_memory_store_concept_signatures():
 # ALPHA-DEF-003: BlockQuantizer generic quantize & dequantize
 # ---------------------------------------------------------------------------
 
+
 def test_block_quantizer_generic_methods():
     """Verify quantize and dequantize dispatch correctly for signed and unsigned modes."""
     bq = BlockQuantizer(block_size=64)
@@ -121,6 +124,7 @@ def test_block_quantizer_generic_methods():
 # ALPHA-DEF-004: Scikit-learn integration canonical aliases and top-level export
 # ---------------------------------------------------------------------------
 
+
 def test_sklearn_canonical_aliases():
     """Verify ScikitLearn* aliases exist and export consistently."""
     from robust_adapt.integrations.sklearn import (
@@ -131,12 +135,14 @@ def test_sklearn_canonical_aliases():
         SklearnDriftDetectorTransformer,
         SklearnReliabilityFilter,
     )
+
     assert ScikitLearnAdaptiveClassifier is SklearnAdaptiveClassifier
     assert ScikitLearnDriftDetectorTransformer is SklearnDriftDetectorTransformer
     assert ScikitLearnReliabilityFilter is SklearnReliabilityFilter
 
     # Top-level dynamic import
     import robust_adapt
+
     assert hasattr(robust_adapt, "ScikitLearnAdaptiveClassifier")
     assert hasattr(robust_adapt, "SklearnAdaptiveClassifier")
     assert robust_adapt.ScikitLearnAdaptiveClassifier is SklearnAdaptiveClassifier
@@ -145,6 +151,7 @@ def test_sklearn_canonical_aliases():
 # ---------------------------------------------------------------------------
 # ALPHA-DEF-005: MultiSignalReliabilityEngine logits support
 # ---------------------------------------------------------------------------
+
 
 def test_reliability_engine_logits_support():
     """Verify logits support with stable softmax produces equivalent reliability."""
@@ -179,6 +186,7 @@ def test_reliability_engine_logits_support():
 # ---------------------------------------------------------------------------
 # ALPHA-DEF-006: MinorityIntelligence20Learner upfront configuration
 # ---------------------------------------------------------------------------
+
 
 def test_minority_learner_upfront_configuration():
     """Verify n_features and n_classes configuration upfront."""

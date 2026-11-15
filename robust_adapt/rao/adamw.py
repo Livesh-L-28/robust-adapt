@@ -18,13 +18,16 @@ from robust_adapt.rao.quantizer import BlockQuantizer
 try:
     import torch
     from torch.optim import Optimizer as TorchOptimizer
+
     _TORCH_AVAILABLE = True
 except ImportError:
+
     class TorchOptimizer:  # type: ignore[no-redef]
         def __init__(self, params: Any, defaults: Dict[str, Any]) -> None:
             self.param_groups = [{"params": list(params), **defaults}]
             self.state: Dict[Any, Any] = {}
             self.defaults = defaults
+
     _TORCH_AVAILABLE = False
 
 
@@ -97,6 +100,7 @@ class LowMemoryAdamW(TorchOptimizer):
             # Standalone NumPy optimizer initialization
             if _TORCH_AVAILABLE:
                 from collections import OrderedDict
+
                 self._optimizer_step_pre_hooks = OrderedDict()
                 self._optimizer_step_post_hooks = OrderedDict()
                 self._optimizer_state_dict_pre_hooks = OrderedDict()
@@ -170,8 +174,8 @@ class LowMemoryAdamW(TorchOptimizer):
 
         state["step"] += 1
         t = state["step"]
-        bias_correction1 = 1.0 - (beta1 ** t)
-        bias_correction2 = 1.0 - (beta2 ** t)
+        bias_correction1 = 1.0 - (beta1**t)
+        bias_correction2 = 1.0 - (beta2**t)
 
         q_m = state["q_m"]
         q_v = state["q_v"]
@@ -191,7 +195,7 @@ class LowMemoryAdamW(TorchOptimizer):
 
             # Standard AdamW update equations
             m_new = beta1 * m_slice + (1.0 - beta1) * g_slice
-            v_new = beta2 * v_slice + (1.0 - beta2) * (g_slice ** 2)
+            v_new = beta2 * v_slice + (1.0 - beta2) * (g_slice**2)
 
             # Bias-corrected estimates
             m_hat = m_new / bias_correction1
@@ -247,8 +251,8 @@ class LowMemoryAdamW(TorchOptimizer):
 
         state["step"] += 1
         t = state["step"]
-        bias_correction1 = 1.0 - (beta1 ** t)
-        bias_correction2 = 1.0 - (beta2 ** t)
+        bias_correction1 = 1.0 - (beta1**t)
+        bias_correction2 = 1.0 - (beta2**t)
 
         q_m = state["q_m"]
         q_v = state["q_v"]
@@ -266,7 +270,7 @@ class LowMemoryAdamW(TorchOptimizer):
             g_slice = g_flat[start:end].to(torch.float32)
 
             m_new = beta1 * m_slice + (1.0 - beta1) * g_slice
-            v_new = beta2 * v_slice + (1.0 - beta2) * (g_slice ** 2)
+            v_new = beta2 * v_slice + (1.0 - beta2) * (g_slice**2)
 
             m_hat = m_new / bias_correction1
             v_hat = v_new / bias_correction2

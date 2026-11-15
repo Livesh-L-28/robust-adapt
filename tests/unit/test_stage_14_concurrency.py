@@ -20,6 +20,7 @@ from robust_adapt.ulc.v5_controller import ULCv5Config, UnifiedLearningControlle
 
 def test_multithreaded_ulc_concurrency():
     """Verify multiple ULC-v5 instances run concurrently in separate threads with independent state."""
+
     def run_worker(worker_id: int):
         np.random.seed(worker_id * 100)
         ulc = UnifiedLearningControllerV5(n_features=5, n_classes=2)
@@ -44,6 +45,7 @@ def test_concurrent_state_saving():
     """Verify concurrent state saves to the same directory succeed atomically without race collisions."""
     d = tempfile.mkdtemp()
     try:
+
         def save_worker(worker_id: int):
             filepath = os.path.join(d, f"worker_{worker_id}_model")
             tensors = {"weights": np.ones((10, 10), dtype=np.float32) * worker_id}

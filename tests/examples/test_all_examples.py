@@ -42,4 +42,8 @@ def test_example_execution(script_name: str):
         text=True,
         timeout=30,
     )
+    if res.returncode != 0 and "No module named" in res.stderr:
+        missing = res.stderr.split("No module named")[-1].splitlines()[0].strip().strip("'\"")
+        pytest.skip(f"Optional dependency '{missing}' not installed; skipping example {script_name}")
+
     assert res.returncode == 0, f"{script_name} failed with code {res.returncode}:\n{res.stderr}\n{res.stdout}"

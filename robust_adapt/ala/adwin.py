@@ -15,10 +15,10 @@ class _Bucket:
     __slots__ = ("w", "val", "w_sq", "count")
 
     def __init__(self, w: float, val: float, w_sq: float, count: int) -> None:
-        self.w = float(w)          # Sum of weights (reliabilities)
-        self.val = float(val)      # Sum of weighted values (w * loss)
-        self.w_sq = float(w_sq)    # Sum of squared weights
-        self.count = int(count)    # Number of original observations
+        self.w = float(w)  # Sum of weights (reliabilities)
+        self.val = float(val)  # Sum of weighted values (w * loss)
+        self.w_sq = float(w_sq)  # Sum of squared weights
+        self.count = int(count)  # Number of original observations
 
 
 class ReliabilityWeightedADWIN:
@@ -225,10 +225,7 @@ class ReliabilityWeightedADWIN:
             "window_weighted_val_sum": self.window_weighted_val_sum,
             "window_weight_sq_sum": self.window_weight_sq_sum,
             "last_delta_drift": self.last_delta_drift,
-            "buckets": [
-                {"w": b.w, "val": b.val, "w_sq": b.w_sq, "count": b.count}
-                for b in self._buckets
-            ],
+            "buckets": [{"w": b.w, "val": b.val, "w_sq": b.w_sq, "count": b.count} for b in self._buckets],
         }
 
     def load_state_dict(self, state: Dict[str, Any]) -> None:
@@ -242,6 +239,5 @@ class ReliabilityWeightedADWIN:
         self.window_weight_sq_sum = float(state["window_weight_sq_sum"])
         self.last_delta_drift = float(state.get("last_delta_drift", 0.0))
         self._buckets = [
-            _Bucket(w=b["w"], val=b["val"], w_sq=b["w_sq"], count=b["count"])
-            for b in state.get("buckets", [])
+            _Bucket(w=b["w"], val=b["val"], w_sq=b["w_sq"], count=b["count"]) for b in state.get("buckets", [])
         ]

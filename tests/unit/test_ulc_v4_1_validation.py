@@ -132,7 +132,11 @@ class TestULCv4_1TargetedValidation:
         y = np.array([0] * 25 + [1] * 5)
         directive, telemetry = ctrl.step(X, y, delta_drift=0.05)
 
-        assert directive.state in (AutomatonStateV4.STABLE, AutomatonStateV4.ELEVATED_VARIANCE, AutomatonStateV4.NOISE_BURST)
+        assert directive.state in (
+            AutomatonStateV4.STABLE,
+            AutomatonStateV4.ELEVATED_VARIANCE,
+            AutomatonStateV4.NOISE_BURST,
+        )
 
     def test_conflicting_evidence_deadband(self) -> None:
         """Verifies that delta in warning deadband (0.85) enters pending adaptation."""

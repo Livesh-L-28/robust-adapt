@@ -53,7 +53,7 @@ class TestAPIStability:
     def test_version_string(self) -> None:
         """Verify package version string."""
         assert hasattr(robust_adapt, "__version__")
-        assert robust_adapt.__version__ == "0.1.0.dev0"
+        assert robust_adapt.__version__ == "1.0.0"
 
     def test_core_exceptions_hierarchy(self) -> None:
         """Verify all custom exceptions inherit from AdaptiveMLError."""
@@ -150,6 +150,7 @@ class TestAPIStability:
     def test_integrations_namespace_exports(self) -> None:
         """Verify presence of integration exports when optional dependencies are available."""
         import robust_adapt.integrations as ami
+
         expected_integrations = [
             "to_numpy",
             "to_tensor",

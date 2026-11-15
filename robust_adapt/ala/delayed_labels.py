@@ -197,10 +197,7 @@ class DelayedLabelQueue:
             return 0
 
         now = float(current_time)
-        expired_ids = [
-            s_id for s_id, s in self._waiting_samples.items()
-            if (now - s.predict_time) > self.max_wait_time
-        ]
+        expired_ids = [s_id for s_id, s in self._waiting_samples.items() if (now - s.predict_time) > self.max_wait_time]
 
         for s_id in expired_ids:
             self._waiting_samples.pop(s_id, None)

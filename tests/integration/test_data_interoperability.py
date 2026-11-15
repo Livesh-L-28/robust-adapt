@@ -20,18 +20,21 @@ from robust_adapt.integrations.data import (
 
 try:
     import torch
+
     _TORCH_AVAILABLE = True
 except ImportError:
     _TORCH_AVAILABLE = False
 
 try:
     import pandas as pd
+
     _PANDAS_AVAILABLE = True
 except ImportError:
     _PANDAS_AVAILABLE = False
 
 try:
     import polars as pl
+
     _POLARS_AVAILABLE = True
 except ImportError:
     _POLARS_AVAILABLE = False

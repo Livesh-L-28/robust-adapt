@@ -27,8 +27,9 @@ class TestDEF001SafetensorsIsolation:
 
     def test_save_state_missing_safetensors_raises_actionable_error(self, tmp_path: Path) -> None:
         """Verify save_state raises SerializationError with install instructions when safetensors missing."""
-        with patch("robust_adapt.state.serializer._SAFETENSORS_AVAILABLE", False), patch(
-            "robust_adapt.state.serializer.sn", None
+        with (
+            patch("robust_adapt.state.serializer._SAFETENSORS_AVAILABLE", False),
+            patch("robust_adapt.state.serializer.sn", None),
         ):
             target = tmp_path / "model_checkpoint"
             tensors = {"weights": np.array([1.0, 2.0, 3.0], dtype=np.float32)}
@@ -42,8 +43,9 @@ class TestDEF001SafetensorsIsolation:
 
     def test_load_state_missing_safetensors_raises_actionable_error(self, tmp_path: Path) -> None:
         """Verify load_state raises SerializationError with install instructions when safetensors missing."""
-        with patch("robust_adapt.state.serializer._SAFETENSORS_AVAILABLE", False), patch(
-            "robust_adapt.state.serializer.sn", None
+        with (
+            patch("robust_adapt.state.serializer._SAFETENSORS_AVAILABLE", False),
+            patch("robust_adapt.state.serializer.sn", None),
         ):
             target = tmp_path / "model_checkpoint.safetensors"
 
@@ -170,6 +172,7 @@ class TestDEF003TelemetryExceptionHandling:
 
     def test_unexpected_exception_is_not_silently_suppressed(self) -> None:
         """Verify that unexpected programming exceptions (e.g. TypeError) in psutil are NOT caught."""
+
         class MaliciousPsutil:
             @staticmethod
             def Process(*args, **kwargs):

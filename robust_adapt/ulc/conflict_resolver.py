@@ -126,7 +126,11 @@ class CrossPillarConflictResolver:
         # =====================================================================
         # Scenario B: Extreme Class Imbalance (1000:1) with Concept Drift
         # =====================================================================
-        if (evidence.imbalance_ratio >= 5.0 or evidence.is_emerging_class) and evidence.delta_drift >= 1.0 and evidence.mean_reliability >= 0.65:
+        if (
+            (evidence.imbalance_ratio >= 5.0 or evidence.is_emerging_class)
+            and evidence.delta_drift >= 1.0
+            and evidence.mean_reliability >= 0.65
+        ):
             resolved = DirectiveV4(
                 state=AutomatonStateV4.CONFIRMED_DRIFT,
                 learning_rate_scale=2.5,

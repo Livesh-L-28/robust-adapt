@@ -65,7 +65,7 @@ class ExecutionProfiler:
 
             info["elapsed_ms"] = elapsed_ms
             info["ema_latency_ms"] = self.ema_latency_ms
-            info["memory_mb"] = mem_end / (1024.0 ** 2)
+            info["memory_mb"] = mem_end / (1024.0**2)
 
     def is_breach_predicted(self, target_latency_ms: float, safety_margin: float = 1.25) -> bool:
         """Predict whether step latency will breach target ceiling within the next few steps."""
@@ -82,6 +82,6 @@ class ExecutionProfiler:
             "ema_latency_ms": round(self.ema_latency_ms, 3),
             "min_latency_ms": round(self.min_latency_ms, 3) if self.min_latency_ms != float("inf") else 0.0,
             "max_latency_ms": round(self.max_latency_ms, 3),
-            "peak_memory_mb": round(self.peak_memory_bytes / (1024.0 ** 2), 2),
-            "current_memory_mb": round(self.last_memory_bytes / (1024.0 ** 2), 2),
+            "peak_memory_mb": round(self.peak_memory_bytes / (1024.0**2), 2),
+            "current_memory_mb": round(self.last_memory_bytes / (1024.0**2), 2),
         }

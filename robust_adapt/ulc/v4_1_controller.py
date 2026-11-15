@@ -72,15 +72,11 @@ class ULCv41Config:
                 f"spatial_discordance_threshold must be in [0, 1], got {self.spatial_discordance_threshold}"
             )
         if not (0.0 <= self.prior_freeze_threshold <= 1.0):
-            raise ValueError(
-                f"prior_freeze_threshold must be in [0, 1], got {self.prior_freeze_threshold}"
-            )
+            raise ValueError(f"prior_freeze_threshold must be in [0, 1], got {self.prior_freeze_threshold}")
         if self.tau_tie < 0.0:
             raise ValueError(f"tau_tie must be >= 0.0, got {self.tau_tie}")
         if not (0.0 < self.gamma_smoothing <= 1.0):
-            raise ValueError(
-                f"gamma_smoothing must be in (0, 1], got {self.gamma_smoothing}"
-            )
+            raise ValueError(f"gamma_smoothing must be in (0, 1], got {self.gamma_smoothing}")
         if self.max_noise_dwell < 1:
             raise ValueError(f"max_noise_dwell must be >= 1, got {self.max_noise_dwell}")
         if self.max_history_len < 1:
@@ -255,11 +251,7 @@ class UnifiedLearningControllerV4_1:
         # 5. Drift Signal & Concept Memory Query
         if delta_drift is None:
             if self.adwin is not None:
-                errs = (
-                    (np.argmax(probas, axis=1) != y_val).astype(float)
-                    if probas is not None
-                    else np.zeros(n_samples)
-                )
+                errs = (np.argmax(probas, axis=1) != y_val).astype(float) if probas is not None else np.zeros(n_samples)
                 drift_found = False
                 mean_r = float(np.mean(reliabilities))
                 for e in errs:

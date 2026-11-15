@@ -46,7 +46,7 @@ class ClassBalancedWeights:
 
         n_classes = counts.shape[0]
         # Effective number of samples: E_n = (1 - beta^n) / (1 - beta)
-        effective_num = 1.0 - (self.beta ** counts)
+        effective_num = 1.0 - (self.beta**counts)
         # Avoid division by zero for classes with 0 samples
         raw_weights = np.where(counts > 0.0, (1.0 - self.beta) / (effective_num + EPS_DIV), 1.0)
 

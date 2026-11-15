@@ -33,8 +33,10 @@ def temp_dir():
 def test_zero_pickle_policy():
     """Verify that pickle is never imported or used across the core serialization pathway."""
     import sys
+
     # Ensure pickle is not referenced in serializer globals
     import robust_adapt.state.serializer as s
+
     assert "pickle" not in s.__dict__
 
 

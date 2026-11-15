@@ -78,12 +78,16 @@ class TestNoiseTaxonomyClassifier:
 
         # Case A: Rare valid minority pattern close to class 1 prototype, low margin
         x_rare = np.array([3.1, 2.9])
-        pat_rare = clf.discriminate_sample(x_rare, y_candidate=1, prototypes=prototypes, variances=variances, margin_score=0.45)
+        pat_rare = clf.discriminate_sample(
+            x_rare, y_candidate=1, prototypes=prototypes, variances=variances, margin_score=0.45
+        )
         assert pat_rare == PatternType.RARE_VALID_PATTERN
 
         # Case B: Corrupt outlier situated right in the center of class 0 cluster but falsely labeled 1
         x_outlier = np.array([-3.1, -2.9])
-        pat_outlier = clf.discriminate_sample(x_outlier, y_candidate=1, prototypes=prototypes, variances=variances, margin_score=0.20)
+        pat_outlier = clf.discriminate_sample(
+            x_outlier, y_candidate=1, prototypes=prototypes, variances=variances, margin_score=0.20
+        )
         assert pat_outlier == PatternType.CORRUPT_OUTLIER
 
 
@@ -144,13 +148,15 @@ class TestEvidenceBasedLabelCorrection:
 
         # Model predicted probabilities:
         # Sample 1: reported label 1, but model is 95% confident it is class 0 with reliability 0.10 -> Should be corrected!
-        probas = np.array([
-            [0.90, 0.10],
-            [0.95, 0.05],  # Corrupted: reported 1, predicted 0
-            [0.70, 0.30],
-            [0.10, 0.90],
-            [0.85, 0.15],
-        ])
+        probas = np.array(
+            [
+                [0.90, 0.10],
+                [0.95, 0.05],  # Corrupted: reported 1, predicted 0
+                [0.70, 0.30],
+                [0.10, 0.90],
+                [0.85, 0.15],
+            ]
+        )
         reliabilities = np.array([0.9, 0.10, 0.7, 0.9, 0.8])
 
         corrected_y, audit = corrector.correct_batch(X, y, probas, reliabilities, timestamp=100.0)

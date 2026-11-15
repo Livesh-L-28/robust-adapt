@@ -19,12 +19,14 @@ try:
     from sklearn.model_selection import cross_val_score
     from sklearn.pipeline import Pipeline
     from sklearn.preprocessing import StandardScaler
+
     _SKLEARN_AVAILABLE = True
 except ImportError:
     _SKLEARN_AVAILABLE = False
 
 try:
     import pandas as pd
+
     _PANDAS_AVAILABLE = True
 except ImportError:
     _PANDAS_AVAILABLE = False
@@ -116,10 +118,12 @@ class TestSklearnPipelineAdvanced:
         X = rng.standard_normal((120, 5))
         y = (X[:, 0] > 0).astype(np.int64)
 
-        pipe = Pipeline([
-            ("scaler", StandardScaler()),
-            ("clf", SklearnAdaptiveClassifier(n_features=5, n_classes=2, grace_period=20, random_state=42)),
-        ])
+        pipe = Pipeline(
+            [
+                ("scaler", StandardScaler()),
+                ("clf", SklearnAdaptiveClassifier(n_features=5, n_classes=2, grace_period=20, random_state=42)),
+            ]
+        )
 
         scores = cross_val_score(pipe, X, y, cv=3)
         assert len(scores) == 3

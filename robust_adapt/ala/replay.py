@@ -217,10 +217,7 @@ class ClassBalancedReservoirReplay:
             counts = self.class_counts
             min_count = min(counts.values()) if counts else 0
             max_count = max(counts.values()) if counts else 1
-            minority_set = {
-                c for c, count in counts.items()
-                if count <= min_count or count <= 0.2 * max_count
-            }
+            minority_set = {c for c, count in counts.items() if count <= min_count or count <= 0.2 * max_count}
         else:
             minority_set = set(minority_classes)
 
@@ -238,9 +235,7 @@ class ClassBalancedReservoirReplay:
 
             if policy == "selective":
                 if min_reliability > 0.0 and len(buf_w) > 0:
-                    kept_indices = [
-                        idx for idx, w in enumerate(buf_w) if w >= min_reliability
-                    ]
+                    kept_indices = [idx for idx, w in enumerate(buf_w) if w >= min_reliability]
                     self._buffers_X[c] = [buf_X[idx] for idx in kept_indices]
                     self._buffers_y[c] = [buf_y[idx] for idx in kept_indices]
                     self._buffers_w[c] = [buf_w[idx] for idx in kept_indices]
@@ -268,9 +263,7 @@ class ClassBalancedReservoirReplay:
             "n_classes": self.n_classes,
             "bucket_capacity": self.bucket_capacity,
             "class_seen_counts": self._class_seen_counts.tolist(),
-            "stored_X": [
-                [x.tolist() for x in self._buffers_X[c]] for c in range(self.n_classes)
-            ],
+            "stored_X": [[x.tolist() for x in self._buffers_X[c]] for c in range(self.n_classes)],
             "stored_y": [list(self._buffers_y[c]) for c in range(self.n_classes)],
             "stored_w": [list(self._buffers_w[c]) for c in range(self.n_classes)],
         }

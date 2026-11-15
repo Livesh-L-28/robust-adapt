@@ -12,6 +12,7 @@ from typing import Any, Dict, Optional
 @dataclass(frozen=True)
 class DeviceProfile:
     """Hardware capability and accelerator profile."""
+
     platform: str
     machine: str
     processor: str
@@ -33,6 +34,7 @@ class DeviceCapabilityDetector:
         plat_processor = platform.processor()
 
         import os
+
         cpu_cores = os.cpu_count() or 1
 
         has_cuda = False
@@ -42,6 +44,7 @@ class DeviceCapabilityDetector:
         # Safe PyTorch accelerator query
         try:
             import torch
+
             if torch.cuda.is_available():
                 has_cuda = True
                 cuda_name = torch.cuda.get_device_name(0) if torch.cuda.device_count() > 0 else "CUDA Device"

@@ -31,6 +31,7 @@ logger = logging.getLogger(__name__)
 
 class InterventionTier(str, Enum):
     """5-level hierarchical intervention severity."""
+
     TIER_0_NOOP = "TIER_0_NOOP"
     TIER_1_PARAM_DAMPING = "TIER_1_PARAM_DAMPING"
     TIER_2_CONCEPT_RESTORE = "TIER_2_CONCEPT_RESTORE"
@@ -41,6 +42,7 @@ class InterventionTier(str, Enum):
 @dataclass(frozen=True)
 class ULCv5Directive:
     """Action directive emitted by ULC-v5."""
+
     tier: InterventionTier
     action_name: str
     confidence: float
@@ -92,6 +94,7 @@ class UtilityScorer:
 @dataclass
 class ULCv5Config:
     """Configuration hyperparameters for UnifiedLearningControllerV5."""
+
     grace_period: int = 50
     delta: float = 0.002
     similarity_threshold: float = 0.82
@@ -195,14 +198,22 @@ class UnifiedLearningControllerV5:
             )
         else:
             matching_snap, sim = self.memory.find_matching_concept(fp)
-            is_recurrent = (matching_snap is not None)
+            is_recurrent = matching_snap is not None
             confidence = float(np.clip(sim if is_recurrent else (1.0 - sim), 0.5, 0.99))
             drift_mag = float(np.clip(mean_err * 2.0, 0.1, 1.0))
 
-            u_restore = UtilityScorer.score_action(InterventionTier.TIER_2_CONCEPT_RESTORE, confidence, drift_mag, is_recurrent)
-            u_soft_reset = UtilityScorer.score_action(InterventionTier.TIER_3_SOFT_REPLAY_RESET, confidence, drift_mag, is_recurrent)
-            u_hard_reset = UtilityScorer.score_action(InterventionTier.TIER_4_HARD_RESET, confidence, drift_mag, is_recurrent)
-            u_damping = UtilityScorer.score_action(InterventionTier.TIER_1_PARAM_DAMPING, confidence, drift_mag, is_recurrent)
+            u_restore = UtilityScorer.score_action(
+                InterventionTier.TIER_2_CONCEPT_RESTORE, confidence, drift_mag, is_recurrent
+            )
+            u_soft_reset = UtilityScorer.score_action(
+                InterventionTier.TIER_3_SOFT_REPLAY_RESET, confidence, drift_mag, is_recurrent
+            )
+            u_hard_reset = UtilityScorer.score_action(
+                InterventionTier.TIER_4_HARD_RESET, confidence, drift_mag, is_recurrent
+            )
+            u_damping = UtilityScorer.score_action(
+                InterventionTier.TIER_1_PARAM_DAMPING, confidence, drift_mag, is_recurrent
+            )
 
             # Protected Hard Reset Policy: Catastrophic recovery when confidence is extreme and damping fails
             if (

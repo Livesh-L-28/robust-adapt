@@ -19,6 +19,7 @@ from robust_adapt.core.telemetry import get_process_memory_bytes
 
 class BudgetState(str, Enum):
     """Discrete state of resource constraints."""
+
     NORMAL = "NORMAL"
     PRESSURE_WARNING = "PRESSURE_WARNING"
     THROTTLED = "THROTTLED"
@@ -58,7 +59,7 @@ class DynamicResourceBudgetManager:
             raise ConfigurationError(f"Invalid batch size bounds: [{min_batch_size}, {max_batch_size}]")
 
         self.max_step_time_ms = float(max_step_time_ms)
-        self.max_memory_bytes = int(max_memory_mb * (1024 ** 2))
+        self.max_memory_bytes = int(max_memory_mb * (1024**2))
         self.min_batch_size = int(min_batch_size)
         self.max_batch_size = int(max_batch_size)
         self.warning_threshold = float(warning_threshold)
@@ -74,7 +75,7 @@ class DynamicResourceBudgetManager:
     @property
     def current_memory_mb(self) -> float:
         """Current process resident memory in megabytes."""
-        return float(get_process_memory_bytes() / (1024 ** 2))
+        return float(get_process_memory_bytes() / (1024**2))
 
     def evaluate_step(self, step_time_ms: float) -> BudgetState:
         """Evaluate resource utilization following an execution step.
@@ -91,9 +92,7 @@ class DynamicResourceBudgetManager:
         """
         step_time_float = float(step_time_ms)
         if step_time_float < 0.0 or not np.isfinite(step_time_float):
-            raise ValidationError(
-                f"step_time_ms must be a non-negative finite float, got {step_time_ms}"
-            )
+            raise ValidationError(f"step_time_ms must be a non-negative finite float, got {step_time_ms}")
 
         self.total_steps += 1
         self._last_step_time_ms = step_time_float

@@ -11,6 +11,7 @@ try:
     from sklearn.base import clone
     from sklearn.pipeline import Pipeline
     from sklearn.preprocessing import StandardScaler
+
     _SKLEARN_AVAILABLE = True
 except ImportError:
     _SKLEARN_AVAILABLE = False
@@ -40,10 +41,12 @@ class TestSklearnIntegration:
 
     def test_pipeline_integration(self) -> None:
         """Verify execution inside a scikit-learn Pipeline."""
-        pipe = Pipeline([
-            ("scaler", StandardScaler()),
-            ("clf", SklearnAdaptiveClassifier(n_features=4, n_classes=2, grace_period=20)),
-        ])
+        pipe = Pipeline(
+            [
+                ("scaler", StandardScaler()),
+                ("clf", SklearnAdaptiveClassifier(n_features=4, n_classes=2, grace_period=20)),
+            ]
+        )
 
         rng = np.random.default_rng(42)
         X = rng.normal(size=(100, 4))
@@ -70,4 +73,3 @@ class TestSklearnIntegration:
 
         assert hasattr(clf, "classes_")
         assert len(clf.classes_) == 2
-

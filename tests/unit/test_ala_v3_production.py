@@ -129,7 +129,7 @@ def test_ala30_adaptive_learner_prequential_updates():
     y_stationary = (X_stationary[:, 0] > 0).astype(int)
 
     for i in range(0, 200, 20):
-        X_b, y_b = X_stationary[i:i+20], y_stationary[i:i+20]
+        X_b, y_b = X_stationary[i : i + 20], y_stationary[i : i + 20]
         res = learner.update(X_b, y_b)
         assert "action" in res
         assert "batch_acc" in res

@@ -19,6 +19,7 @@ def _is_torch_available() -> bool:
     if _TORCH_AVAILABLE is None:
         try:
             import torch  # noqa: F401
+
             _TORCH_AVAILABLE = True
         except ImportError:
             _TORCH_AVAILABLE = False
@@ -153,7 +154,7 @@ class GeneralizedCrossEntropyLoss:
 
         # GCE: (1 - p_y^q) / q
         p_y_safe = np.maximum(p_y, EPS_LOG)
-        loss_per_sample = (1.0 - (p_y_safe ** self.q)) / self.q
+        loss_per_sample = (1.0 - (p_y_safe**self.q)) / self.q
 
         if w_val is not None:
             w_sum = float(np.sum(w_val)) + EPS_DIV
@@ -167,7 +168,7 @@ class GeneralizedCrossEntropyLoss:
         Y_one_hot = np.zeros((n_samples, n_classes), dtype=np.float64)
         Y_one_hot[np.arange(n_samples), y_val] = 1.0
 
-        scale_factor = (p_y_safe ** self.q)[:, np.newaxis]
+        scale_factor = (p_y_safe**self.q)[:, np.newaxis]
         grad_logits = norm_weights * scale_factor * (probs - Y_one_hot)
 
         return total_loss, np.ascontiguousarray(grad_logits, dtype=np.float64)

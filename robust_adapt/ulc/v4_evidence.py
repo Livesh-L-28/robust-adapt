@@ -23,6 +23,7 @@ from robust_adapt.core.constants import EPS_DIV
 @dataclass(frozen=True)
 class EvidenceVectorV4:
     """10-dimensional cross-pillar evidence vector driving ULC-v4 arbitration."""
+
     delta_drift: float = 0.0
     mean_reliability: float = 1.0
     predictive_entropy: float = 0.0

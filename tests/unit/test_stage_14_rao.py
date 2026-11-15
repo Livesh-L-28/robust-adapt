@@ -14,6 +14,7 @@ import pytest
 try:
     import torch
     import torch.nn as nn
+
     _TORCH_AVAILABLE = True
 except ImportError:
     _TORCH_AVAILABLE = False

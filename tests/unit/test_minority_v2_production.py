@@ -118,7 +118,7 @@ def test_minority_intelligence_20_learner_streaming():
     y = (X[:, 0] > 1.2).astype(int)  # Sparse minority
 
     for i in range(0, 200, 50):
-        res = learner.fit_batch(X[i:i+50], y[i:i+50])
+        res = learner.fit_batch(X[i : i + 50], y[i : i + 50])
         assert "minority_weight" in res
         assert "active_threshold" in res
         assert res["minority_weight"] > 1.0

@@ -73,7 +73,7 @@ jobs:
           python -m build
       - name: Check Artifact Metadata with Twine
         run: |
-          twine check dist/*
+          twine check dist/*.whl dist/*.tar.gz
       - name: Verify Clean Wheel Installation in Isolated Environment
         run: |
           python -m venv test_env

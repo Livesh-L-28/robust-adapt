@@ -14,20 +14,26 @@ from robust_adapt.integrations.data import to_numpy
 
 try:
     from sklearn.base import BaseEstimator, ClassifierMixin, TransformerMixin
+
     _SKLEARN_AVAILABLE = True
 except ImportError:
     _SKLEARN_AVAILABLE = False
+
     class BaseEstimator:  # type: ignore[no-redef]
         """Fallback dummy class when scikit-learn is not installed."""
+
         pass
 
     class ClassifierMixin:  # type: ignore[no-redef]
         """Fallback dummy class when scikit-learn is not installed."""
+
         pass
 
     class TransformerMixin:  # type: ignore[no-redef]
         """Fallback dummy class when scikit-learn is not installed."""
+
         pass
+
 
 from robust_adapt.ala.adwin import ReliabilityWeightedADWIN
 from robust_adapt.ala.classifier import AdaptiveClassifier
@@ -141,7 +147,11 @@ class SklearnAdaptiveClassifier(BaseEstimator, ClassifierMixin):
         self._record_input_metadata(X)
         X_arr = to_numpy(X, dtype=np.float64, ensure_2d=True, name="X")
         y_arr = to_numpy(y, dtype=np.int64, ensure_1d=True, name="y")
-        w_arr = to_numpy(sample_weight, dtype=np.float64, ensure_1d=True, name="sample_weight") if sample_weight is not None else None
+        w_arr = (
+            to_numpy(sample_weight, dtype=np.float64, ensure_1d=True, name="sample_weight")
+            if sample_weight is not None
+            else None
+        )
 
         # Reset estimator on fresh fit
         self._estimator = None
@@ -185,7 +195,11 @@ class SklearnAdaptiveClassifier(BaseEstimator, ClassifierMixin):
         self._record_input_metadata(X)
         X_arr = to_numpy(X, dtype=np.float64, ensure_2d=True, name="X")
         y_arr = to_numpy(y, dtype=np.int64, ensure_1d=True, name="y")
-        w_arr = to_numpy(sample_weight, dtype=np.float64, ensure_1d=True, name="sample_weight") if sample_weight is not None else None
+        w_arr = (
+            to_numpy(sample_weight, dtype=np.float64, ensure_1d=True, name="sample_weight")
+            if sample_weight is not None
+            else None
+        )
 
         if not hasattr(self, "classes_"):
             if classes is not None:

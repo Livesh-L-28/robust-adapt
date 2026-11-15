@@ -15,6 +15,7 @@ from robust_adapt.core.exceptions import ConfigurationError, ValidationError
 @dataclass
 class ConceptSignature:
     """Statistical summary representing a learned concept distribution."""
+
     concept_id: str
     centroid: np.ndarray
     variances: np.ndarray
@@ -28,7 +29,7 @@ class ConceptSignature:
         normalized_diff = np.abs(self.centroid - candidate_centroid) / denom
         dist = float(np.mean(normalized_diff))
         # Gaussian kernel similarity
-        return float(np.exp(-0.5 * (dist ** 2)))
+        return float(np.exp(-0.5 * (dist**2)))
 
 
 class ConceptMemory:
@@ -240,6 +241,7 @@ class ConceptMemory:
 @dataclass
 class ConceptSnapshot:
     """Represents a stored historical concept and its associated model state."""
+
     concept_id: str
     fingerprint: np.ndarray
     model_state: Any
@@ -282,7 +284,7 @@ class ConceptFingerprinter:
         if y is not None:
             y_arr = np.asarray(y, dtype=np.int64).ravel()
             counts = np.bincount(y_arr, minlength=self.n_classes)
-            priors = counts[:self.n_classes] / max(1, len(y_arr))
+            priors = counts[: self.n_classes] / max(1, len(y_arr))
         else:
             priors = np.ones(self.n_classes) / self.n_classes
 

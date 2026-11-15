@@ -159,7 +159,9 @@ def test_utility_scorer_cost_and_ranking() -> None:
     assert u_restore_rec > u_soft_rec
 
     # For non-recurrent severe drift, soft reset utility is higher than non-recurrent restore
-    u_restore_nonrec = UtilityScorer.score_action(InterventionTier.TIER_2_CONCEPT_RESTORE, 0.95, 0.8, is_recurrent=False)
+    u_restore_nonrec = UtilityScorer.score_action(
+        InterventionTier.TIER_2_CONCEPT_RESTORE, 0.95, 0.8, is_recurrent=False
+    )
     u_soft_nonrec = UtilityScorer.score_action(InterventionTier.TIER_3_SOFT_REPLAY_RESET, 0.95, 0.8, is_recurrent=False)
     assert u_soft_nonrec > u_restore_nonrec
 

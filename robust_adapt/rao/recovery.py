@@ -171,7 +171,7 @@ class ResilientCheckpointManager:
         """Prune excess checkpoints exceeding max_to_keep."""
         ckpts = self._list_checkpoints_descending()
         if len(ckpts) > self.max_to_keep:
-            for old_path in ckpts[self.max_to_keep:]:
+            for old_path in ckpts[self.max_to_keep :]:
                 try:
                     os.remove(old_path)
                 except OSError:

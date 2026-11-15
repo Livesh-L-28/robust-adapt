@@ -8,7 +8,7 @@ import robust_adapt as aml
 def test_package_metadata():
     """Verify package version and namespace metadata."""
     assert hasattr(aml, "__version__")
-    assert aml.__version__ == "0.1.0.dev0"
+    assert aml.__version__ == "1.0.0"
     assert hasattr(aml, "__all__")
     assert len(aml.__all__) >= 60
 

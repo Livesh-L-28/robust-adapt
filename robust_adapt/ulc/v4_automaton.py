@@ -27,6 +27,7 @@ from robust_adapt.ulc.v4_evidence import EvidenceVectorV4
 
 class AutomatonStateV4(str, Enum):
     """12 discrete operational states of the ULC-v4 automaton."""
+
     STABLE = "STABLE"
     ELEVATED_VARIANCE = "ELEVATED_VARIANCE"
     WARNING = "WARNING"
@@ -44,6 +45,7 @@ class AutomatonStateV4(str, Enum):
 @dataclass(frozen=True)
 class DirectiveV4:
     """Action directive emitted by the ULC-v4 automaton to coordinate all 4 pillars."""
+
     state: AutomatonStateV4
     learning_rate_scale: float = 1.0
     reset_momentum: bool = False

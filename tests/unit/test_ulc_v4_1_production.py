@@ -131,9 +131,7 @@ class TestConflictResolverUnit:
         conf = self.conf_engine.evaluate(ev)
 
         # Coherent features (discordance <= 0.25) resolves to genuine drift
-        resolved, name = self.resolver.resolve_conflicts(
-            directive, ev, conf, spatial_discordance=0.10
-        )
+        resolved, name = self.resolver.resolve_conflicts(directive, ev, conf, spatial_discordance=0.10)
         assert name == "Scenario A: Resolved Genuine Drift"
         assert resolved.state == AutomatonStateV4.CONFIRMED_DRIFT
         assert resolved.learning_rate_scale == 2.5
@@ -145,9 +143,7 @@ class TestConflictResolverUnit:
         conf = self.conf_engine.evaluate(ev)
 
         # Discordant features (discordance > 0.25) resolves to noise burst
-        resolved, name = self.resolver.resolve_conflicts(
-            directive, ev, conf, spatial_discordance=0.60
-        )
+        resolved, name = self.resolver.resolve_conflicts(directive, ev, conf, spatial_discordance=0.60)
         assert "Verified Noise" in name
         assert resolved.state == AutomatonStateV4.NOISE_BURST
         assert resolved.suppress_adwin is True
@@ -347,9 +343,7 @@ class TestLifecycleAndCheckpointUnit:
         assert len(ctrl.get_history(limit=5)) == 5
 
     def test_dwell_timeout_escape(self) -> None:
-        ctrl = UnifiedLearningControllerV4_1(
-            config=ULCv41Config(max_noise_dwell=5, spatial_discordance_threshold=0.25)
-        )
+        ctrl = UnifiedLearningControllerV4_1(config=ULCv41Config(max_noise_dwell=5, spatial_discordance_threshold=0.25))
         np.random.seed(42)
         X_noise = np.random.randn(20, 2)
         y_noise = np.random.choice([0, 1], size=20)
@@ -364,9 +358,7 @@ class TestLifecycleAndCheckpointUnit:
         assert AutomatonStateV4.RECOVERY in states
 
     def test_checkpoint_roundtrip_state_dict(self) -> None:
-        ctrl = UnifiedLearningControllerV4_1(
-            config=ULCv41Config(spatial_k=8, spatial_discordance_threshold=0.20)
-        )
+        ctrl = UnifiedLearningControllerV4_1(config=ULCv41Config(spatial_k=8, spatial_discordance_threshold=0.20))
         X = np.random.randn(10, 2)
         y = np.zeros(10, dtype=np.int64)
         for _ in range(5):

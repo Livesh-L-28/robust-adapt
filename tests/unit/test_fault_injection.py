@@ -41,6 +41,7 @@ class TestFaultInjectionAndRecovery:
     def test_01_missing_dependency_actionable_error(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Verify calling to_tensor without PyTorch raises an actionable ImportError."""
         import robust_adapt.integrations.data as data_mod
+
         monkeypatch.setattr(data_mod, "_TORCH_AVAILABLE", False)
         with pytest.raises(ImportError, match="pip install 'robust-adapt\\[torch\\]'"):
             to_tensor(np.array([1.0, 2.0]))
@@ -99,7 +100,7 @@ class TestFaultInjectionAndRecovery:
         # Tamper with the binary file
         with open(ckpt_path, "r+b") as f:
             f.seek(10)
-            f.write(b"\xFF\xFF\xFF\xFF")
+            f.write(b"\xff\xff\xff\xff")
 
         with pytest.raises(SerializationError, match="Integrity check failed"):
             load_state(ckpt_path, verify_integrity=True)

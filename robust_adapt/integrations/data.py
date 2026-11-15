@@ -15,6 +15,7 @@ from robust_adapt.core.exceptions import ValidationError
 # Optional framework detection
 try:
     import pandas as pd
+
     _PANDAS_AVAILABLE = True
 except ImportError:
     pd = None  # type: ignore[assignment]
@@ -22,6 +23,7 @@ except ImportError:
 
 try:
     import polars as pl
+
     _POLARS_AVAILABLE = True
 except ImportError:
     pl = None  # type: ignore[assignment]
@@ -29,6 +31,7 @@ except ImportError:
 
 try:
     import torch
+
     _TORCH_AVAILABLE = True
 except ImportError:
     torch = None  # type: ignore[assignment]
@@ -38,6 +41,7 @@ except ImportError:
 @dataclass(frozen=True)
 class DatasetContract:
     """Metadata specification describing an ingested dataset or streaming batch."""
+
     n_samples: int
     n_features: int
     dtype: np.dtype

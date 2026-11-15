@@ -1,0 +1,107 @@
+name: Publish to PyPI & GitHub Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Publishing Target (pypi or testpypi)'
+        required: true
+        default: 'pypi'
+        type: choice
+        options:
+          - pypi
+          - testpypi
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  build-and-verify:
+    name: Build & Verify Distribution Packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Build Tooling
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: Build Wheel & Source Distribution
+        run: |
+          python -m build
+
+      - name: Validate Package Metadata
+        run: |
+          twine check dist/*.whl dist/*.tar.gz
+
+      - name: Generate Checksums
+        run: |
+          cd dist
+          sha256sum *.whl *.tar.gz > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+          retention-days: 7
+
+  publish-pypi:
+    name: Publish to PyPI
+    needs: build-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event.inputs.target == 'testpypi' && 'testpypi' || 'pypi' }}
+      url: ${{ github.event.inputs.target == 'testpypi' && 'https://test.pypi.org/p/robust-adapt' || 'https://pypi.org/p/robust-adapt' }}
+    steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: ${{ github.event.inputs.target == 'testpypi' && 'https://test.pypi.org/legacy/' || '' }}
+          skip-existing: true
+          packages-dir: dist/
+        continue-on-error: true
+
+  github-release:
+    name: Create GitHub Release
+    needs: build-and-verify
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+
+      - name: Create Official GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: ${{ contains(github.ref_name, 'rc') || contains(github.ref_name, 'dev') || contains(github.ref_name, 'b') }}
+          generate_release_notes: true
+          files: |
+            dist/*.whl
+            dist/*.tar.gz
+            dist/SHA256SUMS.txt

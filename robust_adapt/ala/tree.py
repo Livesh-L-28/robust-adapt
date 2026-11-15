@@ -181,7 +181,7 @@ class VectorizedHoeffdingTree:
                 bin_indices = np.clip(bin_indices, 0, self.n_bins - 1)
 
                 for c in range(self.n_classes):
-                    c_mask = (y_leaf == c)
+                    c_mask = y_leaf == c
                     if np.any(c_mask):
                         bins_c = bin_indices[c_mask]
                         weights_c = w_leaf[c_mask]
@@ -227,7 +227,7 @@ class VectorizedHoeffdingTree:
 
         # Current leaf Gini impurity
         probs = leaf.class_counts / (n_u + EPS_DIV)
-        gini_current = 1.0 - float(np.sum(probs ** 2))
+        gini_current = 1.0 - float(np.sum(probs**2))
         if gini_current <= 1e-6:
             return False  # Pure node
 
@@ -256,8 +256,8 @@ class VectorizedHoeffdingTree:
             with np.errstate(divide="ignore", invalid="ignore"):
                 p_L = left_counts / (n_L[:, np.newaxis] + EPS_DIV)
                 p_R = right_counts / (n_R[:, np.newaxis] + EPS_DIV)
-                gini_L = 1.0 - np.sum(p_L ** 2, axis=1)
-                gini_R = 1.0 - np.sum(p_R ** 2, axis=1)
+                gini_L = 1.0 - np.sum(p_L**2, axis=1)
+                gini_R = 1.0 - np.sum(p_R**2, axis=1)
                 gini_split = (n_L / n_u) * gini_L + (n_R / n_u) * gini_R
                 gains = gini_current - gini_split
 
@@ -278,7 +278,7 @@ class VectorizedHoeffdingTree:
 
         # Hoeffding bound computation
         R_G = 1.0 - (1.0 / self.n_classes)
-        epsilon_H = math.sqrt((R_G ** 2 * math.log(1.0 / self.delta)) / (2.0 * n_u))
+        epsilon_H = math.sqrt((R_G**2 * math.log(1.0 / self.delta)) / (2.0 * n_u))
         delta_G = best_gain_1 - max(0.0, best_gain_2)
 
         # Splitting Decision Rule
@@ -298,7 +298,9 @@ class VectorizedHoeffdingTree:
         right_child = self._create_leaf(depth=leaf.depth + 1)
 
         # Initialize child class priors from partition
-        left_counts = np.sum(leaf.stats[split_feature, : np.digitize(split_threshold, self.bin_edges[split_feature]) + 1, :], axis=0)
+        left_counts = np.sum(
+            leaf.stats[split_feature, : np.digitize(split_threshold, self.bin_edges[split_feature]) + 1, :], axis=0
+        )
         right_counts = leaf.class_counts - left_counts
         left_child.class_counts = np.maximum(0.0, left_counts)
         left_child.n_samples = float(np.sum(left_child.class_counts))
@@ -354,6 +356,7 @@ class VectorizedHoeffdingTree:
 
     def state_dict(self) -> Dict[str, Any]:
         """Serialize tree topology and sufficient statistics."""
+
         def _serialize_node(node: _Node) -> Dict[str, Any]:
             if isinstance(node, _SplitNode):
                 return {

@@ -17,6 +17,7 @@ from robust_adapt.core.exceptions import ConfigurationError, ValidationError
 
 class NoiseType(str, Enum):
     """Categorical classification of label corruption mechanism."""
+
     CLEAN = "CLEAN"
     UNIFORM_RANDOM = "UNIFORM_RANDOM"
     CLASS_CONDITIONAL = "CLASS_CONDITIONAL"
@@ -25,6 +26,7 @@ class NoiseType(str, Enum):
 
 class PatternType(str, Enum):
     """Structural classification of individual low-margin instances."""
+
     INLIER = "INLIER"
     RARE_VALID_PATTERN = "RARE_VALID_PATTERN"
     CORRUPT_OUTLIER = "CORRUPT_OUTLIER"

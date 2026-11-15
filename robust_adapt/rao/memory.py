@@ -30,9 +30,7 @@ class ResourceBudget:
         """Increment step counter and assert resource constraints."""
         self.step_count += 1
         if self.max_steps is not None and self.step_count > self.max_steps:
-            raise ResourceBudgetExceededError(
-                f"Step budget exceeded: {self.step_count} > max_steps ({self.max_steps})"
-            )
+            raise ResourceBudgetExceededError(f"Step budget exceeded: {self.step_count} > max_steps ({self.max_steps})")
 
         if self.max_memory_bytes is not None:
             current = get_process_memory_bytes()

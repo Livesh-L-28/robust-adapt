@@ -65,7 +65,9 @@ class MinorityIntelligence20Learner:
         if lr <= 0.0:
             raise ConfigurationError(f"lr must be positive, got {lr}")
         if n_classes != 2:
-            raise ConfigurationError(f"MinorityIntelligence20Learner currently supports binary classification (n_classes=2), got {n_classes}")
+            raise ConfigurationError(
+                f"MinorityIntelligence20Learner currently supports binary classification (n_classes=2), got {n_classes}"
+            )
 
         self.target_fp_budget_per_1k = float(target_fp_budget_per_1k)
         self.sublinear_cost_power = float(sublinear_cost_power)
@@ -109,9 +111,7 @@ class MinorityIntelligence20Learner:
             self.weights = rng.normal(0.0, 0.01, size=n_features)
             self.bias = 0.0
         elif X_val.shape[1] != self.weights.shape[0]:
-            raise ValidationError(
-                f"Feature dimension mismatch: expected {self.weights.shape[0]}, got {X_val.shape[1]}"
-            )
+            raise ValidationError(f"Feature dimension mismatch: expected {self.weights.shape[0]}, got {X_val.shape[1]}")
 
         self.total_samples_seen += n_samples
         self.total_batches_seen += 1

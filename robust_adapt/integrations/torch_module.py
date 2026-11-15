@@ -12,6 +12,7 @@ try:
     import torch
     import torch.nn as nn
     import torch.nn.functional as F
+
     _TORCH_AVAILABLE = True
 except ImportError:
     _TORCH_AVAILABLE = False
@@ -70,7 +71,7 @@ class TorchSymmetricCrossEntropyLoss(nn.Module if _TORCH_AVAILABLE else object):
         # 2. Reverse Cross-Entropy: - sum_c p_c * log(y_c + eps)
         batch_size, n_classes = logits.shape
         target_probs = probs_clamped[torch.arange(batch_size, device=logits.device), targets]
-        rce_loss = - (1.0 - target_probs) * np.log(self.eps)
+        rce_loss = -(1.0 - target_probs) * np.log(self.eps)
 
         loss_per_sample = self.alpha * ce_loss + self.beta * rce_loss
 

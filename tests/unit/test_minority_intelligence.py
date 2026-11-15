@@ -20,7 +20,7 @@ class TestOnlineClassPriorTracker:
     def test_initialization_and_validation(self) -> None:
         tracker = OnlineClassPriorTracker(n_classes=3)
         assert tracker.n_classes == 3
-        np.testing.assert_allclose(tracker.priors, [1/3, 1/3, 1/3])
+        np.testing.assert_allclose(tracker.priors, [1 / 3, 1 / 3, 1 / 3])
 
         with pytest.raises(ConfigurationError):
             OnlineClassPriorTracker(n_classes=1)

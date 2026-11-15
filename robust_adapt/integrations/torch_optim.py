@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 try:
     import torch
     from torch.optim import Optimizer
+
     _TORCH_AVAILABLE = True
 except ImportError:
     Optimizer = object  # type: ignore[assignment, misc]
@@ -28,6 +29,7 @@ except ImportError:
         def no_grad():
             def decorator(fn):
                 return fn
+
             return decorator
 
     torch = _DummyTorch()  # type: ignore[assignment]
@@ -161,8 +163,8 @@ class VectorizedLowMemoryAdamW(Optimizer):
 
                 state["step"] += 1
                 t = state["step"]
-                bias_correction1 = 1.0 - (beta1 ** t)
-                bias_correction2 = 1.0 - (beta2 ** t)
+                bias_correction1 = 1.0 - (beta1**t)
+                bias_correction2 = 1.0 - (beta2**t)
 
                 if not state["is_quantized"]:
                     # Standard float32 AdamW update for 1D parameters
@@ -202,7 +204,7 @@ class VectorizedLowMemoryAdamW(Optimizer):
 
                     # 3. Vectorized moment updates
                     m = beta1 * m + (1.0 - beta1) * g_blocks
-                    v = beta2 * v + (1.0 - beta2) * (g_blocks ** 2)
+                    v = beta2 * v + (1.0 - beta2) * (g_blocks**2)
 
                     # 4. Bias correction and denominator clamping
                     m_hat = m / bias_correction1

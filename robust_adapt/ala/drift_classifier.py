@@ -18,6 +18,7 @@ from robust_adapt.core.exceptions import ConfigurationError, ValidationError
 
 class DriftType(str, Enum):
     """Categorical temporal profile of concept shift."""
+
     STATIONARY = "STATIONARY"
     ABRUPT = "ABRUPT"
     GRADUAL = "GRADUAL"
@@ -27,15 +28,17 @@ class DriftType(str, Enum):
 
 class DriftNature(str, Enum):
     """Underlying statistical origin of stream shift."""
+
     NO_DRIFT = "NO_DRIFT"
     CONCEPT_DRIFT = "CONCEPT_DRIFT"  # P(y|X) changes
     FEATURE_DRIFT = "FEATURE_DRIFT"  # P(X) changes while P(y|X) stable
-    DUAL_DRIFT = "DUAL_DRIFT"        # Both P(X) and P(y|X) shift
+    DUAL_DRIFT = "DUAL_DRIFT"  # Both P(X) and P(y|X) shift
 
 
 @dataclass(frozen=True)
 class DriftAnalysisResult:
     """Structured report returned by DriftClassifier."""
+
     drift_type: DriftType
     drift_nature: DriftNature
     severity: float
@@ -175,7 +178,11 @@ class DriftClassifier:
             explanation = "Stream is statistically stable; no significant feature or error divergence."
             confidence = 0.95
         else:
-            if abs(err_jump) >= self.velocity_threshold_abrupt or abs(err_delta) >= self.velocity_threshold_abrupt or max_feature_shift >= 3.0:
+            if (
+                abs(err_jump) >= self.velocity_threshold_abrupt
+                or abs(err_delta) >= self.velocity_threshold_abrupt
+                or max_feature_shift >= 3.0
+            ):
                 drift_type = DriftType.ABRUPT
                 explanation = f"Abrupt change detected with sudden error jump (+{err_jump:.2f}) or large feature shock."
                 confidence = 0.90

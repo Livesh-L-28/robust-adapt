@@ -19,7 +19,7 @@ Additional Capability:
 from __future__ import annotations
 
 # Package version
-__version__ = "0.1.0.dev0"
+__version__ = "1.0.0"
 
 # Core Exceptions & Configurations
 from robust_adapt.core.exceptions import (
@@ -246,16 +246,19 @@ __all__ = [
 def __getattr__(name: str):
     if name == "LowMemoryAdamW":
         from robust_adapt.rao.adamw import LowMemoryAdamW
+
         return LowMemoryAdamW
     if name == "VectorizedLowMemoryAdamW":
         try:
             from robust_adapt.integrations.torch_optim import VectorizedLowMemoryAdamW
+
             return VectorizedLowMemoryAdamW
         except Exception as e:
             raise AttributeError(f"VectorizedLowMemoryAdamW requires PyTorch optional integration: {e}") from e
     if name in ("ScikitLearnAdaptiveClassifier", "SklearnAdaptiveClassifier"):
         try:
             from robust_adapt.integrations.sklearn import SklearnAdaptiveClassifier
+
             return SklearnAdaptiveClassifier
         except Exception as e:
             raise AttributeError(f"{name} requires scikit-learn: {e}") from e

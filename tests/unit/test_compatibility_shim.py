@@ -28,16 +28,15 @@ def test_robust_adapt_primary_import():
     with warnings.catch_warnings(record=True) as recorded:
         warnings.simplefilter("always")
         import robust_adapt
-        assert robust_adapt.__version__ == "0.1.0.dev0"
+
+        assert robust_adapt.__version__ == "1.0.0"
         assert hasattr(robust_adapt, "RobustAdaptError")
         assert hasattr(robust_adapt, "AdaptiveMLError")
         assert hasattr(robust_adapt, "AdaptiveClassifier")
         assert hasattr(robust_adapt, "ADWIN")
         assert hasattr(robust_adapt, "HoeffdingTree")
 
-    rebrand_warnings = [
-        w for w in recorded if "rebranded to 'robust_adapt'" in str(w.message)
-    ]
+    rebrand_warnings = [w for w in recorded if "rebranded to 'robust_adapt'" in str(w.message)]
     assert len(rebrand_warnings) == 0
 
 

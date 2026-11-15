@@ -17,6 +17,7 @@ from robust_adapt.core.validation import check_array_2d, check_labels_1d
 @dataclass(frozen=True)
 class CorrectionAuditRecord:
     """Immutable audit trail for a single label correction."""
+
     sample_index: int
     sample_id: str
     original_label: int

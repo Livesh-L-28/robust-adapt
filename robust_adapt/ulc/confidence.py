@@ -14,6 +14,7 @@ from robust_adapt.ulc.v4_evidence import EvidenceVectorV4
 @dataclass(frozen=True)
 class ConfidenceScores:
     """Confidence distribution across arbitration actions in [0, 1]."""
+
     adapt: float
     suppress_noise: float
     throttle_resources: float
