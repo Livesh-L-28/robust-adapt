@@ -1,0 +1,9 @@
+# Core production dependencies
+robust-adapt>=1.0.0
+numpy>=1.24.0
+
+# Optional extras used in demonstrations
+scikit-learn>=1.2.0
+scipy>=1.10.0
+matplotlib>=3.7.0
+safetensors>=0.4.0
