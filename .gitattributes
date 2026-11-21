@@ -1,5 +1,10 @@
-# GitHub Linguist overrides
-*.html linguist-documentation=true
-*.md linguist-documentation=true
-docs/** linguist-documentation=true
-site/** linguist-documentation=true
+# GitHub Linguist Overrides - Force exclude all HTML/JS and prioritize Python
+*.html linguist-detectable=false
+*.html linguist-vendored
+*.htm linguist-detectable=false
+*.js linguist-detectable=false
+*.css linguist-detectable=false
+site/** linguist-detectable=false
+site/** linguist-vendored
+docs/** linguist-documentation
+*.md linguist-documentation

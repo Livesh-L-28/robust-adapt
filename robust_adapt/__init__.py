@@ -263,3 +263,4 @@ def __getattr__(name: str):
         except Exception as e:
             raise AttributeError(f"{name} requires scikit-learn: {e}") from e
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
